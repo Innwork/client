@@ -1,0 +1,22 @@
+.link{
+  color: var(--black);
+  transition-duration: 300ms;
+
+  &:hover{
+    color: var(--orange);
+  }
+
+  &_active{
+    color: var(--orange);
+    transition-duration: 300ms;
+  }
+
+  &_dark{
+    color: var(--white);
+    transition-duration: 300ms;
+
+    &:hover{
+      color: var(--orange);
+    }
+  }
+}

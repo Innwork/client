@@ -1,0 +1,487 @@
+@use "src/shared/scss/logic/function";
+@use "src/shared/scss/logic/mixin";
+
+.cardContainer {
+	position: relative;
+
+	.cardIndicator {
+		position: absolute;
+		top: function.vw(14, 1920);
+		left: function.vw(20, 1920);
+		width: 16px;
+		height: 16px;
+
+		@include mixin.mediaSquareSize(420px, 16, 420);
+
+		border-radius: 50%;
+		border: 1px solid #c9c9ca;
+
+		@include mixin.mediaTop(1440px, 14, 1440);
+		@include mixin.mediaTop(960px, 14, 960);
+		@include mixin.mediaTop(720px, 14, 720);
+		@include mixin.mediaTop(540px, 14, 540);
+		@include mixin.mediaTop(420px, 14, 420);
+
+		@include mixin.mediaLeft(1440px, 20, 1440);
+		@include mixin.mediaLeft(960px, 20, 960);
+		@include mixin.mediaLeft(720px, 20, 720);
+		@include mixin.mediaLeft(540px, 20, 540);
+		@include mixin.mediaLeft(420px, 20, 420);
+
+		.indicatorDot {
+			width: 6px;
+			height: 6px;
+			background-color: transparent;
+
+			@include mixin.mediaSquareSize(420px, 6, 420);
+
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			border-radius: 50%;
+		}
+	}
+
+	&.selected {
+		.card {
+			background-color: rgba(232, 237, 245, 0.05);
+			border-color: #f8731a;
+		}
+
+		.title {
+			color: var(--black) !important;
+		}
+
+		.priceBlock {
+			.oldPrice {
+				display: block;
+			}
+		}
+
+		.info {
+			color: black;
+			opacity: 0.75 !important;
+		}
+
+		.cardIndicator {
+			border-color: var(--orange);
+			background-color: var(--white);
+
+			.indicatorDot {
+				background-color: var(--orange);
+			}
+		}
+	}
+
+	&.disabled {
+		.cardIndicator {
+			border: 1px solid #c9c9ca;
+			background-color: var(--white);
+
+			.indicatorDot {
+				display: none;
+			}
+		}
+	}
+
+	&.default {
+		.card {
+			background-color: rgba(248, 115, 26, 0.05);
+			border-color: #f8731a !important;
+		}
+
+		.title {
+			color: var(--black) !important;
+		}
+
+		.priceBlock {
+			.oldPrice {
+				display: block;
+			}
+		}
+
+		.info {
+			color: black;
+			opacity: 0.75 !important;
+		}
+
+		.cardIndicator {
+			border-color: var(--orange);
+			background-color: var(--white);
+
+			.indicatorDot {
+				background-color: var(--orange);
+			}
+		}
+	}
+
+	.card {
+		position: relative;
+		width: 100%;
+		border: 1px solid #2b2c2d25;
+		border-radius: 10px;
+		background-color: #ffffff;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		transition-duration: 300ms;
+		transition-property: border, background-color;
+		padding: function.vw(15, 1920) function.vw(49, 1920) function.vw(19, 1920) function.vw(49, 1920);
+
+		&.valid {
+			border-color: #f8731a;
+			background-color: var(--white);
+		}
+
+		&.invalid {
+			border: 1px solid var(--state-red);
+			background-color: var(--state-red-t05);
+		}
+
+		&:hover {
+			.title {
+				transition: color 400ms;
+				color: var(--black);
+			}
+
+			.info {
+				opacity: 0.75;
+			}
+		}
+
+		.cart {
+			padding: function.vw(10, 1920);
+
+			@media (max-width: 1440px) {
+				padding: function.vw(10, 1440);
+			}
+
+			@media (max-width: 960px) {
+				padding: function.vw(10, 960);
+			}
+
+			@media (max-width: 720px) {
+				padding: function.vw(10, 720);
+				gap: function.vw(10, 720);
+			}
+
+			@media (max-width: 540px) {
+				padding: function.vw(10, 540);
+			}
+		}
+
+		@media (max-width: 1440px) {
+			padding: function.vw(15, 1440) function.vw(49, 1920) function.vw(19, 1440) function.vw(49, 1440);
+		}
+
+		@media (max-width: 960px) {
+			padding: function.vw(15, 960) function.vw(49, 960) function.vw(19, 960) function.vw(49, 960);
+		}
+
+		@media (max-width: 720px) {
+			padding: function.vw(15, 720) function.vw(49, 720) function.vw(19, 720) function.vw(49, 720);
+		}
+
+		@media (max-width: 540px) {
+			padding: function.vw(15, 540) function.vw(49, 540) function.vw(19, 540) function.vw(49, 540);
+		}
+
+		@media (max-width: 420px) {
+			padding: function.vw(15, 420) function.vw(49, 420) function.vw(19, 420) function.vw(49, 420);
+		}
+
+		&.cart {
+			padding: function.vw(20, 1920);
+
+			@media (max-width: 1440px) {
+				padding: function.vw(15, 1440) function.vw(49, 1920) function.vw(19, 1440) function.vw(20, 1440);
+			}
+
+			@media (max-width: 960px) {
+				padding: function.vw(15, 960) function.vw(49, 960) function.vw(19, 960) function.vw(20, 960);
+			}
+
+			@media (max-width: 720px) {
+				padding: function.vw(15, 720) function.vw(49, 720) function.vw(19, 720) function.vw(20, 720);
+			}
+
+			@media (max-width: 540px) {
+				padding: function.vw(15, 540) function.vw(49, 540) function.vw(19, 540) function.vw(20, 540);
+			}
+
+			@media (max-width: 420px) {
+				padding: function.vw(15, 420) function.vw(49, 420) function.vw(19, 420) function.vw(20, 420);
+			}
+		}
+
+		.title {
+			color: var(--black-t50);
+			margin-bottom: function.vw(10, 1920);
+		}
+
+		.priceBlock {
+			margin-bottom: function.vw(10, 1920);
+			display: flex;
+			align-items: center;
+			gap: function.vw(4, 1920);
+
+			.oldPrice {
+				font-size: 12px;
+				font-weight: 700;
+				color: #2b2c2d25;
+				text-decoration: line-through;
+				display: none;
+			}
+		}
+
+		.info {
+			color: black;
+			opacity: 0.50;
+		}
+	}
+}
+
+.inputsContainer {
+	display: flex;
+	width: 100%;
+	flex-direction: column;
+
+	input {
+		width: 100%;
+		background-color: var(--white);
+	}
+
+	margin-bottom: function.vw(18, 1920);
+	@include mixin.mediaMB(1440px, 18, 1440);
+	@include mixin.mediaMB(960px, 18, 960);
+	@include mixin.mediaMB(720px, 18, 720);
+	@include mixin.mediaMB(540px, 18, 540);
+	@include mixin.mediaMB(420px, 18, 420);
+
+	margin-top: function.vw(16, 1920);
+	@include mixin.mediaMT(1440px, 16, 1440);
+	@include mixin.mediaMT(960px, 16, 960);
+	@include mixin.mediaMT(720px, 16, 720);
+	@include mixin.mediaMT(540px, 16, 540);
+	@include mixin.mediaMT(420px, 16, 420);
+}
+
+.additionalItems {
+	transition-duration: 1s;
+	max-height: 0;
+	overflow: hidden;
+	transition-property: max-height;
+	width: 100%;
+
+	&.open {
+		max-height: 100vh;
+		animation-duration: 1s;
+		animation-name: tariffCardOpen;
+		animation-fill-mode: forwards;
+	}
+
+	&.closed {
+		transition-duration: 0.4s;
+		max-height: 0;
+		overflow: hidden;
+
+		.calendarModal {
+			display: none;
+		}
+	}
+}
+
+@keyframes tariffCardOpen {
+	0% {
+		overflow: hidden;
+
+	}
+	100% {
+		overflow: unset;
+	}
+}
+
+.button {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+}
+
+.arrowDown {
+	margin-top: function.vw(10, 1920);
+	margin-inline: auto;
+	transform: rotate(90deg);
+
+	width: function.vw(18, 1920);
+	@include mixin.mediaWidth(1440px, 18, 1440);
+	@include mixin.mediaWidth(960px, 18, 960);
+	@include mixin.mediaWidth(720px, 18, 720);
+	@include mixin.mediaWidth(540px, 18, 540);
+	@include mixin.mediaWidth(420px, 18, 420);
+
+	@include mixin.mediaMT(1440px, 10, 1440);
+	@include mixin.mediaMT(960px, 10, 960);
+	@include mixin.mediaMT(720px, 10, 720);
+	@include mixin.mediaMT(540px, 10, 540);
+	@include mixin.mediaMT(420px, 10, 420);
+}
+
+.inputDropdownContainer {
+	flex-direction: column;
+	display: flex;
+
+	gap: function.vw(5, 1920);
+
+	@media (max-width: 1440px) {
+		gap: function.vw(5, 1440);
+	}
+
+	@media (max-width: 960px) {
+		gap: function.vw(5, 960);
+	}
+
+	@media (max-width: 720px) {
+		gap: function.vw(5, 720);
+	}
+
+	@media (max-width: 540px) {
+		gap: function.vw(5, 540);
+	}
+
+	@media (max-width: 420px) {
+		gap: function.vw(5, 420);
+	}
+}
+
+.dates {
+	display: flex;
+	position: absolute;
+	bottom: function.vw(17, 1920);
+	right: function.vw(21, 1920);
+	gap: function.vw(6, 1920);
+
+	@include mixin.mediaGap(1440px, 6, 1440);
+	@include mixin.mediaGap(920px, 6, 920);
+	@include mixin.mediaGap(720px, 6, 720);
+	@include mixin.mediaGap(540px, 6, 540);
+
+	@include mixin.mediaBottom(1440px, 17, 1440);
+	@include mixin.mediaBottom(920px, 17, 920);
+	@include mixin.mediaBottom(720px, 17, 720);
+	@include mixin.mediaBottom(540px, 17, 540);
+
+	@include mixin.mediaRight(1440px, 21, 1440);
+	@include mixin.mediaRight(920px, 21, 920);
+	@include mixin.mediaRight(720px, 21, 720);
+	@include mixin.mediaRight(540px, 21, 540);
+
+	@media (max-width: 540px) {
+		position: unset;
+		padding-bottom: function.vw(10, 540);
+	}
+}
+
+.imgContainer {
+	height: function.vw(17, 1920);
+	width: function.vw(17, 1920);
+	position: relative;
+
+	@include mixin.mediaSquareSize(1440px, 17, 1440);
+	@include mixin.mediaSquareSize(960px, 17, 960);
+	@include mixin.mediaSquareSize(720px, 17, 720);
+	@include mixin.mediaSquareSize(540px, 17, 540);
+	@include mixin.mediaSquareSize(420px, 17, 420);
+
+	.img {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+		object-fit: cover;
+		object-position: center;
+		left: 0;
+		top: 0;
+	}
+}
+
+.deleteButton {
+	position: absolute;
+	top: function.vw(21, 1920);
+	right: function.vw(21, 1920);
+	cursor: pointer;
+
+	@include mixin.mediaTop(1440px, 10, 1440);
+	@include mixin.mediaTop(920px, 10, 920);
+	@include mixin.mediaTop(720px, 10, 720);
+	@include mixin.mediaTop(540px, 10, 540);
+
+	@include mixin.mediaRight(1440px, 24, 1440);
+	@include mixin.mediaRight(920px, 24, 920);
+	@include mixin.mediaRight(720px, 24, 720);
+	@include mixin.mediaRight(540px, 24, 540);
+}
+
+.deleteImageContainer {
+	position: relative;
+	width: function.vw(24, 1920);
+	height: function.vw(24, 1920);
+	border-radius: 5px;
+	background-color: var(--state-red-t25);
+
+	@include mixin.mediaSquareSize(1440px, 24, 1440);
+	@include mixin.mediaSquareSize(960px, 24, 960);
+	@include mixin.mediaSquareSize(720px, 24, 720);
+	@include mixin.mediaSquareSize(540px, 30, 540);
+	@include mixin.mediaSquareSize(420px, 30, 420);
+	@include mixin.mediaSquareSize(360px, 30, 360);
+
+	svg {
+		position: absolute;
+		object-position: center;
+		padding: function.vw(6, 1920);
+		height: 100%;
+		width: 100%;
+		left: 0;
+		top: 0;
+
+		@include mixin.mediaPadding(1440px, 6, 1440);
+		@include mixin.mediaPadding(960px, 6, 960);
+		@include mixin.mediaPadding(720px, 6, 720);
+		@include mixin.mediaPadding(540px, 6, 540);
+		@include mixin.mediaPadding(420px, 6, 420);
+		@include mixin.mediaPadding(360px, 6, 360);
+	}
+}
+
+
+.cart {
+	padding: function.vw(10, 1920);
+
+	@media (max-width: 1440px) {
+		padding: function.vw(10, 1440);
+	}
+
+	@media (max-width: 960px) {
+		padding: function.vw(10, 960);
+	}
+
+	@media (max-width: 720px) {
+		padding: function.vw(10, 720);
+		gap: function.vw(10, 720);
+	}
+
+	@media (max-width: 540px) {
+		padding: function.vw(10, 540);
+	}
+}
+
+.textContainer {
+	@media (min-width: 720px) {
+		padding-right: 40%;
+	}
+}
+
+.inputContainer {
+	display: flex;
+	flex-direction: column;
+}

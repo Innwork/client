@@ -1,0 +1,87 @@
+@use "src/shared/scss/logic/function";
+
+.direction_button {
+  border-radius: 5px;
+  width: 100%;
+  padding: function.vw(16, 1920) function.vw(50, 1920);
+
+  &.back {
+    background-color: var(--black);
+    color: var(--white);
+    transition: 300ms;
+
+    @media (hover: hover) {
+      &:hover {
+        background-color: #9A9A9A;
+        color: var(--white);
+      }
+      &:active {
+        background-color: var(--black);
+        color: var(--white);
+        box-shadow: 0 0 0 3px var(--black-t50);
+      }
+    }
+
+    &:disabled {
+      background-color: #E1E1E1;
+      color: var(--black)
+    }
+  }
+
+
+  &.next {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    background-color: var(--orange);
+    color: var(--white);
+    transition: 300ms;
+
+    & div{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        background-color: #FDDCC5;
+        color: var(--orange);
+      }
+      &:active {
+        background-color: var(--orange);
+        color: var(--white);
+        box-shadow: 0 0 0 3px var(--orange-t50);
+      }
+    }
+
+    &:disabled {
+      background-color: #E1E1E1;
+      color: var(--black)
+    }
+  }
+
+
+  @media (max-width: 1440px) {
+    padding: function.vw(16, 1440) function.vw(50, 1440);
+  }
+
+  @media (max-width: 960px) {
+    padding: function.vw(16, 960) function.vw(50, 960);
+  }
+
+  @media (max-width: 720px) {
+    padding: function.vw(16, 720) function.vw(50, 720);
+  }
+
+  @media (max-width: 540px) {
+    padding: function.vw(8, 540) function.vw(25, 540);
+  }
+
+  @media (max-width: 420px) {
+    padding: function.vw(8, 420) function.vw(25, 420);
+  }
+}

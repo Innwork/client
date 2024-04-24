@@ -1,0 +1,63 @@
+@use "src/shared/scss/logic/function";
+
+.swiper_slide {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.swiper_slide__bg {
+  z-index: 10;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  object-fit: cover;
+  object-position: center;
+  background:
+          linear-gradient(0deg, var(--black) 0%, rgba(43, 44, 45, 0.30) 50%);
+}
+
+.swiper_slide__img {
+  z-index: 0;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  object-fit: cover;
+  object-position: center;
+}
+
+.swiper_slide_content{
+  z-index: 20;
+  position: absolute;
+  bottom: function.vw(20, 1920);
+  left: function.vw(20, 1920);
+  
+  @media (max-width: 1440px) {
+    bottom: function.vw(20, 1440);
+    left: function.vw(20, 1440);
+  }
+
+  @media (max-width: 960px) {
+    bottom: function.vw(20, 960);
+    left: function.vw(20, 960);
+  }
+  
+  @media (max-width: 720px) {
+    bottom: function.vw(20, 720);
+    left: function.vw(20, 720);
+  }
+  
+  @media (max-width: 540px) {
+    bottom: function.vw(20, 540);
+    left: function.vw(20, 540);
+  }
+  
+  @media (max-width: 420px) {
+    bottom: function.vw(20, 420);
+    left: function.vw(20, 420);
+  }
+}

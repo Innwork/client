@@ -1,0 +1,264 @@
+@use "@src/shared/scss/logic/function";
+
+.h1{
+  font-size: function.vw(48, 1920);
+  font-weight: 700;
+
+  @media (max-width: 1440px) {
+    font-size: function.vw(48, 1440);
+  }
+
+  @media (max-width: 960px) {
+    font-size: function.vw(48, 960);
+  }
+
+  @media (max-width: 720px) {
+    font-size: function.vw(48, 720);
+  }
+
+  @media (max-width: 540px) {
+    font-size: function.vw(48, 720);
+  }
+
+  @media (max-width: 420px) {
+    font-size: function.vw(48, 420);
+  }
+
+  &__light {
+    @extend .h1;
+    font-weight: lighter;
+
+    &_white {
+      @extend .h1__light;
+      color: var(--white);
+    }
+  }
+}
+
+.h3{
+  font-size: function.vw(32, 1920);
+  font-weight: 700;
+
+  &__medium{
+    @extend .h3;
+    font-weight: 500;
+  }
+
+  @media (max-width: 1440px) {
+    font-size: function.vw(32, 1440);
+  }
+
+  @media (max-width: 960px) {
+    font-size: function.vw(32, 960);
+  }
+
+  @media (max-width: 720px) {
+    font-size: function.vw(32, 720);
+  }
+
+  @media (max-width: 540px) {
+    font-size: function.vw(32, 720);
+  }
+
+  @media (max-width: 420px) {
+    font-size: function.vw(32, 420);
+  }
+
+  &__light {
+    @extend .h3;
+    font-weight: lighter;
+
+    &_white {
+      @extend .h3__light;
+      color: var(--white);
+    }
+  }
+}
+
+.h5{
+  font-size: function.vw(24, 1920);
+  font-weight: 700;
+
+  @media (max-width: 1440px) {
+    font-size: function.vw(24, 1440);
+  }
+
+  @media (max-width: 960px) {
+    font-size: function.vw(24, 960);
+  }
+
+  @media (max-width: 720px) {
+    font-size: function.vw(24, 720);
+  }
+
+  @media (max-width: 540px) {
+    font-size: function.vw(24, 720);
+  }
+
+  @media (max-width: 420px) {
+    font-size: function.vw(24, 420);
+  }
+
+  &_white {
+    @extend .h5;
+    color: var(--white);
+  }
+
+  &__regular{
+    @extend .h5;
+    font-weight: initial;
+  }
+}
+
+.h6{
+  font-size: function.vw(20, 1920);
+  font-weight: 700;
+
+  &_small {
+    @extend .h6;
+    font-weight: 300;
+    font-size: function.vw(18, 1920);
+
+    @media (max-width: 1440px) {
+      font-size: function.vw(18, 1440);
+    }
+
+    @media (max-width: 960px) {
+      font-size: function.vw(18, 960);
+    }
+
+    @media (max-width: 720px) {
+      font-size: function.vw(18, 720);
+    }
+
+    @media (max-width: 540px) {
+      font-size: function.vw(18, 720);
+    }
+
+    @media (max-width: 420px) {
+      font-size: function.vw(18, 420);
+    }
+  }
+
+  &__medium{
+    @extend .h6;
+    font-weight: 500;
+  }
+
+  &__regular{
+    @extend .h6;
+    font-weight: 400;
+  }
+
+  &__light{
+    @extend .h6;
+    font-weight: 300;
+  }
+
+  @media (max-width: 1440px) {
+    font-size: function.vw(20, 1440);
+  }
+
+  @media (max-width: 960px) {
+    font-size: function.vw(20, 960);
+  }
+
+  @media (max-width: 720px) {
+    font-size: function.vw(20, 720);
+  }
+
+  @media (max-width: 540px) {
+    font-size: function.vw(20, 720);
+  }
+
+  @media (max-width: 420px) {
+    font-size: function.vw(20, 420);
+  }
+}
+
+
+
+.paragraph{
+  font-size: function.vw(14, 1920);
+  line-height: function.vw(20, 1920);
+
+  &__bold{
+    @extend .paragraph;
+    font-weight: 700;
+  }
+
+  &_white {
+    @extend .paragraph;
+    color: var(--white);
+
+    &_light {
+      @extend .paragraph_white;
+      font-weight: lighter;
+    }
+  }
+
+
+  &__medium{
+    @extend .paragraph;
+    font-weight: 500;
+  }
+
+  &__ligth{
+    @extend .paragraph;
+    font-weight: 300;
+  }
+
+  @media (max-width: 1440px) {
+    font-size: function.vw(14, 1440);
+    line-height: function.vw(20, 1440);
+  }
+
+  @media (max-width: 960px) {
+    font-size: function.vw(14, 960);
+    line-height: function.vw(20, 960);
+  }
+
+  @media (max-width: 720px) {
+    font-size: function.vw(14, 720);
+    line-height: function.vw(20, 720);
+  }
+
+  @media (max-width: 540px) {
+    font-size: function.vw(14, 540);
+    line-height: function.vw(20, 540);
+  }
+
+  @media (max-width: 420px) {
+    font-size: function.vw(14, 420);
+    line-height: function.vw(20, 420);
+  }
+}
+
+.span{
+  font-size: function.vw(12, 1920);
+
+  &__light {
+    @extend .span;
+    font-weight: 300;
+  }
+  
+  @media (max-width: 1440px) {
+    font-size: function.vw(12, 1440);
+  }
+
+  @media (max-width: 960px) {
+    font-size: function.vw(12, 960);
+  }
+
+  @media (max-width: 720px) {
+    font-size: function.vw(12, 720);
+  }
+
+  @media (max-width: 540px) {
+    font-size: function.vw(12, 540);
+  }
+
+  @media (max-width: 420px) {
+    font-size: function.vw(12, 420);
+  }
+}

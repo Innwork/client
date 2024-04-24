@@ -1,0 +1,218 @@
+@use "@src/shared/scss/logic/function";
+
+.calculator_container {
+  display: flex;
+  align-items: stretch;
+  gap: function.vw(16, 1920);
+
+  @media (max-width: 1440px) {
+    gap: function.vw(16, 1440);
+  }
+  
+  @media (max-width: 960px) {
+    flex-direction: column;
+    gap: function.vw(32, 1920);
+  }
+
+  @media (max-width: 720px) {
+    gap: function.vw(32, 720)
+  }
+
+  @media (max-width: 540px) {
+    gap: function.vw(32, 540)
+  }
+
+  @media (max-width: 420px) {
+    gap: function.vw(32, 420)
+  }
+}
+
+.text_container {
+  display: flex;
+  flex-direction: column;
+  gap: function.vw(32, 1920);
+  width: 50%;
+
+  @media (max-width: 1440px) {
+    gap: function.vw(32, 1440);
+  }
+
+  @media (max-width: 960px) {
+    width: 100%;
+    gap: function.vw(32, 960);
+  }
+
+  @media (max-width: 720px) {
+    gap: function.vw(32, 720);
+  }
+
+  @media (max-width: 540px) {
+    gap: function.vw(32, 540);
+  }
+
+  @media (max-width: 420px) {
+    gap: function.vw(32, 420);
+  }
+}
+
+
+
+.form_container {
+  flex-grow: 1;
+  width: 50%;
+  background-color: var(--black);
+  border-radius: function.vw(10, 1920);
+
+  @media (max-width: 1440px) {
+    border-radius: function.vw(10, 1440);
+  }
+
+  @media (max-width: 960px) {
+    width: 100%;
+    border-radius: function.vw(10, 960);
+  }
+
+  @media (max-width: 720px) {
+    border-radius: function.vw(10, 720);
+  }
+
+  @media (max-width: 540px) {
+    border-radius: function.vw(10, 540);
+  }
+
+  @media (max-width: 420px) {
+    border-radius: function.vw(10, 420);
+  }
+}
+
+.form_wrapper{
+  display: flex;
+  flex-direction: column;
+  padding: function.vw(21, 1920) function.vw(54, 1920) function.vw(28, 1920) function.vw(51, 1920);
+  gap: function.vw(39, 1920);
+
+  h3{
+    color: var(--orange);
+  }
+  
+  @media (max-width: 1440px) {
+    padding: function.vw(21, 1440) function.vw(54, 1440) function.vw(28, 1440) function.vw(51, 1440);
+    gap: function.vw(39, 1440);
+  }
+  
+  @media (max-width: 960px) {
+    padding: function.vw(21, 960) function.vw(54, 960) function.vw(28, 960) function.vw(51, 960);
+    gap: function.vw(39, 960);
+  }
+  
+  @media (max-width: 720px) {
+    padding: function.vw(21, 720) function.vw(54, 720) function.vw(28, 720) function.vw(51, 720);
+    gap: function.vw(39, 720);
+  }
+  
+  @media (max-width: 540px) {
+    padding: function.vw(21, 540) function.vw(40, 540) function.vw(28, 540) function.vw(37, 540);
+    gap: function.vw(39, 540);
+  }
+
+  @media (max-width: 420px) {
+    padding: function.vw(21, 420) function.vw(40, 420) function.vw(28, 420) function.vw(37, 420);
+    gap: function.vw(39, 420);
+  }
+}
+
+.inputs_container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 37% 63%;
+  grid-row-gap: function.vw(24, 1920);
+  
+  @media (max-width: 420px) {
+    grid-template-columns: 1fr;
+
+    label {
+      color: var(--white);
+    }
+  }
+
+  >p {
+    align-self: center;
+  }
+
+  input {
+    background-color: var(--white);
+    width: 100%;
+  }
+
+  @media (max-width: 1440px) {
+    grid-row-gap: function.vw(24, 1440);
+  }
+
+  @media (max-width: 960px) {
+    grid-row-gap: function.vw(24, 960);
+  }
+
+  @media (max-width: 720px) {
+    grid-row-gap: function.vw(24, 720);
+  }
+
+  @media (max-width: 540px) {
+    grid-row-gap: function.vw(24, 540);
+  }
+
+  @media (max-width: 420px) {
+    grid-row-gap: function.vw(24, 420);
+  }
+}
+
+.calendarModal {
+  position: relative;
+}
+
+.priceBlock {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  @media (max-width: 540px) {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: function.vw(12, 540);
+  }
+
+  @media (max-width: 420px) {
+    align-items: flex-start;
+    gap: function.vw(12, 420);
+  }
+}
+
+.button {
+  padding-inline: function.vw(15, 1920);
+  padding-block: function.vw(9, 1920);
+
+  @media (max-width: 1440px) {
+    padding-inline: function.vw(15, 1440);
+    padding-block: function.vw(9, 1440);
+  }
+
+  @media (max-width: 960px) {
+    padding-inline: function.vw(15, 960);
+    padding-block: function.vw(9, 960);
+  }
+
+  @media (max-width: 720px) {
+    padding-inline: function.vw(15, 720);
+    padding-block: function.vw(9, 720);
+  }
+
+  @media (max-width: 540px) {
+    padding-inline: function.vw(15, 540);
+    padding-block: function.vw(9, 540);
+    width: 100%;
+  }
+
+  @media (max-width: 420px) {
+  padding-inline: function.vw(15, 420);
+  padding-block: function.vw(9, 420);
+  }
+}

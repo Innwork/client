@@ -1,0 +1,473 @@
+@use 'src/shared/scss/logic/function';
+@use 'src/shared/scss/logic/mixin';
+
+@mixin mediaMaxHeight($maxWidth, $value, $size) {
+	@media (max-width: $maxWidth) {
+		max-height: function.vw($value, $size);
+	}
+}
+
+.languageDropdown {
+	height: max-content;
+	width: function.vw(50, 1920);
+	position: relative;
+	transition-duration: 300ms;
+	border-radius: 5px;
+	margin-block: function.vw(40, 1920);
+
+	img {
+		width: 100%;
+		height: 100%;
+
+		@media (max-width: 720px) {
+			padding-inline: function.vw(5, 720);
+			padding-block: function.vw(5, 720);
+		}
+
+		@media (max-width: 540px) {
+			padding-inline: function.vw(5, 540);
+			padding-block: function.vw(5, 540);
+		}
+
+		@media (max-width: 420px) {
+			padding-inline: function.vw(5, 540);
+			padding-block: function.vw(5, 540);
+		}
+	}
+
+	@media (max-width: 960px) {
+		height: function.vw(50, 960);
+		width: function.vw(50, 960);
+	}
+
+	@media (max-width: 720px) {
+		height: function.vw(50, 720);
+		width: function.vw(50, 720);
+	}
+
+	@media (max-width: 540px) {
+		height: function.vw(50, 540);
+		width: function.vw(50, 540);
+	}
+
+	@media (max-width: 420px) {
+		height: function.vw(50, 420);
+		width: function.vw(50, 420);
+	}
+}
+
+.accordionContainer {
+	background: var(--white);
+	height: 100%;
+	position: relative;
+	animation-duration: 0.5s;
+
+	&.close {
+		@media (max-width: 960px) {
+			animation-name: Big-burger-disappear;
+			animation-fill-mode: forwards;
+		}
+
+		@media (min-width: 961px) {
+			display: none;
+			.accordion {
+				display: none;
+			}
+		}
+	}
+
+	*::selection {
+		background-color: var(--orange);
+		color: var(--white);
+	}
+
+	&.firstRendered {
+		display: none;
+	}
+
+	&.open {
+		@media (max-width: 960px) {
+			overflow: auto;
+			display: block;
+			animation-name: Big-burger-appear;
+			animation-fill-mode: forwards;
+		}
+
+		@media (min-width: 961px) {
+			display: none;
+			.accordion {
+				display: none;
+			}
+		}
+	}
+}
+
+.accordion {
+	width: function.vw(920, 960);
+	position: absolute;
+	top: 0;
+	right: function.vw(20, 960);
+	height: 100%;
+	overflow-y: scroll;
+	animation-duration: 0.5s;
+	$accountHeight: function.vw(190, 960);
+	max-height: calc(100% - $accountHeight);
+
+	@media (max-width: 720px) {
+		$accountHeight: function.vw(190, 720);
+		max-height: calc(100% - $accountHeight);
+	}
+	@media (max-width: 540px) {
+		$accountHeight: function.vw(190, 540);
+		max-height: calc(100% - $accountHeight);
+	}
+	@media (max-width: 420px) {
+		$accountHeight: function.vw(190, 420);
+		max-height: calc(100% - $accountHeight);
+	}
+
+	&::-webkit-scrollbar {
+		width: function.vw(10, 960);
+		background-color: transparent;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		border-radius: 10px;
+		background-color: var(--black-t25);
+	}
+
+	&::-webkit-scrollbar-track {
+		border-radius: 10px;
+		background-color: transparent;
+	}
+
+	&.open {
+		animation-name: Big-burger-appear;
+		animation-fill-mode: forwards;
+
+		@media (min-width: 961px) {
+			display: none;
+		}
+	}
+
+	@media (min-width: 961px) {
+		display: none;
+	}
+}
+
+@keyframes Big-burger-appear {
+	0% {
+		display: block;
+		overflow: hidden;
+		height: 0;
+	}
+
+	100% {
+		height: 100vh;
+		display: block;
+
+		@media (min-width: 961px) {
+			display: none;
+		}
+	}
+}
+
+@keyframes Big-burger-disappear {
+	0% {
+		height: 100vh;
+	}
+
+	100% {
+		height: 0;
+		display: none;
+	}
+}
+
+.accordionTitle {
+	transition-duration: 300ms;
+	border-top: 1px solid var(--black-t25);
+	display: flex;
+	flex-direction: row;
+	cursor: pointer;
+
+	gap: function.vw(15, 960);
+	@include mixin.mediaGap(720px, 15, 720);
+	@include mixin.mediaGap(540px, 15, 540);
+	@include mixin.mediaGap(420px, 15, 420);
+
+	padding: function.vw(25, 960);
+	@include mixin.mediaPadding(720px, 25, 720);
+	@include mixin.mediaPadding(540px, 25, 540);
+	@include mixin.mediaPadding(420px, 25, 420);
+
+	a {
+		color: black;
+	}
+
+	&:hover {
+		cursor: pointer;
+		color: var(--orange);
+		border-radius: 3px;
+		background: rgba(248, 115, 26, 0.15);
+		text-shadow: .1px 0 0 var(--orange), -.1px 0px 0px var(--orange);
+	}
+}
+
+
+.accordionContentItemLink {
+	transition-duration: 300ms;
+	border-top: 1px solid var(--black-t15);
+	display: block;
+	width: 100%;
+	padding-left: function.vw(100, 960);
+	padding-block: function.vw(25, 960);
+	color: black;
+
+	@include mixin.mediaPL(720px, 100, 720);
+	@include mixin.mediaPL(540px, 80, 540);
+	@include mixin.mediaPL(420px, 80, 420);
+
+	@include mixin.mediaPBeachSide(720px, 20, 25, 720);
+	@include mixin.mediaPBeachSide(540px, 25, 25, 540);
+	@include mixin.mediaPBeachSide(420px, 25, 25, 420);
+
+	&:hover {
+		cursor: pointer;
+		color: var(--orange);
+		border-radius: 3px;
+		background: rgba(248, 115, 26, 0.15);
+		text-shadow: .1px 0 0 var(--orange), -.1px 0px 0px var(--orange);
+	}
+}
+
+.errorModal {
+	visibility: hidden;
+	z-index: 50;
+	opacity: 0;
+	transition: opacity 0.3s, visibility 0.3s;
+	border-radius: 5px;
+	position: absolute;
+	top: 100%;
+	background: var(--black);
+	color: white;
+
+	p {
+		white-space: nowrap;
+	}
+
+	padding: function.vw(13, 1920);
+	@include mixin.mediaPadding(1440px, 7, 1440);
+	@include mixin.mediaPadding(960px, 13, 960);
+	@include mixin.mediaPadding(720px, 13, 720);
+	@include mixin.mediaPadding(540px, 13, 540);
+	@include mixin.mediaPadding(420px, 13, 420);
+
+	left: function.vw(55, 960);
+	@include mixin.mediaLeft(720px, 55, 720);
+	@include mixin.mediaLeft(540px, 55, 540);
+	@include mixin.mediaLeft(420px, 55, 420);
+}
+
+.accordionTitleLink {
+	position: relative;
+	transition-duration: 300ms;
+	border-top: 1px solid var(--black-t25);
+	display: block;
+	width: 100%;
+	height: 100%;
+	color: var(--black);
+
+	padding: function.vw(25, 960) function.vw(25, 960) function.vw(25, 960) function.vw(55, 960);
+	@include mixin.mediaPEachSide(720px, 25, 25, 25, 55, 720);
+	@include mixin.mediaPEachSide(540px, 25, 25, 25, 55, 540);
+	@include mixin.mediaPEachSide(420px, 25, 25, 25, 55, 420);
+
+	&:hover {
+		cursor: pointer;
+		color: var(--orange);
+		border-radius: 3px;
+		background: rgba(248, 115, 26, 0.15);
+		text-shadow: .1px 0 0 var(--orange), -.1px 0px 0px var(--orange);
+
+		.errorModal {
+			visibility: visible;
+			opacity: 1;
+			transition: opacity 0.3s, visibility 0.3s;
+		}
+	}
+}
+
+.contentContainer {
+	overflow: hidden;
+	transition: max-height 0.2s ease-out;
+}
+
+.arrowContainer {
+	margin: auto 0;
+	position: relative;
+	height: function.vw(15, 960);
+	width: function.vw(15, 960);
+
+	@include mixin.mediaWidth(720px, 15, 720);
+	@include mixin.mediaHeight(720px, 15, 720);
+	@include mixin.mediaWidth(540px, 15, 540);
+	@include mixin.mediaHeight(540px, 15, 540);
+	@include mixin.mediaWidth(420px, 15, 420);
+	@include mixin.mediaHeight(420px, 15, 420);
+}
+
+.arrow {
+	object-fit: cover;
+	object-position: center;
+	top: 0;
+	left: 0;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	transform: rotate(0deg);
+	transition-duration: 300ms;
+}
+
+.arrowActive {
+	object-fit: cover;
+	object-position: center;
+	top: 0;
+	left: 0;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	transform: rotate(180deg);
+	transition-duration: 300ms;
+}
+
+.accountContainer {
+	position: fixed;
+	z-index: 20;
+	background-color: var(--white);
+	padding-left: function.vw(20, 960);
+	left: 0;
+	bottom: 0;
+	width: 100vw;
+	border-top: 1px solid var(--black-t25);
+	animation-duration: 0.4s;
+	animation-fill-mode: forwards;
+
+	&.open {
+		display: block;
+		animation-name: account-container-appear;
+	}
+
+	&.closed {
+		animation-name: account-container-disappear;
+
+	}
+}
+
+@keyframes account-container-appear {
+	0% {
+		bottom: -200px;
+		display: block;
+	}
+	100% {
+		bottom: 0;
+		display: block;
+	}
+}
+
+@keyframes account-container-disappear {
+	0% {
+		bottom: 0;
+		display: block;
+	}
+	100% {
+		bottom: -200px;
+		display: none;
+	}
+}
+
+.account {
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	position: relative;
+	width: max-content;
+
+	padding: function.vw(25, 960);
+	@include mixin.mediaPadding(720px, 25, 720);
+	@include mixin.mediaPadding(540px, 25, 540);
+	@include mixin.mediaPadding(420px, 25, 420);
+}
+
+.accountImageContainer {
+	display: inline-block;
+	height: function.vw(37, 920);
+	width: function.vw(37, 920);
+	position: relative;
+
+	@include mixin.mediaWidth(720px, 37, 720);
+	@include mixin.mediaHeight(720px, 37, 720);
+	@include mixin.mediaWidth(540px, 37, 540);
+	@include mixin.mediaHeight(540px, 37, 540);
+	@include mixin.mediaWidth(420px, 37, 420);
+	@include mixin.mediaHeight(420px, 37, 420);
+}
+
+.accountImage {
+	object-fit: cover;
+	object-position: center;
+	top: 0;
+	left: 0;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+}
+
+.username {
+	padding: function.vw(15, 960);
+	@include mixin.mediaPadding(720px, 15, 720);
+	@include mixin.mediaPadding(540px, 15, 540);
+	@include mixin.mediaPadding(420px, 15, 420);
+}
+
+.burgerContainer {
+	height: 100%;
+	cursor: pointer;
+}
+
+.burgerDropdown {
+	box-sizing: content-box;
+	z-index: 20;
+	left: function.vw(25, 960);
+	@include mixin.mediaLeft(720px, 25, 720);
+	@include mixin.mediaLeft(540px, 25, 540);
+	@include mixin.mediaLeft(420px, 25, 420);
+	animation-duration: 0.4s;
+	animation-name: Dropdown-appears;
+}
+
+.burgerDropdownContainer {
+	padding-bottom: function.vw(7, 1920);
+	display: none;
+	position: fixed;
+	z-index: 21;
+
+	bottom: function.vw(250, 960);
+	@include mixin.mediaBottom(720px, 250, 720);
+	@include mixin.mediaBottom(540px, 250, 540);
+	@include mixin.mediaBottom(420px, 250, 420);
+
+	&.open {
+		display: block;
+	}
+}
+
+@keyframes Dropdown-appears {
+	0% {
+		opacity: 0;
+		transform: translateY(15%);
+	}
+
+	100% {
+		opacity: 1;
+	}
+}

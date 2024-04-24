@@ -1,0 +1,15 @@
+@use "@src/shared/scss/logic/function";
+
+.w{
+  &__half{
+    width: 50%;
+    
+    @media (max-width: 720px) {
+      width: 100%;
+    }
+  }
+
+  &__full{
+    width: 100%;
+  }
+}

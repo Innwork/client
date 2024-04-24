@@ -1,0 +1,93 @@
+@use "src/shared/scss/logic/function";
+
+.snack_container{
+  z-index: 150;
+  position: fixed;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  border-radius: 10px;
+  padding: function.vw(20, 1920);
+  width: function.vw(400, 1920);
+  gap: function.vw(10, 1920);
+
+
+  &__btn_icon{
+    cursor: pointer;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &.alert{
+    border: 2px solid var(--yelow);
+    background-color: var(--alert);
+    color: var(--yelow);
+
+    & svg{
+      fill: var(--yelow);
+    }
+  }
+
+
+  &.error{
+    border: 2px solid var(--state-red);
+    background-color: var(--error-bg);
+    color: var(--state-red);
+
+    & svg{
+      fill: var(--state-red);
+    }
+  }
+
+  &.success{
+    border: 2px solid var(--state-success);
+    background-color: var(--success-bg);
+    color: var(--state-success);
+
+    & svg{
+      fill: var(--state-success);
+    }
+  }
+
+  &.info{
+    border: 2px solid var(--orange);
+    background-color: var(--info-bg);
+    color: var(--orange);
+
+    & svg{
+      fill: var(--orange);
+    }
+  }
+
+  @media (max-width: 1440px) {
+    gap: function.vw(10, 1440);
+    padding: function.vw(20, 1440);
+    width: function.vw(400, 1440);
+  }
+
+  @media (max-width: 960px) {
+    gap: function.vw(10, 960);
+    padding: function.vw(20, 960);
+    width: function.vw(400, 960);
+  }
+
+  @media (max-width: 720px) {
+    gap: function.vw(10, 720);
+    padding: function.vw(20, 720);
+    width: function.vw(400, 720);
+  }
+
+  @media (max-width: 540px) {
+    gap: function.vw(10, 540);
+    padding: function.vw(20, 540);
+    width: function.vw(400, 540);
+  }
+
+  @media (max-width: 420px) {
+    gap: function.vw(10, 420);
+    padding: function.vw(20, 420);
+    width: function.vw(400, 420);
+  }
+}

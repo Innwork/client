@@ -1,0 +1,15 @@
+.footer_link {
+  transition-duration: 300ms;
+
+  @media (hover: hover) {
+    &:hover {
+      color: var(--orange);
+    }
+  }
+
+  @media (hover: none) {
+    &:active{
+      color: var(--orange);
+    }
+  }
+}

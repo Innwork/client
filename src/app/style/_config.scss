@@ -1,0 +1,93 @@
+@use "@src/shared/scss/logic/function";
+
+:root{
+  --white: #fff;
+  --white-t75: rgba(255, 255, 255, 0.75);
+  --white-t50: rgba(255, 255, 255, 0.5);
+  --white-t25: rgba(255, 255, 255, 0.25);
+  --white-t05: rgba(255, 255, 255, 0.05);
+
+  --black: #2B2C2D;
+  --black-50: #999999;
+  --black-15: #E1E1E1;
+  --black-t75: rgba(43, 44, 45, 0.75);
+  --black-t50: rgba(43, 44, 45, 0.5);
+  --black-t25: rgba(43, 44, 45, 0.25);
+  --black-t15: rgba(43, 44, 45, 0.15);
+
+  --orange: #F8731A;
+  --orange-50: #FDDCC5;
+  --orange-t50: rgba(248, 115, 26, 0.5);
+  --orange-t25: rgba(248, 115, 26, 0.25);
+
+  --blue: #D3DDED;
+  --blue-50: #E8EDF5;
+  --blue-t50: rgba(211, 221, 237, 0.5);
+  --blue-t25: rgba(211, 221, 237, 0.25);
+
+  --light-blue: #E8EDF5;
+
+  --gray: #D9D9D9;
+  --gray-t50: rgba(217, 217, 217, 0.5);
+  --gray-t25: rgba(217, 217, 217, 0.25);
+
+  --yelow: #F7C154;
+  --yelow-50: #FADFA9;
+  --yelow-t50: rgba(247, 193, 84, 0.5);
+  --yelow-t25: rgba(247, 193, 84, 0.25);
+
+  --state-red: #BA0000;
+  --state-red-t25: rgba(186, 0, 0, 0.25);
+  --state-red-t05: rgba(186, 0, 0, 0.05);
+  --state-success: #76CA66;
+
+
+  --alert: #FEF6E6;
+  --error-bg: #F9E6E6;
+  --success-bg: #F2FAF0;
+  --info-bg: #FDDCC5;
+
+}
+
+*::-webkit-scrollbar {
+  width: function.vw(12, 1920) !important;
+  background: transparent !important;
+
+  @media (max-width: 960px) {
+    width: function.vw(10, 960) !important;
+  }
+}
+
+*::-webkit-scrollbar-thumb:hover{
+  background-color: var(--black-t50) !important;
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 10px !important;
+  background-color: var(--black-t25) !important;
+}
+
+*::-webkit-scrollbar-track {
+  border-radius: 10px !important;
+  background: transparent !important;
+}
+
+*::selection{
+  background-color: var(--orange);
+  color: var(--white);
+}
+
+
+@mixin font($fontName, $fontStyle, $fontWeight, $furl) {
+  @font-face {
+    font-family: $fontName;
+    font-style: $fontStyle;
+    font-weight: $fontWeight;
+    src: local($fontName), url($furl) format('woff2');
+  }
+}
+
+@include font("Suisse Intl", normal, 300, "@src/shared/assets/fonts/SuisseIntl-Light.woff2");
+@include font("Suisse Intl", normal, 400, "@src/shared/assets/fonts/SuisseIntl-Regular.woff2");
+@include font("Suisse Intl", normal, 500, "@src/shared/assets/fonts/SuisseIntl-Medium.woff2");
+@include font("Suisse Intl", normal, 700, "@src/shared/assets/fonts/SuisseIntl-Bold.woff2");

@@ -1,0 +1,75 @@
+@use 'src/shared/scss/logic/function';
+@use 'src/shared/scss/logic/mixin';
+
+.CopyNumberModal {
+	white-space: nowrap;
+	position: fixed;
+	align-items: center;
+	border-radius: function.vw(5, 1920);
+	@include mixin.mediaBorder(960px, 5, 960);
+	background: var(--black);
+	color: var(--white);
+	animation-fill-mode: forwards;
+	animation-duration: 300ms;
+
+	padding-inline: function.vw(7, 1920);
+	@include mixin.mediaPL(1440px, 7, 1440);
+	@include mixin.mediaPL(960px, 7, 960);
+	@include mixin.mediaPL(720px, 7, 720);
+	@include mixin.mediaPL(540px, 7, 540);
+	@include mixin.mediaPL(420px, 7, 420);
+
+	padding: function.vw(13, 1920);
+	@include mixin.mediaPadding(1440px, 7, 1440);
+	@include mixin.mediaPadding(960px, 13, 960);
+	@include mixin.mediaPadding(720px, 13, 720);
+	@include mixin.mediaPadding(540px, 13, 540);
+	@include mixin.mediaPadding(420px, 13, 420);
+
+	gap: function.vw(7, 1920);
+	@include mixin.mediaGap(960px, 7, 960);
+	@include mixin.mediaGap(720px, 7, 720);
+	@include mixin.mediaGap(540px, 7, 540);
+	@include mixin.mediaGap(420px, 7, 420);
+
+	svg {
+		height: function.vw(16, 1920);
+		width: function.vw(16, 1920);
+
+		@include mixin.mediaSquareSize(1440px, 16, 1440);
+		@include mixin.mediaSquareSize(960px, 16, 960);
+		@include mixin.mediaSquareSize(720px, 16, 720);
+		@include mixin.mediaSquareSize(540px, 16, 540);
+		@include mixin.mediaSquareSize(420px, 16, 420);
+	}
+
+
+	&.open {
+		animation-name: modal-open;
+	}
+
+	&.closed {
+		animation-name: modal-closed;
+	}
+}
+
+@keyframes modal-open {
+	0% {
+		display: flex;
+		opacity: 0;
+	}
+	100% {
+		display: flex;
+		opacity: 1;
+	}
+}
+
+@keyframes modal-closed {
+	0% {
+		display: flex;
+	}
+	100% {
+		display: none;
+		opacity: 0;
+	}
+}

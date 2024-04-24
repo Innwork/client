@@ -1,0 +1,54 @@
+@use "src/shared/scss/logic/function";
+@use "src/shared/scss/logic/mixin";
+
+.dropdownsContainer {
+	display: flex;
+	width: 100%;
+	gap: function.vw(46, 1920);
+
+	@include mixin.mediaGap(1440px, 46, 1440);
+	@include mixin.mediaGap(960px, 46, 960);
+	@include mixin.mediaGap(720px, 46, 720);
+	@include mixin.mediaGap(540px, 46, 540);
+	@include mixin.mediaGap(420px, 46, 420);
+
+	&.arrow {
+		gap: function.vw(12, 1920);
+		@include mixin.mediaGap(1440px, 12, 1440);
+		@include mixin.mediaGap(960px, 12, 960);
+		@include mixin.mediaGap(720px, 12, 720);
+		@include mixin.mediaGap(540px, 12, 540);
+		@include mixin.mediaGap(420px, 12, 420);
+	}
+
+	&>div {
+		width: 100%;
+	}
+}
+
+.inputDropdownContainer {
+	flex-direction: column;
+	display: flex;
+
+	gap: function.vw(5, 1920);
+
+	@media (max-width: 1440px) {
+		gap: function.vw(5, 1440);
+	}
+
+	@media (max-width: 960px) {
+		gap: function.vw(5, 960);
+	}
+
+	@media (max-width: 720px) {
+		gap: function.vw(5, 720);
+	}
+
+	@media (max-width: 540px) {
+		gap: function.vw(5, 540);
+	}
+
+	@media (max-width: 420px) {
+		gap: function.vw(5, 420);
+	}
+}

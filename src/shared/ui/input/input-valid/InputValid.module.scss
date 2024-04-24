@@ -1,0 +1,89 @@
+@use "src/shared/scss/logic/function";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: function.vw(5, 1920);
+
+  @media (max-width: 1440px) {
+    gap: function.vw(5, 1440);
+  }
+
+  @media (max-width: 960px) {
+    gap: function.vw(5, 960);
+  }
+
+  @media (max-width: 720px) {
+    gap: function.vw(5, 720);
+  }
+
+  @media (max-width: 540px) {
+    gap: function.vw(5, 540);
+  }
+
+  @media (max-width: 420px) {
+    gap: function.vw(5, 420);
+  }
+}
+
+.msg {
+  display: flex;
+  align-items: center;
+  gap: function.vw(10, 1920);
+
+  & svg {
+    height: 16px;
+    width: auto;
+  }
+
+  &.error {
+    transition: 300ms unset;
+    color: var(--state-red);
+  }
+
+  &.success {
+    transition: 300ms unset;
+    color: var(--state-success);
+  }
+
+  @media (max-width: 1440px) {
+    gap: function.vw(10, 1440);
+  }
+
+  @media (max-width: 960px) {
+    gap: function.vw(10, 960);
+  }
+
+  @media (max-width: 720px) {
+    gap: function.vw(10, 720);
+  }
+
+  @media (max-width: 540px) {
+    gap: function.vw(10, 540);
+  }
+
+  @media (max-width: 420px) {
+    gap: function.vw(10, 420);
+  }
+}
+
+.alert_enter {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.alert_enter__active {
+  opacity: 1;
+  transition: 300ms ease-in-out;
+  transform: translateY(0px);
+}
+
+.alert_exit {
+  opacity: 1;
+}
+
+.alert_exit__active {
+  opacity: 0;
+  transition: 300ms ease-in-out;
+  transform: translateY(-10px);
+}

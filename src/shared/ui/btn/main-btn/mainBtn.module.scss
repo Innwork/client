@@ -1,0 +1,158 @@
+@use "@src/shared/scss/logic/function";
+
+.main_btn {
+  border-radius: function.vw(5, 1920);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: function.vw(8, 1920);
+  transition: 300ms;
+
+  &:disabled {
+    background-color: var(--gray) !important;
+    color: var(--black) !important;
+  }
+
+  &.white {
+    background-color: var(--white);
+    color: var(--orange);
+    transition: 300ms;
+
+    @media (hover: hover) {
+      &:hover {
+        background-color: var(--orange-50);
+        color: var(--orange);
+        fill: var(--orange);
+      }
+    }
+
+    @media (hover: none) {
+      &:active {
+        box-shadow: 0 0 0 3px var(--);
+        background-color: var(--white);
+        color: var(--orange);
+        fill: var(--orange);
+      }
+    }
+
+    &:active {
+      box-shadow: 0 0 0 3px var(--white-t75);
+      background-color: var(--white);
+      color: var(--orange);
+      fill: var(--orange);
+    }
+  }
+
+  &.blue {
+    background-color: var(--blue);
+    color: var(--black);
+
+    @media (hover: hover) {
+      &:hover {
+        background-color: var(--blue-50);
+        color: var(--black);
+        fill: var(--black);
+      }
+    }
+
+    @media (hover: none) {
+      &:active {
+        background-color: var(--blue);
+        color: var(--black);
+        fill: var(--black);
+        box-shadow: 0 0 0 3px var(--blue-t25);
+      }
+    }
+
+    &:active {
+      background-color: var(--blue);
+      color: var(--black);
+      fill: var(--black);
+      box-shadow: 0 0 0 3px var(--blue-t25);
+    }
+  }
+
+  &.black {
+    background-color: var(--black);
+    color: var(--white);
+
+    @media (hover: hover) {
+      &:hover {
+        background-color: var(--black-50);
+        color: var(--white);
+        fill: var(--white);
+      }
+    }
+
+    @media (hover: none) {
+      &:active {
+        background-color: var(--black);
+        color: var(--white);
+        fill: var(--white);
+        box-shadow: 0 0 0 3px var(--black-t25);
+      }
+    }
+
+    &:active {
+      background-color: var(--black);
+      color: var(--white);
+      fill: var(--white);
+      box-shadow: 0 0 0 3px var(--black-t25);
+    }
+  }
+
+  &.orange {
+    background-color: var(--orange);
+    color: var(--white);
+
+    @media (hover: hover) {
+      &:hover {
+        background-color: var(--orange-50);
+        color: var(--orange);
+        fill: var(--orange);
+      }
+    }
+
+    @media (hover: none) {
+      &:active {
+        background-color: var(--orange);
+        color: var(--white);
+        fill: var(--orange);
+        box-shadow: 0 0 0 3px var(--orange-t25);
+      }
+    }
+
+    &:active {
+      background-color: var(--orange);
+      color: var(--white);
+      fill: var(--white);
+      box-shadow: 0 0 0 3px var(--orange-t25);
+    }
+  }
+
+  @media (max-width: 1440px) {
+    padding: function.vw(8, 1440);
+    border-radius: function.vw(5, 1440);
+  }
+
+  @media (max-width: 960px) {
+    padding: function.vw(8, 960);
+    border-radius: function.vw(5, 960);
+  }
+
+  @media (max-width: 720px) {
+    padding: function.vw(8, 720);
+    border-radius: function.vw(5, 720);
+  }
+
+  @media (max-width: 540px) {
+    padding: function.vw(8, 540);
+    border-radius: function.vw(5, 540);
+  }
+
+  @media (max-width: 420px) {
+    padding: function.vw(8, 420);
+    border-radius: function.vw(5, 420);
+  }
+}

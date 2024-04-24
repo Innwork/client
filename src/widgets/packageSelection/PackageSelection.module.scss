@@ -1,0 +1,19 @@
+@use "src/shared/scss/logic/function";
+@use "src/shared/scss/logic/mixin";
+
+.packages {
+	display: flex;
+	flex-direction: column;
+	gap: function.vw(30,1920);
+
+	margin-top: function.vw(25, 1920);
+	@include mixin.mediaMT(1440px, 25, 1440);
+	@include mixin.mediaMT(960px, 25, 960);
+	@include mixin.mediaMT(560px, 25, 560);
+	@include mixin.mediaMT(420px, 25, 420);
+
+	@include mixin.mediaGap(1440px, 30, 1440);
+	@include mixin.mediaGap(960px, 30, 960);
+	@include mixin.mediaGap(720px, 30, 720);
+	@include mixin.mediaGap(540px, 30, 540);
+}

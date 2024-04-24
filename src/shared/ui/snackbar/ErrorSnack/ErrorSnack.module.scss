@@ -1,0 +1,61 @@
+@use "src/shared/scss/logic/function";
+
+.snack_container{
+	margin-top: function.vw(10, 1920);
+	display: flex;
+	align-items: center;
+	border-radius: 10px;
+	padding-block: function.vw(25, 1920);
+	padding-inline: function.vw(20, 1920);
+	width: 100%;
+	gap: function.vw(5, 1920);
+
+
+	&__btn_icon{
+		cursor: pointer;
+		display: flex;
+		flex-direction: column-reverse;
+		align-items: center;
+		justify-content: center;
+	}
+
+	&.error{
+		border: 2px solid var(--state-red);
+		background-color: var(--white);
+		color: var(--state-red);
+
+		& svg{
+			fill: var(--state-red);
+		}
+	}
+
+	@media (max-width: 1440px) {
+		gap: function.vw(10, 1440);
+		padding-block: function.vw(25, 1440);
+		padding-inline: function.vw(20, 1440);
+	}
+
+	@media (max-width: 960px) {
+		gap: function.vw(10, 960);
+		padding-block: function.vw(25, 960);
+		padding-inline: function.vw(20, 960);
+	}
+
+	@media (max-width: 720px) {
+		gap: function.vw(10, 720);
+		padding-block: function.vw(25, 720);
+		padding-inline: function.vw(20, 720);
+	}
+
+	@media (max-width: 540px) {
+		gap: function.vw(10, 540);
+		padding-block: function.vw(25, 540);
+		padding-inline: function.vw(20, 540);
+	}
+
+	@media (max-width: 420px) {
+		gap: function.vw(10, 420);
+		padding-block: function.vw(25, 420);
+		padding-inline: function.vw(20, 420);
+	}
+}

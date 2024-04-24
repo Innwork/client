@@ -1,0 +1,37 @@
+@use "@src/shared/scss/logic/function";
+
+.swiper_container {
+  height: 100%;
+
+  .swiper_slide {
+    height: 100%;
+    display: flex;
+    align-items: stretch;
+    min-height: function.vw(150, 1920);
+
+    > div, section{
+      flex: 1;
+    }
+    
+    @media (max-width: 1440px) {
+      min-height: function.vw(150, 1440);
+    }
+
+    @media (max-width: 960px) {
+      min-height: function.vw(150, 960);
+    }
+    
+    @media (max-width: 720px) {
+      min-height: function.vw(150, 720);
+    }
+    
+    @media (max-width: 540px) {
+      min-height: function.vw(200, 540);
+    }
+    
+    @media (max-width: 420px) {
+      min-height: function.vw(200, 420);
+    }
+  }
+}
+

@@ -1,0 +1,117 @@
+@use "@src/shared/scss/logic/function";
+
+@mixin mediaText($value, $size){
+  @media (max-width: $size) {
+    font-size: function.vw($value, $size);
+  }
+}
+
+@mixin mediaMinWidth($minWidth, $value, $size) {
+  @media (min-width: $minWidth) {
+    width: function.vw($value, $size);
+  }
+}
+
+@mixin mediaSquareSize($maxWidth, $value, $size){
+  @media (max-width: $maxWidth) {
+    height: function.vw($value, $size);
+    width: function.vw($value, $size);
+  }
+}
+
+@mixin mediaBorder($maxWidth, $value, $size){
+  @media (max-width: $maxWidth) {
+    border-radius: function.vw($value, $size);
+  }
+}
+
+@mixin mediaWidth($maxWidth, $value, $size) {
+  @media (max-width: $maxWidth) {
+    width: function.vw($value, $size);
+  }
+}
+
+@mixin mediaHeight($maxWidth, $value, $size) {
+  @media (max-width: $maxWidth) {
+    height: function.vw($value, $size);
+  }
+}
+
+@mixin mediaRight($maxWidth, $value, $size) {
+  @media (max-width: $maxWidth) {
+    right: function.vw($value, $size);
+  }
+}
+
+@mixin mediaLeft($maxWidth, $value, $size) {
+  @media (max-width: $maxWidth) {
+    left: function.vw($value, $size);
+  }
+}
+
+@mixin mediaBottom($maxWidth, $value, $size) {
+  @media (max-width: $maxWidth) {
+    bottom: function.vw($value, $size);
+  }
+}
+
+@mixin mediaTop($maxWidth, $value, $size) {
+  @media (max-width: $maxWidth) {
+    top: function.vw($value, $size);
+  }
+}
+
+@mixin mediaGap($maxWidth, $value, $size) {
+  @media (max-width: $maxWidth) {
+    gap: function.vw($value, $size);
+  }
+}
+
+@mixin mediaPadding($maxWidth, $value, $size) {
+  @media (max-width: $maxWidth) {
+    padding: function.vw($value, $size);
+  }
+}
+
+@mixin mediaPBeachSide($maxWidth, $valueT, $valueB, $size){
+  @media (max-width: $maxWidth) {
+    padding-block: function.vw($valueT, $size) function.vw($valueB, $size);
+  }
+}
+
+@mixin mediaPL($maxWidth, $value, $size){
+  @media (max-width: $maxWidth) {
+    padding-inline: function.vw($value, $size);
+  }
+}
+
+@mixin mediaPB($maxWidth, $value, $size){
+  @media (max-width: $maxWidth) {
+    padding-bottom: function.vw($value, $size);
+  }
+}
+
+@mixin mediaMT($maxWidth, $value, $size){
+  @media (max-width: $maxWidth) {
+    margin-top: function.vw($value, $size);
+  }
+}
+
+@mixin mediaML($maxWidth, $value, $size){
+  @media (max-width: $maxWidth) {
+    margin-left: function.vw($value, $size);
+  }
+}
+
+@mixin mediaMB($maxWidth, $value, $size){
+  @media (max-width: $maxWidth) {
+    margin-bottom: function.vw($value, $size);
+  }
+}
+
+
+@mixin mediaPEachSide($maxWidth, $valueT, $valueR, $valueB, $valueL, $size){
+  @media (max-width: $maxWidth) {
+    padding: function.vw($valueT, $size) function.vw($valueR, $size) function.vw($valueB, $size) function.vw($valueL, $size);
+  }
+}

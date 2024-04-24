@@ -1,0 +1,29 @@
+@use "src/shared/scss/logic/function";
+
+.pagination_column{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  gap: function.vw(14, 1920);
+
+  @media (max-width: 1440px) {
+    gap: function.vw(14, 1440);
+  }
+
+  @media (max-width: 960px) {
+    gap: function.vw(14, 960);
+  }
+
+  @media (max-width: 720px) {
+    gap: function.vw(14, 960);
+  }
+
+  @media (max-width: 540px) {
+    gap: function.vw(14, 540)
+  }
+
+  @media (max-width: 420px) {
+    gap: function.vw(14, 420);
+  }
+}

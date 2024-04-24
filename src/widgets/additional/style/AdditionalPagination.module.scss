@@ -1,0 +1,128 @@
+@use "src/shared/scss/logic/function";
+
+
+.container {
+  width: 100%;
+  cursor: pointer;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  gap: function.vw(10, 1920);
+  background-color: var(--blue-t25);
+  border-radius: 10px;
+  border: 2px solid transparent;
+  transition-duration: 300ms;
+  
+  @media (max-width: 1440px) {
+    gap: function.vw(10, 1440);
+  }
+  
+  @media (max-width: 960px) {
+    gap: function.vw(10, 960);
+  }
+  
+  @media (max-width: 720px) {
+    gap: function.vw(10, 720);
+  }
+  
+  @media (max-width: 540px) {
+    padding: function.vw(16, 420);
+  }
+  
+  @media (max-width: 420px) {
+    padding: function.vw(16, 420);
+  }
+
+  @media (hover: hover) {
+    &:hover{
+      border: 2px solid var(--blue);
+    }
+  }
+  
+  @media (hover: none) {
+    &:active{
+      border: 2px solid var(--blue);
+    }
+  }
+}
+
+.container_active{
+  @extend .container;
+  border: 2px solid var(--blue);
+}
+
+.image{
+  position: relative;
+  height: function.vw(125, 1920);
+  width: function.vw(150, 1920);
+
+  @media (max-width: 1440px) {
+    height: function.vw(125, 1440);
+    width: function.vw(150, 1440);
+  }
+
+  @media (max-width: 960px) {
+    height: function.vw(125, 960);
+    width: function.vw(125, 960);
+  }
+
+  @media (max-width: 720px) {
+    display: none;
+  }
+
+  & img{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+.text_content{
+  width: 100%;
+  padding-inline: function.vw(10, 1920);
+  
+  @media (max-width: 1440px) {
+    padding-inline: function.vw(10, 1440);
+  }
+  
+  @media (max-width: 960px) {
+    padding-inline: function.vw(10, 960);
+  }
+  
+  @media (max-width: 720px) {
+    padding: function.vw(10, 720);
+  }
+  
+  @media (max-width: 540px) {
+    padding: 0;
+  }
+
+  &__span{
+    display: block;
+    margin-bottom: function.vw(15, 1920);
+    
+    @media (max-width: 1440px) {
+      margin-bottom: function.vw(15, 1440);
+    }
+    
+    @media (max-width: 960px) {
+      margin-bottom: function.vw(15, 960);
+    }
+    
+    @media (max-width: 720px) {
+      margin-bottom: function.vw(15, 720);
+    }
+    
+    @media (max-width: 540px) {
+      margin-bottom: function.vw(15, 540);
+    }
+    
+    @media (max-width: 420px) {
+      margin-bottom: function.vw(15, 420);
+    }
+  }
+}

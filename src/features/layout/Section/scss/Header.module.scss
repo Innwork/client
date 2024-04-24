@@ -1,0 +1,273 @@
+@use 'src/shared/scss/logic/function';
+@use 'src/shared/scss/logic/mixin';
+
+.HeaderWrapper {
+	position: absolute;
+	z-index: 100;
+	top: function.vw(45, 1920);
+	left: 0;
+	width: 100%;
+
+	@media (max-width: 960px) {
+		position: fixed;
+		top: 0;
+	}
+
+	@media (min-width: 960px) {
+		&.big {
+			position: fixed;
+			top: 0;
+		}
+	}
+}
+
+.Header {
+	margin-inline: auto;
+	max-width: function.vw(1236, 1920);
+
+	height: function.vw(80, 1920);
+	border-radius: 5px;
+	background: #FFF;
+	margin: 0 auto;
+
+
+	@media (min-width: 961px) {
+		&.small {
+			animation-duration: 0.4s;
+			animation-name: Header-appears;
+			animation-fill-mode: forwards;
+
+		}
+
+		&.big {
+			border-radius: 0;
+			height: function.vw(104, 1920);
+			animation-duration: 0.6s;
+			animation-name: Header-dropout;
+			animation-fill-mode: forwards;
+		}
+	}
+
+	@media (max-width: 960px) {
+		max-width: 100%;
+		height: function.vw(80, 920);
+		border-radius: 0;
+	}
+
+	@include mixin.mediaHeight(720px, 80, 720);
+	@include mixin.mediaHeight(540px, 80, 540);
+	@include mixin.mediaHeight(420px, 80, 420);
+}
+
+@keyframes Header-dropout {
+	0% {
+		max-width: function.vw(1440, 1920);
+		opacity: 0;
+		transform: translateY(-100%);
+	}
+
+	100% {
+		height: function.vw(104, 1920);
+		width: 100%;
+		opacity: 1;
+		max-width: 100%;
+	}
+}
+
+@keyframes Header-appears {
+	0% {
+		height: function.vw(104, 1920);
+		max-width: 100%;
+		border-radius: 0;
+		transform: translateY(100%);
+		opacity: 1;
+	}
+
+	50% {
+		opacity: 0.7;
+	}
+
+	100% {
+		height: function.vw(80, 1920);
+		border-radius: 5px;
+		opacity: 1;
+		max-width: function.vw(1236, 1920);
+	}
+}
+
+.container {
+	padding-inline: function.vw(20, 1920);
+	max-width: function.vw(1236, 1920);
+	width: 100%;
+	margin: 0 auto;
+	display: flex;
+	align-items: center;
+	height: 100%;
+
+	@media (max-width: 1440px) {
+		margin: 0;
+		width: 100%;
+		max-width: 100%;
+	}
+	@media (max-width: 960px) {
+		max-width: 100%;
+	}
+
+	@media (max-width: 1440px) {
+		padding-inline: function.vw(20, 1440);
+	}
+
+	@media (max-width: 960px) {
+		padding-inline: function.vw(20, 960);
+	}
+
+	@media (max-width: 720px) {
+		padding-inline: function.vw(20, 720);
+	}
+
+	@media (max-width: 540px) {
+		padding-inline: function.vw(20, 540);
+	}
+
+	@media (max-width: 420px) {
+		padding-inline: function.vw(20, 540);
+	}
+}
+
+.leftSectionContainer {
+	display: flex;
+}
+
+.LogoContainer {
+	display: flex;
+	align-items: center;
+	height: max-content;
+
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.Logo {
+	min-width: function.vw(54.693, 1920);
+	height: function.vw(38, 1920);
+
+	@media (max-width: 960px) {
+		height: function.vw(60, 920);
+		border-radius: 0;
+	}
+
+	@media (max-width: 540px) {
+		height: function.vw(50, 540);
+		border-radius: 0;
+	}
+}
+
+.sloganContainer {
+	display: flex;
+	line-height: 1;
+	align-items: flex-end;
+	padding-inline: function.vw(10, 1920);
+	height: function.vw(38, 1920);
+
+	@include mixin.mediaPL(1440px, 10, 1440);
+	@include mixin.mediaPL(960px, 10, 960);
+	@include mixin.mediaPL(720px, 10, 720);
+	@include mixin.mediaPL(560px, 10, 560);
+	@include mixin.mediaPL(420px, 10, 420);
+
+
+	@media (max-width: 960px) {
+		height: function.vw(60, 920);
+	}
+
+	@media (max-width: 540px) {
+		height: function.vw(50, 540);
+	}
+}
+
+.slogan {
+	align-self: end;
+	white-space: nowrap;
+	color: var(--black-t50);
+
+	&.closed {
+		display: none;
+	}
+}
+
+.errorModal {
+	z-index: 20;
+	text-transform: initial;
+	visibility: hidden;
+	opacity: 0;
+	transition: opacity 0.3s, visibility 0.3s;
+	border-radius: 5px;
+	position: absolute;
+	left: 0;
+	top: 100%;
+	background: var(--black);
+	color: white;
+
+	p {
+		white-space: nowrap;
+	}
+
+	@media (max-width: 1440px) {
+		right: 0;
+		left: unset;
+	}
+
+	padding: function.vw(13, 1920);
+	@include mixin.mediaPadding(1440px, 7, 1440);
+	@include mixin.mediaPadding(960px, 13, 960);
+	@include mixin.mediaPadding(720px, 13, 720);
+	@include mixin.mediaPadding(540px, 13, 540);
+	@include mixin.mediaPadding(420px, 13, 420);
+
+	&:hover {
+		display: none;
+	}
+}
+
+.burgerDropdown {
+	top: function.vw(71, 1920);
+	position: absolute;
+	box-sizing: content-box;
+	right: 0;
+
+	@media (max-width: 960px) {
+		display: none;
+	}
+}
+
+.burgerDropdownContainer {
+	height: function.vw(80, 1920);
+	@include mixin.mediaHeight(720px, 90, 720);
+	@include mixin.mediaHeight(540px, 90, 540);
+	@include mixin.mediaHeight(420px, 90, 420);
+
+	display: none;
+	position: relative;
+	animation-duration: 0.4s;
+	animation-name: Dropdown-appears;
+	animation-fill-mode: forwards;
+
+
+	&.open {
+		display: flex;
+	}
+}
+
+@keyframes Dropdown-appears {
+	0% {
+		opacity: 0;
+		transform: translateY(15%);
+	}
+
+	100% {
+		opacity: 1;
+	}
+}

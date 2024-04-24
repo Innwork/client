@@ -1,0 +1,39 @@
+@use "@src/shared/scss/logic/function";
+
+.container{
+  max-width: function.vw(1440, 1920);
+  margin-inline: auto;
+  overflow: hidden;
+
+  @media (max-width: 1440px) {
+    max-width: 100%;
+  }
+}
+
+.wrapper{
+  div {
+    overflow: unset !important;
+  }
+
+  padding-inline: function.vw(20, 1920);
+
+  @media (max-width: 1440px) {
+    padding-inline: function.vw(20, 1440);
+  }
+
+  @media (max-width: 960px) {
+    padding-inline: function.vw(20, 960);
+  }
+
+  @media (max-width: 720px) {
+    padding-inline: function.vw(20, 720);
+  }
+  
+  @media (max-width: 540px) {
+    padding-inline: function.vw(20, 540);
+  }
+  
+  @media (max-width: 420px) {
+    padding-inline: function.vw(20, 420);
+  }
+}

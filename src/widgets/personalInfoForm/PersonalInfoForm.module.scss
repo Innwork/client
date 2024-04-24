@@ -1,0 +1,73 @@
+@use "src/shared/scss/logic/function";
+@use "src/shared/scss/logic/mixin";
+
+.form {
+	margin-top: function.vw(14, 1920);
+	border-radius: 10px;
+	gap: function.vw(21, 1920);
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+
+	@media (max-width: 960px) {
+		display: flex;
+		flex-direction: column;
+	}
+}
+
+.radioStatus {
+	display: flex;
+	margin-top: function.vw(26, 1920);
+	margin-bottom: function.vw(20, 1920);
+	align-items: center;
+	gap: function.vw(10, 1920);
+
+	@include mixin.mediaMT(1440px, 26, 1440);
+	@include mixin.mediaMT(960px, 26, 960);
+	@include mixin.mediaMT(720px, 26, 720);
+	@include mixin.mediaMT(540px, 26, 540);
+
+	@include mixin.mediaMB(1440px, 26, 1440);
+	@include mixin.mediaMB(960px, 26, 960);
+	@include mixin.mediaMB(720px, 26, 720);
+	@include mixin.mediaMB(540px, 26, 540);
+
+	@include mixin.mediaGap(1440px, 10, 1440);
+	@include mixin.mediaGap(960px, 10, 960);
+	@include mixin.mediaGap(720px, 10, 720);
+	@include mixin.mediaGap(540px, 10, 540);
+
+	.cardIndicator {
+		display: inline-block;
+		position: relative;
+		width: 16px;
+		height: 16px;
+		border-radius: 50%;
+		border: 1px solid #f8731a;
+		background-color: #fff;
+
+
+		.indicatorDot {
+			background-color: #f8731a;
+			width: 6px;
+			height: 6px;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			border-radius: 50%;
+		}
+	}
+}
+
+.packages {
+	display: flex;
+	flex-direction: column;
+
+	gap: function.vw(25, 1920);
+	@include mixin.mediaGap(1440px, 25, 1440);
+	@include mixin.mediaGap(960px, 25, 960);
+	@include mixin.mediaGap(720px, 25, 720);
+	@include mixin.mediaGap(540px, 25, 540);
+
+	margin-bottom: 100px;
+}

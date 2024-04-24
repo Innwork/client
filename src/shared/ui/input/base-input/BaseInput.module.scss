@@ -1,0 +1,67 @@
+@use "@src/shared/scss/logic/function";
+
+.base_input{
+  -webkit-appearance: none;
+  box-sizing: border-box;
+  border: 1px solid var(--black-t25);
+  height: function.vw(36, 1920);
+  padding: function.vw(8, 1920) function.vw(16, 1920);
+  border-radius: 5px;
+  transition-duration: 300ms;
+
+  &::placeholder{
+    color: var(--black-t25);
+  }
+
+  &:hover{
+    border: 1px solid var(--orange);
+  }
+
+  &:active, &:focus{
+    border: 1px solid var(--orange);
+    box-shadow: 0 0 0 4px var(--orange-t25);
+  }
+
+  &.error{
+    @extend .base_input;
+    border: 1px solid var(--state-red);
+
+    &:hover, &:active, &:focus{
+      box-shadow: 0 0 0 4px var(--error-bg);
+    }
+  }
+
+  &.success{
+    @extend .base_input;
+    border: 1px solid var(--state-success);
+
+    &:hover, &:active, &:focus{
+      box-shadow: 0 0 0 4px var(--success-bg);
+    }
+  }
+
+  @media (max-width: 1440px) {
+    height: function.vw(36, 1920);
+    padding: function.vw(8, 1440) function.vw(16, 1440);
+  }
+
+  @media (max-width: 960px) {
+    height: function.vw(36, 960);
+    padding: function.vw(8, 960) function.vw(16, 960);
+  }
+
+  @media (max-width: 720px) {
+    height: function.vw(36, 720);
+    padding: function.vw(8, 720) function.vw(16, 720);
+  }
+
+  @media (max-width: 540px) {
+    height: function.vw(36, 540);
+    padding: function.vw(8, 540) function.vw(16, 540);
+  }
+
+  @media (max-width: 420px) {
+    height: function.vw(36, 420);
+    padding: function.vw(8, 420) function.vw(16, 420);
+  }
+}

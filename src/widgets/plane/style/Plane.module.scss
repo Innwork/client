@@ -1,0 +1,63 @@
+@use "@src/shared/scss/logic/function";
+
+
+.head{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: function.vw(8, 1920);
+  margin-bottom: function.vw(32, 1920);
+
+  p{
+    width: 33.333%;
+    color: var(--black-t50);
+    
+    @media (max-width: 960px) {
+      width: 50%;
+    }
+    
+    @media (max-width: 540px) {
+      width: 100%;
+    }
+  }
+
+  
+  @media (max-width: 1440px) {
+    gap: function.vw(8, 1440);
+    margin-bottom: function.vw(32, 1440);
+  }
+  
+  @media (max-width: 960px) {
+    gap: function.vw(8, 960);
+    margin-bottom: function.vw(32, 960);
+  }
+  
+  @media (max-width: 720px) {
+    gap: function.vw(8, 720);
+    margin-bottom: function.vw(32, 720);
+  }
+  
+  @media (max-width: 540px) {
+    gap: function.vw(8, 540);
+    margin-bottom: function.vw(32, 540);
+  }
+  
+  @media (max-width: 420px) {
+    gap: function.vw(8, 420);
+    margin-bottom: function.vw(32, 420);
+  }
+}
+
+.card_container{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: function.vw(20, 1920);
+
+  @media (max-width: 1440px) {
+    gap: function.vw(20, 1440);
+  }
+  
+  @media (max-width: 960px) {
+    display: none;
+  }
+}

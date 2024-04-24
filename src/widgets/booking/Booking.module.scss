@@ -1,0 +1,135 @@
+@use "src/shared/scss/logic/function";
+@use "src/shared/scss/logic/mixin";
+
+.wrapper {
+	position: fixed;
+	height: 100vh;
+	width: 100vw;
+	background-color: var(--black-t25);
+	z-index: 119;
+	top: 0;
+	left: function.vw(0, 1920);
+	animation-duration: 0.4s;
+	animation-fill-mode: forwards;
+
+	&.open {
+		display: block;
+		animation-name: background-appear;
+	}
+
+	&.closed {
+		display: none;
+		animation-name: background-disappear;
+	}
+}
+
+@keyframes background-appear {
+	0% {
+		display: none;
+		opacity: 0;
+	}
+	100% {
+		display: block;
+		opacity: 1;
+	}
+}
+
+@keyframes background-disappear {
+	0% {
+		display: block;
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+		display: none;
+	}
+}
+
+.container {
+	position: fixed;
+	z-index: 120;
+	top: 0;
+	left: function.vw(0, 1920);
+	height: 100vh;
+	background: var(--white);
+	padding-left: function.vw(40, 1920);
+	padding-right: function.vw(58, 1920);
+	animation-duration: 0.4s;
+	animation-fill-mode: forwards;
+	box-shadow: 0 0 40px 0 var(--black-t25);
+	overflow-y: scroll;
+	margin-bottom: function.vw(100, 1920);
+	width: function.vw(800, 1920);
+
+	&::-webkit-scrollbar {
+		width: function.vw(10, 1920);
+		background-color: transparent;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		border-radius: 10px;
+		background-color: var(--black-t25);
+	}
+
+	&::-webkit-scrollbar-track {
+		border-radius: 10px;
+		background-color: transparent;
+	}
+
+	&.open {
+		display: block;
+		animation-name: Booking-appear;
+	}
+
+	&.closed {
+		display: none;
+		animation-name: Booking-disappear;
+
+	}
+
+	@include mixin.mediaWidth(1440px, 800, 1440);
+	@media (max-width: 1024px) {
+		width: 100%;
+	}
+}
+
+@keyframes Booking-appear {
+	0% {
+		display: none;
+		left: -100%;
+	}
+	100% {
+		display: block;
+	}
+}
+
+@keyframes Booking-disappear {
+	0% {
+		display: block;
+	}
+	100% {
+		left: -100%;
+		display: none;
+	}
+}
+
+.directionButtons {
+	position: fixed;
+	display: flex;
+	bottom: function.vw(30, 1920);
+	gap: function.vw(15, 1920);
+	z-index: 20;
+}
+
+.directionButtonsContainer {
+	display: flex;
+	flex-direction: row-reverse;
+
+
+	height: function.vw(450, 1920);
+	@include mixin.mediaHeight(1440px, 450, 1440);
+	@include mixin.mediaHeight(960px, 450, 960);
+	@include mixin.mediaHeight(540px, 450, 540);
+	@include mixin.mediaHeight(420px, 450, 420);
+}
+

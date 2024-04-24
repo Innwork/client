@@ -1,0 +1,248 @@
+@use 'src/shared/scss/logic/function';
+@use 'src/shared/scss/logic/mixin';
+
+
+.rightHeaderSection {
+	margin-left: auto;
+	padding-left: function.vw(15, 1920);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: function.vw(15, 1920);
+
+	@media (max-width: 960px) {
+		height: 100%;
+	}
+}
+
+.callUsButton {
+	height: function.vw(50, 1920);
+	width: function.vw(50, 1920);
+	position: relative;
+	transition-duration: 300ms;
+	text-transform: uppercase;
+	border-radius: 5px;
+	background-color: var(--orange);
+
+	@media (max-width: 960px) {
+		width: function.vw(70, 960);
+		height: function.vw(70, 960);
+	}
+
+	@media (max-width: 720px) {
+		width: function.vw(70, 720);
+		height: function.vw(70, 720);
+	}
+
+	@media (max-width: 540px) {
+		width: function.vw(70, 540);
+		height: function.vw(70, 540);
+	}
+
+	@media (max-width: 420px) {
+		width: function.vw(60, 420);
+		height: function.vw(60, 420);
+	}
+
+
+	svg {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+		left: 0;
+		top: 0;
+		object-fit: cover;
+		object-position: center;
+		padding: function.vw(13, 1920);
+
+		@include mixin.mediaPadding(1440px, 7, 1440);
+		@include mixin.mediaPadding(960px, 13, 960);
+		@include mixin.mediaPadding(720px, 13, 720);
+		@include mixin.mediaPadding(540px, 13, 540);
+		@include mixin.mediaPadding(420px, 13, 420);
+	}
+
+
+	@media (hover: hover) {
+		&:hover {
+			background-color: var(--black);
+		}
+	}
+
+	@media (hover: none) {
+		background-color: var(--orange);
+	}
+}
+
+.bigBurgerSvgContainer {
+	border-radius: 5px;
+	border: 1px solid var(--black-t15);
+	display: none;
+	width: function.vw(150, 1920);
+	height: function.vw(150, 1920);
+	font-size: function.vw(28, 960);
+	cursor: pointer;
+
+
+	@media (max-width: 960px) {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: function.vw(70, 960);
+		height: function.vw(70, 960);
+	}
+
+	@media (max-width: 720px) {
+		width: function.vw(70, 720);
+		height: function.vw(70, 720);
+	}
+
+	@media (max-width: 540px) {
+		width: function.vw(70, 540);
+		height: function.vw(70, 540);
+	}
+
+	@media (max-width: 420px) {
+		width: function.vw(60, 420);
+		height: function.vw(60, 420);
+	}
+}
+
+.bigBurgerSvg {
+	height: 100%;
+	padding: function.vw(40, 1920);
+
+	@include mixin.mediaPadding(960px, 15, 960);
+	@include mixin.mediaPadding(720px, 15, 720);
+	@include mixin.mediaPadding(540px, 15, 540);
+	@include mixin.mediaPadding(420px, 15, 420);
+}
+
+.bookingButton {
+	position: relative;
+	text-transform: uppercase;
+	white-space: nowrap;
+	color: var(--white);
+	border-radius: 5px;
+	background-color: var(--black);
+	height: function.vw(50, 1920);
+	padding-inline: function.vw(13, 1920);
+
+	@media (max-width: 960px) {
+		height: function.vw(70, 960);
+	}
+
+	@media (max-width: 720px) {
+		height: function.vw(70, 720);
+	}
+
+	@media (max-width: 540px) {
+		height: function.vw(70, 540);
+	}
+
+	@media (max-width: 420px) {
+		height: function.vw(60, 420);
+	}
+
+	&:hover {
+		background-color: var(--orange);
+		color: var(--white);
+	}
+
+	@media (max-width: 960px) {
+		display: none;
+	}
+}
+
+.accountContainer {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	padding: function.vw(6, 1920) function.vw(6, 1920) function.vw(5, 1920) function.vw(8, 1920);
+	margin-left: function.vw(7.5, 1920);
+
+	&:hover {
+		.errorModal {
+			visibility: visible;
+			opacity: 1;
+			transition: opacity 0.3s, visibility 0.3s;
+		}
+	}
+}
+
+.errorModal {
+	z-index: 20;
+	text-transform: initial;
+	visibility: hidden;
+	opacity: 0;
+	transition: opacity 0.3s, visibility 0.3s;
+	border-radius: 5px;
+	position: absolute;
+	left: 0;
+	top: 100%;
+	background: var(--black);
+	color: white;
+
+	p {
+		white-space: nowrap;
+	}
+
+	@media (max-width: 1440px) {
+		right: 0;
+		left: unset;
+	}
+
+	padding: function.vw(13, 1920);
+	@include mixin.mediaPadding(1440px, 7, 1440);
+	@include mixin.mediaPadding(960px, 13, 960);
+	@include mixin.mediaPadding(720px, 13, 720);
+	@include mixin.mediaPadding(540px, 13, 540);
+	@include mixin.mediaPadding(420px, 13, 420);
+
+	&:hover {
+		display: none;
+	}
+}
+
+.menuSection {
+	position: relative;
+	width: function.vw(96, 1920);
+	height: 100%;
+	border-radius: 5px;
+	border: 1px solid var(--black-t15);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	@media (max-width: 960px) {
+		display: none;
+	}
+}
+
+.languageDropdown {
+	button {
+		height: function.vw(50, 1920);
+	}
+	width: function.vw(50, 1920);
+
+	@media (max-width: 960px) {
+		display: none;
+	}
+}
+
+.burgerContainer {
+	height: 100%;
+	cursor: pointer;
+}
+
+.burgerSvg {
+	margin: function.vw(17, 1920) function.vw(8, 1920) function.vw(17, 1920) function.vw(18, 1920);
+	width: function.vw(20, 1920);
+	height: function.vw(14, 1920);
+}
+
+.accountSvg {
+	width: function.vw(37, 1920);
+	height: function.vw(37, 1920);
+}

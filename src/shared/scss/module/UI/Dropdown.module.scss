@@ -1,0 +1,25 @@
+@use 'src/shared/scss/logic/function';
+
+@mixin mediaMinWidth($maxWidth, $value, $size) {
+	@media (max-width: $maxWidth) {
+		min-width: function.vw($value, $size);
+	}
+}
+
+.dropdown {
+	min-width: function.vw(145, 1920);
+	@include mediaMinWidth(960px, 145, 960);
+	@include mediaMinWidth(720px, 145, 720);
+	@include mediaMinWidth(540px, 145, 540);
+	@include mediaMinWidth(420px, 145, 420);
+	position: absolute;
+	height: auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: max-content;
+	padding: function.vw(8, 1920) function.vw(17, 1920) function.vw(17, 1920) function.vw(18, 1920);
+	background: var(--white);
+	border-radius: function.vw(5, 1920);
+	filter: drop-shadow(0px 3px 22px var(--black-t25));
+}

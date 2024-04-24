@@ -1,0 +1,77 @@
+@use "src/shared/scss/logic/function";
+@use "src/shared/scss/logic/mixin";
+
+.linkItem {
+	position: relative;
+	display: inline-block;
+	padding: function.vw(5, 1920) function.vw(6, 1920);
+	color: #2B2C2D;
+	width: 100%;
+	font-weight: 400;
+	transition-duration: 300ms;
+
+	@media (max-width: 960px) {
+		padding: function.vw(10, 960) function.vw(12, 960);
+	}
+	@media (max-width: 720px) {
+		padding: function.vw(10, 720) function.vw(12, 720);
+	}
+	@media (max-width: 540px) {
+		padding: function.vw(10, 540) function.vw(12, 540);
+	}
+	@media (max-width: 420px) {
+		padding: function.vw(10, 420) function.vw(12, 420);
+	}
+
+	&:hover {
+		cursor: pointer;
+		color: var(--orange);
+		border-radius: 3px;
+		background: rgba(248, 115, 26, 0.15);
+		text-shadow: .1px 0 0 var(--orange), -.1px 0px 0px var(--orange);
+
+		.errorModal {
+			visibility: visible;
+			opacity: 1;
+			transition: opacity 0.3s, visibility 0.3s;
+		}
+	}
+}
+
+.errorModal {
+	visibility: hidden;
+	z-index: 50;
+	opacity: 0;
+	transition: opacity 0.3s, visibility 0.3s;
+	border-radius: 5px;
+	position: absolute;
+	left: 0;
+	top: 100%;
+	background: var(--black);
+	color: white;
+
+	p {
+		white-space: nowrap;
+	}
+
+	@media (max-width: 1440px) {
+		right: 0;
+		left: unset;
+	}
+
+	@media (max-width: 960px) {
+		right: unset;
+		left: 0;
+	}
+
+	padding: function.vw(13, 1920);
+	@include mixin.mediaPadding(1440px, 7, 1440);
+	@include mixin.mediaPadding(960px, 13, 960);
+	@include mixin.mediaPadding(720px, 13, 720);
+	@include mixin.mediaPadding(540px, 13, 540);
+	@include mixin.mediaPadding(420px, 13, 420);
+
+	&:hover {
+		display: none;
+	}
+}
