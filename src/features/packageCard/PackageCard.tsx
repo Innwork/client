@@ -80,7 +80,7 @@ export const PackageCard: FC<PackageCardProps> = (props) => {
 
   const toggleTariff = (title: Tariffs) => {
     if (activeTariffs === title) {
-      removeTariff(title);
+      removeTariff();
     } else {
       setTariff(title)
     }
