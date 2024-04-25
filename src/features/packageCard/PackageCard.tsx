@@ -79,7 +79,7 @@ export const PackageCard: FC<PackageCardProps> = (props) => {
   }, [variant])
 
   const toggleTariff = (title: Tariffs) => {
-    if (activeTariffs.includes(title)) {
+    if (activeTariffs === title) {
       removeTariff(title);
     } else {
       setTariff(title)

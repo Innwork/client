@@ -42,14 +42,5 @@ export const PlaneCardModel: Array<ICardPlane> = [
         service: [
             "Высокоскоростной Wi-Fi", "Парковка", "Круглосуточная охрана", "Кухня", "Принтер", "Телефонная будка"
         ], rules: "В час", price: "2 500 AMD"
-    },
-    {
-        header: "Нефиксированное место (НА НЕДЕЛЮ)",
-        tag: Tariffs.NON_FIXED_FLEXI_DESK_WEEK,
-        subtitle: "Оборудованное рабочее пространство по выгодной цене и с дополнительными возможностями.",
-        src: FixedDescPng,
-        service: [
-            "Meeting room", "Кухня", "Принтер", "Игровая комната"
-        ], rules: "за неделю", price: "38 000 AMD"
     }
 ]

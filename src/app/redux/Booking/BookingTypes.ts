@@ -1,7 +1,6 @@
 
 export enum Tariffs {
   NON_FIXED_FLEXI_DESK = 'Не фиксированное рабочее место',
-  NON_FIXED_FLEXI_DESK_WEEK = 'Нефиксированное рабочее место на неделю',
   FIXED_DESK = 'Фиксированное рабочее место',
   PRIVATE_OFFICE = 'Приватные воркспейсы',
   FREE_SPACE = 'Свободное пространство'
@@ -42,7 +41,7 @@ export interface BookingStateType {
   isFormSent: boolean
   PWSpeopleCount: number
   isOpen: boolean
-  tariffs: Tariffs[]
+  tariffs: Tariffs | ''
   workspaces: WorkspaceItem[]
   personalInfo: PersonalInfoType
   cartTariffs: TariffItem[]

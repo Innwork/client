@@ -21,19 +21,6 @@ export const Plane = () => {
                 </p>
             </div>
 
-            {/*<div className={classes.card_container}>*/}
-            {/*    {PlaneCardModel.map((el) => <CardPlane*/}
-            {/*        tag={el.tag}*/}
-            {/*        header={el.header}*/}
-            {/*        subtitle={el.subtitle}*/}
-            {/*        src={el.src}*/}
-            {/*        service={el.service}*/}
-            {/*        rules={el.rules}*/}
-            {/*        price={el.price}*/}
-            {/*        key={el.header}*/}
-            {/*    />)}*/}
-            {/*</div>*/}
-
             {
                 <Slider sizeBoolean={globalResize.isScreenSm} slidesPerView={!globalResize.isScreenLg ? 2 : 4}>
                     {PlaneCardModel.map((el) => <CardPlane

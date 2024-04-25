@@ -73,20 +73,20 @@ export const ReservAdditional = () => {
     <div className={classes.pagination_column}>
       {
         reservAdditionalModel.pagination.map((el) =>
-            <BookingWorkspaceItems
-              saveWorkspace={saveTariffDates}
-              inputs={el.tag === Workspaces.TRAINING_CENTER ? inputs.TrainingCenter : (el.tag === Workspaces.MEETING_ROOM ? inputs.MeetingRoom : inputs.BusinessLounge)}
-              src={el.src}
-              header={t(el.header)}
-              title={t(el.title)}
-              price={t(el.price)}
-              tag={el.tag as Workspaces}
-              key={el.src}
-              workSpaces={{
-                activeWorkspaces: activeWorkspaces,
-                setActiveWorkspaces: setActiveWorkspaces
-              }}
-            />
+          <BookingWorkspaceItems
+            saveWorkspace={saveTariffDates}
+            inputs={el.tag === Workspaces.TRAINING_CENTER ? inputs.TrainingCenter : (el.tag === Workspaces.MEETING_ROOM ? inputs.MeetingRoom : inputs.BusinessLounge)}
+            src={el.src}
+            header={t(el.header)}
+            title={t(el.title)}
+            price={t(el.price)}
+            tag={el.tag as Workspaces}
+            key={el.src}
+            workSpaces={{
+              activeWorkspaces: activeWorkspaces,
+              setActiveWorkspaces: setActiveWorkspaces
+            }}
+          />
         )
       }
     </div>
