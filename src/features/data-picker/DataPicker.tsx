@@ -14,7 +14,7 @@ export interface IDataPicker {
 
 export const DataPicker: FC<IDataPicker> = (props) => {
     const {
-        format="yyyy-MM-dd",
+        format="yyyy-M-d",
         setIsOpen,
         setSelectDate,
         setValue

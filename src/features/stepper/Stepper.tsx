@@ -14,7 +14,7 @@ interface StepperProps {
 
 export const Stepper: FC<StepperProps> = ({page, steps, setPage}) => {
   const {t} = useTranslation("main")
-  const stepNames = ['Additional Workspace', 'Packages Selection', "Send request"]
+  const stepNames = ['Packages Selection', 'Additional Workspace', "Send request"]
   const {globalResize} = useContext(GlobalContext)!;
   return (
     <div className={StepperStyle.container}>

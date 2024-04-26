@@ -115,7 +115,11 @@ export const PackageCard: FC<PackageCardProps> = (props) => {
                 <DataSVG className={classes.img}/>
               </div>
               <div>
-                {date}
+                {date.split(' - ')[0] === date.split(' - ')[1] ?
+                    date.split(' - ')[0]
+                    :
+                    date
+                }
               </div>
             </div>
           }

@@ -4,7 +4,7 @@ import classes from "@src/widgets/сalculator/calculator.module.scss";
 import {LiText} from "@src/widgets/сalculator/ui/li-text/LiText";
 import {LiModel} from "@src/widgets/сalculator/model/LiModel";
 import {DropDownSelect} from "@src/shared/ui/input";
-import {Workspaces} from "@src/app/redux/Booking/BookingTypes";
+import {Tariffs, Workspaces} from "@src/app/redux/Booking/BookingTypes";
 import {useContext, useEffect, useState} from "react";
 import {regDate} from "@src/shared/constants";
 import {getPrice} from "@src/widgets/сalculator/logic/getPrice";
@@ -15,27 +15,36 @@ import {useActions} from "@src/app/redux/hooks/useActions";
 import {reservAdditionalModel} from "@src/widgets/reservWorkspaces/model/reservAdditionalModal";
 import {GlobalContext} from "@src/app/provider";
 import {SelectDate} from "@src/features/select-date";
+import {packages} from "@src/widgets/packageSelection/model/PackageCardModel";
 
 export const Calculator = () => {
-    const [activeWorkspace, setActiveWorkspace] = useState(Workspaces.TRAINING_CENTER)
+    const allPackages = [Workspaces.BUSINESS_LOUNGE, Workspaces.MEETING_ROOM, Tariffs.NON_FIXED_FLEXI_DESK]
+    const [activePackage, setActivePackage] = useState(allPackages[0])
     const [price, setPrice] = useState('0')
     const [startTime, setStartTime] = useState('00:00')
     const [endTime, setEndTime] = useState('01:00')
     const [startDay, setStartDay] = useState('0/0/0')
-    const [isCalendarOpen, setIsCalendarOpen] = useState(false)
 
+    const [isCalendarOpen, setIsCalendarOpen] = useState(false)
     const {globalResize} = useContext(GlobalContext)!;
     const {t} = useTranslation('home')
-    const {setPage, setIsOpen, setWorkspace} = useActions()
+    const {setPage, setIsOpen, setWorkspace, setCartTariff} = useActions()
     useEffect(() => {
-        setPrice(getPrice({time: `${startTime} - ${endTime}`, workspaceName: activeWorkspace, duration: `${startDay.replace(/-/g, '/')} - ${startDay.replace(/-/g, '/')}`}).toString())
-    }, [activeWorkspace, startDay, startTime, endTime])
+        setPrice(getPrice({time: `${startTime} - ${endTime}`, workspaceName: activePackage, duration: `${startDay.replace(/-/g, '/')} - ${startDay.replace(/-/g, '/')}`}).toString())
+    }, [activePackage, startDay, startTime, endTime])
 
     const saveTariffDates = (title: string, startDay: string, startTime: string, endTime: string) => {
         const item = reservAdditionalModel.pagination.find((space) => space.header === title)
-        if (item && startDay != '0') {
+        const tariff = packages.find((tariff) => tariff.title === title)
+        if (item && (startDay != '0' || '0/0/0')) {
             setWorkspace({workspaceName: title as Workspaces, time: `${startTime} - ${endTime}`, imagePath: item.src, title: item.title})
             setWorkspace({workspaceName: title as Workspaces, imagePath: item.src, title: item.title, duration: `${startDay.replace(/-/g, '/')} - ${startDay.replace(/-/g, '/')}`})
+        }else if (tariff && (startDay != '0' || '0/0/0')) {
+            setCartTariff({
+                tariffName: title as Tariffs,
+                duration: `${startDay.replace(/-/g, '/')} - ${startDay.replace(/-/g, '/')}`,
+                time: `${startTime} - ${endTime} `
+            })
         }
     }
 
@@ -60,7 +69,7 @@ export const Calculator = () => {
 
                     <div className={classes.inputs_container}>
                         {globalResize.isScreenEs && <p className={TextModule.paragraph_white_light}>{t('Площадка')}</p>}
-                        <DropDownSelect label={globalResize.isScreenEs ? '' : t('Площадка')} data={Object.values(Workspaces)} placeholder={activeWorkspace} state={"white"} setValue={setActiveWorkspace}/>
+                        <DropDownSelect label={globalResize.isScreenEs ? '' : t('Площадка')} data={allPackages} placeholder={activePackage} state={"white"} setValue={setActivePackage}/>
 
                         {globalResize.isScreenEs && <p className={TextModule.paragraph_white_light}>{t('Нужная дата')}</p>}
                         <SelectDate isOpenDefault={isCalendarOpen} setIsOpenDefault={setIsCalendarOpen} label={!globalResize.isScreenEs ? 'Нужная дата' : undefined} setValue={setStartDay} variety={'white'}/>
@@ -72,7 +81,7 @@ export const Calculator = () => {
                     <div className={classes.priceBlock}>
                         <p className={globalResize.isScreenEs ? TextModule.h1__light_white : TextModule.h3__light_white}>{Number(price).toLocaleString()} AMD</p>
                             <MainBtn state={'orange'} onClick={() => {
-                                saveTariffDates(activeWorkspace, startDay, startTime, endTime)
+                                saveTariffDates(activePackage, startDay, startTime, endTime)
                                 setPage(3)
                                 setIsOpen(true)
                             }} className={useClass([classes.button, TextModule.paragraph])} disabled={!isValid}>
