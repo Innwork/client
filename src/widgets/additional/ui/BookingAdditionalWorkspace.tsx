@@ -55,14 +55,22 @@ export const BookingWorkspaceItems: FC<IAdditionalPaginationItems> = (props) => 
     return (
         <div
             className={workSpaces.activeWorkspace === tag ? combineStyle([classes.workspaceContainer_active, isValid ? '' : classes['invalid']]) : (tag === Workspaces.TRAINING_CENTER ? classes.workspaceContainer_disabled : classes.workspaceContainer)}>
+            {tag === Workspaces.TRAINING_CENTER &&
+              <>
+                  <div className={classes.soonButtonContainer}/>
+                  <MainBtn className={useClass([classes.soonButton, TextModule.paragraph_white])}>Совсем скоро</MainBtn>
+              </>
+
+            }
+
             <div
                 onClick={() => toggleWorkspace(tag)}
-                className={workSpaces.activeWorkspace === tag ? classes.baseCardContainer_active : classes.baseCardContainer}>
+                className={useClass([workSpaces.activeWorkspace === tag ? classes.baseCardContainer_active : (tag === Workspaces.TRAINING_CENTER ? classes.baseCardContainer_disabled : classes.baseCardContainer)])}>
                 <div className={classes.image}>
                     <img src={src} alt={header}/>
                 </div>
 
-                <div className={useClass([classes.text_content, tag === Workspaces.TRAINING_CENTER ? classes['disabled'] : ''])}>
+                <div className={classes.text_content}>
                     <h4 className={TextModule.paragraph__bold}>
                         {header}
                     </h4>
