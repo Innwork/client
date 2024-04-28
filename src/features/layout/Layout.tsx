@@ -25,9 +25,6 @@ export const Layout: FC = () => {
 
   return (
     <>
-      {/*<SnackBar status={"alert"} className={classes.snack}>*/}
-      {/*  {t("Наша версия все еще находится в разработке. Эта версия не окончательная")}*/}
-      {/*</SnackBar>*/}
 
       {isFormSent &&
         <SnackBar status={"success"} className={classes.snack} active={isFormSent}>
