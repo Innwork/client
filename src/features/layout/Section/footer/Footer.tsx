@@ -1,6 +1,6 @@
 import {useTranslation} from "react-i18next";
 import {footerItems} from "@src/features/layout/Section/footer/constants/constants";
-import classes from "@src/features/Layout/Section/footer/style/Footer.module.scss";
+import classes from "@src/features/layout/Section/footer/style/footer.module.scss";
 import {TextModule} from "@src/shared/scss";
 import {LogoBig} from "@src/shared/assets/icons/logo";
 import {FooterAgreements} from "@src/features/layout/Section/footer/widgets/FooterAgreements";
