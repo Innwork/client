@@ -21,7 +21,7 @@ export const ChooseLocation = () => {
 
             <div className={classes.map_frame}>
                 <iframe
-                    src="https://yandex.ru/map-widget/v1/?um=constructor%3A752c3ccbd67dff2be2e89f1052377619562853a3c371a4f9973767077e87a87e&amp;source=constructor"
+                    src="https://yandex.ru/map-widget/v1/?um=constructor%3A752c3ccbd67dff2be2e89f1052377619562853a3c371a4f9973767077e87a87e&amp;source=constructor&&scroll=false"
                     width="100%" height="600"></iframe>
             </div>
         </section>

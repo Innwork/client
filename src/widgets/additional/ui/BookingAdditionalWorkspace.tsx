@@ -10,10 +10,11 @@ import {ArrowDrownSvg} from "@src/shared/assets/icons";
 import {useActions} from "@src/app/redux/hooks/useActions";
 import {SelectDate} from "@src/features/select-date";
 import {DateInputType} from "@src/widgets/reservWorkspaces/widgets/reserv-additional/ReservAdditional";
+import {useClass} from "@src/shared/hooks";
 
 type IWorkspaces = {
-    activeWorkspaces: Workspaces[],
-    setActiveWorkspaces: Dispatch<SetStateAction<Workspaces[]>>
+    activeWorkspace: Workspaces | '',
+    setActiveWorkspace: Dispatch<SetStateAction<Workspaces | ''>>
 }
 
 export interface IAdditionalPaginationItems {
@@ -36,32 +37,32 @@ export const BookingWorkspaceItems: FC<IAdditionalPaginationItems> = (props) => 
     const {setPage} = useActions()
 
     const toggleWorkspace = (tag : Workspaces) => {
-        if(workSpaces.activeWorkspaces.includes(tag)) {
-            workSpaces.setActiveWorkspaces(workSpaces.activeWorkspaces.filter(space => space != tag))
-        } else {
-            workSpaces.setActiveWorkspaces(p => [...p, tag])
+        if(workSpaces.activeWorkspace === tag) {
+            workSpaces.setActiveWorkspace('')
+        } else if(tag != Workspaces.TRAINING_CENTER){
+            workSpaces.setActiveWorkspace(tag)
         }
     }
 
 
     useEffect(() => {
-        setIsCalendarOpen(workSpaces.activeWorkspaces.includes(tag))
-    }, [workSpaces.activeWorkspaces])
+        setIsCalendarOpen(workSpaces.activeWorkspace === tag)
+    }, [workSpaces.activeWorkspace])
 
 
     const isValid = !(inputs.map(input => input.valid).includes(false))
 
     return (
         <div
-            className={workSpaces.activeWorkspaces.includes(tag) ? combineStyle([classes.workspaceContainer_active, isValid ? '' : classes['invalid']]) : classes.workspaceContainer}>
+            className={workSpaces.activeWorkspace === tag ? combineStyle([classes.workspaceContainer_active, isValid ? '' : classes['invalid']]) : (tag === Workspaces.TRAINING_CENTER ? classes.workspaceContainer_disabled : classes.workspaceContainer)}>
             <div
                 onClick={() => toggleWorkspace(tag)}
-                className={workSpaces.activeWorkspaces.includes(tag) ? classes.baseCardContainer_active : classes.baseCardContainer}>
+                className={workSpaces.activeWorkspace === tag ? classes.baseCardContainer_active : classes.baseCardContainer}>
                 <div className={classes.image}>
                     <img src={src} alt={header}/>
                 </div>
 
-                <div className={classes.text_content}>
+                <div className={useClass([classes.text_content, tag === Workspaces.TRAINING_CENTER ? classes['disabled'] : ''])}>
                     <h4 className={TextModule.paragraph__bold}>
                         {header}
                     </h4>
@@ -79,7 +80,7 @@ export const BookingWorkspaceItems: FC<IAdditionalPaginationItems> = (props) => 
             </div>
 
             <div
-                className={combineStyle([classes.additionalItemsContainer, workSpaces.activeWorkspaces.includes(tag) ? classes['open'] : classes['closed']])}>
+                className={combineStyle([classes.additionalItemsContainer, workSpaces.activeWorkspace === tag ? classes['open'] : classes['closed']])}>
                 <div className={classes.inputsContainer}>
                     {inputs.map((input, index) =>
                         <SelectDate key={index} label={'Дата'} isOpenDefault={isCalendarOpen} setIsOpenDefault={setIsCalendarOpen} setValue={input.input.setValue} variety={'white'}/>

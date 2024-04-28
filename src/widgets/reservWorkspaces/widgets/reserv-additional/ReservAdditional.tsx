@@ -23,7 +23,7 @@ type GroupedInputsType = {
 }
 
 export const ReservAdditional = () => {
-  const [activeWorkspaces, setActiveWorkspaces] = useState<Workspaces[]>([]);
+  const [activeWorkspace, setActiveWorkspace] = useState<Workspaces | ''>(null);
   const {t} = useTranslation('main')
   const {setWorkspace} = useActions()
   const [trainingCentre, setTrainingCentre] = useState('0')
@@ -60,6 +60,15 @@ export const ReservAdditional = () => {
     ]
   }
 
+  const sortedPackages = reservAdditionalModel.pagination.reduce((acc: {src: string, tag?: string, header: string, title: string, price: string}[], curr) => {
+    if (curr.header === activeWorkspace) {
+      return [curr, ...acc];
+    } else {
+      return [...acc, curr];
+    }
+  }, []);
+
+  console.log(sortedPackages, activeWorkspace, "bimbim")
 
   const saveTariffDates = (title: string, startDay: string, startTime: string, endTime: string) => {
       const item = reservAdditionalModel.pagination.find((space) => space.header === title)
@@ -72,21 +81,21 @@ export const ReservAdditional = () => {
   return (
     <div className={classes.pagination_column}>
       {
-        reservAdditionalModel.pagination.map((el) =>
-            <BookingWorkspaceItems
-              saveWorkspace={saveTariffDates}
-              inputs={el.tag === Workspaces.TRAINING_CENTER ? inputs.TrainingCenter : (el.tag === Workspaces.MEETING_ROOM ? inputs.MeetingRoom : inputs.BusinessLounge)}
-              src={el.src}
-              header={t(el.header)}
-              title={t(el.title)}
-              price={t(el.price)}
-              tag={el.tag as Workspaces}
-              key={el.src}
-              workSpaces={{
-                activeWorkspaces: activeWorkspaces,
-                setActiveWorkspaces: setActiveWorkspaces
-              }}
-            />
+        sortedPackages.map((el) =>
+          <BookingWorkspaceItems
+            saveWorkspace={saveTariffDates}
+            inputs={el.tag === Workspaces.TRAINING_CENTER ? inputs.TrainingCenter : (el.tag === Workspaces.MEETING_ROOM ? inputs.MeetingRoom : inputs.BusinessLounge)}
+            src={el.src}
+            header={t(el.header)}
+            title={t(el.title)}
+            price={t(el.price)}
+            tag={el.tag as Workspaces}
+            key={el.src}
+            workSpaces={{
+              activeWorkspace: activeWorkspace,
+              setActiveWorkspace: setActiveWorkspace
+            }}
+          />
         )
       }
     </div>

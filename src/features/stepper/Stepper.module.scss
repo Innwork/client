@@ -89,27 +89,22 @@
 	align-items: center;
 
 	@media (max-width: 1440px) {
-		margin-block: function.vw(24, 1440);
 		gap: function.vw(8, 1440);
 	}
 
 	@media (max-width: 960px) {
-		margin-block: function.vw(24, 960);
 		gap: function.vw(8, 960);
 	}
 
 	@media (max-width: 720px) {
-		margin-block: function.vw(24, 720);
 		gap: function.vw(8, 720);
 	}
 
 	@media (max-width: 540px) {
-		margin-block: function.vw(24, 540);
 		gap: function.vw(8, 540);
 	}
 
 	@media (max-width: 420px) {
-		margin-block: function.vw(24, 420);
 		gap: function.vw(6, 420);
 	}
 }

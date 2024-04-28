@@ -46,7 +46,7 @@ const initialState: BookingStateType = {
   isFormSent: false,
   PWSpeopleCount: 6,
   isOpen: false,
-  tariffs: [],
+  tariffs: "",
   workspaces: [],
   personalInfo: {
     firstName: "",
@@ -72,10 +72,10 @@ const bookingSlice = createSlice({
         state.PWSpeopleCount = payload
       },
       setTariff(state, {payload}: PayloadAction<Tariffs>) {
-        state.tariffs = [payload, ...state.tariffs]
+        state.tariffs = payload
       },
-      removeTariff(state, {payload}: PayloadAction<Tariffs>) {
-        state.tariffs = state.tariffs.filter(item => item !== payload)
+      removeTariff(state) {
+        state.tariffs = ""
       },
       setIsOpen(state, {payload}: PayloadAction<boolean>) {
         state.isOpen = payload
@@ -357,9 +357,6 @@ const bookingSlice = createSlice({
             // const date2 = new Date(Number(dateArray2[2]), Number(dateArray2[1]), Number(dateArray2[0]),).valueOf()
             // const differentInDays = ((date2 - date1) / (60 * 60 *24 * 1000) + 1);
             return "12 000"
-          }
-          else {
-            return "38000"
           }
         }
         const price = getPrice()

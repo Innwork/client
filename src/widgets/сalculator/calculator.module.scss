@@ -94,6 +94,10 @@
   h3{
     color: var(--orange);
   }
+
+  button {
+    white-space: nowrap;
+  }
   
   @media (max-width: 1440px) {
     padding: function.vw(21, 1440) function.vw(54, 1440) function.vw(28, 1440) function.vw(51, 1440);
