@@ -2,7 +2,7 @@ import BookingStyle from "@src/widgets/booking/Booking.module.scss"
 import {PersonalInfoForm} from "@src/widgets/personalInfoForm";
 import {BookingHead} from "@src/features/bookingHead";
 import {PackageSelection} from "@src/widgets/packageSelection";
-import {useCallback, } from "react";
+import {useCallback, useState,} from "react";
 import {combineStyle} from "@src/shared/utils";
 import {Stepper} from "@src/features/stepper";
 import {useSelector} from "react-redux";
@@ -30,6 +30,7 @@ export const Booking = () => {
   const peopleCount = useSelector(selectPWSpeopleCount)
   const personalInfo = useSelector(selectBookingPersonalInfo)
   const page = useSelector(selectPage)
+  const [termsAgreement, setTermsAgreement] = useState(false)
   const steps = 3
   const {postReservationData, setPage} = useActions()
   const {t} = useTranslation('main')
@@ -79,13 +80,13 @@ export const Booking = () => {
             <PackageSelection/>
             : page === 2 ?
               <ReservWorkspaces/>
-              : <PersonalInfoForm/>
+              : <PersonalInfoForm termsAgreement={termsAgreement} setTermsAgreement={setTermsAgreement}/>
         }
         <div className={BookingStyle.directionButtonsContainer}>
           <div className={BookingStyle.directionButtons}>
             <DirectionButton onClick={page > 1 ? () => setPage(page - 1) : () => {}} variant={'back'}>{t("Назад")}</DirectionButton>
             <DirectionButton onClick={page < steps ? ( page === 3 ? ((cartTariffs.length + cartWorkspaces.length) != 0 ? () => setPage(page + 1) : () => {}) : () => setPage(page + 1)) :
-              (!(page === steps && (((cartTariffs.length + cartWorkspaces.length) === 0) || (Object.values(areInputsValid).includes(false))))? sendReservationRequest : () => {})} variant={'next'} disabled={(page === steps ? (((cartTariffs.length + cartWorkspaces.length) === 0) || (Object.values(areInputsValid).includes(false))) : (page === 2 && (cartTariffs.length + cartWorkspaces.length) === 0))}>{page === steps ? t( "Отправить") : t( "Дальше")}</DirectionButton>
+              ((page === steps && termsAgreement && !(((cartTariffs.length + cartWorkspaces.length) === 0) || (Object.values(areInputsValid).includes(false))))? sendReservationRequest : () => {})} variant={'next'} disabled={(page === steps ? (((cartTariffs.length + cartWorkspaces.length) === 0) || (Object.values(areInputsValid).includes(false)) || !termsAgreement) : (page === 2 && (cartTariffs.length + cartWorkspaces.length) === 0))}>{page === steps ? t( "Отправить") : t( "Дальше")}</DirectionButton>
           </div>
         </div>
       </div>

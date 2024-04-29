@@ -14,13 +14,20 @@ import {
 } from "@src/app/redux/Booking/BookingSlice";
 import {ErrorSnack} from "@src/shared/ui/snackbar/ErrorSnack";
 import {packages} from "@src/widgets/packageSelection/model/PackageCardModel";
-import {useEffect} from "react";
+import {FC, useEffect} from "react";
 import {useActions} from "@src/app/redux/hooks/useActions";
 
-export const PersonalInfoForm = () => {
+interface PersonalInfoFormProps {
+  termsAgreement: boolean
+  setTermsAgreement: (i: boolean) => void
+}
+
+export const PersonalInfoForm:FC<PersonalInfoFormProps> = (props) => {
   const cartTariffs = useSelector(selectCartTariffs)
   const cartWorkspaces = useSelector(selectBookingWorkspace)
   const {setAreInputsValid, setPersonalInfo} = useActions()
+  const {termsAgreement, setTermsAgreement} = props
+
   const {t} = useTranslation('main')
 
   const inputs: IMainBaseInput[] = [
@@ -164,8 +171,10 @@ export const PersonalInfoForm = () => {
           )}
         </>
 
-        {(cartTariffs.length + cartWorkspaces.length) === 0 &&
-          <ErrorSnack>{t("Упс ... Вы не выбрали ни один пакет")}</ErrorSnack>
+        {(cartTariffs.length + cartWorkspaces.length) === 0 ?
+          <ErrorSnack>{t("Упс ... Вы не выбрали ни один пакет.")}</ErrorSnack>
+          :
+          <ErrorSnack checkBox={true} variety={termsAgreement ? 'good' : 'error'} checkValue={termsAgreement} setCheckValue={setTermsAgreement}>{t("Я согласен с правилами использования коворкинга.")}</ErrorSnack>
         }
       </div>
     </>
