@@ -14,6 +14,26 @@
 	}
 }
 
+.checkSnack {
+	margin-top: function.vw(26, 1920);
+	margin-bottom: function.vw(20, 1920);
+
+	@include mixin.mediaMT(1440px, 26, 1440);
+	@include mixin.mediaMT(960px, 26, 960);
+	@include mixin.mediaMT(720px, 26, 720);
+	@include mixin.mediaMT(540px, 26, 540);
+
+	@include mixin.mediaMB(1440px, 26, 1440);
+	@include mixin.mediaMB(960px, 26, 960);
+	@include mixin.mediaMB(720px, 26, 720);
+	@include mixin.mediaMB(540px, 26, 540);
+
+	a {
+		text-decoration: underline;
+		color: var(--dark-blue);
+	}
+}
+
 .radioStatus {
 	display: flex;
 	margin-top: function.vw(26, 1920);
@@ -39,22 +59,36 @@
 	.cardIndicator {
 		display: inline-block;
 		position: relative;
-		width: 16px;
-		height: 16px;
+		width: function.vw(16,1920);
+		height: function.vw(16,1920);
 		border-radius: 50%;
 		border: 1px solid #f8731a;
 		background-color: #fff;
 
+		@include mixin.mediaSquareSize(1440px, 16, 1440);
+		@include mixin.mediaSquareSize(960px, 16, 960);
+		@include mixin.mediaSquareSize(720px, 16, 720);
+		@include mixin.mediaSquareSize(540px, 16, 540);
+		@include mixin.mediaSquareSize(420px, 16, 420);
+		@include mixin.mediaSquareSize(340px, 16, 340);
+
 
 		.indicatorDot {
 			background-color: #f8731a;
-			width: 6px;
-			height: 6px;
+			width: function.vw(6,1920);
+			height: function.vw(6,1920);
 			position: absolute;
 			top: 50%;
 			left: 50%;
 			transform: translate(-50%, -50%);
 			border-radius: 50%;
+
+			@include mixin.mediaSquareSize(1440px, 6, 1440);
+			@include mixin.mediaSquareSize(960px, 6, 960);
+			@include mixin.mediaSquareSize(720px, 6, 720);
+			@include mixin.mediaSquareSize(540px, 6, 540);
+			@include mixin.mediaSquareSize(420px, 6, 420);
+			@include mixin.mediaSquareSize(340px, 6, 340);
 		}
 	}
 }

@@ -1,4 +1,4 @@
-import {FC} from "react";
+import {FC, ReactNode} from "react";
 import classes from "@src/shared/ui/snackbar/ErrorSnack/ErrorSnack.module.scss";
 import {combineStyle} from "@src/shared/utils";
 import {TextModule} from "@src/shared/scss";
@@ -6,7 +6,7 @@ import {ErrorIconMsg} from "@src/shared/assets/icons/ui";
 import {SuccessIconMsg} from "@src/shared/assets/icons/ui";
 
 interface ErrorSnackProps {
-  children: string
+  children: string | ReactNode
   className?: string
   variety?: 'error' | 'good'
   checkBox?: boolean
@@ -41,7 +41,7 @@ export const ErrorSnack: FC<ErrorSnackProps> = (props) => {
               {checkBox && variety === "good" ?
                 <SuccessIconMsg/>
                 :
-                <ErrorIconMsg/>
+                <ErrorIconMsg height={'10px'}/>
               }
             </div>
             <p className={combineStyle([

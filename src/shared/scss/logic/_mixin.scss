@@ -14,8 +14,8 @@
 
 @mixin mediaSquareSize($maxWidth, $value, $size){
   @media (max-width: $maxWidth) {
-    height: function.vw($value, $size);
-    width: function.vw($value, $size);
+    min-height: function.vw($value, $size);
+    min-width: function.vw($value, $size);
   }
 }
 
