@@ -2,6 +2,7 @@
 @use "src/shared/scss/logic/mixin";
 
 .workspaceContainer {
+	position: relative;
 	width: 100%;
 	background-color: var(--blue-t25);
 	border: 2px solid transparent;
@@ -11,7 +12,7 @@
 
 	&_disabled {
 		@extend .workspaceContainer;
-		background-color: var(--state-red-t25);
+		overflow: hidden;
 	}
 
 	@media (hover: hover) {
@@ -24,6 +25,32 @@
 		&:active{
 			border: 2px solid var(--blue);
 		}
+	}
+}
+
+.soonButtonContainer {
+	z-index: 10;
+	border-radius: 10px;
+	position: absolute;
+	background-color: var(--black);
+	opacity: 0.5;
+	width: 100%;
+	height: 100%;
+}
+
+.soonButton {
+	z-index: 11;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	height: 30%;
+	min-width: 30%;
+	max-width: max-content;
+	transform: translate(-50%, -50%);
+	box-shadow: 7px 4px 8px 3px var(--black-t50);
+
+	@media (max-width: 960px) {
+		min-width: 40%;
 	}
 }
 
@@ -46,6 +73,11 @@
 	gap: function.vw(10, 1920);
 	border-radius: 10px;
 	transition-duration: 300ms;
+
+	&_disabled {
+		@extend .baseCardContainer;
+		filter: blur(4px);
+	}
 
 	@media (max-width: 1440px) {
 		gap: function.vw(10, 1440);
@@ -171,10 +203,6 @@
 	align-self: center;
 	padding: function.vw(10, 1920) function.vw(24, 1920);
 
-	&.disabled {
-		filter: blur(2px);
-	}
-
 	h4 {
 		text-transform: uppercase;
 		color: var(--black-t50);
@@ -191,6 +219,7 @@
 	
 	@media (max-width: 960px) {
 		padding: function.vw(10, 960) function.vw(24, 960);
+		width: 100%;
 
 		h4 {
 			margin-bottom: function.vw(8, 960);
@@ -199,6 +228,7 @@
 	
 	@media (max-width: 720px) {
 		padding: function.vw(10, 720) function.vw(24, 720);
+		width: 100%;
 
 		h4 {
 			margin-bottom: function.vw(8, 720);
@@ -207,6 +237,7 @@
 
 	@media (max-width: 540px) {
 		padding: function.vw(10, 540) function.vw(24, 540);
+		width: 100%;
 
 		h4 {
 			margin-bottom: function.vw(8, 540);
@@ -215,6 +246,7 @@
 	
 	@media (max-width: 420px) {
 		padding: function.vw(10, 420) function.vw(24, 420);
+		width: 100%;
 
 		h4 {
 			margin-bottom: function.vw(8, 420);

@@ -119,9 +119,14 @@ const bookingSlice = createSlice({
                   return time2 - time1
                 } else return time2 - 22
               } else if (time2 <= 22) {
-                if (time2 >= 9) {
-                  return time2 - time1 - 1
-                } else return time2
+                if (time1 >= 9) {
+                  return 0
+                } else if (time1 < 9) {
+                  if (time2 >=9) return 9 - time1
+                  else if (time2 < 9) {
+                    return time2 - time1
+                  }
+                }
               }
             }
           return 0
@@ -162,9 +167,14 @@ const bookingSlice = createSlice({
               return (time2 - time1) * days
             } else return (time2 - 22) * days
           } else if (time2 <= 22) {
-            if (time2 >= 9) {
-              return (time2 - time1 - 1) * days
-            } else return (time2) * days
+            if (time1 >= 9) {
+              return 0
+            } else if (time1 < 9) {
+              if (time2 >=9) return 9 - time1
+              else if (time2 < 9) {
+                return time2 - time1
+              }
+            }
           }
         }
 
@@ -302,9 +312,14 @@ const bookingSlice = createSlice({
                 return time2 - time1
               } else return time2 - 22
             } else if (time2 <= 22) {
-              if (time2 >= 9) {
-                return time2 - time1 - 1
-              } else return time2
+              if (time1 >= 9) {
+                return 0
+              } else if (time1 < 9) {
+                if (time2 >=9) return 9 - time1
+                else if (time2 < 9) {
+                  return time2 - time1
+                }
+              }
             }
           }
           return 0
@@ -346,6 +361,7 @@ const bookingSlice = createSlice({
             if (time1 === time2) {
               return '6500'
             } else {
+              console.log(getHours(), getHappyHours(), "bimbim")
               return (2500 * (getHours() - getHappyHours()) +  (2500 * 0.8 * getHappyHours())).toString()
             }
           }

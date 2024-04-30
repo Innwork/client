@@ -1,15 +1,15 @@
 @use "src/shared/scss/logic/function";
+@use "src/shared/scss/logic/mixin";
 
 .snack_container{
 	margin-top: function.vw(10, 1920);
 	display: flex;
+	justify-content: space-between;
 	align-items: center;
 	border-radius: 10px;
 	padding-block: function.vw(25, 1920);
 	padding-inline: function.vw(20, 1920);
 	width: 100%;
-	gap: function.vw(5, 1920);
-
 
 	&__btn_icon{
 		cursor: pointer;
@@ -20,12 +20,23 @@
 	}
 
 	&.error{
-		border: 2px solid var(--state-red);
+		border: 1px solid var(--state-red);
 		background-color: var(--white);
 		color: var(--state-red);
 
 		& svg{
 			fill: var(--state-red);
+		}
+	}
+
+	&.good {
+		border: 1px solid var(--state-success);
+		background-color: var(--white);
+		color: var(--state-success);
+
+		& svg{
+			height: 20px;
+			width: auto;
 		}
 	}
 
@@ -58,4 +69,70 @@
 		padding-block: function.vw(25, 420);
 		padding-inline: function.vw(20, 420);
 	}
+}
+
+.snack_content {
+	display: flex;
+	align-items: center;
+	gap: function.vw(5, 1920);
+
+
+	@media (max-width: 1440px) {
+		gap: function.vw(10, 1440);
+	}
+
+	@media (max-width: 960px) {
+		gap: function.vw(10, 960);
+	}
+
+	@media (max-width: 720px) {
+		gap: function.vw(10, 720);
+	}
+
+	@media (max-width: 540px) {
+		gap: function.vw(10, 540);
+	}
+
+	@media (max-width: 420px) {
+		gap: function.vw(10, 420);
+	}
+}
+
+.check {
+	-webkit-appearance: none; /*hides the default checkbox*/
+	height: function.vw(20, 1920);
+	width: function.vw(20, 1920);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	transition: 0.1s;
+	background-color: #FE0006;
+	font-weight: 600;
+	color: white;
+	border-radius: 3px;
+
+
+	@include mixin.mediaSquareSize(1440px, 20, 1440);
+	@include mixin.mediaSquareSize(960px, 20, 960);
+	@include mixin.mediaSquareSize(720px, 20, 720);
+	@include mixin.mediaSquareSize(540px, 20, 540);
+	@include mixin.mediaSquareSize(420px, 20, 420);
+	@include mixin.mediaSquareSize(340px, 20, 340);
+}
+
+.check:checked {
+	background-color: #0E9700;
+}
+
+.check:before {
+	content: "✖";
+}
+.check:checked:before {
+	content: "✔";
+}
+
+.check:hover {
+	cursor: pointer;
+	opacity: 0.8;
 }

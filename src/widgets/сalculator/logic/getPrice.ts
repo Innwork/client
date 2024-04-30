@@ -37,9 +37,14 @@ const getHappyHours = (time?: string): number => {
         return time2 - time1
       } else return time2 - 22
     } else if (time2 <= 22) {
-      if (time2 >= 9) {
-        return time2 - time1 - 1
-      } else return time2
+      if (time1 >= 9) {
+        return 0
+      } else if (time1 < 9) {
+        if (time2 >=9) return 9 - time1
+        else if (time2 < 9) {
+          return time2 - time1
+        }
+      }
     }
   }
   return 0
@@ -80,9 +85,14 @@ const getCombinedHappyHours = (duration: string, time: string): number => {
       return (time2 - time1) * days
     } else return (time2 - 22) * days
   } else if (time2 <= 22) {
-    if (time2 >= 9) {
-      return (time2 - time1 - 1) * days
-    } else return (time2) * days
+    if (time1 >= 9) {
+      return 0
+    } else if (time1 < 9) {
+      if (time2 >=9) return 9 - time1
+      else if (time2 < 9) {
+        return time2 - time1
+      }
+    }
   }
 }
 

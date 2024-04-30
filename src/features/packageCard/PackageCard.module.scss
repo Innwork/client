@@ -8,10 +8,14 @@
 		position: absolute;
 		top: function.vw(14, 1920);
 		left: function.vw(20, 1920);
-		width: 16px;
-		height: 16px;
 
+		@include mixin.mediaSquareSize(1920px, 16, 1920);
+		@include mixin.mediaSquareSize(1440px, 16, 1440);
+		@include mixin.mediaSquareSize(960px, 16, 960);
+		@include mixin.mediaSquareSize(720px, 16, 720);
+		@include mixin.mediaSquareSize(540px, 16, 540);
 		@include mixin.mediaSquareSize(420px, 16, 420);
+		@include mixin.mediaSquareSize(340px, 16, 340);
 
 		border-radius: 50%;
 		border: 1px solid #c9c9ca;
@@ -29,11 +33,15 @@
 		@include mixin.mediaLeft(420px, 20, 420);
 
 		.indicatorDot {
-			width: 6px;
-			height: 6px;
 			background-color: transparent;
 
+			@include mixin.mediaSquareSize(1920px, 6, 1920);
+			@include mixin.mediaSquareSize(1440px, 6, 1440);
+			@include mixin.mediaSquareSize(960px, 6, 960);
+			@include mixin.mediaSquareSize(720px, 6, 720);
+			@include mixin.mediaSquareSize(540px, 6, 540);
 			@include mixin.mediaSquareSize(420px, 6, 420);
+			@include mixin.mediaSquareSize(340px, 6, 340);
 
 			position: absolute;
 			top: 50%;

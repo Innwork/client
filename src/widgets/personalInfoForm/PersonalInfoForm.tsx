@@ -14,13 +14,21 @@ import {
 } from "@src/app/redux/Booking/BookingSlice";
 import {ErrorSnack} from "@src/shared/ui/snackbar/ErrorSnack";
 import {packages} from "@src/widgets/packageSelection/model/PackageCardModel";
-import {useEffect} from "react";
+import {FC, useEffect} from "react";
 import {useActions} from "@src/app/redux/hooks/useActions";
+import {combineStyle} from "@src/shared/utils";
 
-export const PersonalInfoForm = () => {
+interface PersonalInfoFormProps {
+  termsAgreement: boolean
+  setTermsAgreement: (i: boolean) => void
+}
+
+export const PersonalInfoForm:FC<PersonalInfoFormProps> = (props) => {
   const cartTariffs = useSelector(selectCartTariffs)
   const cartWorkspaces = useSelector(selectBookingWorkspace)
   const {setAreInputsValid, setPersonalInfo} = useActions()
+  const {termsAgreement, setTermsAgreement} = props
+
   const {t} = useTranslation('main')
 
   const inputs: IMainBaseInput[] = [
@@ -132,6 +140,10 @@ export const PersonalInfoForm = () => {
         }
       </div>
 
+      <div className={combineStyle([PersonalInfoFormStyle.checkSnack, TextModule.paragraph__bold])}>
+        <ErrorSnack checkBox={true} variety={termsAgreement ? 'good' : 'error'} checkValue={termsAgreement} setCheckValue={setTermsAgreement}>{t("Я согласен(на) с ")} <a target={'_blank'} href={'google.com'}>{t('правилами использования коворкинга.')}</a></ErrorSnack>
+      </div>
+
       <div className={PersonalInfoFormStyle.radioStatus}>
         <div className={PersonalInfoFormStyle.cardIndicator}>
           <div className={PersonalInfoFormStyle.indicatorDot}/>
@@ -165,7 +177,7 @@ export const PersonalInfoForm = () => {
         </>
 
         {(cartTariffs.length + cartWorkspaces.length) === 0 &&
-          <ErrorSnack>{t("Упс ... Вы не выбрали ни один пакет")}</ErrorSnack>
+          <ErrorSnack>{t("Упс ... Вы не выбрали ни один пакет.")}</ErrorSnack>
         }
       </div>
     </>
