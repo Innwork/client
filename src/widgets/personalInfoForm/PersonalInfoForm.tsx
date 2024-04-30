@@ -141,7 +141,7 @@ export const PersonalInfoForm:FC<PersonalInfoFormProps> = (props) => {
       </div>
 
       <div className={combineStyle([PersonalInfoFormStyle.checkSnack, TextModule.paragraph__bold])}>
-        <ErrorSnack checkBox={true} variety={termsAgreement ? 'good' : 'error'} checkValue={termsAgreement} setCheckValue={setTermsAgreement}>{t("Я согласен с ")} <a target={'_blank'} href={'google.com'}>{t('правилами использования коворкинга.')}</a></ErrorSnack>
+        <ErrorSnack checkBox={true} variety={termsAgreement ? 'good' : 'error'} checkValue={termsAgreement} setCheckValue={setTermsAgreement}>{t("Я согласен(на) с ")} <a target={'_blank'} href={'google.com'}>{t('правилами использования коворкинга.')}</a></ErrorSnack>
       </div>
 
       <div className={PersonalInfoFormStyle.radioStatus}>

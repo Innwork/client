@@ -20,7 +20,7 @@
 	}
 
 	&.error{
-		border: 2px solid var(--state-red);
+		border: 1px solid var(--state-red);
 		background-color: var(--white);
 		color: var(--state-red);
 
@@ -30,9 +30,9 @@
 	}
 
 	&.good {
-		border: 2px solid var(--yelow);
+		border: 1px solid var(--state-success);
 		background-color: var(--white);
-		color: var(--yelow);
+		color: var(--state-success);
 
 		& svg{
 			height: 20px;

@@ -47,17 +47,23 @@ export const AboutUs: FC = () => {
                 </div>
             </div>
 
-            <div className={classes.grid}>
-                {CardBenefits.map((el) => <SmallCards icon={el.icon} title={el.title} subtitle={el.subtitle}
-                                                      state={"light"} key={el.title}/>)}
-            </div>
-
             {
-                !globalResize.isScreenLg && <Slider slidesPerView={3} sizeBoolean={globalResize.isScreenLg}>
-                    {CardBenefits.map((el) => <SmallCards icon={el.icon} title={el.title} subtitle={el.subtitle}
-                                                          key={el.title} state={"light"}/>)}
-                </Slider>
+                location.pathname !== "/about" && <>
+
+                    <div className={classes.grid}>
+                        {CardBenefits.map((el) => <SmallCards icon={el.icon} title={el.title} subtitle={el.subtitle}
+                                                              state={"light"} key={el.title}/>)}
+                    </div>
+
+                    {
+                        !globalResize.isScreenLg && <Slider slidesPerView={3} sizeBoolean={globalResize.isScreenLg}>
+                            {CardBenefits.map((el) => <SmallCards icon={el.icon} title={el.title} subtitle={el.subtitle}
+                                                                  key={el.title} state={"light"}/>)}
+                        </Slider>
+                    }
+                </>
             }
+
         </section>
     );
 };
