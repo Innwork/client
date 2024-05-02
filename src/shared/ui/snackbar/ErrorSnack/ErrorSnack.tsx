@@ -2,6 +2,8 @@ import {FC, ReactNode} from "react";
 import classes from "@src/shared/ui/snackbar/ErrorSnack/ErrorSnack.module.scss";
 import {combineStyle} from "@src/shared/utils";
 import {TextModule} from "@src/shared/scss";
+import {ErrorIconMsg} from "@src/shared/assets/icons/ui";
+import {SuccessIconMsg} from "@src/shared/assets/icons/ui";
 
 interface ErrorSnackProps {
   children: string | ReactNode
@@ -35,6 +37,13 @@ export const ErrorSnack: FC<ErrorSnackProps> = (props) => {
             classes.snack_container, varietyStyle[variety], className
           ])}>
           <div className={classes.snack_content}>
+            <div className={classes.snack_container__btn_icon}>
+              {!checkBox && variety === "good" ?
+                <SuccessIconMsg/>
+                :
+                !checkBox && variety === "error" && <ErrorIconMsg/>
+              }
+            </div>
             <p className={combineStyle([
               TextModule.paragraph__medium
             ])}>
