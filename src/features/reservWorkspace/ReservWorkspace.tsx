@@ -3,7 +3,9 @@ import {useTranslation} from "react-i18next";
 import {TextModule} from "@src/shared/scss";
 import classes from "@src/features/reservWorkspace/ReserveWorkspace.module.scss"
 import {combineStyle} from "@src/shared/utils";
-import {ClockGraySvg, GrayDataSVG, TrashBinSvg} from "@src/shared/assets/icons";
+import ClockGraySvg from "@assets/icons/ui/btn/timeGray.svg";
+import GrayDataSVG from "@assets/icons/ui/btn/grayData.svg";
+import TrashBinSvg from "@assets/icons/trashBin.svg";
 import {Workspaces} from "@src/app/redux/Booking/BookingTypes";
 import {useActions} from "@src/app/redux/hooks/useActions";
 

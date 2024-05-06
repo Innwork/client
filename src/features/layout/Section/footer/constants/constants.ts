@@ -1,4 +1,5 @@
-import {InstagramSvg, FaceBookSvg} from "@src/shared/assets/icons/Footer";
+import InstagramSvg from "@assets/icons/Footer/insta.svg";
+import FaceBookSvg from "@assets/icons/Footer/facebook.svg";
 export const footerItems = {
     left: {
         text: "Наша команда специалистов, доступна 24/7, чтобы помочь вам найти лучшее решение для вашего бизнеса Присоединяйтесь к нашему коворкингу и станьте частью нашего сообщества творческих и предприимчивых людей."

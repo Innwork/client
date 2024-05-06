@@ -3,7 +3,7 @@ import StepperStyle from "@src/features/stepper/Stepper.module.scss"
 import {FC, useContext} from "react";
 import {combineStyle} from "@src/shared/utils";
 import {useTranslation} from "react-i18next";
-import {RightCaretGray} from "@src/shared/assets/icons"
+import RightCaretGray from "@assets/icons/RightCaretGray.svg"
 import {GlobalContext} from "@src/app/provider";
 import {useSelector} from "react-redux";
 import {selectBookingWorkspace, selectCartTariffs} from "@src/app/redux/Booking/BookingSlice";

@@ -3,7 +3,7 @@ import AccordionStyle from "./Accordion.module.scss";
 import {Link} from "react-router-dom";
 import {AccordionItemType} from "src/shared/types";
 import {combineStyle} from "@src/shared/utils";
-import {DropdownArrow} from "@src/shared/assets/icons/Header";
+import DropdownArrow from "@assets/icons/Header/dropdown-arrow-down.svg";
 import {TextModule} from "@src/shared/scss";
 import {useTranslation} from "react-i18next";
 

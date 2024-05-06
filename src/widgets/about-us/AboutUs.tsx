@@ -1,7 +1,7 @@
 import {FC, useContext} from "react";
 import {ContainerModule, TextModule} from "@src/shared/scss";
 import {Link, useLocation} from "react-router-dom";
-import Arrow from "@src/shared/assets/icons/ui/arrow.svg";
+import Arrow from "@assets/icons/ui/arrow.svg";
 import classes from "@src/widgets/about-us/style/About.module.scss";
 import {CardBenefits} from "@src/widgets/about-us/model/CardBenefits";
 import {SmallCards} from "@src/shared/ui/cards";

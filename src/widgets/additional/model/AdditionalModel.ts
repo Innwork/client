@@ -1,6 +1,6 @@
-import {
-    businessLoungeAdditional, meetingRoomAdditional, trainingCenterAdditional
-} from "@src/shared/assets/img/AdditonalSpace";
+import businessLoungeAdditional from "@assets/img/AdditonalSpace/slide/business-longe.png";
+import meetingRoomAdditional from "@assets/img/AdditonalSpace/slide/meeting-room.png";
+import trainingCenterAdditional from "@assets/img/AdditonalSpace/slide/traning-center.png";
 import {IAdditionSlide} from "@src/widgets/additional/ui/AdditionSlide";
 
 type TAdditionalModal = {

@@ -1,7 +1,7 @@
 import {ILiText} from "@src/widgets/сalculator/ui/li-text/LiText";
-import SVGOne from "@src/shared/assets/icons/widgets/01.svg";
-import SVGTwo from "@src/shared/assets/icons/widgets/02.svg";
-import SVGThree from "@src/shared/assets/icons/widgets/03.svg";
+import SVGOne from "@assets/icons/widgets/01.svg";
+import SVGTwo from "@assets/icons/widgets/02.svg";
+import SVGThree from "@assets/icons/widgets/03.svg";
 
 
 export const LiModel: Array<ILiText> = [

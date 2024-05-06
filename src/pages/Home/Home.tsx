@@ -6,8 +6,8 @@ import {AboutUs} from "@src/widgets/about-us";
 import {ChooseLocation} from "@src/widgets/сhoose-location";
 import {BannerHome} from "@src/widgets/banner-home";
 
-import BannerOne from "@src/shared/assets/img/banner/banner_one.jpg";
-import BannerTwo from "@src/shared/assets/img/banner/banner_two.jpg";
+import BannerOne from "@assets/img/banner/banner_one.jpg";
+import BannerTwo from "@assets/img/banner/banner_two.jpg";
 import {Calculator} from "@src/widgets/сalculator";
 import {TextModule} from "@src/shared/scss";
 import {MainBtn} from "@src/shared/ui/btn/main-btn/MainBtn";

@@ -2,8 +2,8 @@ import {FC, ReactNode} from "react";
 import {Ivalidators, useClass} from "@src/shared/hooks";
 import {TextModule} from "@src/shared/scss";
 import classes from "@src/shared/ui/input/input-valid/InputValid.module.scss";
-import ErrorIconMsg from "@src/shared/assets/icons/ui/errorIcon.svg";
-import {SuccessIconMsg} from "@src/shared/assets/icons/ui";
+import ErrorIconMsg from "@assets/icons/ui/errorIcon.svg";
+import SuccessIconMsg from "@assets/icons/ui/successmsg.svg";
 import {CSSTransition} from "react-transition-group";
 
 export interface IInputValid{

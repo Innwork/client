@@ -1,9 +1,7 @@
 import {IReservPagination} from "@src/widgets/reservWorkspaces/types/reservWorkspaceType";
-import {
-    businessLoungeSmall,
-    meetingRoomSmall,
-    trainingCenterSmall
-} from "@src/shared/assets/img/AdditonalSpace";
+import businessLoungeSmall from "@assets/img/AdditonalSpace/business-longe.png";
+import meetingRoomSmall from "@assets/img/AdditonalSpace/meeting-room.png";
+import trainingCenterSmall from "@assets/img/AdditonalSpace/traning-center.png";
 import {Workspaces} from "@src/app/redux/Booking/BookingTypes";
 
 export type TReservAdditionalModel  = {

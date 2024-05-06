@@ -2,8 +2,8 @@ import {FC, ReactNode} from "react";
 import classes from "@src/shared/ui/snackbar/ErrorSnack/ErrorSnack.module.scss";
 import {combineStyle} from "@src/shared/utils";
 import {TextModule} from "@src/shared/scss";
-import {ErrorIconMsg} from "@src/shared/assets/icons/ui";
-import {SuccessIconMsg} from "@src/shared/assets/icons/ui";
+import ErrorIconMsg from "@assets/icons/ui/errorIcon.svg";
+import SuccessIconMsg from "@assets/icons/ui/successmsg.svg";
 
 interface ErrorSnackProps {
   children: string | ReactNode

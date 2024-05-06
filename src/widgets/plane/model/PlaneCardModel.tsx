@@ -1,6 +1,8 @@
 import {ICardPlane} from "@src/features/card/card-plane";
-import {FixedDescPng, NonFixedPng, PrivateWorkspacePng} from "@src/shared/assets/img/plane-card";
-import FreeSpace from "@src/shared/assets/img/plane-card/free-Space.png";
+import FixedDescPng from "@assets/img/plane-card/fixed-desc.png";
+import NonFixedPng from "@assets/img/plane-card/non-fixed.png";
+import PrivateWorkspacePng from "@assets/img/plane-card/private-workspace.png";
+import FreeSpace from "@assets/img/plane-card/free-Space.png";
 import {Tariffs} from "@src/app/redux/Booking/BookingTypes";
 
 export const PlaneCardModel: Array<ICardPlane> = [
