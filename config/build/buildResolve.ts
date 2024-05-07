@@ -5,7 +5,8 @@ export const buildResolve = ():webpack.ResolveOptions => {
     return {
         extensions: [".tsx", ".ts", ".js"],
         alias: {
-            '@src': path.resolve(__dirname, '../../src'),
+            '@src': path.resolve('src'),
+            '@assets': path.resolve('src/shared/assets'),
         }
     }
 }

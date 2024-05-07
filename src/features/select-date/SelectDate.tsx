@@ -3,7 +3,7 @@ import {TextModule} from "@src/shared/scss";
 import {Dispatch, FC, SetStateAction, useEffect, useRef, useState} from "react";
 import {CSSTransition} from "react-transition-group";
 import {DataPicker} from "@src/features/data-picker";
-import Date from "@src/shared/assets/icons/ui/btn/grayData.svg"
+import Date from "@assets/icons/ui/btn/grayData.svg"
 import {useClass} from "@src/shared/hooks";
 
 export interface ISelectDate {

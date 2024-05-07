@@ -3,7 +3,7 @@ import {combineStyle} from "@src/shared/utils";
 import {TextModule} from "@src/shared/scss";
 import {DropDownSelect} from "@src/shared/ui/input/";
 import {Dispatch, FC, SetStateAction, useContext} from "react";
-import {ArrowRight} from "@src/shared/assets/icons";
+import ArrowRight from "@assets/icons/ArrowRight.svg";
 import {useClass} from "@src/shared/hooks";
 import {GlobalContext} from "@src/app/provider";
 

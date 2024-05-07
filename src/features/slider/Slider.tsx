@@ -5,15 +5,17 @@ import {BasePagination} from "@src/features/slider/ui/BasePagination";
 import {useSlides} from "@src/shared/hooks";
 import classes from "@src/features/slider/style/slider.module.scss";
 import 'swiper/css';
+import './style/navigation.scss';
+import {Navigation} from 'swiper/modules';
 
 export interface ISlider {
     children: Array<ReactNode>
     slidesPerView: number
     sizeBoolean: boolean
-
+    navCarets?: boolean
 }
 
-export const Slider:FC<ISlider> = ({children, slidesPerView, sizeBoolean}) => {
+export const Slider:FC<ISlider> = ({children, slidesPerView, sizeBoolean, navCarets= false}) => {
     const {globalResize} = useContext(GlobalContext)!;
     const swiperRef = useRef<SwiperClass | null>(null);
     const [activeIndex, setActiveIndex] = useState(0);
@@ -51,7 +53,9 @@ export const Slider:FC<ISlider> = ({children, slidesPerView, sizeBoolean}) => {
     return (
         <>
             <Swiper
+                modules={[Navigation]}
                 spaceBetween={"25px"}
+                navigation={navCarets}
                 slidesPerView={sizeBoolean ? slidesPerView : 1}
                 onSwiper={(swiper) => (swiperRef.current = swiper)}
                 className={classes.swiper_container}

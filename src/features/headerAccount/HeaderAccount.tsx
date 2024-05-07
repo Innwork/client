@@ -1,10 +1,14 @@
 import {Link} from "react-router-dom";
 import {combineStyle} from "@src/shared/utils";
 import {TextModule} from "@src/shared/scss";
-import {BurgerMenu, CrossIcon, PhoneIcon} from "@src/shared/assets/icons/Header";
+import BurgerMenu from "@assets/icons/Header/burger-menu.svg";
+import CrossIcon from "@assets/icons/Header/cross.svg";
+import PhoneIcon from "@assets/icons/Header/phone.svg";
 import {useTranslation} from "react-i18next";
 import {FC, useContext, useEffect, useState} from "react";
-import {GbFlag, HyFlag, RuFlag} from "@src/shared/assets/icons/Flags"
+import GbFlag from "@assets/icons/Flags/GbFlag.png"
+import HyFlag from "@assets/icons/Flags/HyFlag.png"
+import RuFlag from "@assets/icons/Flags/RuFlag.png"
 import {GlobalContext} from "@src/app/provider";
 import {HeaderStateEnum, HeaderStateType} from "@src/shared/types";
 import HeaderAccountStyle from "./HeaderAccount.module.scss"

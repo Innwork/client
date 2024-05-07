@@ -1,10 +1,10 @@
 import {ISmallCards} from "@src/shared/ui/cards";
-import Space from "@src/shared/assets/icons/widgets/space.svg";
-import Security from "@src/shared/assets/icons/widgets/SECURITY-CAMERA.svg";
-import Parking from "@src/shared/assets/icons/widgets/parking.svg";
-import WiFi from "@src/shared/assets/icons/widgets/wifi.svg";
-import GameZone from "@src/shared/assets/icons/widgets/GAME ZONE.svg";
-import Locker from "@src/shared/assets/icons/widgets/LOCKER.svg";
+import Space from "@assets/icons/widgets/space.svg";
+import Security from "@assets/icons/widgets/SECURITY-CAMERA.svg";
+import Parking from "@assets/icons/widgets/parking.svg";
+import WiFi from "@assets/icons/widgets/wifi.svg";
+import GameZone from "@assets/icons/widgets/GAME ZONE.svg";
+import Locker from "@assets/icons/widgets/LOCKER.svg";
 
 
 export const CardBenefits: Array<ISmallCards> = [

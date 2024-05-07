@@ -1,6 +1,6 @@
 import BookingHeadStyle from "./BookingHead.module.scss"
 import {TextModule} from "@src/shared/scss";
-import {WhiteCrossIcon} from "@src/shared/assets/icons"
+import WhiteCrossIcon from "@assets/icons/WhiteCross.svg"
 import {useTranslation} from "react-i18next";
 import {useActions} from "@src/app/redux/hooks/useActions";
 import {MainBtn} from "@src/shared/ui/btn/main-btn/MainBtn";

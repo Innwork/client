@@ -8,7 +8,9 @@ import {useTranslation} from "react-i18next";
 import {GlobalContext} from "@src/app/provider";
 import {NavItem} from "@src/shared/types";
 import {DropDownSelect} from "@src/shared/ui/input";
-import {GbFlag, HyFlag, RuFlag} from "@src/shared/assets/icons/Flags";
+import GbFlag from "@assets/icons/Flags/GbFlag.png";
+import HyFlag from "@assets/icons/Flags/HyFlag.png";
+import RuFlag from "@assets/icons/Flags/RuFlag.png";
 
 interface accountBurgerType {
   DropdownLinks: { path: string, title: string }[]

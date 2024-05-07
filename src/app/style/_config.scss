@@ -88,7 +88,7 @@
   }
 }
 
-@include font("Suisse Intl", normal, 300, "@src/shared/assets/fonts/SuisseIntl-Light.woff2");
-@include font("Suisse Intl", normal, 400, "@src/shared/assets/fonts/SuisseIntl-Regular.woff2");
-@include font("Suisse Intl", normal, 500, "@src/shared/assets/fonts/SuisseIntl-Medium.woff2");
-@include font("Suisse Intl", normal, 700, "@src/shared/assets/fonts/SuisseIntl-Bold.woff2");
+@include font("Suisse Intl", normal, 300, "@assets/fonts/SuisseIntl-Light.woff2");
+@include font("Suisse Intl", normal, 400, "@assets/fonts/SuisseIntl-Regular.woff2");
+@include font("Suisse Intl", normal, 500, "@assets/fonts/SuisseIntl-Medium.woff2");
+@include font("Suisse Intl", normal, 700, "@assets/fonts/SuisseIntl-Bold.woff2");

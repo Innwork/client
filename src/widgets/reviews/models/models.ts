@@ -1,4 +1,6 @@
-import {DataArtLogo, YandexLogo} from "@src/shared/assets/icons/logo";
+import DataArtLogo from "@assets/icons/logo/DataArts_Logo.svg";
+import YandexLogo from "@assets/icons/logo/YandexLogo.svg";
+
 
 export const spaces = {
   "Цифровые сервисы": [

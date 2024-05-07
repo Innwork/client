@@ -2,8 +2,8 @@ import {AboutUs} from "@src/widgets/about-us";
 import classes from "@src/pages/Pages.module.scss"
 import {Banner} from "@src/widgets/banner";
 import {OurMission} from "@src/pages/About/widgets/our-mission/OurMission";
-import OurMissionWomen from "@src/shared/assets/img/About/women.png";
-import AboutBanner from "@src/shared/assets/img/About/about.png";
+import OurMissionWomen from "@assets/img/About/women.png";
+import AboutBanner from "@assets/img/About/about.png";
 import {TextModule} from "@src/shared/scss";
 import {OurTeam} from "@src/pages/About/widgets/our-team/OurTeam";
 import {Team} from "@src/pages/About/model/Team";

@@ -2,7 +2,7 @@ import {Outlet} from "react-router-dom";
 import {FC, useEffect} from "react";
 import {Footer, Header} from "@src/features/layout/Section";
 import {SnackBar} from "@src/shared/ui/snackbar";
-import classes from "@src/features/layout/Section/scss/layout.module.scss";
+import classes from "@src/features/Layout/Section/scss/Layout.module.scss";
 import {useTranslation} from "react-i18next";
 import {Booking} from "@src/widgets/booking";
 import {useAppSelector} from "@src/app/redux/hooks/redux";
@@ -25,6 +25,9 @@ export const Layout: FC = () => {
 
   return (
     <>
+      {/*<SnackBar status={"alert"} className={classes.snack}>*/}
+      {/*  {t("Наша версия все еще находится в разработке. Эта версия не окончательная")}*/}
+      {/*</SnackBar>*/}
 
       {isFormSent &&
         <SnackBar status={"success"} className={classes.snack} active={isFormSent}>

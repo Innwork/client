@@ -1,7 +1,7 @@
 import HeaderNavbarStyle from "./HeaderNavbar.module.scss";
 import {combineStyle} from "@src/shared/utils";
 import {LinkStyle, TextModule} from "@src/shared/scss";
-import {DropdownArrow} from "@src/shared/assets/icons/Header";
+import DropdownArrow from "@assets/icons/Header/dropdown-arrow-down.svg";
 import {Dropdown} from "@src/shared/ui/dropdown";
 import {CNavLink} from "@src/shared/ui/link";
 import {useTranslation} from "react-i18next";

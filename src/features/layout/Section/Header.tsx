@@ -1,10 +1,10 @@
 import {useCallback, useContext, useEffect, useRef, useState} from 'react'
 import HeaderStyle from "./scss/Header.module.scss";
 import {combineStyle} from "@src/shared/utils";
-import {LogoSmall} from "@src/shared/assets/icons/logo";
+import LogoSmall from "@assets/icons/logo/LogoSmall.png";
 import {Link} from "react-router-dom";
 import {TextModule} from "@src/shared/scss";
-import CopyIcon from "@src/shared/assets/icons/Header/copy.svg"
+import CopyIcon from "@assets/icons/Header/copy.svg"
 import {useTranslation} from "react-i18next";
 import {Accordion} from "@src/features/accordion";
 import { GlobalContext } from "@src/app/provider";

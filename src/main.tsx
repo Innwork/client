@@ -1,5 +1,5 @@
 import {render} from "react-dom";
-import {App} from "@src/app";
+import {App} from "./app";
 import "@src/shared/config/i18n/i18n";
 
 

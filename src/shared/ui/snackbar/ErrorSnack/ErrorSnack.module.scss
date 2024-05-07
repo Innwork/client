@@ -25,6 +25,7 @@
 		color: var(--state-red);
 
 		& svg{
+			width: auto;
 			fill: var(--state-red);
 		}
 	}
@@ -35,7 +36,6 @@
 		color: var(--state-success);
 
 		& svg{
-			height: 20px;
 			width: auto;
 		}
 	}
