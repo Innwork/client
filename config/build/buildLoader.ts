@@ -9,6 +9,16 @@ export const buildLoader = (options: BuildOptions): Array<webpack.RuleSetRule> =
         exclude: /node_modules/
 
     }
+    const jsonLoader = {
+        test: /\.json$/,
+        loader: 'file-loader',
+        type: 'javascript/auto',
+        options: {
+            name: '[name].[ext]',
+            outputPath: 'locales',
+            publicPath: 'locales',
+        },
+    }
 
     const styleLoader = {
         test: /\.s[ac]ss$/i,
@@ -20,8 +30,8 @@ export const buildLoader = (options: BuildOptions): Array<webpack.RuleSetRule> =
                     modules: {
                         auto: (resPath: string) => resPath.includes(".module."),
                         localIdentName: options.isDev
-                          ? "[path][name]__[local]--[hash:base64:8]"
-                          : "[hash:base64:8]"
+                            ? "[path][name]__[local]--[hash:base64:8]"
+                            : "[hash:base64:8]"
                     },
                 }
             },
@@ -39,8 +49,8 @@ export const buildLoader = (options: BuildOptions): Array<webpack.RuleSetRule> =
                     modules: {
                         auto: (resPath: string) => resPath.includes(".module."),
                         localIdentName: options.isDev
-                          ? "[path][name]__[local]--[hash:base64:8]"
-                          : "[hash:base64:8]"
+                            ? "[path][name]__[local]--[hash:base64:8]"
+                            : "[hash:base64:8]"
                     },
                 }
             }
@@ -62,5 +72,5 @@ export const buildLoader = (options: BuildOptions): Array<webpack.RuleSetRule> =
     }
 
 
-    return [typeScriptLoader,cssLoader, styleLoader, svgLoader, fileLoader]
+    return [typeScriptLoader, cssLoader, styleLoader, jsonLoader, svgLoader, fileLoader]
 }
