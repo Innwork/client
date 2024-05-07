@@ -1,5 +1,4 @@
-import classes
-  from "@src/widgets/ReservWorkspaces/widgets/reserv-additional/style/reserAdditional.module.scss";
+import classes from "@src/widgets/reservWorkspaces/widgets/reserv-additional/style/reservAdditional.module.scss"
 import {reservAdditionalModel} from "@src/widgets/reservWorkspaces/model/reservAdditionalModal";
 import {useState} from "react";
 import {BookingWorkspaceItems} from "@src/widgets/additional/ui/BookingAdditionalWorkspace";
