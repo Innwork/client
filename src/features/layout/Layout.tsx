@@ -2,7 +2,7 @@ import {Outlet} from "react-router-dom";
 import {FC, useEffect} from "react";
 import {Footer, Header} from "@src/features/layout/Section";
 import {SnackBar} from "@src/shared/ui/snackbar";
-import classes from "@src/features/Layout/Section/scss/Layout.module.scss";
+import classes from "@src/features/Layout/Section/scss/layout.module.scss";
 import {useTranslation} from "react-i18next";
 import {Booking} from "@src/widgets/booking";
 import {useAppSelector} from "@src/app/redux/hooks/redux";
