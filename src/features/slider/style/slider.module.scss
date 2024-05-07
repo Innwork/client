@@ -2,6 +2,7 @@
 
 .swiper_container {
   height: 100%;
+  overflow: hidden !important;
 
   .swiper_slide {
     height: 100%;

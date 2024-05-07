@@ -6,7 +6,7 @@ import classes from "@src/widgets/about-us/style/About.module.scss";
 import {CardBenefits} from "@src/widgets/about-us/model/CardBenefits";
 import {SmallCards} from "@src/shared/ui/cards";
 import {GlobalContext} from "@src/app/provider";
-import {Slider} from "@src/features/slider";
+import {AutoplaySlider} from "@src/features/slider";
 
 export const AboutUs: FC = () => {
     const {globalResize} = useContext(GlobalContext)!;
@@ -56,10 +56,10 @@ export const AboutUs: FC = () => {
                     </div>
 
                     {
-                        !globalResize.isScreenLg && <Slider slidesPerView={3} sizeBoolean={globalResize.isScreenLg}>
+                        !globalResize.isScreenLg && <AutoplaySlider slidesPerView={1} spaceBetween={'25'}>
                             {CardBenefits.map((el) => <SmallCards icon={el.icon} title={el.title} subtitle={el.subtitle}
                                                                   key={el.title} state={"light"}/>)}
-                        </Slider>
+                        </AutoplaySlider>
                     }
                 </>
             }
