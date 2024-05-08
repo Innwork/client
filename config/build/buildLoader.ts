@@ -9,16 +9,11 @@ export const buildLoader = (options: BuildOptions): Array<webpack.RuleSetRule> =
         exclude: /node_modules/
 
     }
+
     const jsonLoader = {
         test: /\.json$/,
-        loader: 'file-loader',
-        type: 'javascript/auto',
-        options: {
-            name: '[name].[ext]',
-            outputPath: 'locales',
-            publicPath: 'locales',
-        },
-    }
+        type: 'json'
+    };
 
     const styleLoader = {
         test: /\.s[ac]ss$/i,
