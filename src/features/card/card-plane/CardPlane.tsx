@@ -5,6 +5,7 @@ import {useClass} from "@src/shared/hooks";
 import {MainBtn} from "@src/shared/ui/btn/main-btn/MainBtn";
 import {useActions} from "@src/app/redux/hooks/useActions";
 import {Tariffs} from "@src/app/redux/Booking/BookingTypes";
+import {SkeletonImageLoader} from "@src/shared/ui/skeleton/Skeleton";
 
 export interface ICardPlane {
     header: string
@@ -18,7 +19,7 @@ export interface ICardPlane {
 
 export const CardPlane:FC<ICardPlane> = (props) => {
     const {header, subtitle, src, service, rules, price, tag} = props;
-  const {setIsOpen, setTariff, setPage} = useActions()
+    const {setIsOpen, setTariff, setPage} = useActions()
 
     return (
         <div className={classes.card}>
@@ -28,7 +29,7 @@ export const CardPlane:FC<ICardPlane> = (props) => {
             </div>
             
             <div className={classes.img_container}>
-                <img src={src} alt={src}/>
+              <SkeletonImageLoader src={src}/>
             </div>
 
             <div className={classes.service_container}>

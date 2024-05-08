@@ -1,6 +1,7 @@
 import {FC} from "react";
 import {ContainerModule, TextModule} from "@src/shared/scss";
 import classes from "@src/pages/About/widgets/our-mission/ourMission.module.scss";
+import {SkeletonImageLoader} from "@src/shared/ui/skeleton/Skeleton";
 
 export interface IOurMission {
     header: string;
@@ -16,12 +17,11 @@ export const OurMission:FC<IOurMission> = (props) => {
             <div className={classes.our_mission_container}>
                 <div className={classes.our_mission_text}>
                     <h3 className={TextModule.h3__medium}>{header}</h3>
-
                     <p className={TextModule.paragraph}>{text}</p>
                 </div>
 
                 <div className={classes.our_mission_img}>
-                    <img src={img} alt={img}/>
+                    <SkeletonImageLoader src={img}/>
                 </div>
             </div>
         </div>

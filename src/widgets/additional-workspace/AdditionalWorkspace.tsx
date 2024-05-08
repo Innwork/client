@@ -1,19 +1,14 @@
 import {ContainerModule, TextModule} from "@src/shared/scss";
-import {MainBtn} from "@src/shared/ui/btn/main-btn/MainBtn";
 import classes from "@src/widgets/additional-workspace/style/AdditionMain.module.scss";
 import {useClass} from "@src/shared/hooks";
 import {SmallCards} from "@src/shared/ui/cards";
 import {CardModel} from "@src/widgets/additional-workspace/model/CardsModel";
-import {Slider} from "@src/features/slider";
+import {AutoplaySlider} from "@src/features/slider";
 import {useContext} from "react";
 import {GlobalContext} from "@src/app/provider";
-import {useActions} from "@src/app/redux/hooks/useActions";
-
 
 export const AdditionalWorkspace = () => {
     const {globalResize} = useContext(GlobalContext)!;
-    const {setIsOpen} = useActions()
-
 
     return (
         <section className={
@@ -32,10 +27,10 @@ export const AdditionalWorkspace = () => {
                 </div>
             </div>
 
-            <Slider slidesPerView={3} sizeBoolean={globalResize.isScreenLg}>
+            <AutoplaySlider sizeBoolean={globalResize.isScreenLg} slidesPerView={3} spaceBetween={'25'} stepper>
                 {CardModel.map((el) => <SmallCards icon={el.icon} title={el.title} subtitle={el.subtitle}
                                                    key={el.title} state={"dark"}/>)}
-            </Slider>
+            </AutoplaySlider>
         </section>
     );
 };
