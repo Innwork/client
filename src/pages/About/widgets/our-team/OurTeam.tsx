@@ -3,6 +3,7 @@ import classes from "@src/pages/About/widgets/our-team/ourTeam.module.scss";
 import {Slider} from "@src/features/slider";
 import {FC, useContext} from "react";
 import {GlobalContext} from "@src/app/provider";
+import {SkeletonImageLoader} from "@src/shared/ui/skeleton/Skeleton";
 
 
 export type TeamMember = {
@@ -30,7 +31,7 @@ export const OurTeam: FC<IOurTeam> = ({children}) => {
                 <Slider slidesPerView={3} sizeBoolean={globalResize.isScreenLg}>
                     {children.map((el) => <div className={classes.container_card}>
                         <div className={classes.container_card__img}>
-                            <img src={el.src} alt="" />
+                            <SkeletonImageLoader src={el.src}/>
                         </div>
 
                         <div className={classes.container_card__text}>

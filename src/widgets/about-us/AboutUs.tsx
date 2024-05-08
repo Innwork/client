@@ -56,7 +56,7 @@ export const AboutUs: FC = () => {
                     </div>
 
                     {
-                        !globalResize.isScreenLg && <AutoplaySlider slidesPerView={1} spaceBetween={'25'}>
+                        !globalResize.isScreenLg && <AutoplaySlider spaceBetween={'25'} stepper>
                             {CardBenefits.map((el) => <SmallCards icon={el.icon} title={el.title} subtitle={el.subtitle}
                                                                   key={el.title} state={"light"}/>)}
                         </AutoplaySlider>
