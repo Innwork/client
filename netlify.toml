@@ -1,6 +1,6 @@
 [build]
   publish = "build"
-  command = "npm run build && cp -R locales build/locales"
+  command = "npm run build && cp -R public/locales build/locales"
 
 [[redirects]]
   from = "/*"
