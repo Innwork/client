@@ -5,6 +5,7 @@ import {CSSTransition} from "react-transition-group";
 import {DataPicker} from "@src/features/data-picker";
 import Date from "@assets/icons/ui/btn/grayData.svg"
 import {useClass} from "@src/shared/hooks";
+import {useTranslation} from "react-i18next";
 
 export interface ISelectDate {
     placeholder?: string;
@@ -20,6 +21,7 @@ export const SelectDate: FC<ISelectDate> = (props) => {
     const calendarRef = useRef<HTMLDivElement>(null)
     const [isOpen, setIsOpen] = useState<boolean>(false);
     const [selectDate, setSelectDate] = useState<string>(placeholder);
+    const {t} = useTranslation('main')
 
     const varietyStyle = {
       'white': classes['white'],
@@ -47,7 +49,7 @@ export const SelectDate: FC<ISelectDate> = (props) => {
 
     return (
         <div ref={calendarRef} className={classes.container_date}>
-            {label && <label className={TextModule.span}>{label}</label>}
+            {label && <label className={TextModule.span}>{t(label)}</label>}
             <button  className={useClass([classes.btn_date, varietyStyle[variety]])} onClick={handlerBtnClick}>
                 <span
                     className={useClass([TextModule.paragraph, placeholder === selectDate ? classes.placeholder : ""])}>

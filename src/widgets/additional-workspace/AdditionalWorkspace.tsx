@@ -6,9 +6,11 @@ import {CardModel} from "@src/widgets/additional-workspace/model/CardsModel";
 import {AutoplaySlider} from "@src/features/slider";
 import {useContext} from "react";
 import {GlobalContext} from "@src/app/provider";
+import {useTranslation} from "react-i18next";
 
 export const AdditionalWorkspace = () => {
     const {globalResize} = useContext(GlobalContext)!;
+    const {t} = useTranslation('home')
 
     return (
         <section className={
@@ -16,13 +18,12 @@ export const AdditionalWorkspace = () => {
         }>
             <div className={classes.head}>
                 <h4 className={TextModule.h3__medium}>
-                    Пространства, которые вы можете забронировать.
+                    {t("Пространства, которые вы можете забронировать.")}
                 </h4>
 
                 <div className={classes.head_text}>
                     <p className={TextModule.paragraph}>
-                        Позвоните нам или оставьте заявку на сайте.
-                        Мы перезвоним вам в скором времени.
+                        {t("Позвоните нам или оставьте заявку на сайте. Мы перезвоним вам в скором времени.")}
                     </p>
                 </div>
             </div>

@@ -151,7 +151,7 @@ export const PackageCard: FC<PackageCardProps> = (props) => {
                 <>
                   <ArrowDrownSvg className={classes.arrowDown}/>
                   <div className={classes.inputDropdownContainer}>
-                    <p className={combineStyle([TextModule.paragraph])}>Длительность</p>
+                    <p className={combineStyle([TextModule.paragraph])}>{t("Длительность")}</p>
                     <DropDownSelect
                       data={Object.keys(durations)}
                       placeholder={Object.keys(durations)[0]}
@@ -166,7 +166,7 @@ export const PackageCard: FC<PackageCardProps> = (props) => {
                 <>
                   <ArrowDrownSvg className={classes.arrowDown}/>
                   <div className={classes.inputDropdownContainer}>
-                    <p className={combineStyle([TextModule.paragraph])}>Количество Человек</p>
+                    <p className={combineStyle([TextModule.paragraph])}>{t("Количество Человек")}</p>
                     <DropDownSelect
                       data={['6', '7', '8', "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"]}
                       placeholder={peopleCount}

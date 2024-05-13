@@ -6,6 +6,7 @@ import {Dispatch, FC, SetStateAction, useContext} from "react";
 import ArrowRight from "@assets/icons/ArrowRight.svg";
 import {useClass} from "@src/shared/hooks";
 import {GlobalContext} from "@src/app/provider";
+import {useTranslation} from "react-i18next";
 
 interface TimeSelectProps {
   setStartTime: Dispatch<SetStateAction<string>>
@@ -46,29 +47,32 @@ const timeModel = [
 export const TimeSelectDropdowns: FC<TimeSelectProps> = (props) => {
   const {setStartTime, setEndTime, label = true, arrow = false, defaultStart = timeModel[0], defaultEnd = timeModel[0]} = props
   const {globalResize} = useContext(GlobalContext)!;
+  const {t} = useTranslation('main')
 
 
   return (
     <div className={useClass([classes.dropdownsContainer, arrow ? classes['arrow'] : ''])}>
       <div className={classes.inputDropdownContainer}>
-        {label && <label className={combineStyle([TextModule.span])}>Время начала</label>}
+        {label && <label className={combineStyle([TextModule.span])}>{t("Время начала")}</label>}
         <DropDownSelect
           data={timeModel}
           placeholder={defaultStart}
           state={"white"}
           setValue={setStartTime}
+          i18={false}
         />
       </div>
 
       {arrow && globalResize.isScreenLg && <ArrowRight height='30px'/>}
 
       <div className={classes.inputDropdownContainer}>
-        {label && <label className={combineStyle([TextModule.span])}>Время конца</label>}
+        {label && <label className={combineStyle([TextModule.span])}>{t("Время конца")}</label>}
           <DropDownSelect
             data={timeModel}
             placeholder={defaultEnd}
             state={"white"}
             setValue={setEndTime}
+            i18={false}
           />
         </div>
 

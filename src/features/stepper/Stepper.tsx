@@ -16,7 +16,7 @@ interface StepperProps {
 
 export const Stepper: FC<StepperProps> = ({page, steps, setPage}) => {
   const {t} = useTranslation("main")
-  const stepNames = ['Packages Selection', 'Additional Workspace', "Send request"]
+  const stepNames = ['Выбор пакета', 'Дополнительные пространства', "Запрос на бронирование"]
   const {globalResize} = useContext(GlobalContext)!;
   const cartTariffs = useSelector(selectCartTariffs)
   const cartWorkspaces = useSelector(selectBookingWorkspace)

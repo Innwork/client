@@ -1,7 +1,7 @@
 
 export enum Tariffs {
-  NON_FIXED_FLEXI_DESK = 'Не фиксированное рабочее место',
-  FIXED_DESK = 'Фиксированное рабочее место',
+  NON_FIXED_FLEXI_DESK = 'Нефиксированное место',
+  FIXED_DESK = 'Фиксированное место',
   PRIVATE_OFFICE = 'Приватные воркспейсы',
   FREE_SPACE = 'Свободное пространство'
 }

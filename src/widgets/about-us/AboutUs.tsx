@@ -7,15 +7,17 @@ import {CardBenefits} from "@src/widgets/about-us/model/CardBenefits";
 import {SmallCards} from "@src/shared/ui/cards";
 import {GlobalContext} from "@src/app/provider";
 import {AutoplaySlider} from "@src/features/slider";
+import {useTranslation} from "react-i18next";
 
 export const AboutUs: FC = () => {
     const {globalResize} = useContext(GlobalContext)!;
     const location = useLocation();
+    const {t} = useTranslation('home')
 
     return (
         <section className={ContainerModule.wrapper}>
             <div className={classes.container}>
-                <p className={TextModule.h6__light}>О нас</p>
+                <p className={TextModule.h6__light}>{t("О нас")}</p>
 
                 <div className={classes.content}>
                     <h2 className={TextModule.h1}>
@@ -26,18 +28,13 @@ export const AboutUs: FC = () => {
 
                     <div className={classes.text}>
                         <p className={TextModule.paragraph}>
-                            INNWORK - это современное пространство, предназначенное для тех, кто ищет не только место
-                            для работы, но и источник вдохновения. Разнообразные рабочие зоны подходят как для
-                            индивидуальных фрилансеров, так и для крупных команд, желающих реализовать масштабные
-                            проекты. Вежливый персонал, современное оборудование, различные тарифные планы удовлетворят
-                            потребности каждого посетителя. Приходите и станьте частью нашего творческого и динамичного
-                            пространства!
+                            {t("INNWORK - это современное пространство, предназначенное для тех, кто ищет не только место для работы, но и источник вдохновения. Разнообразные рабочие зоны подходят как для индивидуальных фрилансеров, так и для крупных команд, желающих реализовать масштабные проекты. Вежливый персонал, современное оборудование, различные тарифные планы удовлетворят потребности каждого посетителя. Приходите и станьте частью нашего творческого и динамичного пространства!")}
                         </p>
 
                         {
                             location.pathname !== "/about" && <Link to={"/about"} className={classes.text__link}>
                             <span className={TextModule.h6__regular}>
-                                Узнать о нас чуточку больше
+                                {t("Узнать о нас чуточку больше")}
                             </span>
                                 <Arrow className={classes.text__link_arrow}/>
                             </Link>

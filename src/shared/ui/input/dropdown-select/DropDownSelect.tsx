@@ -4,6 +4,7 @@ import {useCombobox} from "downshift";
 import {useClass} from "@src/shared/hooks";
 import {TextModule} from "@src/shared/scss";
 import {CSSTransition} from "react-transition-group";
+import {useTranslation} from "react-i18next";
 
 export interface IDropDownSelect {
   data: Array<string>;
@@ -13,6 +14,7 @@ export interface IDropDownSelect {
   icon?: boolean
   up?: boolean
   label?: string
+  i18?: boolean
 }
 
 export const DropDownSelect: FC<IDropDownSelect> = (props) => {
@@ -23,7 +25,8 @@ export const DropDownSelect: FC<IDropDownSelect> = (props) => {
     setValue,
     icon = false,
     up = false,
-    label
+    label,
+    i18 = true
   } = props;
 
   const {
@@ -35,6 +38,8 @@ export const DropDownSelect: FC<IDropDownSelect> = (props) => {
       }
     }
   })
+
+  const {t} = useTranslation('main')
 
   return (
     <div className={classes.drop_container}>
@@ -48,9 +53,9 @@ export const DropDownSelect: FC<IDropDownSelect> = (props) => {
       } {...getToggleButtonProps()}>
         {selectedItem ?
           (icon ? <img src={selectedItem} alt={selectedItem}/>
-            : <p className={TextModule.paragraph}>{selectedItem}</p>)
+            : <p className={TextModule.paragraph}>{i18 ? t(selectedItem) : selectedItem}</p>)
           : (icon ? <img src={placeholder} alt={placeholder}/>
-            : <p className={TextModule.paragraph}>{placeholder}</p>)
+            : <p className={TextModule.paragraph}>{i18 ? t(placeholder) : placeholder}</p>)
         }
 
         {!icon &&
@@ -83,7 +88,7 @@ export const DropDownSelect: FC<IDropDownSelect> = (props) => {
             {data.map((item, index) => (
               <li {...getItemProps({item, index})} key={index}>
                 {icon ? <img src={item} alt={item} key={index}/> :
-                  <p className={TextModule.paragraph} key={index}>{item}</p>}
+                  <p className={TextModule.paragraph} key={index}>{i18 ? t(item) : item}</p>}
               </li>
             ))}
           </ul>

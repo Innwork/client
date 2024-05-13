@@ -7,17 +7,17 @@ import Training from "@assets/icons/widgets/Training.svg";
 export const CardModel: Array<ISmallCards> = [
     {
         icon: <Meeting/>,
-        title: "Meeting-room",
-        subtitle: " Рабочая зона для эффективного командного взаимодействия."
+        title: "Переговорная",
+        subtitle: "Рабочая зона для эффективного командного взаимодействия."
     },
     {
         icon: <Training/>,
-        title: "Training center",
+        title: "Тренинг-центр",
         subtitle: "Функциональная площадка, оборудованная для организации образовательных мероприятий, лекций, мастер-классов, презентаций."
     },
     {
         icon: <Business/>,
-        title: "Business lounge",
+        title: "Бизнес зал",
         subtitle: "Премиум пространство – идеальное место для деловых переговоров, важных встреч и решения рабочих вопросов."
     }
 ]
