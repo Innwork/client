@@ -9,7 +9,7 @@ export const Team: Array<TeamMember> = [
     {
         src: Sos,
         fullName: "Сос Мурадян",
-        post: "Директор oснователь"
+        post: "Директор основатель"
     },
     {
         src: Mnatsakan,

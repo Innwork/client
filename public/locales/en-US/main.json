@@ -42,7 +42,7 @@
     "Назад": "Back",
     "Дальше": "Next",
     "Отправить": "Send",
-    "Упс ... Вы не выбрали ни один пакет": "Oops... You didn't select more than one package",
+    "Упс ... Вы не выбрали ни один пакет.": "Oops... You didn't select more than one package.",
     "Имя": "First name",
     "Фамилия": "Last name",
     "Дата рождения": "Date of birth",
