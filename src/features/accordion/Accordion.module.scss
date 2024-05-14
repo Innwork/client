@@ -305,15 +305,15 @@
 .arrowContainer {
 	margin: auto 0;
 	position: relative;
-	height: function.vw(15, 960);
-	width: function.vw(15, 960);
+	height: function.vw(13, 960);
+	width: function.vw(13, 960);
 
-	@include mixin.mediaWidth(720px, 15, 720);
-	@include mixin.mediaHeight(720px, 15, 720);
-	@include mixin.mediaWidth(540px, 15, 540);
-	@include mixin.mediaHeight(540px, 15, 540);
-	@include mixin.mediaWidth(420px, 15, 420);
-	@include mixin.mediaHeight(420px, 15, 420);
+	@include mixin.mediaWidth(720px, 13, 720);
+	@include mixin.mediaHeight(720px, 13, 720);
+	@include mixin.mediaWidth(540px, 13, 540);
+	@include mixin.mediaHeight(540px, 13, 540);
+	@include mixin.mediaWidth(420px, 13, 420);
+	@include mixin.mediaHeight(420px, 13, 420);
 }
 
 .arrow {

@@ -49,7 +49,7 @@ export const Home = () => {
 
                         <div className={bannerStyle.banner_two__content}>
                             <h3 className={TextModule.h3__medium}>{t("Счастливые Часы")}</h3>
-                            <h1 className={TextModule.h1}>{t("С 22 до 9")}</h1>
+                            <h1 className={TextModule.h3}>{t("С 22 до 9")}</h1>
                             <p className={TextModule.paragraph}>
                                 {t("Наши счастливые часы с 22 до 09 - это ваша возможность работать в атмосфере тишины и сосредоточенности. Погрузитесь в творческий процесс, когда весь город спит, и дайте волю своим идеям в уединении нашего пространства.")}
                             </p>

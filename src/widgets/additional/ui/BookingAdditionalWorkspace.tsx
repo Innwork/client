@@ -58,7 +58,7 @@ export const BookingWorkspaceItems: FC<IAdditionalPaginationItems> = (props) => 
             {tag === Workspaces.TRAINING_CENTER &&
               <>
                   <div className={classes.soonButtonContainer}/>
-                  <MainBtn className={useClass([classes.soonButton, TextModule.paragraph_white])}>Совсем скоро</MainBtn>
+                  <MainBtn className={useClass([classes.soonButton, TextModule.paragraph_white])}>{t("Совсем скоро")}</MainBtn>
               </>
 
             }

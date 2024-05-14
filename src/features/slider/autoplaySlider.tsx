@@ -14,10 +14,20 @@ interface AutoplaySliderProps {
   sizeBoolean?: boolean
   spaceBetween?: string
   stepper?: boolean
+  delay?: number
 }
 
 export const AutoplaySlider:FC<AutoplaySliderProps> = (props) => {
-  const {children, slidesPerView = 1, className, spaceBetween = '0', sizeBoolean = false, stepper = false} = props
+  const {
+    children,
+    slidesPerView = 1,
+    className,
+    spaceBetween = '0',
+    sizeBoolean = false,
+    stepper = false,
+    delay = 4000
+  } = props
+
   const swiperRef = useRef<SwiperClass | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const totalSlides = useSlides(sizeBoolean, slidesPerView, children.length)
@@ -55,17 +65,17 @@ export const AutoplaySlider:FC<AutoplaySliderProps> = (props) => {
   return (
     <>
       <Swiper
-        loop={true}
+        loop
         slidesPerView={sizeBoolean ? slidesPerView : 1}
         spaceBetween={spaceBetween}
         speed={globalResize.isScreenLg ? 900 : 300}
         onSwiper={(swiper) => (swiperRef.current = swiper)}
         autoplay={{
-          delay: 4000,
+          delay: delay,
           disableOnInteraction: false
         }}
         className={className ? className : classes.swiper_container}
-        onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
+        onSlideChange={({activeIndex}) => setActiveIndex(activeIndex)}
         modules={[Autoplay]}
       >
         {children.map((el, index) => <SwiperSlide key={index} className={classes.swiper_slide}>
