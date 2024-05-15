@@ -20,9 +20,6 @@ import {useTranslation} from "react-i18next";
 
 import {useActions} from "@src/app/redux/hooks/useActions";
 import {TData} from "@src/app/redux/Booking/actions";
-// import {MailService} from "@src/entities/mail/mail.service";
-// import {post} from "axios";
-
 
 export const Booking = () => {
   const isBookingOpen = useSelector(selectIsBookingOpen)
@@ -37,7 +34,7 @@ export const Booking = () => {
   const {postReservationData, setPage} = useActions()
   const {t, i18n} = useTranslation('main')
 
-  const sendReservationRequest = useCallback(async () => {
+  const sendReservationRequest = useCallback(() => {
     const tariffs = cartTariffs.map((tariff) => {
       return {
         "namePackages": tariff.tariffName,
@@ -69,13 +66,8 @@ export const Booking = () => {
       ]
     }
 
-    await fetch('https://a26805-42a6.x.d-f.pw/api/reservation/', {
-      method: "POST",
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data)
-    }).catch(error => console.error('Ошибка:', error));
+    postReservationData(data as TData)
+
   }, [cartTariffs, cartWorkspaces, peopleCount, personalInfo, postReservationData])
 
   return (
