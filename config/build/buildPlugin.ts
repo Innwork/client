@@ -2,6 +2,7 @@ import webpack from "webpack";
 import HTMLWebpackPlugins from "html-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import {CleanWebpackPlugin} from "clean-webpack-plugin";
+const Dotenv = require('dotenv-webpack');
 
 export const buildPlugin = (path: string):Array<webpack.ProgressPlugin> => {
     return [
@@ -13,6 +14,7 @@ export const buildPlugin = (path: string):Array<webpack.ProgressPlugin> => {
         new MiniCssExtractPlugin({
             filename: "css/[name].[contenthash:8].css",
             chunkFilename: "css/[name].[contenthash:8].css"
-        })
+        }),
+        new Dotenv(),
     ]
 }

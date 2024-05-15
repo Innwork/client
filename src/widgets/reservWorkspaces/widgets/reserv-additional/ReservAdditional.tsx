@@ -67,7 +67,6 @@ export const ReservAdditional = () => {
     }
   }, []);
 
-  console.log(sortedPackages, activeWorkspace, "bimbim")
 
   const saveTariffDates = (title: string, startDay: string, startTime: string, endTime: string) => {
       const item = reservAdditionalModel.pagination.find((space) => space.header === title)

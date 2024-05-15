@@ -33,7 +33,7 @@ export const Booking = () => {
   const [termsAgreement, setTermsAgreement] = useState(false)
   const steps = 3
   const {postReservationData, setPage} = useActions()
-  const {t} = useTranslation('main')
+  const {t, i18n} = useTranslation('main')
 
   const sendReservationRequest = useCallback(() => {
     const tariffs = cartTariffs.map((tariff) => {
@@ -54,6 +54,7 @@ export const Booking = () => {
     })
 
     const data = {
+      "lngCode": i18n.language,
       "person": {
         "name": personalInfo.firstName,
         "lastName": personalInfo.lastName,
@@ -89,6 +90,7 @@ export const Booking = () => {
               ((page === steps && termsAgreement && !(((cartTariffs.length + cartWorkspaces.length) === 0) || (Object.values(areInputsValid).includes(false))))? sendReservationRequest : () => {})} variant={'next'} disabled={(page === steps ? (((cartTariffs.length + cartWorkspaces.length) === 0) || (Object.values(areInputsValid).includes(false)) || !termsAgreement) : (page === 2 && (cartTariffs.length + cartWorkspaces.length) === 0))}>{page === steps ? t( "Отправить") : t( "Дальше")}</DirectionButton>
           </div>
         </div>
+        <div className={BookingStyle.emptySpace}/>
       </div>
     </div>
   );

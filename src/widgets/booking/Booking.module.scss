@@ -125,8 +125,9 @@
 .directionButtonsContainer {
 	display: flex;
 	flex-direction: row-reverse;
+}
 
-
+.emptySpace {
 	height: function.vw(450, 1920);
 	@include mixin.mediaHeight(1440px, 450, 1440);
 	@include mixin.mediaHeight(960px, 450, 960);

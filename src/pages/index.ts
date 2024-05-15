@@ -12,3 +12,9 @@ export const AboutChunk = lazy(
         module => ({default: module.About})
     )
 )
+
+export const NotFoundPageChunk = lazy(
+  () => import("@src/pages/not-found/NotFound").then(
+    module => ({default: module.NotFound})
+  )
+)

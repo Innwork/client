@@ -29,7 +29,7 @@ export const OurTeam: FC<IOurTeam> = ({children}) => {
             </div>
 
             <div>
-                <Slider slidesPerView={globalResize.isScreenLg ? 3 : 2} sizeBoolean={globalResize.isScreenSm}>
+                <Slider slidesPerView={globalResize.isScreenLg ? 3 : 2} sizeBoolean={globalResize.isScreenSm} navCarets>
                     {children.map((el) => <div className={classes.container_card}>
                         <div className={classes.container_card__img}>
                             <SkeletonImageLoader src={el.src}/>
