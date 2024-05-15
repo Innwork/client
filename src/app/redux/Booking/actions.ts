@@ -2,6 +2,7 @@ import {createAsyncThunk} from "@reduxjs/toolkit";
 import {MailService} from "@src/entities/mail/mail.service";
 
 export type TData = {
+  "lngCode": "string"
   "person": Record<string, string>
   "packages": Record<string, string>[]
 }
