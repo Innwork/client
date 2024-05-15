@@ -27,8 +27,8 @@ export const footerItems = {
         ]
     },
     agreements: [
-        {to: `${process.env.REACT_APP_HOST}/docs?filename=Terms_of_use.docx&`, text: "Пользовательское соглашение"},
-        {to: `${process.env.REACT_APP_HOST}/docs?filename=For_copyright_holders.docx&`, text: "Для правообладателей"},
-        {to: `${process.env.REACT_APP_HOST}/docs?filename=Privacy_Policy.docx&`, text: "Политика конфиденциальности"}
+        {to: `${process.env.REACT_APP_HOST}docs?filename=Terms_of_use.docx&`, text: "Пользовательское соглашение"},
+        {to: `${process.env.REACT_APP_HOST}docs?filename=For_copyright_holders.docx&`, text: "Для правообладателей"},
+        {to: `${process.env.REACT_APP_HOST}docs?filename=Privacy_Policy.docx&`, text: "Политика конфиденциальности"}
     ]
 }
