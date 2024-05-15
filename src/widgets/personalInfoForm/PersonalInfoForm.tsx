@@ -142,7 +142,7 @@ export const PersonalInfoForm:FC<PersonalInfoFormProps> = (props) => {
       <div className={combineStyle([PersonalInfoFormStyle.checkSnack, TextModule.paragraph__bold])}>
         <ErrorSnack checkBox={true} variety={termsAgreement ? 'good' : 'error'} checkValue={termsAgreement}
            setCheckValue={setTermsAgreement}>{t("Я согласен(на) с ")}
-          <a target={"_blank"} href={`${process.env.REACT_APP_HOST}/docs/?filename=Rules_for_using.docx&lng=${i18n.language}`}>
+          <a target={"_blank"} href={`${process.env.REACT_APP_HOST}docs/?filename=Rules_for_using.docx&lng=${i18n.language}`}>
             {t('правилами использования коворкинга.')}
           </a>
         </ErrorSnack>

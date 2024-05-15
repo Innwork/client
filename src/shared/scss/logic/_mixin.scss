@@ -1,7 +1,7 @@
 @use "@src/shared/scss/logic/function";
 
-@mixin mediaText($value, $size){
-  @media (max-width: $size) {
+@mixin mediaText($maxWidth, $value, $size){
+  @media (max-width: $maxWidth) {
     font-size: function.vw($value, $size);
   }
 }

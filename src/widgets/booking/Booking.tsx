@@ -82,6 +82,7 @@ export const Booking = () => {
               <ReservWorkspaces/>
               : <PersonalInfoForm termsAgreement={termsAgreement} setTermsAgreement={setTermsAgreement}/>
         }
+
         <div className={BookingStyle.directionButtonsContainer}>
           <div className={BookingStyle.directionButtons}>
             <DirectionButton onClick={page > 1 ? () => setPage(page - 1) : () => {}} variant={'back'}>{t("Назад")}</DirectionButton>
@@ -89,7 +90,6 @@ export const Booking = () => {
               ((page === steps && termsAgreement && !(((cartTariffs.length + cartWorkspaces.length) === 0) || (Object.values(areInputsValid).includes(false))))? sendReservationRequest : () => {})} variant={'next'} disabled={(page === steps ? (((cartTariffs.length + cartWorkspaces.length) === 0) || (Object.values(areInputsValid).includes(false)) || !termsAgreement) : (page === 2 && (cartTariffs.length + cartWorkspaces.length) === 0))}>{page === steps ? t( "Отправить") : t( "Дальше")}</DirectionButton>
           </div>
         </div>
-        <div className={BookingStyle.emptySpace}/>
       </div>
     </div>
   );
