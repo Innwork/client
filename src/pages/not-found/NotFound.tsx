@@ -12,12 +12,12 @@ export const NotFound = () => {
     <section className={NotFoundStyle.not_found}>
       <div className={NotFoundStyle.not_found__content}>
         <h6 className={useClass([
-          TextModule.header_s__orange, NotFoundStyle.not_found__content_404
+          TextModule.h1, NotFoundStyle.not_found__content_404
         ])}>
           404
         </h6>
 
-        <h2 className={TextModule.header_xl}>
+        <h2 className={TextModule.h3}>
           {t("Страница не найдена")}
         </h2>
 
