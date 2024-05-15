@@ -3,5 +3,5 @@ import axios from "axios";
 
 export const instance = axios.create({
   baseURL: process.env.REACT_APP_HOST,
-  timeout: 1000
+  timeout: 5000
 });
