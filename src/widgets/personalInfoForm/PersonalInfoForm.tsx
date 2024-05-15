@@ -115,7 +115,6 @@ export const PersonalInfoForm:FC<PersonalInfoFormProps> = (props) => {
 
   return (
     <>
-
       <div className={PersonalInfoFormStyle.radioStatus}>
         <div className={PersonalInfoFormStyle.cardIndicator}>
           <div className={PersonalInfoFormStyle.indicatorDot}/>
