@@ -9,10 +9,10 @@ import {useAppSelector} from "@src/app/redux/hooks/redux";
 import {selectIsBookingOpen, selectIsFormSent} from "@src/app/redux/Booking/BookingSlice";
 import {useSelector} from "react-redux";
 import {ContainerModule} from '@src/shared/scss'
+import {useActions} from "@src/app/redux/hooks/useActions";
 
 export const Layout: FC = () => {
-
-
+  const {setIsFormSent} = useActions()
   const isFormSent = useAppSelector(selectIsFormSent)
   const isBookingOpen = useSelector(selectIsBookingOpen)
   const {t} = useTranslation("main");
@@ -30,7 +30,7 @@ export const Layout: FC = () => {
       {/*</SnackBar>*/}
 
       {isFormSent &&
-        <SnackBar status={"success"} className={classes.snack} active={isFormSent}>
+        <SnackBar status={"success"} className={classes.snack} active={isFormSent} onclick={setIsFormSent}>
           {t("Форма отправлена успешно")}
         </SnackBar>
       }

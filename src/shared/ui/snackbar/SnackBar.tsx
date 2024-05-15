@@ -9,7 +9,8 @@ export const SnackBar: FC<ISnackType> = (props) => {
         active=true,
         status = "alert",
         children,
-        className
+        className,
+        onclick
     } = props
 
     const classesStatus: TClassesSnackType = {
@@ -34,14 +35,16 @@ export const SnackBar: FC<ISnackType> = (props) => {
                         {children}
                     </p>
 
-                    <div onClick={() => setIsActive(!isActive)} className={classes.snack_container__btn_icon}>
+                    <div onClick={() => {
+                        setIsActive(false)
+                        onclick(false)
+                    }} className={classes.snack_container__btn_icon}>
                         <svg width="14" height="15" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M12.59 0L7 5.66904L1.41 0L0 1.42994L5.59 7.09898L0 12.768L1.41 14.198L7 8.52892L12.59 14.198L14 12.768L8.41 7.09898L14 1.42994L12.59 0Z"
                             />
                         </svg>
                     </div>
-
                 </div>
             }
         </>
