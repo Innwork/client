@@ -7,12 +7,14 @@ import AboutBanner from "@assets/img/About/about.png";
 import {TextModule} from "@src/shared/scss";
 import {OurTeam} from "@src/pages/About/widgets/our-team/OurTeam";
 import {Team} from "@src/pages/About/model/Team";
+import {useTranslation} from "react-i18next";
 
 export const About = () => {
+    const {t} = useTranslation('about')
     return (
         <section className={classes.flex_pages}>
             <Banner src={AboutBanner}>
-                <h3 className={TextModule.h1}>О нас</h3>
+                <h3 className={TextModule.h1}>{t("О нас")}</h3>
             </Banner>
             <AboutUs/>
             <OurMission

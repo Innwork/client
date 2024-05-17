@@ -68,7 +68,7 @@ export const Slider:FC<ISlider> = ({children, slidesPerView, sizeBoolean, navCar
             </Swiper>
 
             {
-               !globalResize.isScreenLg && <BasePagination totalSlides={totalSlides} activeIndex={activeIndex}/>
+               children.length > (sizeBoolean ? slidesPerView : 1) && <BasePagination totalSlides={totalSlides} activeIndex={activeIndex}/>
             }
         </>
     );

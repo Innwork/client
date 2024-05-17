@@ -2,3 +2,8 @@
   right: 10px;
   bottom: 10px;
 }
+
+.snack_wide{
+  @extend .snack;
+  width: 100%;
+}

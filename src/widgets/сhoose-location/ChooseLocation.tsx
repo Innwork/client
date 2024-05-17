@@ -1,21 +1,21 @@
 import {ContainerModule, TextModule} from "@src/shared/scss";
 import classes from "@src/widgets/сhoose-location/chooseLoaction.module.scss";
 import {useClass} from "@src/shared/hooks";
+import {useTranslation} from "react-i18next";
 
 export const ChooseLocation = () => {
+    const {t} = useTranslation('home')
     return (
         <section className={useClass([
             ContainerModule.wrapper, classes.location_container
         ])}>
             <div className={classes.head_text}>
                 <h4 className={TextModule.h3__medium}>
-                    Расположение.
+                    {t("Расположение.")}
                 </h4>
 
                 <p className={TextModule.paragraph}>
-                    INNWORK расположен в удобной локации, легко доступной из любой точки города. Рядом с нами есть
-                    торговые центры, множество кафе, ресторанов и магазинов, что делает его идеальным местом для работы
-                    и общения.
+                    {t("INNWORK расположен в удобной локации, легко доступной из любой точки города. Рядом с нами есть торговые центры, множество кафе, ресторанов и магазинов, что делает его идеальным местом для работы и общения.")}
                 </p>
             </div>
 

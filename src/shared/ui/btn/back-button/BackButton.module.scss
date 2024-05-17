@@ -1,0 +1,44 @@
+@use "src/shared/scss/logic/function";
+
+.back_button{
+	background-color: var(--orange);
+	color: var(--white);
+	border-radius: 5px;
+	padding: function.vw(16, 1920);
+	transition-duration: 300ms;
+
+	&:hover{
+		background-color: var(--orange-t25);
+		color: var(--orange);
+	}
+
+	&:active{
+		background-color: var(--orange);
+		color: var(--white);
+		box-shadow: 0 0 0 4px var(--orange-t25);
+	}
+
+	& p {
+		text-transform: uppercase;
+	}
+
+	@media (max-width: 1440px) {
+		padding: function.vw(16, 1440);
+	}
+
+	@media (max-width: 960px) {
+		padding: function.vw(16, 960);
+	}
+
+	@media (max-width: 720px) {
+		padding: function.vw(16, 720);
+	}
+
+	@media (max-width: 540px) {
+		padding: function.vw(12, 540);
+	}
+
+	@media (max-width: 420px) {
+		padding: function.vw(12, 420);
+	}
+}

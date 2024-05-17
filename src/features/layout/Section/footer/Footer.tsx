@@ -5,7 +5,6 @@ import {TextModule} from "@src/shared/scss";
 import LogoBig from "@assets/icons/logo/LogoBig.svg";
 import {FooterAgreements} from "@src/features/layout/Section/footer/widgets/FooterAgreements";
 import {FooterNav} from "@src/features/layout/Section/footer/widgets/FooterNav";
-import {Link} from "react-router-dom";
 import {FooterLink} from "@src/features/layout/Section/footer/ui/FooterLink";
 
 export const Footer = () => {
@@ -39,13 +38,12 @@ export const Footer = () => {
                             ),
 
                             <div className={classes.footer_social_link} key={'social_links'}>
-                                {footerItems.right.socialMedia.map((el) => <Link to={el.to} key={el.to}>
+                                {footerItems.right.socialMedia.map((el) => <a href={el.to} target={'_blank'} key={el.to}>
                                     <el.socialMediaSvg/>
-                                </Link>)}
+                                </a>)}
                             </div>
                         ]}
                     </FooterNav>
-
                 </div>
             </div>
 

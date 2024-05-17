@@ -59,13 +59,13 @@ export const Calculator = () => {
                 <h3 className={TextModule.h3__medium}>{t('Экономичность и прозрачность')}</h3>
 
                 {LiModel.map(el => <LiText
-                    svg={el.svg} header={el.header} subtitle={el.subtitle} key={el.header}/>
+                    svg={el.svg} header={t(el.header)} subtitle={t(el.subtitle)} key={el.header}/>
                 )}
             </div>
 
             <div className={classes.form_container}>
                 <div className={classes.form_wrapper}>
-                    <h3 className={TextModule.h6__medium}>{t('Рассчитать стоимость')}</h3>
+                    <h3 className={TextModule.h6__medium}>{t('Рассчитать стоимость площадки')}</h3>
 
                     <div className={classes.inputs_container}>
                         {globalResize.isScreenEs && <p className={TextModule.paragraph_white_light}>{t('Площадка')}</p>}

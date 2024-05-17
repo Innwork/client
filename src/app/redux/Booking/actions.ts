@@ -1,7 +1,8 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
-import axios from "axios";
+import {MailService} from "@src/entities/mail/mail.service";
 
 export type TData = {
+  "lngCode": "string"
   "person": Record<string, string>
   "packages": Record<string, string>[]
 }
@@ -10,7 +11,7 @@ export const postReservationData = createAsyncThunk(
   'booking/post',
   async (data: TData, {rejectWithValue}) => {
     try {
-      return await axios.post('https://a26215-7025.x.d-f.pw/api/mail', data)
+      return await MailService.postReservationData(data)
     } catch (e) {
       return rejectWithValue(e)
     }

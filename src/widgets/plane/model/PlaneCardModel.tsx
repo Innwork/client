@@ -9,7 +9,7 @@ export const PlaneCardModel: Array<ICardPlane> = [
     {
         header: "Свободное пространство",
         tag: Tariffs.FREE_SPACE,
-        subtitle: "Офис в аренду или же использование помещения в коммерческих целях с возможностью организовать рабочую зону под свой проект.",
+        subtitle: "Офис в аренду, с возможностью организовать рабочую зону под свой проект.",
         src: FreeSpace,
         service: [
             "Высокоскоростной Wi-Fi", "Парковка", "Круглосуточная охрана", "Кухня", "Принтер", "Телефонная будка",
@@ -17,7 +17,7 @@ export const PlaneCardModel: Array<ICardPlane> = [
         ], rules: "от за 1 квадратный метр", price: "12 000 AMD"
     },
     {
-        header: "ПРИВАТНЫЕ ВОРКСПЕЙСЫ",
+        header: "Приватные воркспейсы",
         tag: Tariffs.PRIVATE_OFFICE,
         subtitle: "Оборудованный офис в аренду для коллективной работы.",
         src: PrivateWorkspacePng,
@@ -27,7 +27,7 @@ export const PlaneCardModel: Array<ICardPlane> = [
         ], rules: "за 3 месяца от 6 человек", price: "120 000 AMD"
     },
     {
-        header: "ФИКСИРОВАННОЕ МЕСТО",
+        header: "Фиксированное место",
         tag: Tariffs.FIXED_DESK,
         subtitle: "Возможность закрепить за собой рабочую зону. Для тех, кто любит постоянство и комфорт.",
         src: NonFixedPng,

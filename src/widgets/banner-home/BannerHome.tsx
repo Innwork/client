@@ -9,7 +9,7 @@ export interface IBannerHome {
 export const BannerHome: FC<IBannerHome> = ({slides}) => {
 
     return (
-        <AutoplaySlider className={classes.banner}>
+        <AutoplaySlider className={classes.banner} delay={6000}>
             {slides.map((el) =>
               <>
                 <img className={classes.banner__img} src={el.src} alt={el.src}/>

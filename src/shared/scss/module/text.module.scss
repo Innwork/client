@@ -1,4 +1,5 @@
 @use "@src/shared/scss/logic/function";
+@use "@src/shared/scss/logic/mixin";
 
 .h1{
   font-size: function.vw(48, 1920);
@@ -240,6 +241,16 @@
   &__light {
     @extend .span;
     font-weight: 300;
+  }
+
+  &__small {
+    font-size: function.vw(10, 1920);
+
+    @include mixin.mediaText(1440px, 10, 1440);
+    @include mixin.mediaText(960px, 10, 960);
+    @include mixin.mediaText(720px, 10, 720);
+    @include mixin.mediaText(540px, 10, 540);
+    @include mixin.mediaText(420px, 10, 420);
   }
   
   @media (max-width: 1440px) {

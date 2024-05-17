@@ -1,4 +1,4 @@
-import {ReactNode} from "react";
+import {Dispatch, ReactNode, SetStateAction} from "react";
 
 export type TClassesSnackType = {
     alert: string,
@@ -12,4 +12,5 @@ export interface ISnackType {
     children: ReactNode;
     className?: string | undefined;
     active?: boolean
+    onclick?: Dispatch<SetStateAction<boolean>>
 }

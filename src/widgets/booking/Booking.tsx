@@ -21,7 +21,6 @@ import {useTranslation} from "react-i18next";
 import {useActions} from "@src/app/redux/hooks/useActions";
 import {TData} from "@src/app/redux/Booking/actions";
 
-
 export const Booking = () => {
   const isBookingOpen = useSelector(selectIsBookingOpen)
   const cartTariffs = useSelector(selectCartTariffs)
@@ -33,7 +32,7 @@ export const Booking = () => {
   const [termsAgreement, setTermsAgreement] = useState(false)
   const steps = 3
   const {postReservationData, setPage} = useActions()
-  const {t} = useTranslation('main')
+  const {t, i18n} = useTranslation('main')
 
   const sendReservationRequest = useCallback(() => {
     const tariffs = cartTariffs.map((tariff) => {
@@ -54,6 +53,7 @@ export const Booking = () => {
     })
 
     const data = {
+      "lngCode": i18n.language,
       "person": {
         "name": personalInfo.firstName,
         "lastName": personalInfo.lastName,
@@ -82,6 +82,7 @@ export const Booking = () => {
               <ReservWorkspaces/>
               : <PersonalInfoForm termsAgreement={termsAgreement} setTermsAgreement={setTermsAgreement}/>
         }
+
         <div className={BookingStyle.directionButtonsContainer}>
           <div className={BookingStyle.directionButtons}>
             <DirectionButton onClick={page > 1 ? () => setPage(page - 1) : () => {}} variant={'back'}>{t("Назад")}</DirectionButton>

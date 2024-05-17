@@ -361,7 +361,6 @@ const bookingSlice = createSlice({
             if (time1 === time2) {
               return '6500'
             } else {
-              console.log(getHours(), getHappyHours(), "bimbim")
               return (2500 * (getHours() - getHappyHours()) +  (2500 * 0.8 * getHappyHours())).toString()
             }
           }

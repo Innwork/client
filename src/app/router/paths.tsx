@@ -1,5 +1,5 @@
 import {IBaseRoute} from "@src/shared/types";
-import {AboutChunk, HomeChunk} from "@src/pages";
+import {AboutChunk, HomeChunk, NotFoundPageChunk} from "@src/pages";
 
 interface IPaths extends IBaseRoute{
     exact?: boolean
@@ -8,5 +8,6 @@ interface IPaths extends IBaseRoute{
 
 export const RotesLayout: IPaths[] = [
     {path: "/", element: <HomeChunk/>},
-    {path: "/about", element: <AboutChunk/>}
+    {path: "/about", element: <AboutChunk/>},
+    {path: "*", element: <NotFoundPageChunk/>}
 ]

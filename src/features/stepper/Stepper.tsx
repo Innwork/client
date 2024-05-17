@@ -16,7 +16,7 @@ interface StepperProps {
 
 export const Stepper: FC<StepperProps> = ({page, steps, setPage}) => {
   const {t} = useTranslation("main")
-  const stepNames = ['Packages Selection', 'Additional Workspace', "Send request"]
+  const stepNames = ['Выбор пакета', 'Дополнительные пространства', "Запрос на бронирование"]
   const {globalResize} = useContext(GlobalContext)!;
   const cartTariffs = useSelector(selectCartTariffs)
   const cartWorkspaces = useSelector(selectBookingWorkspace)
@@ -27,7 +27,7 @@ export const Stepper: FC<StepperProps> = ({page, steps, setPage}) => {
           <div key={step} className={StepperStyle.stepContainer}>
             <button key={step} onClick={((cartTariffs.length + cartWorkspaces.length) === 0 && step === 2) ? () => {} : () => setPage(step + 1)}
                     className={combineStyle([StepperStyle.button, TextModule.paragraph, (step + 1) === page ? StepperStyle["active"] : ''])}>
-              <span className={!globalResize.isScreenSm ? TextModule.span : TextModule.paragraph}>
+              <span className={!globalResize.isScreenSm ? TextModule.span__small : TextModule.paragraph}>
                  {t(stepNames[step])}
               </span>
             </button>
