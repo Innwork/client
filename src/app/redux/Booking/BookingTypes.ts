@@ -1,4 +1,3 @@
-
 export enum Tariffs {
   NON_FIXED_FLEXI_DESK = 'Нефиксированное место',
   FIXED_DESK = 'Фиксированное место',
@@ -54,3 +53,22 @@ export interface BookingStateType {
   }
 }
 
+export interface oddsI {
+  "fixedDesk": {
+    [key: number]: number;
+    1: number,
+    3: number,
+    6: number,
+    12: number
+  };
+  "privateOffice": {
+    [key: number]: number;
+    3: number,
+    6: number,
+    12: number
+  }
+}
+
+export interface getTariffPriceParams extends TariffItem {
+  PWSpeopleCount: number
+}

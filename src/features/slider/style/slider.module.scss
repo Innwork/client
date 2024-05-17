@@ -1,6 +1,7 @@
 @use "@src/shared/scss/logic/function";
 
 .swiper_container {
+  user-select: none !important;
   height: 100%;
   overflow: hidden !important;
 

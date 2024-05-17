@@ -9,13 +9,14 @@
 .swiper-button-prev,
 .swiper-button-next {
   position: absolute;
-  top: var(--swiper-navigation-top-offset, 50%);
+  bottom: 0;
   width: calc(var(--swiper-navigation-size) / 30 * 27);
-  height: var(--swiper-navigation-size);
+  height: 100%;
   margin-top: calc(0px - (var(--swiper-navigation-size) / 2));
   z-index: 10;
   cursor: pointer;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   color: var(--swiper-navigation-color);

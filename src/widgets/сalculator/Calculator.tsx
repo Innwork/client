@@ -19,11 +19,15 @@ import {packages} from "@src/widgets/packageSelection/model/PackageCardModel";
 
 export const Calculator = () => {
     const allPackages = [Workspaces.BUSINESS_LOUNGE, Workspaces.MEETING_ROOM, Tariffs.NON_FIXED_FLEXI_DESK]
-    const [activePackage, setActivePackage] = useState(allPackages[0])
+    const [activePackage, setActivePackage] = useState(allPackages[0]);
     const [price, setPrice] = useState('0')
     const [startTime, setStartTime] = useState('00:00')
     const [endTime, setEndTime] = useState('01:00')
     const [startDay, setStartDay] = useState('0/0/0')
+
+    const activePackageSetter = (pack: string) => {
+        setActivePackage(pack as (Workspaces | Tariffs))
+    }
 
     const [isCalendarOpen, setIsCalendarOpen] = useState(false)
     const {globalResize} = useContext(GlobalContext)!;
@@ -69,7 +73,7 @@ export const Calculator = () => {
 
                     <div className={classes.inputs_container}>
                         {globalResize.isScreenEs && <p className={TextModule.paragraph_white_light}>{t('Площадка')}</p>}
-                        <DropDownSelect label={globalResize.isScreenEs ? '' : t('Площадка')} data={allPackages} placeholder={activePackage} state={"white"} setValue={setActivePackage}/>
+                        <DropDownSelect label={globalResize.isScreenEs ? '' : t('Площадка')} data={allPackages} placeholder={activePackage} state={"white"} setValue={activePackageSetter}/>
 
                         {globalResize.isScreenEs && <p className={TextModule.paragraph_white_light}>{t('Нужная дата')}</p>}
                         <SelectDate isOpenDefault={isCalendarOpen} setIsOpenDefault={setIsCalendarOpen} label={!globalResize.isScreenEs ? 'Нужная дата' : undefined} setValue={setStartDay} variety={'white'}/>
