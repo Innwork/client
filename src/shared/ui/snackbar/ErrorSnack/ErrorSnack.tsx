@@ -4,6 +4,7 @@ import {combineStyle} from "@src/shared/utils";
 import {TextModule} from "@src/shared/scss";
 import ErrorIconMsg from "@assets/icons/ui/errorIcon.svg";
 import SuccessIconMsg from "@assets/icons/ui/successmsg.svg";
+import {Checkbox} from "@src/shared/ui/input";
 
 interface ErrorSnackProps {
   children: string | ReactNode
@@ -50,7 +51,7 @@ export const ErrorSnack: FC<ErrorSnackProps> = (props) => {
               {children}
             </p>
           </div>
-          {checkBox && <input type={'checkBox'} checked={checkValue} onChange={() => setCheckValue(!checkValue)} className={classes.check}/>}
+          {checkBox && <Checkbox checkValue={checkValue} setCheckValue={setCheckValue}/>}
         </div>
       }
     </>

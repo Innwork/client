@@ -12,7 +12,7 @@
 
     @media (hover: hover) {
       &:hover {
-        background-color: #9A9A9A;
+        background-color: var(--dark-gray);
         color: var(--white);
       }
       &:active {

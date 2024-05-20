@@ -10,6 +10,7 @@
     display: flex;
     align-items: stretch;
     min-height: function.vw(150, 1920);
+    padding-bottom: 1px;
 
     > div, section{
       flex: 1;

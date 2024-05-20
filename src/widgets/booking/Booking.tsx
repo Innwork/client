@@ -2,7 +2,7 @@ import BookingStyle from "@src/widgets/booking/Booking.module.scss"
 import {PersonalInfoForm} from "@src/widgets/personalInfoForm";
 import {BookingHead} from "@src/features/bookingHead";
 import {PackageSelection} from "@src/widgets/packageSelection";
-import {useCallback, useState,} from "react";
+import {useCallback, useEffect, useRef, useState,} from "react";
 import {combineStyle} from "@src/shared/utils";
 import {Stepper} from "@src/features/stepper";
 import {useSelector} from "react-redux";
@@ -30,9 +30,22 @@ export const Booking = () => {
   const personalInfo = useSelector(selectBookingPersonalInfo)
   const page = useSelector(selectPage)
   const [termsAgreement, setTermsAgreement] = useState(false)
+  const bookingRef = useRef<HTMLDivElement>(null)
   const steps = 3
-  const {postReservationData, setPage} = useActions()
+  const {postReservationData, setPage, setIsOpen} = useActions()
   const {t, i18n} = useTranslation('main')
+
+  useEffect(() => {
+    if (isBookingOpen) {
+      const handleClickOutside = (event: MouseEvent) => {
+        if (bookingRef.current && !event.composedPath().includes(bookingRef.current)) {
+          setIsOpen(false)
+        }
+      }
+      document.body.addEventListener('click', handleClickOutside)
+      return () => document.body.removeEventListener('click', handleClickOutside)
+    }
+  }, [isBookingOpen])
 
   const sendReservationRequest = useCallback(() => {
     const tariffs = cartTariffs.map((tariff) => {
@@ -72,7 +85,7 @@ export const Booking = () => {
 
   return (
     <div className={combineStyle([BookingStyle.wrapper, isBookingOpen ? BookingStyle["open"] : BookingStyle["closed"]])}>
-      <div className={combineStyle([BookingStyle.container, isBookingOpen ? BookingStyle["open"] : BookingStyle["closed"]])}>
+      <div ref={bookingRef} className={combineStyle([BookingStyle.container, isBookingOpen ? BookingStyle["open"] : BookingStyle["closed"]])}>
         <BookingHead/>
         <Stepper steps={steps} page={page} setPage={setPage}/>
         {

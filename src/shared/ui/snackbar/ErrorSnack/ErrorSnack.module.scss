@@ -24,7 +24,7 @@
 		background-color: var(--white);
 		color: var(--state-red);
 
-		& svg{
+		& >svg{
 			width: auto;
 			fill: var(--state-red);
 		}
