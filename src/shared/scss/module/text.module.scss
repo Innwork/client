@@ -120,6 +120,11 @@
     font-weight: 300;
     font-size: function.vw(18, 1920);
 
+    &__medium{
+      @extend .h6;
+      font-weight: 500;
+    }
+
     @media (max-width: 1440px) {
       font-size: function.vw(18, 1440);
     }

@@ -85,7 +85,6 @@
 	&.closed {
 		display: none;
 		animation-name: Booking-disappear;
-
 	}
 
 	@include mixin.mediaWidth(1440px, 800, 1440);

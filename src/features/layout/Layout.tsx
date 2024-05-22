@@ -1,19 +1,13 @@
 import {Outlet} from "react-router-dom";
 import {FC, useEffect} from "react";
 import {Footer, Header} from "@src/features/layout/Section";
-import {SnackBar} from "@src/shared/ui/snackbar";
-import classes from "@src/features/layout/Section/scss/layout.module.scss";
 import {useTranslation} from "react-i18next";
 import {Booking} from "@src/widgets/booking";
-import {useAppSelector} from "@src/app/redux/hooks/redux";
-import {selectIsBookingOpen, selectIsFormSent} from "@src/app/redux/Booking/BookingSlice";
+import {selectIsBookingOpen} from "@src/app/redux/Booking/BookingSlice";
 import {useSelector} from "react-redux";
 import {ContainerModule} from '@src/shared/scss'
-import {useActions} from "@src/app/redux/hooks/useActions";
 
 export const Layout: FC = () => {
-  const {setIsFormSent} = useActions()
-  const isFormSent = useAppSelector(selectIsFormSent)
   const isBookingOpen = useSelector(selectIsBookingOpen)
   const {t} = useTranslation("main");
 
@@ -28,12 +22,6 @@ export const Layout: FC = () => {
       {/*<SnackBar status={"alert"} className={classes.snack}>*/}
       {/*  {t("Наша версия все еще находится в разработке. Эта версия не окончательная")}*/}
       {/*</SnackBar>*/}
-
-      {isFormSent &&
-        <SnackBar status={"success"} className={classes.snack} active={isFormSent} onclick={setIsFormSent}>
-          {t("Форма отправлена успешно")}
-        </SnackBar>
-      }
 
       <Header/>
 

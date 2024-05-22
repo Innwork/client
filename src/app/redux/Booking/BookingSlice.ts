@@ -4,7 +4,7 @@ import {
   BookingStateType,
   PersonalInfoType,
   TariffItem,
-  Tariffs,
+  Tariffs, TFormStatus,
   WorkspaceItem,
 } from "@src/app/redux/Booking/BookingTypes";
 import {postReservationData} from "@src/app/redux/Booking/actions";
@@ -14,6 +14,7 @@ import {getTariffPrice, getWorkspaces} from "@src/app/redux/Booking/utils";
 const initialState: BookingStateType = {
   page: 1,
   isFormSent: false,
+  formStatus: "pending",
   PWSpeopleCount: 6,
   isOpen: false,
   tariffs: "",
@@ -37,6 +38,9 @@ const bookingSlice = createSlice({
       },
       setIsFormSent(state, {payload}: PayloadAction<boolean>) {
         state.isFormSent = payload
+      },
+      setIsSending(state, {payload}: PayloadAction<TFormStatus>) {
+        state.formStatus = payload
       },
       setPWSpeopleCount(state, {payload}: PayloadAction<number>) {
         state.PWSpeopleCount = payload
@@ -72,18 +76,25 @@ const bookingSlice = createSlice({
     },
     extraReducers: (builder) => {
       builder
-        .addCase(postReservationData.fulfilled, (state) => {
+        .addCase(postReservationData.pending, (state) => {
           state.isFormSent = true
           state.isOpen = false
+          state.formStatus = "pending"
         })
-        .addCase(postReservationData.rejected, (_, {payload}: PayloadAction<unknown>) => {
+        .addCase(postReservationData.fulfilled, (state) => {
+          state.isOpen = false
+          state.formStatus = "fulfilled"
+        })
+        .addCase(postReservationData.rejected, (state, {payload}: PayloadAction<unknown>) => {
           console.log(payload)
+          state.formStatus = "rejected"
         })
     }
   }
 )
 
 export const selectBookingTariffs = (state: RootState) => state.booking.tariffs
+export const selectFormStatus = (state: RootState) => state.booking.formStatus
 export const selectBookingWorkspace = (state: RootState) => state.booking.workspaces
 export const selectBookingPersonalInfo = (state: RootState) => state.booking.personalInfo
 export const selectIsBookingOpen = (state: RootState) => state.booking.isOpen

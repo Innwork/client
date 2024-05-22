@@ -35,9 +35,12 @@ export type WorkspaceItem = {
   price?: string
 }
 
+export type TFormStatus =  "pending" | "fulfilled" | "rejected"
+
 export interface BookingStateType {
   page: number
   isFormSent: boolean
+  formStatus: TFormStatus
   PWSpeopleCount: number
   isOpen: boolean
   tariffs: Tariffs | ''

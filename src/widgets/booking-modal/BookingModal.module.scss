@@ -1,0 +1,160 @@
+@use "src/shared/scss/logic/function";
+@use "src/shared/scss/logic/mixin";
+
+.container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	position: fixed;
+	height: 100%;
+	width: 100vw;
+	background-color: var(--black-t50);
+	backdrop-filter: blur(2px);
+	z-index: 119;
+	top: 0;
+	left: function.vw(0, 1920);
+	animation-duration: 0.4s;
+	animation-fill-mode: forwards;
+
+	&.open {
+		display: flex;
+		animation-name: modal-appear;
+	}
+
+	&.closed {
+		display: none;
+		animation-name: modal-disappear;
+	}
+}
+
+@keyframes modal-appear {
+	0% {
+		display: none;
+		opacity: 0;
+	}
+	100% {
+		display: flex;
+		opacity: 1;
+	}
+}
+
+@keyframes modal-disappear {
+	0% {
+		display: flex;
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+		display: none;
+	}
+}
+
+.modal {
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: var(--white);
+	border-radius: 8px;
+	height: max-content;
+	width: function.vw(600, 1920);
+	padding: function.vw(32, 1920);
+
+	@include mixin.mediaPadding(1440px, 32, 1440);
+	@include mixin.mediaPadding(960px, 32, 960);
+	@include mixin.mediaPadding(720px, 32, 720);
+	@include mixin.mediaPadding(540px, 32, 540);
+	@include mixin.mediaPadding(420px, 32, 420);
+
+	@include mixin.mediaWidth(1440px, 700, 1440);
+	@include mixin.mediaWidth(960px, 700, 960);
+	@include mixin.mediaWidth(720px, 600, 720);
+	@include mixin.mediaWidth(540px, 540, 540);
+	@include mixin.mediaWidth(420px, 420, 420);
+}
+
+.button {
+	text-transform: uppercase;
+	width: 100%;
+	margin-top: function.vw(40, 1920);
+
+	@include mixin.mediaMT(1440px, 40, 1440);
+	@include mixin.mediaMT(960px, 40, 960);
+	@include mixin.mediaMT(720px, 40, 720);
+	@include mixin.mediaMT(540px, 40, 540);
+	@include mixin.mediaMT(420px, 40, 420);
+}
+
+.markIcon {
+	position: relative;
+	margin-block: function.vw(33, 1920);
+	height: function.vw(70, 1920);
+	width: function.vw(70, 1920);
+
+	@include mixin.mediaMBL(1440px, 33, 1440);
+	@include mixin.mediaMBL(960px, 33, 960);
+	@include mixin.mediaMBL(720px, 33, 720);
+	@include mixin.mediaMBL(540px, 33, 540);
+	@include mixin.mediaMBL(420px, 33, 420);
+
+	@include mixin.mediaSquareSize(1440px, 70, 1440);
+	@include mixin.mediaSquareSize(960px, 70, 960);
+	@include mixin.mediaSquareSize(720px, 70, 720);
+	@include mixin.mediaSquareSize(540px, 70, 540);
+	@include mixin.mediaSquareSize(420px, 70, 420);
+
+	svg {
+		position: absolute;
+		object-fit: cover;
+		object-position: center;
+		left: 0;
+		top: 0;
+		height: 100%;
+		width: 100%;
+	}
+}
+
+.text {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	padding-block: function.vw(20, 1920);
+
+	@include mixin.mediaPBeachSide(1440px, 20, 20, 1440);
+	@include mixin.mediaPBeachSide(960px, 20, 20, 960);
+	@include mixin.mediaPBeachSide(720px, 20, 20, 720);
+	@include mixin.mediaPBeachSide(540px, 20, 20, 540);
+	@include mixin.mediaPBeachSide(420px, 20, 20, 420);
+
+	a {
+		text-decoration: underline;
+		color: var(--dark-blue);
+	}
+
+	&_head {
+		padding-bottom: function.vw(8, 1920);
+		@include mixin.mediaPB(1440px, 8, 1440);
+		@include mixin.mediaPB(960px, 8, 960);
+		@include mixin.mediaPB(720px, 8, 720);
+		@include mixin.mediaPB(540px, 8, 540);
+		@include mixin.mediaPB(420px, 8, 420);
+	}
+}
+
+.grayFont {
+	color: var(--black-50);
+}
+
+.packagesContainer {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: function.vw(8, 1920);
+
+	@include mixin.mediaGap(1440px, 8, 1440);
+	@include mixin.mediaGap(960px, 8, 960);
+	@include mixin.mediaGap(720px, 8, 720);
+	@include mixin.mediaGap(540px, 8, 540);
+	@include mixin.mediaGap(420px, 8, 420);
+}

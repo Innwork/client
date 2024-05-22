@@ -18,12 +18,11 @@ import {DropDownSelect} from "@src/shared/ui/input";
 interface HeaderAccountProps {
   headerState: HeaderStateType
   setHeaderStateHandler: (value: Record<string, string>) => void
-  setIsFormSent: (value: boolean) => void
 }
 
 const flags = [{flagSvg: GbFlag, shortName: 'en-US'}, {flagSvg: HyFlag, shortName: 'hy-AM'}, {flagSvg: RuFlag, shortName: 'ru-RU'}]
 
-export const HeaderAccount:FC<HeaderAccountProps> = ({headerState, setHeaderStateHandler, setIsFormSent}) => {
+export const HeaderAccount:FC<HeaderAccountProps> = ({headerState, setHeaderStateHandler}) => {
   const {t, i18n } = useTranslation('main')
   const [language, setLanguage] = useState(i18n.language)
   const {globalResize} = useContext(GlobalContext)!
@@ -59,7 +58,7 @@ export const HeaderAccount:FC<HeaderAccountProps> = ({headerState, setHeaderStat
           <BurgerMenu className={HeaderAccountStyle.bigBurgerSvg}/>
         }
       </div>
-      <button onClick={() => {setIsOpen(true);  setIsFormSent(false)}}
+      <button onClick={() => setIsOpen(true)}
               className={combineStyle([HeaderAccountStyle.bookingButton, TextModule.paragraph])}>
         <span>{t('Взять комнату')}</span>
       </button>
