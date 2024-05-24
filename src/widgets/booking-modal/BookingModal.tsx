@@ -36,7 +36,10 @@ export const BookingModal = () => {
     <div className={useClass([cls.container, isFormSent ? cls["open"] : cls["closed"]])}>
       <div ref={modalRef} className={cls.modal}>
         {formStatus === "pending" ?
-          <div>loading...</div>
+          <>
+            <div className={useClass([TextModule.h6_small__medium, cls.text_head])}>Sending your request...</div>
+            <div className={cls.loader}></div>
+          </>
           : formStatus === "rejected" ?
             <>
               <div className={cls.text}>
@@ -75,7 +78,7 @@ export const BookingModal = () => {
           </div>
         </>
         }
-        <MainBtn className={cls.button} onClick={() => setIsFormSent(false)}>Close</MainBtn>
+        <MainBtn className={useClass([cls.button, TextModule.paragraph])} onClick={() => setIsFormSent(false)}>Close</MainBtn>
       </div>
     </div>
   );
