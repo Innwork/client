@@ -51,7 +51,7 @@ export const ErrorSnack: FC<ErrorSnackProps> = (props) => {
               {children}
             </p>
           </div>
-          {checkBox && <Checkbox checkValue={checkValue} setCheckValue={setCheckValue}/>}
+          {checkBox && <Checkbox checkValue={checkValue} setCheckValue={setCheckValue} variety={"green"}/>}
         </div>
       }
     </>

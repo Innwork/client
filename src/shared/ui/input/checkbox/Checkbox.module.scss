@@ -5,7 +5,7 @@
 	position: relative;
 	display: inline-block;
 
-	&>svg {
+	& > svg {
 		padding: function.vw(7, 1920);
 		position: absolute;
 		left: 0;
@@ -23,18 +23,18 @@
 	}
 }
 
-.check {
+.orange {
 	height: function.vw(24, 1920);
 	width: function.vw(24, 1920);
 	border: function.vw(1, 1920) solid var(--dark-gray);
 	border-radius: function.vw(4, 1920);
 	transition: 0.3s;
 
-	&__checked {
+	&.checked {
 		background-color: var(--orange) !important;
 		border-color: var(--orange);
 	}
-	
+
 	@media (max-width: 1440px) {
 		height: function.vw(24, 1440);
 		width: function.vw(24, 1440);
@@ -73,14 +73,57 @@
 	justify-content: center;
 	background-color: var(--white);
 	color: white;
+
+	&:checked {
+		background-color: var(--orange);
+		border-color: var(--orange);
+	}
+
+	&:hover {
+		cursor: pointer;
+		background-color: var(--gray-t50);
+	}
 }
 
-.check:checked {
-	background-color: var(--orange);
-	border-color: var(--orange);
+
+
+
+.green {
+	-webkit-appearance: none; /*hides the default checkbox*/
+	height: function.vw(20, 1920);
+	width: function.vw(20, 1920);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	transition: 0.1s;
+	background-color: #FE0006;
+	font-weight: 600;
+	color: white;
+	border-radius: 3px;
+
+
+	@include mixin.mediaSquareSize(1440px, 20, 1440);
+	@include mixin.mediaSquareSize(960px, 20, 960);
+	@include mixin.mediaSquareSize(720px, 20, 720);
+	@include mixin.mediaSquareSize(540px, 20, 540);
+	@include mixin.mediaSquareSize(420px, 20, 420);
+	@include mixin.mediaSquareSize(340px, 20, 340);
+
+	&:checked {
+		background-color: #0E9700;
+	}
+
+	&:before {
+		content: "✖";
+	}
+	&:checked:before {
+		content: "✔";
+	}
+
+	&:hover {
+		cursor: pointer;
+		opacity: 0.8;
+	}
 }
 
-.check:hover {
-	cursor: pointer;
-	background-color: var(--gray-t50);
-}

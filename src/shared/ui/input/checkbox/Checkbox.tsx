@@ -1,9 +1,19 @@
-import React from 'react';
+import React, {FC} from 'react';
 import cls from "@src/shared/ui/input/checkbox/Checkbox.module.scss"
-export const Checkbox = ({checkValue, setCheckValue}:{checkValue: boolean, setCheckValue: (i: boolean) => void}) => {
+
+interface CheckboxProps {
+  checkValue: boolean,
+  setCheckValue: (i: boolean) => void,
+  variety?: "green" | "orange"
+}
+
+export const Checkbox: FC<CheckboxProps> = (props) => {
+  const {checkValue, setCheckValue, variety = "orange"} = props
+
   return (
     <div className={cls.checkContainer} onClick={() => setCheckValue(!checkValue)}>
-      <input className={useClass([cls.check, checkValue ? cls.check__checked : ""])} type={'checkBox'} checked={checkValue}/>
+      <input className={useClass([cls.check, cls[variety], checkValue ? cls["checked"] : ""])} type={'checkBox'}
+             checked={checkValue}/>
       {checkValue && <Mark/>}
     </div>
   );
