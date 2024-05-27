@@ -23,16 +23,21 @@
 	}
 }
 
-.orange {
+.check {
 	height: function.vw(24, 1920);
 	width: function.vw(24, 1920);
 	border: function.vw(1, 1920) solid var(--dark-gray);
 	border-radius: function.vw(4, 1920);
 	transition: 0.3s;
 
-	&.checked {
+	&.orange__checked {
 		background-color: var(--orange) !important;
 		border-color: var(--orange);
+	}
+
+	&.green__checked {
+		background-color: var(--state-success) !important;
+		border-color: var(--state-success);
 	}
 
 	@media (max-width: 1440px) {
@@ -74,56 +79,23 @@
 	background-color: var(--white);
 	color: white;
 
-	&:checked {
-		background-color: var(--orange);
-		border-color: var(--orange);
+	.orange{
+		&:checked {
+			background-color: var(--orange);
+			border-color: var(--orange);
+		}
+	}
+
+	.green {
+		&:checked {
+			background-color: var(--state-success);
+			border-color: var(--state-success);
+		}
 	}
 
 	&:hover {
 		cursor: pointer;
 		background-color: var(--gray-t50);
-	}
-}
-
-
-
-
-.green {
-	-webkit-appearance: none; /*hides the default checkbox*/
-	height: function.vw(20, 1920);
-	width: function.vw(20, 1920);
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	transition: 0.1s;
-	background-color: #FE0006;
-	font-weight: 600;
-	color: white;
-	border-radius: 3px;
-
-
-	@include mixin.mediaSquareSize(1440px, 20, 1440);
-	@include mixin.mediaSquareSize(960px, 20, 960);
-	@include mixin.mediaSquareSize(720px, 20, 720);
-	@include mixin.mediaSquareSize(540px, 20, 540);
-	@include mixin.mediaSquareSize(420px, 20, 420);
-	@include mixin.mediaSquareSize(340px, 20, 340);
-
-	&:checked {
-		background-color: #0E9700;
-	}
-
-	&:before {
-		content: "✖";
-	}
-	&:checked:before {
-		content: "✔";
-	}
-
-	&:hover {
-		cursor: pointer;
-		opacity: 0.8;
 	}
 }
 

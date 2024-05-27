@@ -12,7 +12,7 @@ export const Checkbox: FC<CheckboxProps> = (props) => {
 
   return (
     <div className={cls.checkContainer} onClick={() => setCheckValue(!checkValue)}>
-      <input className={useClass([cls.check, cls[variety], checkValue ? cls["checked"] : ""])} type={'checkBox'}
+      <input className={useClass([cls.check, cls[variety], checkValue ? cls[`${variety}__checked`] : ""])} type={'checkBox'}
              checked={checkValue}/>
       {checkValue && <Mark/>}
     </div>
