@@ -88,9 +88,11 @@
 
 .markIcon {
 	position: relative;
+	border-radius: 50%;
+	background-color: var(--orange-t05);
 	margin-block: function.vw(33, 1920);
-	height: function.vw(70, 1920);
-	width: function.vw(70, 1920);
+	height: function.vw(130, 1920);
+	width: function.vw(130, 1920);
 
 	@include mixin.mediaMBL(1440px, 33, 1440);
 	@include mixin.mediaMBL(960px, 33, 960);
@@ -98,11 +100,11 @@
 	@include mixin.mediaMBL(540px, 33, 540);
 	@include mixin.mediaMBL(420px, 33, 420);
 
-	@include mixin.mediaSquareSize(1440px, 70, 1440);
-	@include mixin.mediaSquareSize(960px, 70, 960);
-	@include mixin.mediaSquareSize(720px, 70, 720);
-	@include mixin.mediaSquareSize(540px, 70, 540);
-	@include mixin.mediaSquareSize(420px, 70, 420);
+	@include mixin.mediaSquareSize(1440px, 130, 1440);
+	@include mixin.mediaSquareSize(960px, 130, 960);
+	@include mixin.mediaSquareSize(720px, 130, 720);
+	@include mixin.mediaSquareSize(540px, 130, 540);
+	@include mixin.mediaSquareSize(420px, 130, 420);
 
 	svg {
 		position: absolute;
@@ -112,6 +114,13 @@
 		top: 0;
 		height: 100%;
 		width: 100%;
+		padding: function.vw(30, 1920);
+
+		@include mixin.mediaSquareSize(1440px, 30, 1440);
+		@include mixin.mediaSquareSize(960px, 30, 960);
+		@include mixin.mediaSquareSize(720px, 30, 720);
+		@include mixin.mediaSquareSize(540px, 30, 540);
+		@include mixin.mediaSquareSize(420px, 30, 420);
 	}
 }
 

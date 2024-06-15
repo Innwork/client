@@ -85,8 +85,7 @@ const bookingSlice = createSlice({
           state.isOpen = false
           state.formStatus = "fulfilled"
         })
-        .addCase(postReservationData.rejected, (state, {payload}: PayloadAction<unknown>) => {
-          console.log(payload)
+        .addCase(postReservationData.rejected, (state) => {
           state.formStatus = "rejected"
         })
     }

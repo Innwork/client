@@ -51,7 +51,7 @@ export const Booking = () => {
   const sendReservationRequest = useCallback(() => {
     const tariffs = cartTariffs.map((tariff) => {
       return {
-        "namePackages": tariff.tariffName,
+        "namePackages": t(tariff.tariffName),
         "price": tariff.price,
         "date": `${tariff.duration}${tariff.tariffName === Tariffs.NON_FIXED_FLEXI_DESK ? (' ' + tariff.time) : tariff.additional}`,
         "persons": tariff.tariffName === Tariffs.PRIVATE_OFFICE ? peopleCount : undefined
@@ -60,7 +60,7 @@ export const Booking = () => {
 
     const workspaces = cartWorkspaces.map((workspace) => {
       return {
-        "namePackages": workspace.workspaceName,
+        "namePackages": t(workspace.workspaceName),
         "price": workspace.price,
         "date": `${workspace.duration}${' ' + workspace.time}`,
       }

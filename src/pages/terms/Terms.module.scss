@@ -1,0 +1,69 @@
+@use "src/shared/scss/logic/function";
+@use "src/shared/scss/logic/mixin";
+
+.termsContainer {
+	display: flex;
+	padding-block: function.vw(150, 1920) function.vw(100, 1920);
+
+	@include mixin.mediaPBeachSide(1440px, 150, 100, 1440);
+	@include mixin.mediaPBeachSide(960px, 130, 80, 960);
+	@include mixin.mediaPBeachSide(720px, 120, 80, 720);
+	@include mixin.mediaPBeachSide(540px, 100, 60, 540);
+	@include mixin.mediaPBeachSide(420px, 100, 60, 420);
+}
+
+.contentWrapper {
+	width: 100%;
+	flex: 0 0 60%;
+
+	@media (max-width: 960px) {
+		flex: unset;
+	}
+}
+
+.mainHeader {
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.additional {
+	padding-top: function.vw(10, 1920);
+
+	@include mixin.mediaPBeachSide(1440px, 10, 0, 1440);
+	@include mixin.mediaPBeachSide(960px, 10, 0, 960);
+	@include mixin.mediaPBeachSide(720px, 10, 0, 720);
+	@include mixin.mediaPBeachSide(540px, 10, 0, 540);
+	@include mixin.mediaPBeachSide(420px, 10, 0, 420);
+}
+
+.sectionHeader {
+	text-transform: uppercase;
+	padding-top: function.vw(15, 1920);
+
+	@include mixin.mediaPBeachSide(1440px, 15, 0, 1440);
+	@include mixin.mediaPBeachSide(960px, 15, 0, 960);
+	@include mixin.mediaPBeachSide(720px, 15, 0, 720);
+	@include mixin.mediaPBeachSide(540px, 15, 0, 540);
+	@include mixin.mediaPBeachSide(420px, 15, 0, 420);
+}
+
+.subsectionHeader {
+	padding-top: function.vw(10, 1920);
+
+	@include mixin.mediaPBeachSide(1440px, 10, 0, 1440);
+	@include mixin.mediaPBeachSide(960px, 10, 0, 960);
+	@include mixin.mediaPBeachSide(720px, 10, 0, 720);
+	@include mixin.mediaPBeachSide(540px, 10, 0, 540);
+	@include mixin.mediaPBeachSide(420px, 10, 0, 420);
+}
+
+.subsection {
+	padding-left: function.vw(25, 1920);
+
+	@include mixin.mediaPLeft(1440px, 25, 1440);
+	@include mixin.mediaPLeft(960px, 25, 960);
+	@include mixin.mediaPLeft(720px, 25, 720);
+	@include mixin.mediaPLeft(540px, 25, 540);
+	@include mixin.mediaPLeft(420px, 25, 420);
+}
+

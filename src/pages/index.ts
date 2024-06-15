@@ -13,6 +13,18 @@ export const AboutChunk = lazy(
     )
 )
 
+export const TermsChunk = lazy(
+    () => import("@src/pages/terms/Terms").then(
+        module => ({default: module.Terms})
+    )
+)
+
+export const RulesChunk = lazy(
+    () => import("@src/pages/rules/Rules").then(
+        module => ({default: module.Rules})
+    )
+)
+
 export const NotFoundPageChunk = lazy(
   () => import("@src/pages/not-found/NotFound").then(
     module => ({default: module.NotFound})

@@ -9,7 +9,8 @@ export const footerItems = {
         title: 'Компания',
         items: [
             {text: 'О нас', to: '/about'},
-            {text: 'Информация', to: '#'},
+            {text: 'Rules for using', to: '/rules'},
+            {text: 'Terms of use', to: '/terms'},
             {text: 'Контакты', to: '#'},
             {text: 'Новости', to: '#'}
         ]

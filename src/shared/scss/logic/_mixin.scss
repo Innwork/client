@@ -91,6 +91,12 @@
   }
 }
 
+@mixin mediaPLeft($maxWidth, $value, $size){
+  @media (max-width: $maxWidth) {
+    padding-left: function.vw($value, $size);
+  }
+}
+
 @mixin mediaMBL($maxWidth, $value, $size){
   @media (max-width: $maxWidth) {
     margin-block: function.vw($value, $size);
