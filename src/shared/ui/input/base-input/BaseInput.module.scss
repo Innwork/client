@@ -1,7 +1,6 @@
 @use "@src/shared/scss/logic/function";
 
 .base_input{
-  -webkit-appearance: none;
   box-sizing: border-box;
   border: 1px solid var(--black-t25);
   height: function.vw(36, 1920);

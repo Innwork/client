@@ -118,7 +118,6 @@
 	display: flex;
 	padding-left: function.vw(40, 1920);
 	bottom: function.vw(30, 1920);
-	left: 0;
 	gap: function.vw(15, 1920);
 	z-index: 200;
 
@@ -127,9 +126,14 @@
 	@include mixin.mediaBottom(720px, 30, 720);
 	@include mixin.mediaBottom(540px, 30, 540);
 	@include mixin.mediaBottom(420px, 30, 420);
+
 }
 
 .directionButtonsContainer {
+	display: flex;
+	flex-direction: row-reverse;
+	position: relative;
+	right: 0;
 	height: function.vw(450, 1920);
 	@include mixin.mediaHeight(1440px, 450, 1440);
 	@include mixin.mediaHeight(960px, 450, 960);
