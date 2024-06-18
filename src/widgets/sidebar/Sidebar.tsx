@@ -45,9 +45,10 @@ export const Sidebar: FC<SidebarProps> = ({sections, link}) => {
       return (
         <div key={section.id}>
           <div className={cls.subsectionHead}>
-            <div onClick={() => setActiveSection(activeSection === undefined ? section.id : undefined)}
-                 className={useClass([cls.caretButton, section.id === activeSection ? cls["open"] : cls['closed']])}>
-              <CaretBottomIcon/>
+            <div onClick={() => setActiveSection(section.id === activeSection ? undefined : section.id)}>
+              <div className={useClass([cls.caretButton, section.id === activeSection ? cls["open"] : cls['closed']])}>
+                <CaretBottomIcon/>
+              </div>
             </div>
             <a onClick={() => {
               scrollToCenter(section.id);

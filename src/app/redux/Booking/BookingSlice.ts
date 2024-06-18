@@ -4,7 +4,7 @@ import {
   BookingStateType,
   PersonalInfoType,
   TariffItem,
-  Tariffs, TFormStatus,
+  Tariffs,
   WorkspaceItem,
 } from "@src/app/redux/Booking/BookingTypes";
 import {postReservationData} from "@src/app/redux/Booking/actions";
@@ -38,9 +38,6 @@ const bookingSlice = createSlice({
       },
       setIsFormSent(state, {payload}: PayloadAction<boolean>) {
         state.isFormSent = payload
-      },
-      setIsSending(state, {payload}: PayloadAction<TFormStatus>) {
-        state.formStatus = payload
       },
       setPWSpeopleCount(state, {payload}: PayloadAction<number>) {
         state.PWSpeopleCount = payload

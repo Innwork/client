@@ -13,6 +13,7 @@ import {MainBtn} from "@src/shared/ui/btn/main-btn/MainBtn";
 import OrangeMark from "@assets/icons/orangeMark.svg"
 import {TextModule} from "@src/shared/scss";
 import {ReservationCard} from "@src/features/reservation-card";
+import {useTranslation} from "react-i18next";
 
 export const BookingModal = () => {
   const modalRef = useRef<HTMLDivElement>(null)
@@ -21,6 +22,7 @@ export const BookingModal = () => {
   const cartTariffs = useSelector(selectCartTariffs)
   const cartWorkspaces = useSelector(selectBookingWorkspace)
   const {setIsFormSent} = useActions()
+  const {t} = useTranslation("main")
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -70,10 +72,10 @@ export const BookingModal = () => {
           </div>
           <div className={cls.packagesContainer}>
             {cartTariffs.map((tariff) =>
-              <ReservationCard price={tariff.price} title={tariff.tariffName} additional={[tariff.duration ?? "", tariff.time ?? "", tariff.additional ?? ""]}/>
+              <ReservationCard price={tariff.price} title={t(tariff.tariffName)} additional={[tariff.duration ?? "", tariff.time ?? "", tariff.additional ?? ""]}/>
             )}
             {cartWorkspaces.map((workspace) =>
-              <ReservationCard price={workspace.price} title={workspace.workspaceName} additional={[workspace.duration ?? "", workspace.time ?? ""]}/>
+              <ReservationCard price={workspace.price} title={t(workspace.workspaceName)} additional={[workspace.duration ?? "", workspace.time ?? ""]}/>
             )}
           </div>
         </>

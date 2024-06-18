@@ -97,7 +97,7 @@ export const PackageCard: FC<PackageCardProps> = (props) => {
       tariffName: title as Tariffs,
       duration: `${inputs[0].input.value.replace(/-/g, '/')} - ${endDay.replace(/-/g, '/')}`,
       time: title === Tariffs.NON_FIXED_FLEXI_DESK ? `${startTime} - ${endTime} ` : undefined,
-      additional: title === Tariffs.PRIVATE_OFFICE ? ` ${durationName} ${peopleCount + ' человек'}` :
+      additional: title === Tariffs.PRIVATE_OFFICE ? ` ${t(durationName)} ${peopleCount + ' человек'}` :
         title === Tariffs.FIXED_DESK ? ` ${durationName}` : ''
     })
   }

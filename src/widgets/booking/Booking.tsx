@@ -54,7 +54,7 @@ export const Booking = () => {
         "namePackages": t(tariff.tariffName),
         "price": tariff.price,
         "date": `${tariff.duration}${tariff.tariffName === Tariffs.NON_FIXED_FLEXI_DESK ? (' ' + tariff.time) : tariff.additional}`,
-        "persons": tariff.tariffName === Tariffs.PRIVATE_OFFICE ? peopleCount : undefined
+        "persons": tariff.tariffName === Tariffs.PRIVATE_OFFICE ? peopleCount.toString() : undefined
       }
     })
 
