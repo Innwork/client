@@ -2,6 +2,8 @@
 
 .footer_container{
 	background-color: var(--black);
+	position: relative;
+	z-index: 150;
 }
 
 .footer_wrapper{

@@ -4,173 +4,176 @@ import {Sidebar} from "@src/widgets/sidebar";
 import {useClass} from "@src/shared/hooks";
 import {TextModule, ContainerModule} from "@src/shared/scss";
 import {TermsSections} from "@src/pages/terms/models";
+import {useTranslation} from "react-i18next";
 
 export const Terms = () => {
+  const {t} = useTranslation("terms")
+
   return (
     <div className={useClass([ContainerModule.wrapper, cls.termsContainer])}>
       <Sidebar sections={TermsSections} link={"https://a26805-42a6.x.d-f.pw/api/docs?filename=Terms_of_use.docx&lng=en-us"}/>
       <div className={useClass([cls.contentWrapper, TextModule.paragraph])}>
-        <h1 className={useClass([cls.mainHeader, TextModule.h5])}>Terms of use</h1>
-        <p className={useClass([cls.additional, TextModule.paragraph__bold])}>Internet resource (site) INNWORK (hereinafter  referred to as the Resource) is an Internet site that allows users to find out information about coworking and job booking services</p>
+        <h1 className={useClass([cls.mainHeader, TextModule.h5])}>{t("ПРАВИЛА ИСПОЛЬЗОВАНИЯ")}</h1>
+        <p className={useClass([cls.additional, TextModule.paragraph__bold])}>{t("Интернет-ресурс (сайт) INNWORK (далее - Ресурс) представляет собой интернет-сайт, который позволяет пользователям получать информацию о сервисах коворкинга и бронирования рабочих мест.")}</p>
 
-        <h2 id="1" className={useClass([cls.sectionHeader, TextModule.paragraph__bold])}>1. ABOUT USER AGREEMENT</h2>
+        <h2 id="1" className={useClass([cls.sectionHeader, TextModule.paragraph__bold])}>{t("1. ОБ УГОВОРЕ С ПОЛЬЗОВАТЕЛЕМ")}</h2>
         <p className={cls.subsection}>
-          By using/visiting the Resource (including all content posted on the resource), you agree to this USER AGREEMENT located at innwork.com.
+          {t("Используя/посещая Ресурс (включая весь контент, размещенный на ресурсе), вы соглашаетесь с настоящим ПОЛЬЗОВАТЕЛЬСКИМ СОГЛАШЕНИЕМ, размещенным на сайте innwork.com.")}
           <br/>
-          If you do not agree with any of the clauses of this User Agreement, please leave the resource.
+          {t("Если вы не согласны с каким-либо из пунктов данного Пользовательского соглашения, пожалуйста, покиньте ресурс.")}
           <br/>
-          THE USER AGREEMENT may be changed by the Administration without any notification to users.
+          {t("ПОЛЬЗОВАТЕЛЬСКОЕ СОГЛАШЕНИЕ может быть изменено Администрацией без уведомления пользователей.")}
           <br/>
-          The new version of the USER AGREEMENT comes into force after 3 (three) days from the date of its posting, unless otherwise provided by the new version of The USER AGREEMENT.
+          {t("Новая версия ПОЛЬЗОВАТЕЛЬСКОГО СОГЛАШЕНИЯ вступает в силу через 3 (три) дня с момента его размещения, если иное не предусмотрено новой версией ПОЛЬЗОВАТЕЛЬСКОГО СОГЛАШЕНИЯ.")}
         </p>
 
-        <h2 id="2" className={useClass([cls.sectionHeader, TextModule.paragraph__bold])}>2. SUBJECT OF THE AGREEMENT</h2>
+        <h2 id="2" className={useClass([cls.sectionHeader, TextModule.paragraph__bold])}>{t("2. ПРЕДМЕТ СОГЛАШЕНИЯ")}</h2>
         <p className={cls.subsection}>
-          2.1. The subject of this Agreement is to provide the User of the Internet resource with   access to the Products contained on the INNWORK Website and the provision of services.
-          - The Internet resource provides the User with the following types of services;
+          {t("2.1. Предметом данного Соглашения является предоставление Пользователю Интернет-ресурса доступа к Продуктам, содержащимся на сайте INNWORK, и оказание услуг.")}
           <br/>
-          - Access to electronic content free of charge, with the right to purchase; (downloading), viewing content;
+          {t("•	Интернет-ресурс предоставляет Пользователю следующие виды услуг:")}
           <br/>
-          - Access to Internet resource search and navigation tools
+          {t("•	Доступ к электронному контенту на бесплатной основе с правом покупки (скачивания) и просмотра контента;")}
           <br/>
-          - Providing the User with the opportunity to post messages, comments, and rate the content of the Internet resource;
+          {t("•	Доступ к инструментам поиска и навигации интернет-ресурса;")}
           <br/>
-          - Access to information about the services provided;
+          {t("•	Предоставление Пользователю возможности размещать сообщения, комментарии и оценивать контент интернет-ресурса;")}
           <br/>
-          - Other types of services (services) sold on the pages of the Internet resource, including paid services (services).
+          {t("•	Доступ к информации о предоставляемых услугах;")}
+          <br/>
+          {t("•	Другие виды услуг (сервисов), продаваемые на страницах интернет-ресурса, включая платные услуги (сервисы).")}
           <br/>
           <p className={cls.subsection}>
-            2.1.1. This Agreement covers all currently existing (actually functioning) services of the   Internet resource, as well as any subsequent modifications thereof and additional services of the Internet resource that appear in the future.
+            {t("2.1.1. Настоящее Соглашение охватывает все в настоящее время существующие (фактически функционирующие) услуги интернет-ресурса, а также любые последующие их изменения и дополнительные услуги интернет-ресурса, которые появятся в будущем.")}
           </p>
-          2.2. Access to the Internet resource is provided free of charge.
+          {t("2.2. Доступ к интернет-ресурсу предоставляется бесплатно.")}
           <br/>
-          2.3. This Agreement is a public offer. By accessing the INNWORK Site, the user is deemed to have acceded to this Agreement.
+          {t("2.3. Настоящее Соглашение является публичной офертой. Получив доступ к сайту INNWORK, пользователь считается присоединившимся к настоящему Соглашению.")}
           <br/>
-          2.4. The use of materials and services of the INNWORK Site is governed by current legislation.
+          {t("2.4. Использование материалов и услуг сайта INNWORK регулируется действующим законодательством.")}
         </p>
 
-        <h2 id="3" className={useClass([cls.sectionHeader, TextModule.paragraph__bold])}>3. RIGHTS AND OBLIGATIONS OF THE PARTIES</h2>
+        <h2 id="3" className={useClass([cls.sectionHeader, TextModule.paragraph__bold])}>{t("3. ПРАВА И ОБЯЗАННОСТИ СТОРОН")}</h2>
         <p className={cls.subsection}>
-          <h2 id="3.1" className={useClass([cls.subsectionHeader, TextModule.paragraph__bold])}>3.1. The INNWORK website administration has the right to:</h2>
+          <h2 id="3.1" className={useClass([cls.subsectionHeader, TextModule.paragraph__bold])}>{t("3.1. Администрация сайта INNWORK имеет право:")}</h2>
           <div className={cls.subsection}>
-            3.1.1. Change the rules for using the INNWORK Site, as well as change the content of this Site. Changes come into force from the moment of publication of the new version of the Site Agreement.
+            {t("3.1.1. Изменять правила использования сайта INNWORK, а также изменять содержание данного сайта. Изменения вступают в силу с момента публикации новой версии Соглашения на сайте.")}
             <br/>
-            3.1.2. Restrict access to the site in case of violation by the User of the terms of this Agreement
+            {t("3.1.2. Ограничивать доступ к сайту в случае нарушения Пользователем условий данного Соглашения.")}
             <br/>
-            3.1.3. Collect, analyze, use, share (including on a paid basis) information about the User contained on the INNWORK Site, including, but not limited to, information about the User’s contact and personal information, information about the User’s actions on the Site, etc.
+            {t("3.1.3. Собирать, анализировать, использовать, делиться (включая на платной основе) информацией о Пользователе, содержащейся на сайте INNWORK, включая, но не ограничиваясь контактной и персональной информацией о Пользователе, информацией о действиях Пользователя на сайте и т.д.")}
           </div>
 
-          <h2 id="3.2" className={useClass([cls.subsectionHeader, TextModule.paragraph__bold])}>3.2. The administrator undertakes:</h2>
+          <h2 id="3.2" className={useClass([cls.subsectionHeader, TextModule.paragraph__bold])}>{t("3.2. Администратор обязуется:")}</h2>
           <div className={cls.subsection}>
-            3.2.1. Provide the User with access to the INNWORK website in the manner and under the terms of this Agreement. Access to individual services and functions of the Site is provided only after the User has been assigned Accounting Information (User registration, authorization).
+            {t("3.2.1. Обеспечивать Пользователю доступ к сайту INNWORK в порядке и на условиях, предусмотренных настоящим Соглашением. Доступ к отдельным услугам и функциям сайта предоставляется только после присвоения Пользователю учетной информации (регистрация и авторизация Пользователя).")}
             <br/>
-            3.2.2. Do not disclose the User’s Account Information to third parties, with the exception of the need to provide information to partners involved in the execution of an independent agreement concluded between the INNWORK Site Administrator and the User
+            {t("3.2.2. Не раскрывать учетную информацию Пользователя третьим лицам, за исключением необходимости предоставления информации партнерам, участвующим в исполнении независимого соглашения, заключенного между Администратором сайта INNWORK и Пользователем.")}
             <br/>
-            3.2.3. Ensure round-the-clock availability of the server on which the INNWORK Website is located, with the exception of the time of maintenance.
+            {t("3.2.3. Обеспечивать круглосуточную доступность сервера, на котором размещен сайт INNWORK, за исключением времени проведения технического обслуживания.")}
           </div>
 
-          <h2 id="3.3" className={useClass([cls.subsectionHeader, TextModule.paragraph__bold])}>3.3. The user has the right:</h2>
+          <h2 id="3.3" className={useClass([cls.subsectionHeader, TextModule.paragraph__bold])}>{t("3.3. Пользователь имеет право:")}</h2>
           <div className={cls.subsection}>
-            3.3.1. Gain access to use the INNWORK website.
+            {t("3.3.1. Получать доступ и использовать сайт INNWORK.")}
             <br/>
-            3.3.2. Use all services available on the site.
+            {t("3.3.2. Использовать все доступные на сайте услуги.")}
             <br/>
-            3.3.3. Ask any questions related to the services of the Internet resource using the details that are located in the “INNWORK” section of the website.
+            {t("3.3.3. Задавать любые вопросы, связанные с услугами интернет-ресурса, используя контактные данные, расположенные в разделе «INNWORK» на сайте.")}
             <br/>
-            3.3.4. Use the site solely for the purposes and in the manner provided for in the Agreement and not prohibited by the legislation of the Republic of Armenia
+            {t("3.3.4. Использовать сайт исключительно в целях и в порядке, предусмотренных Соглашением, и не запрещенных законодательством Республики Армения.")}
           </div>
 
-          <h2 id="3.4" className={useClass([cls.subsectionHeader, TextModule.paragraph__bold])}>3.4. The site user undertakes:</h2>
+          <h2 id="3.4" className={useClass([cls.subsectionHeader, TextModule.paragraph__bold])}>{t("3.4. Пользователь сайта обязуется:")}</h2>
           <div className={cls.subsection}>
-            3.4.1. Provide, upon request, the INNWORK website Administration with additional information that is directly related to the services provided by this Site.
+            {t("3.4.1. Предоставлять по запросу Администрации сайта INNWORK дополнительную информацию, непосредственно связанную с предоставляемыми данным сайтом услугами.")}
             <br/>
-            3.4.2. Respect the property and non-property rights of authors and other copyright holders when using the INNWORK Site.
+            {t("3.4.2. Уважать имущественные и неимущественные права авторов и других правообладателей при использовании сайта INNWORK.")}
             <br/>
-            3.4.3. Do not take actions that may be considered as disrupting the normal operation of the INNWORK website.
+            {t("3.4.3. Не совершать действий, которые могут быть расценены как нарушающие нормальную работу сайта INNWORK.")}
             <br/>
-            3.4.4. Do not distribute using the site any confidential information about individuals or legal entities protected by the Legislation of the Republic of Armenia.
-
-            <br/>3.4.5. Do not use the site to distribute advertising information, except with the consent of the Administration of the INNWORK site.
+            {t("3.4.4. Не распространять с использованием сайта конфиденциальную информацию о физических или юридических лицах, защищенную законодательством Республики Армения.")}
+            <br/>
+            {t("3.4.5. Не использовать сайт для распространения рекламной информации, кроме как с согласия Администрации сайта INNWORK.")}
           </div>
 
-          <h2 id="3.5" className={useClass([cls.subsectionHeader, TextModule.paragraph__bold])}>3.5. The site user is prohibited from:</h2>
+          <h2 id="3.5" className={useClass([cls.subsectionHeader, TextModule.paragraph__bold])}>{t("3.5. Пользователю сайта запрещено:")}</h2>
           <div className={cls.subsection}>
-            3.5.1. Use any devices, programs, procedures, algorithms and methods, automatic devices or equivalent manual processes to access, acquire, copy or monitor the content of the Site of this Internet resource.
+            {t("3.5.1. Использовать любые устройства, программы, процедуры, алгоритмы и методы, автоматические устройства или эквивалентные ручные процессы для доступа, получения, копирования или мониторинга содержания сайта данного интернет-ресурса.")}
             <br/>
-            3.5.2. Interfere with the proper functioning of the INNWORK website.
+            {t("3.5.2. Нарушать правильное функционирование сайта INNWORK.")}
             <br/>
-            3.5.3. Bypass the navigation structure of the site in any way to obtain or attempt to obtain any information, documents or materials by any means that are not specifically provided by the services of this Site.
+            {t("3.5.3. Обходить навигационную структуру сайта любым способом для получения или попытки получения любой информации, документов или материалов любыми средствами, которые специально не предоставлены услугами данного сайта.")}
             <br/>
-            3.5.4. Unauthorized access to the functions of the site, any other systems or networks related to this Site, as well as to any services offered on the Site.
+            {t("3.5.4. Несанкционированный доступ к функциям сайта, к любой другой системе или сети, связанной с этим сайтом, а также к любым услугам, предлагаемым на сайте.")}
             <br/>
-            3.5.5. Violate the security or authentication systems of the Site or any network connected to the Site.
+            {t("3.5.5. Нарушать системы безопасности или аутентификации сайта или любой сети, связанной с сайтом.")}
             <br/>
-            3.5.6. Perform a reverse search, trace or attempt to trace any information about any other User of the Site.
+            {t("3.5.6. Выполнять обратный поиск, отслеживание или пытаться отслеживать любую информацию о любом другом Пользователе сайта.")}
             <br/>
-            3.5.7. Use the Site and its content for any purpose prohibited by the legislation of the Republic of Armenia, as well as incite any illegal activity or other activity that violates the rights of the Internet resource or other persons.
+            {t("3.5.7. Использовать сайт и его контент для любых целей, запрещенных законодательством Республики Армения, а также подстрекать к любой незаконной деятельности или другой деятельности, нарушающей права интернет-ресурса или других лиц.")}
           </div>
         </p>
 
-        <h2 id="4" className={useClass([cls.sectionHeader, TextModule.paragraph__bold])}>4. USE OF THE SITE</h2>
+        <h2 id="4" className={useClass([cls.sectionHeader, TextModule.paragraph__bold])}>{t("4. ИСПОЛЬЗОВАНИЕ САЙТА")}</h2>
         <p className={cls.subsection}>
-          4.1. The Site and the Content included in the INNWORK Site are owned and managed by the Site Administration.
+          {t("4.1. Сайт и Контент, включенный в сайт INNWORK, принадлежат и управляются Администрацией сайта.")}
             <br/>
-          4.2. The content of the Site cannot be copied, published, reproduced, transmitted or distributed in any way, or posted on the global Internet without the prior consent of the Site Administration.
+          {t("4.2. Содержание сайта не может быть скопировано, опубликовано, воспроизведено, передано или распространено каким-либо образом или размещено в глобальной сети Интернет без предварительного согласия Администрации сайта.")}
             <br/>
-          4.3. The contents of the INNWORK Site are protected by copyright, trademark, and other intellectual property rights and unfair competition laws.
+          {t("4.3. Содержание сайта INNWORK защищено авторским правом, товарными знаками и другими интеллектуальными правами и законами о недобросовестной конкуренции.")}
             <br/>
-          4.4. When using some site services, you may need to create a User Account.
+          {t("4.4. При использовании некоторых услуг сайта может потребоваться создание учетной записи Пользователя.")}
             <br/>
-          4.5. The User is personally responsible for maintaining the confidentiality of account information, including the password, as well as for any and all activities conducted on behalf of the Account User.
+          {t("4.5. Пользователь несет личную ответственность за сохранение конфиденциальности информации учетной записи, включая пароль, а также за все действия, которые совершаются от имени учетной записи Пользователя.")}
             <br/>
-          4.6. This agreement applies to all additional terms and conditions for the purchase of Products and the provision of services provided on the INNWORK Website.
+          {t("4.6. Настоящее соглашение распространяется на все дополнительные условия и положения о покупке Продуктов и предоставлении услуг, предоставляемых на сайте INNWORK.")}
             <br/>
-          4.7. Information posted on the INNWORK Website should not be construed as a change to this Agreement.
+          {t("4.7. Информация, размещенная на сайте INNWORK, не должна интерпретироваться как изменение данного Соглашения.")}
         </p>
 
-        <h2 id="5" className={useClass([cls.sectionHeader, TextModule.paragraph__bold])}>5. RESPONSIBILITY</h2>
+        <h2 id="5" className={useClass([cls.sectionHeader, TextModule.paragraph__bold])}>{t("5. ОТВЕТСТВЕННОСТЬ")}</h2>
         <p className={cls.subsection}>
-          5.1. Any losses that the User may incur in the event of an intentional or careless violation of any provision of this Agreement, as well as due to unauthorized access to the communications of another User, are not reimbursed by the Administration of the INNWORK website.
-
-          <h2 id="5.2" className={useClass([cls.subsectionHeader, TextModule.paragraph__bold])}>5.2. The administration of the INNWORK website is not responsible for:</h2>
+          {t("5.1. Любые убытки, которые Пользователь может понести в случае умышленного или неосторожного нарушения любого положения данного Соглашения, а также в результате несанкционированного доступа к коммуникациям другого Пользователя, не подлежат возмещению Администрацией сайта INNWORK.")}
+          <h2 id="5.2" className={useClass([cls.subsectionHeader, TextModule.paragraph__bold])}>{t("5.2. Администрация сайта INNWORK не несет ответственности за:")}</h2>
           <p className={cls.subsection}>
-            5.2.1. Delays or failures in the transaction process resulting from force majeure, as well as any malfunction in telecommunications, computer, electrical and other related systems.
+            {t("5.2.1. Задержки или сбои в процессе операции, возникшие вследствие непреодолимой силы, а также за любые случаи неисправности в телекоммуникационных, компьютерных, электрических и других смежных системах.")}
             <br/>
-            5.2.2. Actions of transfer systems, banks, payment systems and for delays associated with their work
+            {t("5.2.2. Действия систем перевода, банков, платежных систем и за задержки, связанные с их работой.")}
             <br/>
-            5.2.3. Proper functioning of the Site, if the User does not have the necessary technical means to use it, and also does not bear any obligation to provide users with such means.
+            {t("5.2.3. Правильное функционирование сайта, если Пользователь не обладает необходимыми техническими средствами для его использования, а также не несет никаких обязательств по обеспечению пользователей такими средствами.")}
             <br/>
-            5.2.4. Content (content) of information posted on the INNWORK Website, the user is solely responsible for the interpretation and use of the content (information) posted on the INNWORK Website
+            {t("5.2.4. Контент (содержание) информации, размещенной на сайте INNWORK, Пользователь несет единоличную ответственность за интерпретацию и использование контента (информации), размещенной на сайте INNWORK.")}
           </p>
         </p>
 
-        <h2 id="6" className={useClass([cls.sectionHeader, TextModule.paragraph__bold])}>6. VIOLATION OF THE TERMS OF USER AGREEMENT</h2>
+        <h2 id="6" className={useClass([cls.sectionHeader, TextModule.paragraph__bold])}>{t("6. НАРУШЕНИЕ УСЛОВИЙ ПОЛЬЗОВАТЕЛЬСКОГО СОГЛАШЕНИЯ")}</h2>
         <p className={cls.subsection}>
-          6.1. The Site Administration has the right to disclose any information collected about the User of this Site if disclosure is necessary in connection with an investigation or complaint regarding unlawful use of the Site or to identify (identify) a User who may violate or interfere with the rights of the Site Administration or the rights of other Site Users.
+          {t("6.1. Администрация сайта имеет право раскрыть любую информацию, собранную о Пользователе данного сайта, если раскрытие необходимо в связи с расследованием или жалобой по поводу незаконного использования сайта или для установления (идентификации) Пользователя, который может нарушать или препятствовать правам Администрации сайта или правам других Пользователей сайта.")}
             <br/>
-          6.2. The administration of the INNWORK website has the right to disclose any information about the User that it deems necessary to comply with the provisions of current legislation or court decisions, ensure compliance with the terms of this Agreement, protect the rights or safety of the name of the organization, Users
+          {t("6.2. Администрация сайта INNWORK имеет право раскрыть любую информацию о Пользователе, которую она считает необходимой для выполнения положений действующего законодательства или судебных решений, обеспечения соблюдения условий настоящего Соглашения, защиты прав или безопасности организации, Пользователей.")}
             <br/>
-          6.3. The administration of the INNWORK website has the right, without prior notice to the User, to terminate and (or) block access to the Site if the User has violated this Agreement or the terms of use of the Site contained in other documents, as well as in the event of termination of the Site or due to a technical problem or problem.
+          {t("6.3. Администрация сайта INNWORK имеет право без предварительного уведомления Пользователя прекратить и (или) заблокировать доступ к сайту, если Пользователь нарушил настоящее Соглашение или условия использования сайта, содержащиеся в других документах, а также в случае прекращения работы сайта или по причине технической проблемы.")}
             <br/>
-          6.4. The site administration is not responsible to the User or third parties for termination of access to the Site in the event of a violation by the User of any provision of this Agreement or other document containing the terms of use of the INNWORK Site.
+          {t("6.4. Администрация сайта не несет ответственности перед Пользователем или третьими лицами за прекращение доступа к сайту в случае нарушения Пользователем любого положения данного Соглашения или другого документа, содержащего условия использования сайта INNWORK.")}
         </p>
 
-        <h2 id="7" className={useClass([cls.sectionHeader, TextModule.paragraph__bold])}>7. DISPUTE RESOLUTION</h2>
+        <h2 id="7" className={useClass([cls.sectionHeader, TextModule.paragraph__bold])}>{t("7. РАЗРЕШЕНИЕ СПОРОВ")}</h2>
         <p className={cls.subsection}>
-          7.1. In the event of any disagreement or dispute between the Parties to this Agreement, a prerequisite before going to court is to file a claim (a written proposal for a voluntary settlement of the dispute).
+          {t("7.1. В случае возникновения любых разногласий или споров между Сторонами данного Соглашения обязательным условием перед обращением в суд является предъявление претензии (письменного предложения о добровольном урегулировании спора).")}
           <br/>
-          7.2. The recipient of the claim, within 30 (thirty) calendar days from the date of its receipt, notifies the claimant in writing of the results of consideration of the claim.
+          {t("7.2. Получатель претензии в течение 30 (тридцати) календарных дней с даты ее получения уведомляет заявителя претензии в письменной форме о результатах рассмотрения претензии.")}
           <br/>
-          7.3. If it is impossible to resolve the dispute voluntarily, either Party has the right to go to court to protect their rights, which are granted to them by current legislation.
+          {t("7.3. Если разрешить спор добровольно невозможно, любая из Сторон имеет право обратиться в суд для защиты своих прав, предоставленных им действующим законодательством.")}
           <br/>
-          7.4. Any claim regarding the terms of use of the INNWORK Site must be brought within the period after the grounds for the claim arise, with the exception of copyright protection for materials on the INNWORK Site protected by law. If the terms of this paragraph are violated, any claim or cause of action is barred by statute of limitations.
+          {t("7.4. Любая претензия, касающаяся условий использования сайта INNWORK, должна быть подана в течение периода после возникновения основания для претензии, за исключением защиты авторских прав на материалы, размещенные на сайте INNWORK и защищенные законом. В случае нарушения условий данного пункта любая претензия или основание для действия прекращается по истечению срока давности.")}
         </p>
 
-        <h2 id="8" className={useClass([cls.sectionHeader, TextModule.paragraph__bold])}>8. ADDITIONAL TERMS</h2>
+        <h2 id="8" className={useClass([cls.sectionHeader, TextModule.paragraph__bold])}>{t("8. ДОПОЛНИТЕЛЬНЫЕ УСЛОВИЯ")}</h2>
         <p className={cls.subsection}>
-          8.1. The administration of the INNWORK website does not accept counter-proposals from the User regarding changes to this User Agreement.
+          {t("8.1. Администрация сайта INNWORK не принимает встречных предложений от Пользователя по изменениям данного Пользовательского соглашения.")}
           <br/>
-          8.2. User reviews posted on the INNWORK Site are not confidential information and can be used by the Site Administration without restrictions.
+          {t("8.2. Отзывы пользователей, размещенные на сайте INNWORK, не являются конфиденциальной информацией и могут использоваться Администрацией сайта без ограничений.")}
         </p>
       </div>
     </div>

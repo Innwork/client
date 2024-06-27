@@ -5,7 +5,7 @@ import {
   selectBookingWorkspace,
   selectCartTariffs,
   selectFormStatus,
-  selectIsFormSent
+  selectIsFormSent, selectReservationData
 } from "@src/app/redux/Booking/BookingSlice";
 import {useClass} from "@src/shared/hooks";
 import {useActions} from "@src/app/redux/hooks/useActions";
@@ -21,6 +21,7 @@ export const BookingModal = () => {
   const formStatus = useSelector(selectFormStatus)
   const cartTariffs = useSelector(selectCartTariffs)
   const cartWorkspaces = useSelector(selectBookingWorkspace)
+  const reservationData = useSelector(selectReservationData)
   const {setIsFormSent} = useActions()
   const {t} = useTranslation("main")
 
@@ -39,19 +40,20 @@ export const BookingModal = () => {
       <div ref={modalRef} className={cls.modal}>
         {formStatus === "pending" ?
           <>
-            <div className={useClass([TextModule.h6_small__medium, cls.text_head])}>Sending your request...</div>
+            <div className={useClass([TextModule.h6_small__medium, cls.text_head])}>{t("Отправка запроса...")}</div>
             <div className={cls.loader}></div>
           </>
           : formStatus === "rejected" ?
             <>
               <div className={cls.text}>
-                <div className={useClass([TextModule.h6_small__medium, cls.text_head])}>Something went wrong.</div>
-                <div className={useClass([TextModule.paragraph__ligth, cls.grayFont])}>Your order request was not sent.
+                <div className={useClass([TextModule.h6_small__medium, cls.text_head])}>{t("Что-то пошло не так.")}</div>
+                <div className={useClass([TextModule.paragraph__ligth, cls.grayFont])}>{t("Ваш запрос на заказ не был отправлен.")}
                 </div>
                 <br/>
-                <div className={useClass([TextModule.paragraph__ligth, cls.grayFont])}>Questions? Suggestions? insightful thoughts?
+                <div className={useClass([TextModule.paragraph__ligth, cls.grayFont])}>
+                  {t("Вопросы? Предложения? Мысли?")}
                 </div>
-                <a className={TextModule.paragraph__ligth} target={"_blank"} href={'/'} >Shoot us an email.</a>
+                <a className={TextModule.paragraph__ligth} target={"_blank"} href={'/'}>{t("Напишите нам письмо.")}</a>
               </div>
             </>
             :
@@ -60,15 +62,15 @@ export const BookingModal = () => {
             <OrangeMark/>
           </div>
           <div className={cls.text}>
-            <div className={useClass([TextModule.h6_small__medium, cls.text_head])}>Thank you very much for reserving your place</div>
-            <div className={useClass([TextModule.paragraph__ligth, cls.grayFont])}>Lera Ivanova's order ASK123456
-              has been successfully completed. You will find all the information about his glass and we
-              will send you a confirmation email below.
+            <div className={useClass([TextModule.h6_small__medium, cls.text_head])}>{t("Спасибо за то что вы выбрали нас!")}</div>
+            <div className={useClass([TextModule.paragraph__ligth, cls.grayFont])}>{`${t("Заказ №")} ${reservationData.numberOrder} ${t("на имя")} 
+              ${reservationData.response.person.name + " " + reservationData.response.person.lastName} ${t("был успешно завершен. Всю информацию, мы уже направили на ваш email.")}`}
             </div>
             <br/>
-            <div className={useClass([TextModule.paragraph__ligth, cls.grayFont])}>Questions? Suggestions? insightful thoughts?
+            <div className={useClass([TextModule.paragraph__ligth, cls.grayFont])}>
+              {t("Вопросы? Предложения? Мысли?")}
             </div>
-            <a className={TextModule.paragraph__ligth} target={"_blank"} href={'/'} >Shoot us an email.</a>
+            <a className={TextModule.paragraph__ligth} target={"_blank"} href={'/'}>{t("Напишите нам письмо.")}</a>
           </div>
           <div className={cls.packagesContainer}>
             {cartTariffs.map((tariff) =>

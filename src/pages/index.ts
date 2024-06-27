@@ -25,8 +25,26 @@ export const RulesChunk = lazy(
     )
 )
 
+export const CopyrightChunk = lazy(
+    () => import("@src/pages/copyright/Copyright").then(
+        module => ({default: module.Copyright})
+    )
+)
+
+export const PrivacyChunk = lazy(
+    () => import("@src/pages/privacy/Privacy").then(
+        module => ({default: module.Privacy})
+    )
+)
+
 export const NotFoundPageChunk = lazy(
   () => import("@src/pages/not-found/NotFound").then(
     module => ({default: module.NotFound})
+  )
+)
+
+export const InfoPageChunk = lazy(
+  () => import("@src/pages/information/Information").then(
+    module => ({default: module.Information})
   )
 )

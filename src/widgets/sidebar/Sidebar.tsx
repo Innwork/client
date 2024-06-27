@@ -50,7 +50,7 @@ export const Sidebar: FC<SidebarProps> = ({sections, link}) => {
                 <CaretBottomIcon/>
               </div>
             </div>
-            <a onClick={() => {
+            <a className={cls.subsectionDropdown} onClick={() => {
               scrollToCenter(section.id);
               setActiveSection(section.id)
             }}>{section.title}</a>
@@ -73,14 +73,14 @@ export const Sidebar: FC<SidebarProps> = ({sections, link}) => {
 
   return (
     <>
-        <div className={useClass([TextModule.paragraph, cls.sidebarContainer])}>
+        <div className={useClass([TextModule.paragraph_white, cls.sidebarContainer])}>
           <div className={cls.sidebarContent}>
             {sections.map((section) =>
               createSection(section)
             )}
           </div>
         </div>
-        <div className={cls.burgerContainer}>
+        <div className={useClass([TextModule.h6_small, cls.burgerContainer])}>
           <div className={cls.burgerSidebar}>
             <div className={cls.burgerImg} onClick={() => setIsSidebarOpen(true)}>
               <RightCaret/>

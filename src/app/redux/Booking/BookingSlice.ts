@@ -4,7 +4,7 @@ import {
   BookingStateType,
   PersonalInfoType,
   TariffItem,
-  Tariffs,
+  Tariffs, TReservationData,
   WorkspaceItem,
 } from "@src/app/redux/Booking/BookingTypes";
 import {postReservationData} from "@src/app/redux/Booking/actions";
@@ -26,7 +26,8 @@ const initialState: BookingStateType = {
     phone: "",
   },
   cartTariffs: [],
-  areInputsValid: {}
+  areInputsValid: {},
+  reservationData: {} as TReservationData
 }
 
 const bookingSlice = createSlice({
@@ -78,9 +79,10 @@ const bookingSlice = createSlice({
           state.isOpen = false
           state.formStatus = "pending"
         })
-        .addCase(postReservationData.fulfilled, (state) => {
+        .addCase(postReservationData.fulfilled, (state, {payload}: PayloadAction<TReservationData>) => {
           state.isOpen = false
           state.formStatus = "fulfilled"
+          state.reservationData = payload
         })
         .addCase(postReservationData.rejected, (state) => {
           state.formStatus = "rejected"
@@ -99,6 +101,7 @@ export const selectAreInputsValid = (state: RootState) => state.booking.areInput
 export const selectPWSpeopleCount = (state: RootState) => state.booking.PWSpeopleCount
 export const selectIsFormSent = (state: RootState) => state.booking.isFormSent
 export const selectPage = (state: RootState) => state.booking.page
+export const selectReservationData = (state: RootState) => state.booking.reservationData
 
 export default bookingSlice.reducer
 export const BookingActions = bookingSlice.actions

@@ -1,5 +1,14 @@
 import {IBaseRoute} from "@src/shared/types";
-import {AboutChunk, HomeChunk, NotFoundPageChunk, RulesChunk, TermsChunk} from "@src/pages";
+import {
+    AboutChunk,
+    CopyrightChunk,
+    HomeChunk,
+    InfoPageChunk,
+    NotFoundPageChunk,
+    PrivacyChunk,
+    RulesChunk,
+    TermsChunk
+} from "@src/pages";
 
 interface IPaths extends IBaseRoute{
     exact?: boolean
@@ -11,5 +20,8 @@ export const RotesLayout: IPaths[] = [
     {path: "/about", element: <AboutChunk/>},
     {path: "/terms", element: <TermsChunk/>},
     {path: "/rules", element: <RulesChunk/>},
+    {path: "/copyright", element: <CopyrightChunk/>},
+    {path: "/privacy", element: <PrivacyChunk/>},
+    {path: "/info", element: <InfoPageChunk/>},
     {path: "*", element: <NotFoundPageChunk/>}
 ]

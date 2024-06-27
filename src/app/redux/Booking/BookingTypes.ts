@@ -54,6 +54,28 @@ export interface BookingStateType {
     birthDate?: boolean
     phone?: boolean
   }
+  reservationData: TReservationData
+}
+
+export type TReservationData = {
+  mail: boolean;
+  numberOrder: number;
+  response: {
+    lngCode: string;
+    person: {
+      name: string;
+      lastName: string;
+      email: string;
+      telephone: string;
+    };
+    packages: {
+      namePackages: string;
+      price: string;
+      date: string;
+      persons: string;
+    }[];
+  };
+  status: number;
 }
 
 export interface oddsI {

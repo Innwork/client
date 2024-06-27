@@ -1,0 +1,25 @@
+@use "src/shared/scss/logic/function";
+
+.linksContainer {
+	margin-top: function.vw(200, 1920);
+	margin-bottom: function.vw(20, 1920);
+	display: flex;
+	flex-direction: column;
+
+	@media (max-width: 960px) {
+		margin-top: function.vw(100, 960);
+		margin-bottom: function.vw(20, 960);
+	}
+	@media (max-width: 720px) {
+		margin-top: function.vw(100, 720);
+		margin-bottom: function.vw(20, 720);
+	}
+	@media (max-width: 540px) {
+		margin-top: function.vw(100, 540);
+		margin-bottom: function.vw(20, 540);
+	}
+	@media (max-width: 420px) {
+		margin-top: function.vw(100, 420);
+		margin-bottom: function.vw(20, 420);
+	}
+}

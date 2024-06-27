@@ -11,7 +11,7 @@ export const postReservationData = createAsyncThunk(
   'booking/post',
   async (data: TData, {rejectWithValue}) => {
     try {
-      return await MailService.postReservationData(data)
+      return await MailService.postReservationData(data).then(res => res.data)
     } catch (e) {
       return rejectWithValue(e)
     }
