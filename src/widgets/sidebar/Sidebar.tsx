@@ -6,6 +6,7 @@ import CaretBottomIcon from "@assets/icons/Header/dropdown-arrow-down.svg"
 import RightCaret from "@assets/icons/RightCaretGray.svg"
 import CrossIcon from "@assets/icons/Header/cross.svg"
 import {MainBtn} from "@src/shared/ui/btn/main-btn/MainBtn";
+import {useTranslation} from "react-i18next";
 
 export type TSection = {
   id: string,
@@ -16,12 +17,14 @@ export type TSection = {
 interface SidebarProps {
   sections: TSection[]
   link: string
+  page: "copyright" | "privacy" | "rules" | "terms"
 }
 
-export const Sidebar: FC<SidebarProps> = ({sections, link}) => {
+export const Sidebar: FC<SidebarProps> = ({sections, page, link}) => {
   const [activeSection, setActiveSection] = useState('0')
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
   const sidebarRef = useRef<HTMLDivElement>(null)
+  const {t} = useTranslation(`${page}`)
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -35,10 +38,11 @@ export const Sidebar: FC<SidebarProps> = ({sections, link}) => {
 
   const createSection = (section: TSection) => {
     if (!section.subSections) {
+      console.log(section.title)
       return (
         <div onClick={() => setActiveSection(section.id)} className={cls.sectionHead}>
           <a className={cls.subsectionItem} key={section.id}
-             onClick={() => {scrollToCenter(section.id); setIsSidebarOpen(false)}}>{section.title}</a>
+             onClick={() => {scrollToCenter(section.id); setIsSidebarOpen(false)}}>{t(section.title)}</a>
         </div>
       )
     } else {
@@ -53,7 +57,7 @@ export const Sidebar: FC<SidebarProps> = ({sections, link}) => {
             <a className={cls.subsectionDropdown} onClick={() => {
               scrollToCenter(section.id);
               setActiveSection(section.id)
-            }}>{section.title}</a>
+            }}>{t(section.title)}</a>
           </div>
           <div className={useClass([cls.subsection, section.id === activeSection ? cls["open"] : cls['closed']])}>
             {section.subSections.map((subsection) =>

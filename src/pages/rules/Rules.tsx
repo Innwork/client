@@ -11,7 +11,7 @@ export const Rules = () => {
 
   return (
     <div className={cls.termsContainer}>
-      <Sidebar sections={RulesSection} link={"RulesLink"}/>
+      <Sidebar sections={RulesSection} page={"rules"} link={"RulesLink"}/>
       <div className={useClass([ContainerModule.wrapper, cls.contentWrapper, TextModule.paragraph])}>
         <h1 className={useClass([cls.mainHeader, TextModule.h5])}>{t("Правила пользования коворкингом “INNWORK”")}</h1>
         <p className={useClass([cls.additional, TextModule.paragraph__bold])}>
@@ -20,7 +20,7 @@ export const Rules = () => {
           {t("Нарушение (несоблюдение) настоящих правил является основание для временного или постоянного отказа посетителю в оказании услуг и доступе в помещение.")}
         </p>
 
-        <h2 id="1" className={useClass([cls.sectionHeader, TextModule.paragraph__bold])}>{t("1.Порядок посещения Коворкинга “INNWORK”")}</h2>
+        <h2 id="1" className={useClass([cls.sectionHeader, TextModule.paragraph__bold])}>{t("1. ПОРЯДОК ПОСЕЩЕНИЯ КОВОРКИНГА “INNWORK”")}</h2>
         <p className={cls.subsection}>
           {t("1.1. Посещение Коворкинга осуществляется после подписания договора.  Посетитель обязан произвести оплату в размере выбранного Тарифа на сайте.")}
           <br/>
@@ -31,7 +31,7 @@ export const Rules = () => {
           {t("1.4. Режим работы Коворкинга устанавливается в соответствии с производственным календарем на текущий год, разработанным на основании статей 117 Трудового кодекса Республики Армения.")}
         </p>
 
-        <h2 id="2" className={useClass([cls.sectionHeader, TextModule.paragraph__bold])}>{t("2. Порядок приема и возврата рабочего места в Коворкинге.")}</h2>
+        <h2 id="2" className={useClass([cls.sectionHeader, TextModule.paragraph__bold])}>{t("2. ПОРЯДОК ПРИЕМА И ВОЗВРАТА РАБОЧЕГО МЕСТА В КОВОРКИНГЕ")}</h2>
         <p className={cls.subsection}>
           {t("2.1. До начала использования рабочего места посетитель Коворкинга проводит его визуальный осмотр.")}
           <br/>
@@ -40,7 +40,7 @@ export const Rules = () => {
           {t("2.3. При истечении срока пользования рабочим местом посетитель обязан в последний рабочий день пребывания в Коворкинге передать рабочее место Исполнителю в надлежащем состоянии․")}
         </p>
 
-        <h2 id="3" className={useClass([cls.sectionHeader, TextModule.paragraph__bold])}>{t("3.Правила нахождения в Коворкинге")}</h2>
+        <h2 id="3" className={useClass([cls.sectionHeader, TextModule.paragraph__bold])}>{t("3. ПРАВИЛА НАХОЖДЕНИЯ В КОВОРКИНГЕ")}</h2>
         <p className={cls.subsection}>
           {t("3.1. Посетитель Коворкинга при пользовании рабочим местом обязан руководствоваться настоящими Правилами и соблюдать нормы действующего законодательства, а также использовать рабочее место и предоставленное оборудование по назначению.")}
           <br/>

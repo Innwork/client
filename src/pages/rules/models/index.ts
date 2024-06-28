@@ -3,7 +3,7 @@ import {TSection} from "@src/widgets/sidebar/Sidebar";
 export const RulesSection: TSection[] = [
   {
     id: "1",
-    title: '1. ПОРЯДОК ПОСЕЩЕНИЯ КОВОРКИНГА "INNWORK"',
+    title: '1. ПОРЯДОК ПОСЕЩЕНИЯ КОВОРКИНГА “INNWORK”',
   },
   {
     id: "2",

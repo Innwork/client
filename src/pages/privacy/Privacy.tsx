@@ -10,16 +10,16 @@ export const Privacy = () => {
   const {t} = useTranslation("privacy")
   return (
     <div className={cls.termsContainer}>
-      <Sidebar sections={PrivacySections} link={"https://a26805-42a6.x.d-f.pw/api/docs?filename=Privacy_Policy.docx&lng=ru-ru"}/>
+      <Sidebar sections={PrivacySections} page={"privacy"} link={"https://a26805-42a6.x.d-f.pw/api/docs?filename=Privacy_Policy.docx&lng=ru-ru"}/>
       <div className={useClass([ContainerModule.wrapper, cls.contentWrapper, TextModule.paragraph])}>
         <h1 className={useClass([cls.mainHeader, TextModule.h5])}>{t("ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ ПЕРСОНАЛЬНЫХ ДАННЫХ")}</h1>
         <p className={useClass([cls.additional, TextModule.paragraph__bold])}>
           {t("Настоящая Политика конфиденциальности персональных данных (далее - Политика конфиденциальности) действует в отношении всей информации, которую веб-сайт INNWORK, на котором размещен текст данной Политики конфиденциальности, может получить о Пользователе во время использования веб-сайта INNWORK (а также его поддоменов), его программ и продуктов, размещенных на нем.")}
         </p>
 
-        <h2 id="1" className={useClass([cls.sectionHeader, TextModule.paragraph__bold])}>{t("1. Определение терминов")}</h2>
+        <h2 id="1" className={useClass([cls.sectionHeader, TextModule.paragraph__bold])}>{t("1. ОПРЕДЕЛЕНИЕ ТЕРМИНОВ")}</h2>
         <p className={cls.subsection}>
-          <h2 id="1.1" className={useClass([cls.subsectionHeader, TextModule.paragraph__bold])}>{t("1.1. В настоящей Политике конфиденциальности используются следующие термины:")}</h2>
+          <h2 id="1.1" className={useClass([cls.subsectionHeader, TextModule.paragraph__bold])}>{t("1.1. В настоящей Политике конфиденциальности используются следующие термины")}</h2>
           <p className={cls.subsection}>
             {t("1.1.1. «Администрация сайта» - уполномоченные сотрудники, которые управляют сайтом INNWORK и действуют от его имени, организующие и (или) осуществляющие обработку персональных данных, а также определяющие цели обработки персональных данных, состав персональных данных, подлежащих обработке, действия (операции), совершаемые с персональными данными.")}
             <br/>
@@ -51,7 +51,7 @@ export const Privacy = () => {
         <h2 id="3" className={useClass([cls.sectionHeader, TextModule.paragraph__bold])}>{t("3. ПРЕДМЕТ ПОЛИТИКИ КОНФИДЕНЦИАЛЬНОСТИ")}</h2>
         <p className={cls.subsection}>
           {t("3.1. Настоящая Политика конфиденциальности устанавливает обязательства Администрации сайта INNWORK по умышленному неразглашению персональных данных, которые Пользователь предоставляет по различным запросам Администрации сайта INNWORK (например, при регистрации на сайте, оформлении заказа, подписке на уведомления и т. д.).")}
-          <h2 id="3.2" className={useClass([cls.subsectionHeader, TextModule.paragraph__bold])}>{t("3.2. Персональные данные, разрешенные для обработки в рамках настоящей Политики конфиденциальности, предоставляются Пользователем путем заполнения специальных форм на сайте и обычно включают следующую информацию:")}</h2>
+          <h2 id="3.2" className={useClass([cls.subsectionHeader, TextModule.paragraph__bold])}>{t("3.2. Персональные данные, разрешенные для обработки в рамках настоящей Политики конфиденциальности, предоставляются Пользователем путем заполнения специальных форм на сайте и обычно включают следующую информацию")}</h2>
           <p className={cls.subsection}>
             {t("3.2.1. Фамилию, имя, отчество Пользователя;")}
             <br/>
@@ -62,7 +62,7 @@ export const Privacy = () => {
             {t("3.2.4. Место проживания Пользователя и другие данные.")}
           </p>
 
-          <h2 id="3.3" className={useClass([cls.subsectionHeader, TextModule.paragraph__bold])}>{t("3.3. Администрация сайта INNWORK также принимает усилия по защите Персональных данных, которые автоматически передаются в процессе посещения страниц сайта:")}</h2>
+          <h2 id="3.3" className={useClass([cls.subsectionHeader, TextModule.paragraph__bold])}>{t("3.3. Администрация сайта INNWORK также принимает усилия по защите Персональных данных, которые автоматически передаются в процессе посещения страниц сайта")}</h2>
           <p className={cls.subsection}>
             {t("- IP-адрес;")}
             <br/>
@@ -86,7 +86,7 @@ export const Privacy = () => {
 
         <h2 id="4" className={useClass([cls.sectionHeader, TextModule.paragraph__bold])}>{t("4. ЦЕЛИ СБОРА ПЕРСОНАЛЬНОЙ ИНФОРМАЦИИ ПОЛЬЗОВАТЕЛЯ")}</h2>
         <p className={cls.subsection}>
-          <h2 id="4.1" className={useClass([cls.subsectionHeader, TextModule.paragraph__bold])}>{t("4.1. Администрация сайта может использовать персональные данные Пользователя в следующих целях:")}</h2>
+          <h2 id="4.1" className={useClass([cls.subsectionHeader, TextModule.paragraph__bold])}>{t("4.1. Администрация сайта может использовать персональные данные Пользователя в следующих целях")}</h2>
           <p className={cls.subsection}>
             {t("•	Идентификация Пользователя, зарегистрированного на сайте INNWORK для оформления заказа и (или) заключения Соглашения;")}
             <br/>
@@ -125,7 +125,7 @@ export const Privacy = () => {
 
         <h2 id="6" className={useClass([cls.sectionHeader, TextModule.paragraph__bold])}>{t("6. ОБЯЗАННОСТИ СТОРОН")}</h2>
         <p className={cls.subsection}>
-          <h2 id="6.1" className={useClass([cls.subsectionHeader, TextModule.paragraph__bold])}>{t("6.1. Пользователь обязан:")}</h2>
+          <h2 id="6.1" className={useClass([cls.subsectionHeader, TextModule.paragraph__bold])}>{t("6.1. Пользователь обязан")}</h2>
           <p className={cls.subsection}>
             {t("•	предоставлять корректную и достоверную информацию о персональных данных, необходимую для использования сайта INNWORK;")}
             <br/>
@@ -134,7 +134,7 @@ export const Privacy = () => {
             {t("•	принимать меры по защите доступа к своим конфиденциальным данным, хранящимся на сайте INNWORK.")}
           </p>
 
-          <h2 id="6.2" className={useClass([cls.subsectionHeader, TextModule.paragraph__bold])}>{t("6.2. Администрация сайта обязана:")}</h2>
+          <h2 id="6.2" className={useClass([cls.subsectionHeader, TextModule.paragraph__bold])}>{t("6.2. Администрация сайта обязана")}</h2>
           <p className={cls.subsection}>
             {t("•	использовать полученную информацию исключительно для целей, указанных в пункте 4 настоящей Политики конфиденциальности;")}
             <br/>
@@ -147,7 +147,7 @@ export const Privacy = () => {
         <h2 id="7" className={useClass([cls.sectionHeader, TextModule.paragraph__bold])}>{t("7. ОТВЕТСТВЕННОСТЬ СТОРОН")}</h2>
         <p className={cls.subsection}>
           {t("7.1. Администрация сайта несет ответственность за умышленное разглашение Персональных данных Пользователя в соответствии с действующим законодательством, за исключением случаев, предусмотренных пунктами 5.2, 5.3 и 7.2 настоящей Политики конфиденциальности.")}
-          <h2 id="7.2" className={useClass([cls.subsectionHeader, TextModule.paragraph__bold])}>{t("7.2. В случае утраты или разглашения Персональных данных Администрация сайта INNWORK не несет ответственность, если данная конфиденциальная информация:")}</h2>
+          <h2 id="7.2" className={useClass([cls.subsectionHeader, TextModule.paragraph__bold])}>{t("7.2. В случае утраты или разглашения Персональных данных Администрация сайта INNWORK не несет ответственность, если данная конфиденциальная информация")}</h2>
           <p className={cls.subsection}>
             {t("•	стала публичным достоянием до ее утраты или разглашения;")}
             <br/>

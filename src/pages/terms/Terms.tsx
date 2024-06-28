@@ -11,7 +11,7 @@ export const Terms = () => {
 
   return (
     <div className={useClass([ContainerModule.wrapper, cls.termsContainer])}>
-      <Sidebar sections={TermsSections} link={"https://a26805-42a6.x.d-f.pw/api/docs?filename=Terms_of_use.docx&lng=en-us"}/>
+      <Sidebar sections={TermsSections} page={"terms"} link={"https://a26805-42a6.x.d-f.pw/api/docs?filename=Terms_of_use.docx&lng=en-us"}/>
       <div className={useClass([cls.contentWrapper, TextModule.paragraph])}>
         <h1 className={useClass([cls.mainHeader, TextModule.h5])}>{t("ПРАВИЛА ИСПОЛЬЗОВАНИЯ")}</h1>
         <p className={useClass([cls.additional, TextModule.paragraph__bold])}>{t("Интернет-ресурс (сайт) INNWORK (далее - Ресурс) представляет собой интернет-сайт, который позволяет пользователям получать информацию о сервисах коворкинга и бронирования рабочих мест.")}</p>
@@ -31,7 +31,7 @@ export const Terms = () => {
         <p className={cls.subsection}>
           {t("2.1. Предметом данного Соглашения является предоставление Пользователю Интернет-ресурса доступа к Продуктам, содержащимся на сайте INNWORK, и оказание услуг.")}
           <br/>
-          {t("•	Интернет-ресурс предоставляет Пользователю следующие виды услуг:")}
+          {t("•	Интернет-ресурс предоставляет Пользователю следующие виды услуг")}
           <br/>
           {t("•	Доступ к электронному контенту на бесплатной основе с правом покупки (скачивания) и просмотра контента;")}
           <br/>
@@ -55,7 +55,7 @@ export const Terms = () => {
 
         <h2 id="3" className={useClass([cls.sectionHeader, TextModule.paragraph__bold])}>{t("3. ПРАВА И ОБЯЗАННОСТИ СТОРОН")}</h2>
         <p className={cls.subsection}>
-          <h2 id="3.1" className={useClass([cls.subsectionHeader, TextModule.paragraph__bold])}>{t("3.1. Администрация сайта INNWORK имеет право:")}</h2>
+          <h2 id="3.1" className={useClass([cls.subsectionHeader, TextModule.paragraph__bold])}>{t("3.1. Администрация сайта INNWORK имеет право")}</h2>
           <div className={cls.subsection}>
             {t("3.1.1. Изменять правила использования сайта INNWORK, а также изменять содержание данного сайта. Изменения вступают в силу с момента публикации новой версии Соглашения на сайте.")}
             <br/>
@@ -64,7 +64,7 @@ export const Terms = () => {
             {t("3.1.3. Собирать, анализировать, использовать, делиться (включая на платной основе) информацией о Пользователе, содержащейся на сайте INNWORK, включая, но не ограничиваясь контактной и персональной информацией о Пользователе, информацией о действиях Пользователя на сайте и т.д.")}
           </div>
 
-          <h2 id="3.2" className={useClass([cls.subsectionHeader, TextModule.paragraph__bold])}>{t("3.2. Администратор обязуется:")}</h2>
+          <h2 id="3.2" className={useClass([cls.subsectionHeader, TextModule.paragraph__bold])}>{t("3.2. Администратор обязуется")}</h2>
           <div className={cls.subsection}>
             {t("3.2.1. Обеспечивать Пользователю доступ к сайту INNWORK в порядке и на условиях, предусмотренных настоящим Соглашением. Доступ к отдельным услугам и функциям сайта предоставляется только после присвоения Пользователю учетной информации (регистрация и авторизация Пользователя).")}
             <br/>
@@ -73,7 +73,7 @@ export const Terms = () => {
             {t("3.2.3. Обеспечивать круглосуточную доступность сервера, на котором размещен сайт INNWORK, за исключением времени проведения технического обслуживания.")}
           </div>
 
-          <h2 id="3.3" className={useClass([cls.subsectionHeader, TextModule.paragraph__bold])}>{t("3.3. Пользователь имеет право:")}</h2>
+          <h2 id="3.3" className={useClass([cls.subsectionHeader, TextModule.paragraph__bold])}>{t("3.3. Пользователь имеет право")}</h2>
           <div className={cls.subsection}>
             {t("3.3.1. Получать доступ и использовать сайт INNWORK.")}
             <br/>
@@ -84,7 +84,7 @@ export const Terms = () => {
             {t("3.3.4. Использовать сайт исключительно в целях и в порядке, предусмотренных Соглашением, и не запрещенных законодательством Республики Армения.")}
           </div>
 
-          <h2 id="3.4" className={useClass([cls.subsectionHeader, TextModule.paragraph__bold])}>{t("3.4. Пользователь сайта обязуется:")}</h2>
+          <h2 id="3.4" className={useClass([cls.subsectionHeader, TextModule.paragraph__bold])}>{t("3.4. Пользователь сайта обязуется")}</h2>
           <div className={cls.subsection}>
             {t("3.4.1. Предоставлять по запросу Администрации сайта INNWORK дополнительную информацию, непосредственно связанную с предоставляемыми данным сайтом услугами.")}
             <br/>
@@ -97,7 +97,7 @@ export const Terms = () => {
             {t("3.4.5. Не использовать сайт для распространения рекламной информации, кроме как с согласия Администрации сайта INNWORK.")}
           </div>
 
-          <h2 id="3.5" className={useClass([cls.subsectionHeader, TextModule.paragraph__bold])}>{t("3.5. Пользователю сайта запрещено:")}</h2>
+          <h2 id="3.5" className={useClass([cls.subsectionHeader, TextModule.paragraph__bold])}>{t("3.5. Пользователю сайта запрещено")}</h2>
           <div className={cls.subsection}>
             {t("3.5.1. Использовать любые устройства, программы, процедуры, алгоритмы и методы, автоматические устройства или эквивалентные ручные процессы для доступа, получения, копирования или мониторинга содержания сайта данного интернет-ресурса.")}
             <br/>
@@ -135,7 +135,7 @@ export const Terms = () => {
         <h2 id="5" className={useClass([cls.sectionHeader, TextModule.paragraph__bold])}>{t("5. ОТВЕТСТВЕННОСТЬ")}</h2>
         <p className={cls.subsection}>
           {t("5.1. Любые убытки, которые Пользователь может понести в случае умышленного или неосторожного нарушения любого положения данного Соглашения, а также в результате несанкционированного доступа к коммуникациям другого Пользователя, не подлежат возмещению Администрацией сайта INNWORK.")}
-          <h2 id="5.2" className={useClass([cls.subsectionHeader, TextModule.paragraph__bold])}>{t("5.2. Администрация сайта INNWORK не несет ответственности за:")}</h2>
+          <h2 id="5.2" className={useClass([cls.subsectionHeader, TextModule.paragraph__bold])}>{t("5.2. Администрация сайта INNWORK не несет ответственности за")}</h2>
           <p className={cls.subsection}>
             {t("5.2.1. Задержки или сбои в процессе операции, возникшие вследствие непреодолимой силы, а также за любые случаи неисправности в телекоммуникационных, компьютерных, электрических и других смежных системах.")}
             <br/>

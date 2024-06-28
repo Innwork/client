@@ -3,62 +3,62 @@ import {TSection} from "@src/widgets/sidebar/Sidebar";
 export const TermsSections:TSection[] = [
   {
     id: "1",
-    title: '1. ABOUT USER AGREEMENT',
+    title: '1. ОБ УГОВОРЕ С ПОЛЬЗОВАТЕЛЕМ',
   },
   {
     id: "2",
-    title: '2. SUBJECT OF THE AGREEMENT',
+    title: '2. ПРЕДМЕТ СОГЛАШЕНИЯ',
   },
   {
     id: "3",
-    title: '3. RIGHTS AND OBLIGATIONS OF THE PARTIES',
+    title: '3. ПРАВА И ОБЯЗАННОСТИ СТОРОН',
     subSections: [
       {
         id: "3.1",
-        title: '3.1. The INNWORK website administration has the right to:',
+        title: '3.1. Администрация сайта INNWORK имеет право',
       },
       {
         id: "3.2",
-        title: '3.2. The administrator undertakes:',
+        title: '3.2. Администратор обязуется',
       },
       {
         id: "3.3",
-        title: '3.3. The user has the right:',
+        title: '3.3. Пользователь имеет право',
       },
       {
         id: "3.4",
-        title: '3.4. The site user undertakes:',
+        title: '3.4. Пользователь сайта обязуется',
       },
       {
         id: "3.5",
-        title: '3.5. The site user is prohibited from:',
+        title: '3.5. Пользователю сайта запрещено',
       },
     ],
   },
   {
     id: "4",
-    title: '4. USE OF THE SITE',
+    title: '4. ИСПОЛЬЗОВАНИЕ САЙТА',
   },
   {
     id: "5",
-    title: '5. RESPONSIBILITY',
+    title: '5. ОТВЕТСТВЕННОСТЬ',
     subSections: [
       {
         id: "5.2",
-        title: '5.2. The administration of the INNWORK website is not responsible for:',
+        title: "5.2. Администрация сайта INNWORK не несет ответственности за",
       }
     ],
   },
   {
     id: "6",
-    title: '6. VIOLATION OF THE TERMS OF USER AGREEMENT',
+    title: '6. НАРУШЕНИЕ УСЛОВИЙ ПОЛЬЗОВАТЕЛЬСКОГО СОГЛАШЕНИЯ',
   },
   {
     id: "7",
-    title: '7. DISPUTE RESOLUTION',
+    title: '7. РАЗРЕШЕНИЕ СПОРОВ',
   },
   {
     id: "8",
-    title: '8. ADDITIONAL TERMS',
+    title: '8. ДОПОЛНИТЕЛЬНЫЕ УСЛОВИЯ',
   },
 ];

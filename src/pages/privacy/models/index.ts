@@ -3,76 +3,76 @@ import {TSection} from "@src/widgets/sidebar/Sidebar";
 export const PrivacySections:TSection[] = [
   {
     id: "1",
-    title: '1. DEFINITION OF TERMS',
+    title: '1. ОПРЕДЕЛЕНИЕ ТЕРМИНОВ',
     subSections: [
       {
         id: "1.1",
-        title: '1.1. The following terms are used in this Privacy Policy:',
+        title: '1.1. В настоящей Политике конфиденциальности используются следующие термины',
       }
     ],
   },
   {
     id: "2",
-    title: '2. GENERAL PROVISIONS',
+    title: '2. ОБЩИЕ ПОЛОЖЕНИЯ',
   },
   {
     id: "3",
-    title: '3. SCOPE OF THE PRIVACY POLICY',
+    title: '3. ПРЕДМЕТ ПОЛИТИКИ КОНФИДЕНЦИАЛЬНОСТИ',
     subSections: [
       {
         id: "3.2",
-        title: '3.2. Personal data permitted for processing under this Privacy Policy is provided by the User by filling out special forms on the Site and usually includes the following information:',
+        title: '3.2. Персональные данные, разрешенные для обработки в рамках настоящей Политики конфиденциальности, предоставляются Пользователем путем заполнения специальных форм на сайте и обычно включают следующую информацию',
       },
       {
         id: "3.3",
-        title: '3.3. The administration of the INNWORK website also makes efforts to protect Personal Data, which is automatically transmitted during the process of visiting the website pages:',
+        title: '3.3. Администрация сайта INNWORK также принимает усилия по защите Персональных данных, которые автоматически передаются в процессе посещения страниц сайта',
       },
     ],
   },
   {
     id: "4",
-    title: '4. PURPOSES OF COLLECTING USER’S PERSONAL INFORMATION',
+    title: '4. ЦЕЛИ СБОРА ПЕРСОНАЛЬНОЙ ИНФОРМАЦИИ ПОЛЬЗОВАТЕЛЯ',
     subSections: [
       {
         id: "4.1",
-        title: '4.1. The Site Administration may use the User’s personal data for the following purposes:',
+        title: '4.1. Администрация сайта может использовать персональные данные Пользователя в следующих целях',
       }
     ],
   },
   {
     id: "5",
-    title: '5. METHODS AND TERMS OF PROCESSING PERSONAL INFORMATION',
+    title: '5. МЕТОДЫ И СРОКИ ОБРАБОТКИ ПЕРСОНАЛЬНОЙ ИНФОРМАЦИИ',
   },
   {
     id: "6",
-    title: '6. OBLIGATIONS OF THE PARTIES',
+    title: '6. ОБЯЗАННОСТИ СТОРОН',
     subSections: [
       {
         id: "6.1",
-        title: '6.1. The user undertakes:',
+        title: '6.1. Пользователь обязан',
       },
       {
         id: "6.2",
-        title: '6.2. The site administration undertakes:',
+        title: '6.2. Администрация сайта обязана',
       }
     ],
   },
   {
     id: "7",
-    title: '7. RESPONSIBILITY OF THE PARTIES',
+    title: '7. ОТВЕТСТВЕННОСТЬ СТОРОН',
     subSections: [
       {
         id: "7.2",
-        title: '7.2. In the event of loss or disclosure of Personal Data, the Administration of the INNWORK website is not responsible if this confidential information:',
+        title: '7.2. В случае утраты или разглашения Персональных данных Администрация сайта INNWORK не несет ответственность, если данная конфиденциальная информация',
       }
     ],
   },
   {
     id: "8",
-    title: '8. DISPUTE RESOLUTION',
+    title: '8. РАЗРЕШЕНИЕ СПОРОВ',
   },
   {
     id: "9",
-    title: '9. ADDITIONAL TERMS',
+    title: '9. ДОПОЛНИТЕЛЬНЫЕ УСЛОВИЯ',
   },
 ];
