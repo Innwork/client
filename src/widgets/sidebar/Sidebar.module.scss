@@ -46,12 +46,12 @@
 	}
 
 	width: (100vw - function.vw(645, 1920))*0.4;
-	top: function.vw(175, 1920);
+	top: function.vw(150, 1920);
 	left: function.vw(285, 1920);
 
 
 	@media (max-width: 1440px) {
-		top: function.vw(175, 1440);
+		top: function.vw(150, 1440);
 		left: function.vw(40, 1440);
 		width: (100vw - function.vw(130, 1440))*0.4;
 		padding: function.vw(10, 1440);
@@ -254,7 +254,7 @@
 }
 
 .burgerContentBackground {
-	z-index: 200;
+	z-index: 251;
 	position: fixed;
 	height: 100%;
 	width: 100%;
@@ -301,6 +301,7 @@
 
 .burgerContent {
 	position: fixed;
+	z-index: 252;
 	background-color: var(--white);
 	padding: function.vw(25, 960);
 	height: 100%;
