@@ -18,7 +18,7 @@ export const FooterAgreements:FC<IFooterAgreements> = (props) => {
     const {
         children, orgName
     } = props;
-    const {i18n, t} = useTranslation('main')
+    const {t} = useTranslation('main')
 
     return (
         <div className={classes.agreement}>
@@ -26,7 +26,7 @@ export const FooterAgreements:FC<IFooterAgreements> = (props) => {
                 <div className={classes.agreement__links}>
                     {
                         children.map(
-                            (el, index) => <FooterLink to={el.to + `lng=${i18n.language.toLowerCase()}`} key={index}>
+                            (el, index) => <FooterLink to={el.to} key={index}>
                                 {t(el.text)}
                             </FooterLink>
                         )

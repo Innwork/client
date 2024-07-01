@@ -7,11 +7,11 @@ import {RulesSection} from "@src/pages/rules/models";
 import {useTranslation} from "react-i18next";
 
 export const Rules = () => {
-  const {t} = useTranslation("rules")
+  const {t, i18n} = useTranslation("rules")
 
   return (
     <div className={cls.termsContainer}>
-      <Sidebar sections={RulesSection} page={"rules"} link={"RulesLink"}/>
+      <Sidebar sections={RulesSection} page={"rules"} link={`${process.env.REACT_APP_HOST}docs/?filename=Rules_for_using.docx&lng=${i18n.language}`}/>
       <div className={useClass([ContainerModule.wrapper, cls.contentWrapper, TextModule.paragraph])}>
         <h1 className={useClass([cls.mainHeader, TextModule.h5])}>{t("Правила пользования коворкингом “INNWORK”")}</h1>
         <p className={useClass([cls.additional, TextModule.paragraph__bold])}>

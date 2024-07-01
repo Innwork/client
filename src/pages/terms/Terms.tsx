@@ -7,11 +7,11 @@ import {TermsSections} from "@src/pages/terms/models";
 import {useTranslation} from "react-i18next";
 
 export const Terms = () => {
-  const {t} = useTranslation("terms")
+  const {t, i18n} = useTranslation("terms")
 
   return (
     <div className={useClass([ContainerModule.wrapper, cls.termsContainer])}>
-      <Sidebar sections={TermsSections} page={"terms"} link={"https://a26805-42a6.x.d-f.pw/api/docs?filename=Terms_of_use.docx&lng=en-us"}/>
+      <Sidebar sections={TermsSections} page={"terms"} link={`https://a26805-42a6.x.d-f.pw/api/docs?filename=Terms_of_use.docx&lng=${i18n.language}`}/>
       <div className={useClass([cls.contentWrapper, TextModule.paragraph])}>
         <h1 className={useClass([cls.mainHeader, TextModule.h5])}>{t("ПРАВИЛА ИСПОЛЬЗОВАНИЯ")}</h1>
         <p className={useClass([cls.additional, TextModule.paragraph__bold])}>{t("Интернет-ресурс (сайт) INNWORK (далее - Ресурс) представляет собой интернет-сайт, который позволяет пользователям получать информацию о сервисах коворкинга и бронирования рабочих мест.")}</p>

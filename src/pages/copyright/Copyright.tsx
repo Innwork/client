@@ -6,7 +6,7 @@ import {useTranslation} from "react-i18next";
 import {MainBtn} from "@src/shared/ui/btn/main-btn/MainBtn";
 
 export const Copyright = () => {
-  const {t} = useTranslation("copyright")
+  const {t, i18n} = useTranslation("copyright")
 
   return (
     <div className={cls.termsContainer}>
@@ -72,7 +72,7 @@ export const Copyright = () => {
         {t("Компания INNWORK")}
         <br/>
         <br/>
-        <a href="https://a26805-42a6.x.d-f.pw/api/docs?filename=For_copyright_holders.docx&lng=ru-ru">
+        <a href={`https://a26805-42a6.x.d-f.pw/api/docs?filename=For_copyright_holders.docx&lng=${i18n.language}`}>
           <MainBtn>Скачать</MainBtn>
         </a>
       </div>

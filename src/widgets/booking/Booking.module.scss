@@ -7,7 +7,7 @@
 	width: 100vw;
 	background-color: var(--black-t50);
 	backdrop-filter: blur(2px);
-	z-index: 119;
+	z-index: 260;
 	top: 0;
 	left: function.vw(0, 1920);
 	animation-duration: 0.4s;
@@ -48,7 +48,7 @@
 
 .container {
 	position: fixed;
-	z-index: 120;
+	z-index: 261;
 	top: 0;
 	left: function.vw(0, 1920);
 	height: 100%;
@@ -119,7 +119,7 @@
 	padding-left: function.vw(40, 1920);
 	bottom: function.vw(30, 1920);
 	gap: function.vw(15, 1920);
-	z-index: 200;
+	z-index: 262;
 
 	@include mixin.mediaBottom(1440px, 30, 1440);
 	@include mixin.mediaBottom(960px, 30, 960);

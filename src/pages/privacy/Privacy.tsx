@@ -7,10 +7,10 @@ import {PrivacySections} from "@src/pages/privacy/models";
 import {useTranslation} from "react-i18next";
 
 export const Privacy = () => {
-  const {t} = useTranslation("privacy")
+  const {t, i18n} = useTranslation("privacy")
   return (
     <div className={cls.termsContainer}>
-      <Sidebar sections={PrivacySections} page={"privacy"} link={"https://a26805-42a6.x.d-f.pw/api/docs?filename=Privacy_Policy.docx&lng=ru-ru"}/>
+      <Sidebar sections={PrivacySections} page={"privacy"} link={`https://a26805-42a6.x.d-f.pw/api/docs?filename=Privacy_Policy.docx&lng=${i18n.language}`}/>
       <div className={useClass([ContainerModule.wrapper, cls.contentWrapper, TextModule.paragraph])}>
         <h1 className={useClass([cls.mainHeader, TextModule.h5])}>{t("ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ ПЕРСОНАЛЬНЫХ ДАННЫХ")}</h1>
         <p className={useClass([cls.additional, TextModule.paragraph__bold])}>

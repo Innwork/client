@@ -11,18 +11,18 @@
 
     @media (hover: hover) {
         &:hover{
-            box-shadow: 4px 4px 8px 0px var(--black-t15);
+            box-shadow: 4px 4px 8px 0 var(--black-t15);
         }   
     }
 
     @media (hover: none) {
         &:active{
-            box-shadow: 4px 4px 8px 0px var(--black-t15);
+            box-shadow: 4px 4px 8px 0 var(--black-t15);
         }
     }
 
     &:active{
-        box-shadow: 4px 4px 8px 0px var(--black-t15);
+        box-shadow: 4px 4px 8px 0 var(--black-t15);
     }
 
     @media (max-width: 1440px) {
@@ -79,10 +79,15 @@
 
     @media (max-width: 1440px) {
         gap: function.vw(8, 1440);
+        width: 70%;
     }
 
     @media (max-width: 960px) {
         gap: function.vw(8, 960);
+        align-self: center;
+        p {
+            display: none;
+        }
     }
 
     @media (max-width: 720px) {
