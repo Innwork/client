@@ -7,8 +7,9 @@ import {
   Tariffs, TReservationData,
   WorkspaceItem,
 } from "@src/app/redux/Booking/BookingTypes";
-import {postReservationData} from "@src/app/redux/Booking/actions";
+import {postReservationData, TDataTG} from "@src/app/redux/Booking/actions";
 import {getTariffPrice, getWorkspaces} from "@src/app/redux/Booking/utils";
+import {TelegramService} from "@src/entities/telegram/telegram.service";
 
 
 const initialState: BookingStateType = {
@@ -83,6 +84,39 @@ const bookingSlice = createSlice({
           state.isOpen = false
           state.formStatus = "fulfilled"
           state.reservationData = payload
+
+          const tariffs = state.cartTariffs.map((tariff) => {
+            return {
+              "namePackages": tariff.tariffName,
+              "price": tariff.price,
+              "date": `${tariff.duration}${tariff.tariffName === Tariffs.NON_FIXED_FLEXI_DESK ? (' ' + tariff.time) : tariff.additional}`,
+              "persons": tariff.tariffName === Tariffs.PRIVATE_OFFICE ? state.PWSpeopleCount.toString() : undefined
+            }
+          })
+
+          const workspaces = state.workspaces.map((workspace) => {
+            return {
+              "namePackages": workspace.workspaceName,
+              "price": workspace.price,
+              "date": `${workspace.duration}${' ' + workspace.time}`,
+            }
+          })
+
+          const data = {
+            "IdOrder": state.reservationData.numberOrder.toString(),
+            "person": {
+              "name": state.personalInfo.firstName,
+              "lastName": state.personalInfo.lastName,
+              "email": state.personalInfo.email,
+              "telephone": state.personalInfo.phone,
+            },
+            "packages": [
+              ...workspaces,
+              ...tariffs
+            ]
+          }
+
+          TelegramService.postReservationDataTg(data as TDataTG).then()
         })
         .addCase(postReservationData.rejected, (state) => {
           state.formStatus = "rejected"
