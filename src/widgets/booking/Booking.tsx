@@ -36,6 +36,8 @@ export const Booking = () => {
   const {postReservationData, setPage, setIsOpen} = useActions()
   const {t, i18n} = useTranslation('main')
 
+  const languages = ["en-US", "hy-AM", "ru-RU"]
+
   useEffect(() => {
     if (isBookingOpen) {
       const handleClickOutside = (event: MouseEvent) => {
@@ -67,7 +69,7 @@ export const Booking = () => {
     })
 
     const data = {
-      "lngCode": i18n.language,
+      "lngCode": languages.includes(i18n.language) ? i18n.language : "en-US",
       "person": {
         "name": personalInfo.firstName,
         "lastName": personalInfo.lastName,

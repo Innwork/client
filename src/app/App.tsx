@@ -10,6 +10,7 @@ import {SkeletonTheme} from "react-loading-skeleton";
 import 'react-loading-skeleton/dist/skeleton.css'
 
 export const App = () => {
+
     return (
         <Suspense fallback={
             <PreLoad words={["posts", "images", "space", "discounts"]}>Loading</PreLoad>
