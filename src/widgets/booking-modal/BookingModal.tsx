@@ -53,7 +53,7 @@ export const BookingModal = () => {
                 <div className={useClass([TextModule.paragraph__ligth, cls.grayFont])}>
                   {t("Вопросы? Предложения? Мысли?")}
                 </div>
-                <a className={TextModule.paragraph__ligth} target={"_blank"} href={'/'}>{t("Напишите нам письмо.")}</a>
+                <a className={TextModule.paragraph__ligth} target={"_blank"} href={"mailto:Info@innwork.com"}>{t("Напишите нам письмо.")}</a>
               </div>
             </>
             :
