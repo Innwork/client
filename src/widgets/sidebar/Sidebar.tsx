@@ -38,7 +38,6 @@ export const Sidebar: FC<SidebarProps> = ({sections, page, link}) => {
 
   const createSection = (section: TSection) => {
     if (!section.subSections) {
-      console.log(section.title)
       return (
         <div onClick={() => setActiveSection(section.id)} className={cls.sectionHead}>
           <a className={cls.subsectionItem} key={section.id}
@@ -100,7 +99,7 @@ export const Sidebar: FC<SidebarProps> = ({sections, page, link}) => {
                 createSection(section)
               )}
               <a href={link}>
-                <MainBtn className={cls.downloadButton}>Скачать файл</MainBtn>
+                <MainBtn className={cls.downloadButton}>{t("Скачать файл")}</MainBtn>
               </a>
             </div>
           </div>

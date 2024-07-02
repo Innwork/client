@@ -21,7 +21,7 @@ export const CardBenefits: Array<ISmallCards> = [
     {
         icon: <Locker/>,
         title: "Шкафчик для хранения вещей",
-        subtitle: "для хранения вещей. Оставьте все лишнее и сконцентрируйтесь на важных задачах."
+        subtitle: "Оставьте все лишнее и сконцентрируйтесь на важных задачах."
     },
     {
         icon: <GameZone/>,

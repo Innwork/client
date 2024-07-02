@@ -73,7 +73,7 @@ export const Copyright = () => {
         <br/>
         <br/>
         <a href={`https://a26805-42a6.x.d-f.pw/api/docs?filename=For_copyright_holders.docx&lng=${i18n.language}`}>
-          <MainBtn>Скачать</MainBtn>
+          <MainBtn>{t("Скачать")}</MainBtn>
         </a>
       </div>
     </div>
