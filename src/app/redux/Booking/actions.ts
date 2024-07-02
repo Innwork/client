@@ -7,11 +7,17 @@ export type TData = {
   "packages": Record<string, string>[]
 }
 
+export type TDataTG = {
+  "IdOrder": "string"
+  "person": Record<string, string>
+  "packages": Record<string, string>[]
+}
+
 export const postReservationData = createAsyncThunk(
   'booking/post',
   async (data: TData, {rejectWithValue}) => {
     try {
-      return await MailService.postReservationData(data)
+      return await MailService.postReservationData(data).then(res => res.data)
     } catch (e) {
       return rejectWithValue(e)
     }

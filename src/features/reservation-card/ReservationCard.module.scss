@@ -1,0 +1,29 @@
+@use "src/shared/scss/logic/function";
+@use "src/shared/scss/logic/mixin";
+
+.cardContainer {
+	text-align: start;
+	border-radius: 6px;
+	border: 1px solid #c9c9ca;
+	width: 100%;
+	padding: function.vw(12, 1950);
+
+	@include mixin.mediaPadding(1440px, 12, 1440);
+	@include mixin.mediaPadding(960px, 12, 960);
+	@include mixin.mediaPadding(720px, 12, 720);
+	@include mixin.mediaPadding(540px, 12, 540);
+	@include mixin.mediaPadding(420px, 12, 420);
+}
+
+.price {
+	margin-top: auto;
+	color: var(--black-50);
+}
+
+.info {
+	display: flex;
+	justify-content: space-between;
+}
+
+
+

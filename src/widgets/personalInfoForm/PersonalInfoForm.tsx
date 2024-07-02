@@ -17,6 +17,7 @@ import {packages} from "@src/widgets/packageSelection/model/PackageCardModel";
 import {FC, useEffect} from "react";
 import {useActions} from "@src/app/redux/hooks/useActions";
 import {combineStyle} from "@src/shared/utils";
+import {Link} from "react-router-dom";
 
 interface PersonalInfoFormProps {
   termsAgreement: boolean
@@ -26,10 +27,10 @@ interface PersonalInfoFormProps {
 export const PersonalInfoForm:FC<PersonalInfoFormProps> = (props) => {
   const cartTariffs = useSelector(selectCartTariffs)
   const cartWorkspaces = useSelector(selectBookingWorkspace)
-  const {setAreInputsValid, setPersonalInfo} = useActions()
+  const {setAreInputsValid, setPersonalInfo, setIsOpen} = useActions()
   const {termsAgreement, setTermsAgreement} = props
 
-  const {t, i18n} = useTranslation('main')
+  const {t} = useTranslation('main')
 
   const inputs: IMainBaseInput[] = [
     {
@@ -142,9 +143,9 @@ export const PersonalInfoForm:FC<PersonalInfoFormProps> = (props) => {
       <div className={combineStyle([PersonalInfoFormStyle.checkSnack, TextModule.paragraph__bold])}>
         <ErrorSnack checkBox={true} variety={termsAgreement ? 'good' : 'error'} checkValue={termsAgreement}
            setCheckValue={setTermsAgreement}>{t("Я согласен(на) с ")}
-          <a target={"_blank"} href={`${process.env.REACT_APP_HOST}docs/?filename=Rules_for_using.docx&lng=${i18n.language}`}>
+          <Link to={'/rules'} onClick={() => setIsOpen(false)}>
             {t('правилами использования коворкинга.')}
-          </a>
+          </Link>
         </ErrorSnack>
       </div>
 

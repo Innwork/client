@@ -2,7 +2,7 @@ import BookingStyle from "@src/widgets/booking/Booking.module.scss"
 import {PersonalInfoForm} from "@src/widgets/personalInfoForm";
 import {BookingHead} from "@src/features/bookingHead";
 import {PackageSelection} from "@src/widgets/packageSelection";
-import {useCallback, useState,} from "react";
+import {useCallback, useEffect, useRef, useState,} from "react";
 import {combineStyle} from "@src/shared/utils";
 import {Stepper} from "@src/features/stepper";
 import {useSelector} from "react-redux";
@@ -20,6 +20,7 @@ import {useTranslation} from "react-i18next";
 
 import {useActions} from "@src/app/redux/hooks/useActions";
 import {TData} from "@src/app/redux/Booking/actions";
+import {BookingModal} from "@src/widgets/booking-modal";
 
 export const Booking = () => {
   const isBookingOpen = useSelector(selectIsBookingOpen)
@@ -30,23 +31,36 @@ export const Booking = () => {
   const personalInfo = useSelector(selectBookingPersonalInfo)
   const page = useSelector(selectPage)
   const [termsAgreement, setTermsAgreement] = useState(false)
+  const bookingRef = useRef<HTMLDivElement>(null)
   const steps = 3
-  const {postReservationData, setPage} = useActions()
+  const {postReservationData, setPage, setIsOpen} = useActions()
   const {t, i18n} = useTranslation('main')
+
+  useEffect(() => {
+    if (isBookingOpen) {
+      const handleClickOutside = (event: MouseEvent) => {
+        if (bookingRef.current && !event.composedPath().includes(bookingRef.current)) {
+          setIsOpen(false)
+        }
+      }
+      document.body.addEventListener('click', handleClickOutside)
+      return () => document.body.removeEventListener('click', handleClickOutside)
+    }
+  }, [isBookingOpen])
 
   const sendReservationRequest = useCallback(() => {
     const tariffs = cartTariffs.map((tariff) => {
       return {
-        "namePackages": tariff.tariffName,
+        "namePackages": t(tariff.tariffName),
         "price": tariff.price,
         "date": `${tariff.duration}${tariff.tariffName === Tariffs.NON_FIXED_FLEXI_DESK ? (' ' + tariff.time) : tariff.additional}`,
-        "persons": tariff.tariffName === Tariffs.PRIVATE_OFFICE ? peopleCount : undefined
+        "persons": tariff.tariffName === Tariffs.PRIVATE_OFFICE ? peopleCount.toString() : undefined
       }
     })
 
     const workspaces = cartWorkspaces.map((workspace) => {
       return {
-        "namePackages": workspace.workspaceName,
+        "namePackages": t(workspace.workspaceName),
         "price": workspace.price,
         "date": `${workspace.duration}${' ' + workspace.time}`,
       }
@@ -71,26 +85,29 @@ export const Booking = () => {
   }, [cartTariffs, cartWorkspaces, peopleCount, personalInfo, postReservationData])
 
   return (
-    <div className={combineStyle([BookingStyle.wrapper, isBookingOpen ? BookingStyle["open"] : BookingStyle["closed"]])}>
-      <div className={combineStyle([BookingStyle.container, isBookingOpen ? BookingStyle["open"] : BookingStyle["closed"]])}>
-        <BookingHead/>
-        <Stepper steps={steps} page={page} setPage={setPage}/>
-        {
-          page === 1 ?
-            <PackageSelection/>
-            : page === 2 ?
-              <ReservWorkspaces/>
-              : <PersonalInfoForm termsAgreement={termsAgreement} setTermsAgreement={setTermsAgreement}/>
-        }
+    <>
+      <div className={combineStyle([BookingStyle.wrapper, isBookingOpen ? BookingStyle["open"] : BookingStyle["closed"]])}>
+        <div ref={bookingRef} className={combineStyle([BookingStyle.container, isBookingOpen ? BookingStyle["open"] : BookingStyle["closed"]])}>
+          <BookingHead/>
+          <Stepper steps={steps} page={page} setPage={setPage}/>
+          {
+            page === 1 ?
+              <PackageSelection/>
+              : page === 2 ?
+                <ReservWorkspaces/>
+                : <PersonalInfoForm termsAgreement={termsAgreement} setTermsAgreement={setTermsAgreement}/>
+          }
 
-        <div className={BookingStyle.directionButtonsContainer}>
-          <div className={BookingStyle.directionButtons}>
-            <DirectionButton onClick={page > 1 ? () => setPage(page - 1) : () => {}} variant={'back'}>{t("Назад")}</DirectionButton>
-            <DirectionButton onClick={page < steps ? ( page === 3 ? ((cartTariffs.length + cartWorkspaces.length) != 0 ? () => setPage(page + 1) : () => {}) : () => setPage(page + 1)) :
-              ((page === steps && termsAgreement && !(((cartTariffs.length + cartWorkspaces.length) === 0) || (Object.values(areInputsValid).includes(false))))? sendReservationRequest : () => {})} variant={'next'} disabled={(page === steps ? (((cartTariffs.length + cartWorkspaces.length) === 0) || (Object.values(areInputsValid).includes(false)) || !termsAgreement) : (page === 2 && (cartTariffs.length + cartWorkspaces.length) === 0))}>{page === steps ? t( "Отправить") : t( "Дальше")}</DirectionButton>
+          <div className={BookingStyle.directionButtonsContainer}>
+            <div className={BookingStyle.directionButtons}>
+              <DirectionButton onClick={page > 1 ? () => setPage(page - 1) : () => {}} variant={'back'}>{t("Назад")}</DirectionButton>
+              <DirectionButton onClick={page < steps ? ( page === 3 ? ((cartTariffs.length + cartWorkspaces.length) != 0 ? () => setPage(page + 1) : () => {}) : () => setPage(page + 1)) :
+                ((page === steps && termsAgreement && !(((cartTariffs.length + cartWorkspaces.length) === 0) || (Object.values(areInputsValid).includes(false))))? sendReservationRequest : () => {})} variant={'next'} disabled={(page === steps ? (((cartTariffs.length + cartWorkspaces.length) === 0) || (Object.values(areInputsValid).includes(false)) || !termsAgreement) : (page === 2 && (cartTariffs.length + cartWorkspaces.length) === 0))}>{page === steps ? t( "Отправить") : t( "Дальше")}</DirectionButton>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+      <BookingModal/>
+    </>
   );
 };

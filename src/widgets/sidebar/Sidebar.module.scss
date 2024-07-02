@@ -1,0 +1,420 @@
+@use "@src/shared/scss/logic/function";
+@use "@src/shared/scss/logic/_mixin.scss";
+
+.sidebarContainer {
+	display: flex;
+	flex: 0 0 40%;
+	flex-direction: column;
+	white-space: nowrap;
+	padding-inline: function.vw(25, 1920);
+	position: relative;
+
+	@media (max-width: 960px) {
+		display: none;
+	}
+}
+
+.sidebarContent {
+	position: fixed;
+	background-color: var(--black);
+	border-radius: 10px;
+	padding: function.vw(34, 1920) function.vw(10, 1920);
+	height: 100%;
+	overflow-y: scroll;
+
+
+	&::-webkit-scrollbar {
+		width: function.vw(12, 1920) !important;
+		background: transparent !important;
+
+		@media (max-width: 960px) {
+			width: function.vw(10, 960) !important;
+		}
+	}
+
+	&::-webkit-scrollbar-thumb:hover{
+		background-color: var(--white-t50) !important;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		border-radius: 10px !important;
+		background-color: var(--white-t25) !important;
+	}
+	&::-webkit-scrollbar-track {
+		border-radius: 10px !important;
+		background: transparent !important;
+	}
+
+	width: (100vw - function.vw(645, 1920))*0.4;
+	top: function.vw(105, 1920);
+	left: function.vw(285, 1920);
+
+
+	@media (max-width: 1440px) {
+		top: function.vw(105, 1440);
+		left: function.vw(40, 1440);
+		width: (100vw - function.vw(130, 1440))*0.4;
+		padding: function.vw(34, 1440) function.vw(10, 1440);
+	}
+
+	@media (max-width: 960px) {
+		left: function.vw(40, 960);
+	}
+
+	@media (max-width: 720px) {
+		left: function.vw(40, 720);
+	}
+
+	@media (max-width: 540px) {
+		left: function.vw(40, 540);
+	}
+
+	@media (max-width: 420px) {
+		left: function.vw(40, 420);
+	}
+}
+
+.burgerContainer {
+	display: none;
+
+	@media (max-width: 960px) {
+		display: block;
+	}
+}
+
+.subsectionDropdown {
+	white-space: pre-wrap !important;
+	padding-left: 1em;
+	text-indent: -1em;
+}
+
+.subsectionItem {
+	display: block;
+	padding-block: function.vw(5, 1920);
+	width: 100%;
+	white-space: pre-wrap !important;
+	padding-left: 1em;
+	text-indent: -1em;
+
+	@include mixin.mediaPBeachSide(1440px, 5, 5, 1440);
+	@include mixin.mediaPBeachSide(960px, 5, 5, 960);
+	@include mixin.mediaPBeachSide(720px, 5, 5, 720);
+	@include mixin.mediaPBeachSide(540px, 5, 5, 540);
+	@include mixin.mediaPBeachSide(420px, 5, 5, 420);
+}
+
+.subsection {
+	padding-left: 15px;
+	animation-fill-mode: forwards;
+	animation-duration: .5s;
+	overflow: hidden;
+	display: none;
+
+	&.open {
+		display: block;
+		animation-name: subsection-appear;
+	}
+
+	&.closed {
+		animation-name: subsection-disappear;
+	}
+}
+
+@keyframes subsection-appear {
+	0% {
+		display: block;
+		max-height: 0;
+	}
+	100% {
+		max-height: 100vh;
+	}
+}
+
+@keyframes subsection-disappear {
+	0% {
+		display: block;
+		max-height: 100vh;
+	}
+	100% {
+		max-height: 0;
+	}
+}
+
+
+.caretButton {
+	display: inline-block;
+	height: function.vw(13, 1920);
+	width: function.vw(13, 1920);
+	position: relative;
+	transition-duration: 400ms;
+	flex-shrink: 0;
+
+
+	@include mixin.mediaWidth(1440px, 11, 1440);
+	@include mixin.mediaHeight(1440px, 11, 1440);
+	@include mixin.mediaWidth(960px, 15, 960);
+	@include mixin.mediaHeight(960px, 15, 960);
+	@include mixin.mediaWidth(720px, 15, 720);
+	@include mixin.mediaHeight(720px, 15, 720);
+	@include mixin.mediaWidth(540px, 20, 540);
+	@include mixin.mediaHeight(540px, 20, 540);
+	@include mixin.mediaWidth(420px, 15, 420);
+	@include mixin.mediaHeight(420px, 15, 420);
+
+	svg {
+		position: absolute;
+		left: 0;
+		top: 0;
+		object-position: center;
+		object-fit: cover;
+		height: 100%;
+		width: 100%;
+	}
+
+	&.closed {
+		transform: rotate(-90deg);
+	}
+	&.open {
+		transform: rotate(0deg);
+	}
+}
+
+.subsectionHead {
+	display: flex;
+	align-items: center;
+	gap: function.vw(8, 1920);
+	padding-block: function.vw(5, 1920);
+
+	@include mixin.mediaGap(1440px, 8, 1440);
+	@include mixin.mediaGap(960px, 8, 960);
+	@include mixin.mediaGap(720px, 8, 720);
+	@include mixin.mediaGap(540px, 8, 540);
+	@include mixin.mediaGap(420px, 8, 420);
+
+	@include mixin.mediaPBeachSide(1440px, 5, 5, 1440);
+	@include mixin.mediaPBeachSide(960px, 5, 5, 960);
+	@include mixin.mediaPBeachSide(720px, 5, 5, 720);
+	@include mixin.mediaPBeachSide(540px, 5, 5, 540);
+	@include mixin.mediaPBeachSide(420px, 5, 5, 420);
+}
+
+.sectionHead {
+	padding-left: function.vw(21, 1920);
+	padding-block: function.vw(5, 1920);
+
+	@include mixin.mediaPLeft(1440px, 19, 1440);
+	@include mixin.mediaPLeft(960px, 23, 960);
+	@include mixin.mediaPLeft(720px, 23, 720);
+	@include mixin.mediaPLeft(540px, 28, 540);
+	@include mixin.mediaPLeft(420px, 28, 420);
+
+	@include mixin.mediaPBeachSide(1440px, 5, 5, 1440);
+	@include mixin.mediaPBeachSide(960px, 5, 5, 960);
+	@include mixin.mediaPBeachSide(720px, 5, 5, 720);
+	@include mixin.mediaPBeachSide(540px, 5, 5, 540);
+	@include mixin.mediaPBeachSide(420px, 5, 5, 420);
+}
+
+.burgerImg {
+	background-color: var(--white);
+	border-radius: 50%;
+	border: 1px solid var(--black-t15);
+	position: relative;
+	cursor: pointer;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: function.vw(70, 960);
+	height: function.vw(70, 960);
+
+	@media (max-width: 720px) {
+		width: function.vw(70, 720);
+		height: function.vw(70, 720);
+	}
+
+	@media (max-width: 540px) {
+		width: function.vw(70, 540);
+		height: function.vw(70, 540);
+	}
+
+	@media (max-width: 420px) {
+		width: function.vw(60, 420);
+		height: function.vw(60, 420);
+	}
+
+	svg {
+		width: 100%;
+		padding: function.vw(15, 960);
+
+		@include mixin.mediaPadding(720px, 15, 720);
+		@include mixin.mediaPadding(540px, 15, 540);
+		@include mixin.mediaPadding(420px, 15, 420);
+	}
+}
+
+.burgerContentBackground {
+	z-index: 251;
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	left: 0;
+	top: 0;
+	background-color: var(--black-t50);
+	display: none;
+	animation-duration: 0.4s;
+	animation-fill-mode: forwards;
+
+	&.open {
+		display: block;
+		animation-name: background-appear;
+	}
+
+	&.closed {
+		display: none;
+		animation-name: background-disappear;
+	}
+}
+
+
+@keyframes background-appear {
+	0% {
+		display: none;
+		opacity: 0;
+	}
+	100% {
+		display: block;
+		opacity: 1;
+	}
+}
+
+@keyframes background-disappear {
+	0% {
+		display: block;
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+		display: none;
+	}
+}
+
+.burgerContent {
+	position: fixed;
+	z-index: 252;
+	background-color: var(--white);
+	padding: function.vw(25, 960);
+	height: 100%;
+	width: 60%;
+	left: 0;
+	top: 0;
+	animation-duration: 0.3s;
+	animation-fill-mode: forwards;
+
+	&.open {
+		display: block;
+		animation-name: sidebar-appear;
+	}
+
+	&.closed {
+		display: none;
+		animation-name: sidebar-disappear;
+	}
+
+	@media (max-width: 720px) {
+		width: 100%;
+		padding: function.vw(25, 720);
+	}
+}
+
+
+@keyframes sidebar-appear {
+	0% {
+		display: none;
+		left: -100%;
+	}
+	100% {
+		display: block;
+	}
+}
+
+@keyframes sidebar-disappear {
+	0% {
+		display: block;
+	}
+	100% {
+		left: -100%;
+		display: none;
+	}
+}
+
+.burgerSidebar {
+	position: fixed;
+	top: 50%;
+	left: 0;
+	transform: translateY(-50%);
+	padding: function.vw(10, 960) function.vw(15, 960) function.vw(10, 960) function.vw(10, 960);
+	
+	@media (max-width: 720px) {
+		padding: function.vw(10, 960) function.vw(15, 960) function.vw(10, 960) function.vw(10, 960);
+	}
+	@media (max-width: 540px) {
+		padding: function.vw(10, 540) function.vw(15, 540) function.vw(10, 540) function.vw(10, 540);
+	}
+	@media (max-width: 420px) {
+		padding: function.vw(10, 420) function.vw(15, 420) function.vw(10, 420) function.vw(10, 420);
+	}
+}
+
+.burgerClose {
+	margin-left: auto;
+	border-radius: 5px;
+	border: 1px solid var(--black-t15);
+	position: relative;
+	cursor: pointer;
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: function.vw(70, 960);
+		height: function.vw(70, 960);
+
+	@media (max-width: 720px) {
+		width: function.vw(70, 720);
+		height: function.vw(70, 720);
+	}
+
+	@media (max-width: 540px) {
+		width: function.vw(70, 540);
+		height: function.vw(70, 540);
+	}
+
+	@media (max-width: 420px) {
+		width: function.vw(60, 420);
+		height: function.vw(60, 420);
+	}
+
+	svg {
+		position: absolute;
+		left: 0;
+		top: 0;
+		object-position: center;
+		object-fit: cover;
+		height: 100%;
+		width: 100%;
+		padding: function.vw(15, 960);
+
+		@include mixin.mediaPadding(720px, 15, 720);
+		@include mixin.mediaPadding(540px, 15, 540);
+		@include mixin.mediaPadding(420px, 12, 420);
+	}
+}
+
+.downloadButton {
+	margin-top: function.vw(50, 960);
+	width: 100%;
+
+	@include mixin.mediaMT(720px, 50, 720);
+	@include mixin.mediaMT(540px, 50, 540);
+	@include mixin.mediaMT(420px, 50, 420);
+}

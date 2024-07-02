@@ -24,7 +24,7 @@
 		background-color: var(--white);
 		color: var(--state-red);
 
-		& svg{
+		& >svg{
 			width: auto;
 			fill: var(--state-red);
 		}
@@ -96,43 +96,4 @@
 	@media (max-width: 420px) {
 		gap: function.vw(10, 420);
 	}
-}
-
-.check {
-	-webkit-appearance: none; /*hides the default checkbox*/
-	height: function.vw(20, 1920);
-	width: function.vw(20, 1920);
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	transition: 0.1s;
-	background-color: #FE0006;
-	font-weight: 600;
-	color: white;
-	border-radius: 3px;
-
-
-	@include mixin.mediaSquareSize(1440px, 20, 1440);
-	@include mixin.mediaSquareSize(960px, 20, 960);
-	@include mixin.mediaSquareSize(720px, 20, 720);
-	@include mixin.mediaSquareSize(540px, 20, 540);
-	@include mixin.mediaSquareSize(420px, 20, 420);
-	@include mixin.mediaSquareSize(340px, 20, 340);
-}
-
-.check:checked {
-	background-color: #0E9700;
-}
-
-.check:before {
-	content: "✖";
-}
-.check:checked:before {
-	content: "✔";
-}
-
-.check:hover {
-	cursor: pointer;
-	opacity: 0.8;
 }

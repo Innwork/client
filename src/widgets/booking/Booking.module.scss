@@ -7,7 +7,7 @@
 	width: 100vw;
 	background-color: var(--black-t50);
 	backdrop-filter: blur(2px);
-	z-index: 119;
+	z-index: 260;
 	top: 0;
 	left: function.vw(0, 1920);
 	animation-duration: 0.4s;
@@ -48,7 +48,7 @@
 
 .container {
 	position: fixed;
-	z-index: 120;
+	z-index: 261;
 	top: 0;
 	left: function.vw(0, 1920);
 	height: 100%;
@@ -85,7 +85,6 @@
 	&.closed {
 		display: none;
 		animation-name: Booking-disappear;
-
 	}
 
 	@include mixin.mediaWidth(1440px, 800, 1440);
@@ -117,26 +116,27 @@
 .directionButtons {
 	position: fixed;
 	display: flex;
+	padding-left: function.vw(40, 1920);
 	bottom: function.vw(30, 1920);
 	gap: function.vw(15, 1920);
-	z-index: 200;
+	z-index: 262;
 
 	@include mixin.mediaBottom(1440px, 30, 1440);
 	@include mixin.mediaBottom(960px, 30, 960);
 	@include mixin.mediaBottom(720px, 30, 720);
 	@include mixin.mediaBottom(540px, 30, 540);
 	@include mixin.mediaBottom(420px, 30, 420);
+
 }
 
 .directionButtonsContainer {
 	display: flex;
 	flex-direction: row-reverse;
-
-
+	position: relative;
+	right: 0;
 	height: function.vw(450, 1920);
 	@include mixin.mediaHeight(1440px, 450, 1440);
 	@include mixin.mediaHeight(960px, 450, 960);
 	@include mixin.mediaHeight(540px, 450, 540);
 	@include mixin.mediaHeight(420px, 450, 420);
 }
-

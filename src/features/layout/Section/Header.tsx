@@ -16,7 +16,6 @@ import {HeaderStateType} from "@src/shared/types";
 import {useActions} from "@src/app/redux/hooks/useActions";
 
 export const Header = () => {
-  const {setIsFormSent} = useActions()
   // TODO: сделать получение items в navbar основываясь на paths
 
   // const accountBurgerItems = {
@@ -124,7 +123,7 @@ export const Header = () => {
             <p className={HeaderStyle.sloganContainer}><span className={combineStyle([HeaderStyle.slogan, TextModule.paragraph__ligth, globalResize.isScreenLg ? "" : (headerState.isAccordionOpen ? '' : HeaderStyle['closed'])])}>Connect and create with us.</span></p>
           </div>
           <HeaderNavbar navItems={navItems}/>
-          <HeaderAccount setIsFormSent={setIsFormSent} headerState={headerState} setHeaderStateHandler={setHeaderStateHandler}/>
+          <HeaderAccount headerState={headerState} setHeaderStateHandler={setHeaderStateHandler}/>
           {/*<div*/}
           {/*  className={combineStyle([HeaderStyle.burgerDropdownContainer, headerState.isAccountBurgerOpen ? HeaderStyle['open'] : ''])}>*/}
           {/*  <Dropdown className={HeaderStyle.burgerDropdown} links={accountBurgerItems.DropdownLinks}>*/}

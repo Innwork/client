@@ -1,4 +1,4 @@
-import {FC, Dispatch, SetStateAction} from "react";
+import {FC} from "react";
 import classes from "@src/shared/ui/input/dropdown-select/DropDown.module.scss";
 import {useCombobox} from "downshift";
 import {useClass} from "@src/shared/hooks";
@@ -10,7 +10,7 @@ export interface IDropDownSelect {
   data: Array<string>;
   placeholder: string;
   state: "dark" | "white";
-  setValue?: Dispatch<SetStateAction<string>>;
+  setValue?: (i: string) => void;
   icon?: boolean
   up?: boolean
   label?: string

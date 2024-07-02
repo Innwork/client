@@ -67,7 +67,7 @@
 }
 
 .button{
-	color: #9a9a9a;
+	color: var(--dark-gray);
 	transition: 300ms;
 
 	&.active {

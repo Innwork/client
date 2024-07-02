@@ -1,0 +1,101 @@
+@use "src/shared/scss/logic/mixin";
+@use "src/shared/scss/logic/function";
+
+.checkContainer {
+	position: relative;
+	display: inline-block;
+
+	& > svg {
+		padding: function.vw(7, 1920);
+		position: absolute;
+		left: 0;
+		top: 0;
+		object-position: center;
+		object-fit: cover;
+		height: 100%;
+		width: 100%;
+
+		@include mixin.mediaPadding(1440px, 7, 1440);
+		@include mixin.mediaPadding(960px, 7, 960);
+		@include mixin.mediaPadding(720px, 7, 720);
+		@include mixin.mediaPadding(540px, 7, 540);
+		@include mixin.mediaPadding(420px, 7, 420);
+	}
+}
+
+.check {
+	height: function.vw(24, 1920);
+	width: function.vw(24, 1920);
+	border: function.vw(1, 1920) solid var(--dark-gray);
+	border-radius: function.vw(4, 1920);
+	transition: 0.3s;
+
+	&.orange__checked {
+		background-color: var(--orange) !important;
+		border-color: var(--orange);
+	}
+
+	&.green__checked {
+		background-color: var(--state-success) !important;
+		border-color: var(--state-success);
+	}
+
+	@media (max-width: 1440px) {
+		height: function.vw(24, 1440);
+		width: function.vw(24, 1440);
+		border-width: function.vw(1, 1440);
+		border-radius: function.vw(4, 1440);
+	}
+	@media (max-width: 960px) {
+		height: function.vw(24, 960);
+		width: function.vw(24, 960);
+		border-width: function.vw(1, 960);
+		border-radius: function.vw(4, 960);
+	}
+	@media (max-width: 720px) {
+		height: function.vw(24, 720);
+		width: function.vw(24, 720);
+		border-width: function.vw(1, 720);
+		border-radius: function.vw(4, 720);
+	}
+	@media (max-width: 540px) {
+		height: function.vw(24, 540);
+		width: function.vw(24, 540);
+		border-width: function.vw(1, 540);
+		border-radius: function.vw(4, 540);
+	}
+	@media (max-width: 420px) {
+		height: function.vw(24, 420);
+		width: function.vw(24, 420);
+		border-width: function.vw(1, 420);
+		border-radius: function.vw(4, 420);
+	}
+
+	-webkit-appearance: none;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background-color: var(--white);
+	color: white;
+
+	.orange{
+		&:checked {
+			background-color: var(--orange);
+			border-color: var(--orange);
+		}
+	}
+
+	.green {
+		&:checked {
+			background-color: var(--state-success);
+			border-color: var(--state-success);
+		}
+	}
+
+	&:hover {
+		cursor: pointer;
+		background-color: var(--gray-t50);
+	}
+}
+
