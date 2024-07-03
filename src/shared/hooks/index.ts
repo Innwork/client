@@ -3,7 +3,6 @@ import {useInput} from "@src/shared/hooks/use-input/useInput";
 import {Ivalidators} from "@src/shared/hooks/use-input/useInputType";
 import {useResize} from "@src/shared/hooks/use-resize/useResize";
 import {TypeResize} from "@src/shared/hooks/use-resize/types/ResizeTypes";
-import {useCalendar} from "@src/shared/hooks/useCalendar";
 
 import {useSlides} from "@src/shared/hooks/useSlides";
 import {
@@ -33,6 +32,5 @@ export type {
 }
 
 export {
-    useCalendar,
     TypeResize
 }
