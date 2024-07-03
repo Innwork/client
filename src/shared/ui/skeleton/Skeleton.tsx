@@ -21,7 +21,7 @@ export const SkeletonImageLoader:FC<SkeletonProps> = ({src, className, rounded =
         {isLoading ? (
           <Skeleton className={useClass([classes.skeletonItem, rounded ? "" : classes['square']])}/>
         ) : (
-          <img className={className} src={src} alt={''}/>
+          <img className={className} src={src} alt={''} loading="lazy"/>
         )}
     </div>
   );
