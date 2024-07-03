@@ -1,21 +1,11 @@
-import React, { FC } from "react";
-import classes from "@src/shared/ui/input/dropdown-select/DropDown.module.scss";
+import { FC } from "react";
+import cls from "@src/shared/ui/input/dropdown-select/styles/DropDown.module.scss";
 import { useCombobox } from "downshift";
 import { useClass } from "@src/shared/hooks";
 import { TextModule } from "@src/shared/scss";
 import { CSSTransition } from "react-transition-group";
 import { useTranslation } from "react-i18next";
-
-export interface IDropDownSelect {
-  data: Array<string>;
-  placeholder: string;
-  state: "dark" | "white";
-  setValue?: (i: string) => void;
-  icon?: boolean;
-  up?: boolean;
-  label?: string;
-  i18?: boolean;
-}
+import {IDropDownSelect} from "@src/shared/ui/input/dropdown-select/type/DropDownType";
 
 export const DropDownSelect: FC<IDropDownSelect> = (props) => {
   const {
@@ -48,13 +38,13 @@ export const DropDownSelect: FC<IDropDownSelect> = (props) => {
   const { t } = useTranslation("main");
 
   return (
-    <div className={classes.drop_container}>
+    <div className={cls.drop_container}>
       <label className={TextModule.span}>{label}</label>
       <button
         className={useClass([
-          classes.button_toggle,
-          icon ? classes["buttonIcon"] : "",
-          classes[state],
+          cls.button_toggle,
+          icon ? cls["buttonIcon"] : "",
+          cls[state],
         ])}
         {...getToggleButtonProps()}
       >
@@ -75,7 +65,7 @@ export const DropDownSelect: FC<IDropDownSelect> = (props) => {
         )}
 
         {!icon && (
-          <div className={classes.button_toggle_svg_container}>
+          <div className={cls.button_toggle_svg_container}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -84,11 +74,11 @@ export const DropDownSelect: FC<IDropDownSelect> = (props) => {
               className={
                 up
                   ? isOpen
-                    ? classes.button_toggle_svg_active__up
-                    : classes.button_toggle_svg__up
+                    ? cls.button_toggle_svg_active__up
+                    : cls.button_toggle_svg__up
                   : isOpen
-                    ? classes.button_toggle_svg_active
-                    : classes.button_toggle_svg
+                    ? cls.button_toggle_svg_active
+                    : cls.button_toggle_svg
               }
               viewBox="0 0 16 16"
             >
@@ -103,22 +93,23 @@ export const DropDownSelect: FC<IDropDownSelect> = (props) => {
 
       <CSSTransition
         classNames={{
-          enter: classes.ul_select__enter,
-          enterActive: classes.ul_select__enter_active,
-          exit: classes.ul_select__exit,
-          exitActive: classes.ul_select__exit_actvie,
+          enter: cls.ul_select__enter,
+          enterActive: cls.ul_select__enter_active,
+          exit: cls.ul_select__exit,
+          exitActive: cls.ul_select__exit_actvie,
         }}
         timeout={300}
         in={isOpen}
         unmountOnExit
       >
-        <div {...getMenuProps({ refKey: "ref" })}>
+        <div>
           <ul
+            {...getMenuProps({}, { suppressRefError: true })}
             className={useClass([
-              classes[state],
-              up ? classes.ul_select_up : classes.ul_select,
+              cls[state],
+              up ? cls.ul_select_up : cls.ul_select,
               icon
-                ? useClass([classes["buttonIcon"], classes["removeScroll"]])
+                ? useClass([cls["buttonIcon"], cls["removeScroll"]])
                 : "",
             ])}
           >
