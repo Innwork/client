@@ -13,6 +13,7 @@ declare module "*.svg" {
     export = SVG
 }
 
+
 declare module "*jpeg"
 declare module "*jpg"
 declare module "*png"
