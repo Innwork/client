@@ -1,5 +1,5 @@
-import {AboutUs} from "@src/widgets/about-us/AboutUs";
+import {AboutUs} from "@src/widgets/about-us/ui";
 
 export {
-    AboutUs
+  AboutUs
 }

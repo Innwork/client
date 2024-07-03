@@ -1,14 +1,12 @@
 import {IBaseRoute} from "@src/shared/types";
-import {
-    AboutChunk,
-    CopyrightChunk,
-    HomeChunk,
-    InfoPageChunk,
-    NotFoundPageChunk,
-    PrivacyChunk,
-    RulesChunk,
-    TermsChunk
-} from "@src/pages";
+import {HomeChunk} from "@src/pages/public/Home";
+import {AboutChunk} from "@src/pages/public/About";
+import {CopyrightChunk} from "@src/pages/public/info/copyright";
+import {InfoPageChunk} from "@src/pages/public/info/information";
+import {PrivacyChunk} from "@src/pages/public/info/privacy";
+import {RulesChunk} from "@src/pages/public/info/rules";
+import {TermsChunk} from "@src/pages/public/info/terms";
+import {NotFoundPageChunk} from "@src/pages/not-found";
 
 interface IPaths extends IBaseRoute{
     exact?: boolean
