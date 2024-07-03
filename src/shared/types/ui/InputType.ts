@@ -1,6 +1,6 @@
 import {
     ChangeEvent,
-    HTMLInputTypeAttribute, MouseEventHandler,
+    HTMLInputTypeAttribute,
 } from "react";
 import {Ivalidators} from "@src/shared/hooks/use-input/useInputType";
 
@@ -18,11 +18,6 @@ export interface IMainBaseInput {
     validators: Ivalidators
 }
 
-export interface IMainCalendarInput {
-    input: CalendarInput
-    validators: Ivalidators
-}
-
 export interface Input extends InputType{
     tag?: string
     svgPath?:string
@@ -30,18 +25,4 @@ export interface Input extends InputType{
     errText?: string
     successText?: string
     label?: string
-}
-
-
-export interface CalendarInput extends InputType{
-    tag?: string
-    svgPath?:string
-    width?:string
-    errText?: string
-    successText?: string
-    label?: string
-    onClick?: MouseEventHandler<HTMLInputElement>
-    isCalendarOpen?: boolean
-    setIsCalendarOpen?: (i: boolean) => void
-    position?: 'left' | 'right'
 }

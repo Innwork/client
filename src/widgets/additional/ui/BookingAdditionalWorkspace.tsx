@@ -1,7 +1,6 @@
 import {Dispatch, FC, SetStateAction, useEffect, useState} from "react";
 import {TextModule} from "@src/shared/scss";
 import classes from "@src/widgets/additional/style/BookingAdditionalPagination.module.scss"
-import {combineStyle} from "@src/shared/utils";
 import {Workspaces} from "@src/app/redux/Booking/BookingTypes";
 import {TimeSelectDropdowns} from "@src/features/time-select";
 import {MainBtn} from "@src/shared/ui/btn/main-btn/MainBtn";
@@ -54,7 +53,7 @@ export const BookingWorkspaceItems: FC<IAdditionalPaginationItems> = (props) => 
 
     return (
         <div
-            className={workSpaces.activeWorkspace === tag ? combineStyle([classes.workspaceContainer_active, isValid ? '' : classes['invalid']]) : (tag === Workspaces.TRAINING_CENTER ? classes.workspaceContainer_disabled : classes.workspaceContainer)}>
+            className={workSpaces.activeWorkspace === tag ? useClass([classes.workspaceContainer_active, isValid ? '' : classes['invalid']]) : (tag === Workspaces.TRAINING_CENTER ? classes.workspaceContainer_disabled : classes.workspaceContainer)}>
             {tag === Workspaces.TRAINING_CENTER &&
               <>
                   <div className={classes.soonButtonContainer}/>
@@ -75,7 +74,7 @@ export const BookingWorkspaceItems: FC<IAdditionalPaginationItems> = (props) => 
                         {header}
                     </h4>
 
-                    <span className={combineStyle([
+                    <span className={useClass([
                         TextModule.h6, classes.text_content__span
                     ])}>
                         {price}
@@ -88,7 +87,7 @@ export const BookingWorkspaceItems: FC<IAdditionalPaginationItems> = (props) => 
             </div>
 
             <div
-                className={combineStyle([classes.additionalItemsContainer, workSpaces.activeWorkspace === tag ? classes['open'] : classes['closed']])}>
+                className={useClass([classes.additionalItemsContainer, workSpaces.activeWorkspace === tag ? classes['open'] : classes['closed']])}>
                 <div className={classes.inputsContainer}>
                     {inputs.map((input, index) =>
                         <SelectDate key={index} label={'Дата'} isOpenDefault={isCalendarOpen} setIsOpenDefault={setIsCalendarOpen} setValue={input.input.setValue} variety={'white'}/>

@@ -1,7 +1,6 @@
 import {FC, ReactNode, useContext, useEffect, useRef, useState} from "react";
 import AccordionStyle from "./Accordion.module.scss"
 import {Link} from "react-router-dom";
-import {combineStyle} from "@src/shared/utils";
 import {AccordionItem} from "@src/features/accordion/AccordionItem";
 import {TextModule} from "@src/shared/scss";
 import {useTranslation} from "react-i18next";
@@ -11,6 +10,7 @@ import {DropDownSelect} from "@src/shared/ui/input";
 import GbFlag from "@assets/icons/Flags/GbFlag.png";
 import HyFlag from "@assets/icons/Flags/HyFlag.png";
 import RuFlag from "@assets/icons/Flags/RuFlag.png";
+import {useClass} from "@src/shared/hooks";
 
 interface accountBurgerType {
   DropdownLinks: { path: string, title: string }[]
@@ -65,8 +65,8 @@ export const Accordion: FC<AccordionProps> = (props) => {
 
   return (
     <div
-      className={isAccountBurgerClicked ? combineStyle([AccordionStyle.accordionContainer, isOpen ? AccordionStyle["open"] : AccordionStyle["close"]]) : combineStyle([AccordionStyle.accordionContainer, AccordionStyle['firstRendered']])}>
-      <div className={combineStyle([AccordionStyle.accordion, isOpen ? AccordionStyle["open"] : ''])}>
+      className={isAccountBurgerClicked ? useClass([AccordionStyle.accordionContainer, isOpen ? AccordionStyle["open"] : AccordionStyle["close"]]) : useClass([AccordionStyle.accordionContainer, AccordionStyle['firstRendered']])}>
+      <div className={useClass([AccordionStyle.accordion, isOpen ? AccordionStyle["open"] : ''])}>
         <div className={AccordionStyle.navItemsContainer}>
           {navItems.map((item, index) => (
             item.DropdownLinks ?
@@ -83,12 +83,12 @@ export const Accordion: FC<AccordionProps> = (props) => {
               <div className={AccordionStyle.accordionItem} key={index}>
                 {item.MainLink.to ?
                   <Link to={item.MainLink.to}
-                        className={combineStyle([AccordionStyle.accordionTitleLink, TextModule.h6_small])}
+                        className={useClass([AccordionStyle.accordionTitleLink, TextModule.h6_small])}
                         onClick={item.MainLink.to != "#" ? () => toggleAccordion() : () => {
                         }}>
                     {t(item.MainLink.title)}
                     {item.MainLink.to === '#' &&
-                      <div className={combineStyle([AccordionStyle.errorModal, TextModule.paragraph])}>
+                      <div className={useClass([AccordionStyle.errorModal, TextModule.paragraph])}>
                         <p>{t("Наше приложение ещё в разработке")}.</p>
                         <p>{t("Эта страница пока недоступна")}.</p>
                       </div>
@@ -96,7 +96,7 @@ export const Accordion: FC<AccordionProps> = (props) => {
                   </Link>
                   :
                   item.MainLink.action &&
-                  <a key={index} className={combineStyle([AccordionStyle.accordionTitleLink, TextModule.h6_small])}
+                  <a key={index} className={useClass([AccordionStyle.accordionTitleLink, TextModule.h6_small])}
                      onClick={() => {
                        toggleAccordion()
                        item.MainLink.action && item.MainLink.action(true)
@@ -108,7 +108,7 @@ export const Accordion: FC<AccordionProps> = (props) => {
           ))}
         </div>
         <div
-          className={combineStyle([AccordionStyle.accountContainer, isOpen ? AccordionStyle['open'] : AccordionStyle['closed']])}>
+          className={useClass([AccordionStyle.accountContainer, isOpen ? AccordionStyle['open'] : AccordionStyle['closed']])}>
           {/*<div ref={accountRef} onClick={() => setIsAccountOpen(!isAccountOpen)} className={AccordionStyle.account}>*/}
           {/*  <div className={AccordionStyle.accountImageContainer}>*/}
           {/*    <img className={AccordionStyle.accountImage} src={Account} alt={''}/>*/}

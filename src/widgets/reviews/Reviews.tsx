@@ -19,11 +19,11 @@ export const Reviews: FC = () => {
         <h4 className={TextModule.h3__medium}>Как бизнес использует наши пространства?</h4>
       </div>
       <SpaceSelection activeSpace={activeSpace} setActiveSpace={setActiveSpace} spaces={Object.keys(spaces) as SpacesGroup[]}/>
-        <Slider slidesPerView={2} sizeBoolean={globalResize.isScreenLg}>
-          {spaces[activeSpace].map((el) =>
-            <SpaceRentCard title={el.title} content={el.content} imageLogo={el.img} key={el.title}/>
-          )}
-        </Slider>
+      <Slider slidesPerView={2} sizeBoolean={globalResize.isScreenLg}>
+        {spaces[activeSpace].map((el) =>
+          <SpaceRentCard title={el.title} content={el.content} imageLogo={el.img} key={el.title}/>
+        )}
+      </Slider>
     </section>
   );
 };

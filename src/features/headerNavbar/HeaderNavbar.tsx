@@ -1,5 +1,4 @@
 import HeaderNavbarStyle from "./HeaderNavbar.module.scss";
-import {combineStyle} from "@src/shared/utils";
 import {LinkStyle, TextModule} from "@src/shared/scss";
 import DropdownArrow from "@assets/icons/Header/dropdown-arrow-down.svg";
 import {Dropdown} from "@src/shared/ui/dropdown";
@@ -7,6 +6,7 @@ import {CNavLink} from "@src/shared/ui/link";
 import {useTranslation} from "react-i18next";
 import {FC} from "react";
 import {NavItem} from "@src/shared/types";
+import {useClass} from "@src/shared/hooks";
 
 interface HeaderNavbarProps {
   navItems: NavItem[]
@@ -23,7 +23,7 @@ export const HeaderNavbar:FC<HeaderNavbarProps> = ({navItems}) => {
               <>
                 <div className={HeaderNavbarStyle.LinkContainer}>
                         <span
-                          className={combineStyle([TextModule.span, HeaderNavbarStyle.Link, LinkStyle.link])}>
+                          className={useClass([TextModule.span, HeaderNavbarStyle.Link, LinkStyle.link])}>
                             {t(item.MainLink.title)}
                           <div className={HeaderNavbarStyle.DropdownArrowContainer}>
                             <DropdownArrow/>
@@ -43,7 +43,7 @@ export const HeaderNavbar:FC<HeaderNavbarProps> = ({navItems}) => {
               </div>
             }
             {item.MainLink.title === "Новости" &&
-              <div className={combineStyle([HeaderNavbarStyle.errorModal, TextModule.paragraph])}>
+              <div className={useClass([HeaderNavbarStyle.errorModal, TextModule.paragraph])}>
                 <p>{t("Наше приложение ещё в разработке")}.</p>
                 <p>{t("Эта страница пока недоступна")}.</p>
               </div>

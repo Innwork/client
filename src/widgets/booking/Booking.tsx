@@ -3,9 +3,7 @@ import {PersonalInfoForm} from "@src/widgets/personalInfoForm";
 import {BookingHead} from "@src/features/bookingHead";
 import {PackageSelection} from "@src/widgets/packageSelection";
 import {useCallback, useEffect, useRef, useState,} from "react";
-import {combineStyle} from "@src/shared/utils";
 import {Stepper} from "@src/features/stepper";
-import {useSelector} from "react-redux";
 import {
   selectAreInputsValid, selectBookingPersonalInfo,
   selectBookingWorkspace,
@@ -21,15 +19,17 @@ import {useTranslation} from "react-i18next";
 import {useActions} from "@src/app/redux/hooks/useActions";
 import {TData} from "@src/app/redux/Booking/actions";
 import {BookingModal} from "@src/widgets/booking-modal";
+import {useAppSelector} from "@src/app/redux/hooks/redux";
+import {useClass} from "@src/shared/hooks";
 
 export const Booking = () => {
-  const isBookingOpen = useSelector(selectIsBookingOpen)
-  const cartTariffs = useSelector(selectCartTariffs)
-  const cartWorkspaces = useSelector(selectBookingWorkspace)
-  const areInputsValid = useSelector(selectAreInputsValid)
-  const peopleCount = useSelector(selectPWSpeopleCount)
-  const personalInfo = useSelector(selectBookingPersonalInfo)
-  const page = useSelector(selectPage)
+  const isBookingOpen = useAppSelector(selectIsBookingOpen)
+  const cartTariffs = useAppSelector(selectCartTariffs)
+  const cartWorkspaces = useAppSelector(selectBookingWorkspace)
+  const areInputsValid = useAppSelector(selectAreInputsValid)
+  const peopleCount = useAppSelector(selectPWSpeopleCount)
+  const personalInfo = useAppSelector(selectBookingPersonalInfo)
+  const page = useAppSelector(selectPage)
   const [termsAgreement, setTermsAgreement] = useState(false)
   const bookingRef = useRef<HTMLDivElement>(null)
   const steps = 3
@@ -88,8 +88,8 @@ export const Booking = () => {
 
   return (
     <>
-      <div className={combineStyle([BookingStyle.wrapper, isBookingOpen ? BookingStyle["open"] : BookingStyle["closed"]])}>
-        <div ref={bookingRef} className={combineStyle([BookingStyle.container, isBookingOpen ? BookingStyle["open"] : BookingStyle["closed"]])}>
+      <div className={useClass([BookingStyle.wrapper, isBookingOpen ? BookingStyle["open"] : BookingStyle["closed"]])}>
+        <div ref={bookingRef} className={useClass([BookingStyle.container, isBookingOpen ? BookingStyle["open"] : BookingStyle["closed"]])}>
           <BookingHead/>
           <Stepper steps={steps} page={page} setPage={setPage}/>
           {

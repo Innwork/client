@@ -2,10 +2,10 @@ import {FC, useEffect, useRef, useState} from "react";
 import AccordionStyle from "./Accordion.module.scss";
 import {Link} from "react-router-dom";
 import {AccordionItemType} from "src/shared/types";
-import {combineStyle} from "@src/shared/utils";
 import DropdownArrow from "@assets/icons/Header/dropdown-arrow-down.svg";
 import {TextModule} from "@src/shared/scss";
 import {useTranslation} from "react-i18next";
+import {useClass} from "@src/shared/hooks";
 
 
 export const AccordionItem: FC<AccordionItemType> = (props) => {
@@ -27,17 +27,17 @@ export const AccordionItem: FC<AccordionItemType> = (props) => {
         </div>
         <div className={TextModule.h6_small}>{t(title.title)}</div>
       </div>
-      <div ref={contentRef} className={combineStyle([AccordionStyle.contentContainer, ''])} style={{maxHeight: "0px"}}>
+      <div ref={contentRef} className={useClass([AccordionStyle.contentContainer, ''])} style={{maxHeight: "0px"}}>
         {
           content.map((burgerItem) =>
             burgerItem.path != '' ?
-              <Link className={combineStyle([TextModule.h6_small, AccordionStyle.accordionContentItemLink])}
+              <Link className={useClass([TextModule.h6_small, AccordionStyle.accordionContentItemLink])}
                     key={burgerItem.title}
                     to={burgerItem.path} onClick={() => toggleAccordion()}>
                 {t(burgerItem.title)}
               </Link>
               :
-              <p key={burgerItem.title} className={combineStyle([TextModule.h6_small, AccordionStyle.accordionContentItemLink])}>{t(burgerItem.title)}</p>
+              <p key={burgerItem.title} className={useClass([TextModule.h6_small, AccordionStyle.accordionContentItemLink])}>{t(burgerItem.title)}</p>
           )
         }
       </div>

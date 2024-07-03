@@ -1,8 +1,8 @@
 import {FC, useState} from "react";
 import {ISnackType, TClassesSnackType} from "@src/shared/ui/snackbar/type/SnackType";
 import classes from "@src/shared/ui/snackbar/style/snackBars.module.scss";
-import {combineStyle} from "@src/shared/utils";
 import {TextModule} from "@src/shared/scss";
+import {useClass} from "@src/shared/hooks";
 
 export const SnackBar: FC<ISnackType> = (props) => {
     const {
@@ -26,10 +26,10 @@ export const SnackBar: FC<ISnackType> = (props) => {
         <>
             { isActive &&
                 <div
-                    className={combineStyle([
+                    className={useClass([
                         classes.snack_container, classesStatus[status], className
                 ])}>
-                    <p className={combineStyle([
+                    <p className={useClass([
                         TextModule.paragraph__bold
                     ])}>
                         {children}

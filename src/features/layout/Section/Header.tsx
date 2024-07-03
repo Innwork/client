@@ -1,6 +1,5 @@
 import {useCallback, useContext, useEffect, useRef, useState} from 'react'
 import HeaderStyle from "./scss/Header.module.scss";
-import {combineStyle} from "@src/shared/utils";
 import LogoSmall from "@assets/icons/logo/LogoSmall.png";
 import {Link} from "react-router-dom";
 import {TextModule} from "@src/shared/scss";
@@ -14,10 +13,9 @@ import {HeaderStateEnum, NavItem} from "@src/shared/types";
 import {HeaderAccount} from "@src/features/headerAccount";
 import {HeaderStateType} from "@src/shared/types";
 import {useActions} from "@src/app/redux/hooks/useActions";
+import {useClass} from "@src/shared/hooks";
 
 export const Header = () => {
-  // TODO: сделать получение items в navbar основываясь на paths
-
   // const accountBurgerItems = {
   //   DropdownLinks: [
   //     {path: '#', title: 'Войти'},
@@ -109,18 +107,18 @@ export const Header = () => {
 
   return (
     <header
-      className={headerState.isHeaderBig ? combineStyle([HeaderStyle.HeaderWrapper, HeaderStyle['big']]) : HeaderStyle.HeaderWrapper}>
+      className={headerState.isHeaderBig ? useClass([HeaderStyle.HeaderWrapper, HeaderStyle['big']]) : HeaderStyle.HeaderWrapper}>
       <div
         className={
-          headerState.isHeaderBig ? combineStyle([HeaderStyle.Header, HeaderStyle['big']])
+          headerState.isHeaderBig ? useClass([HeaderStyle.Header, HeaderStyle['big']])
             :
-            (headerState.isHeaderScrolled ? combineStyle([HeaderStyle.Header, HeaderStyle['small']]) : HeaderStyle.Header)}>
+            (headerState.isHeaderScrolled ? useClass([HeaderStyle.Header, HeaderStyle['small']]) : HeaderStyle.Header)}>
         <div className={HeaderStyle.container}>
           <div className={HeaderStyle.leftSectionContainer}>
             <Link to={'/'}  className={HeaderStyle.LogoContainer}>
               <img alt={'LogoImage'} className={HeaderStyle.Logo} src={LogoSmall}/>
             </Link>
-            <p className={HeaderStyle.sloganContainer}><span className={combineStyle([HeaderStyle.slogan, TextModule.paragraph__ligth, globalResize.isScreenLg ? "" : (headerState.isAccordionOpen ? '' : HeaderStyle['closed'])])}>Connect and create with us.</span></p>
+            <p className={HeaderStyle.sloganContainer}><span className={useClass([HeaderStyle.slogan, TextModule.paragraph__ligth, globalResize.isScreenLg ? "" : (headerState.isAccordionOpen ? '' : HeaderStyle['closed'])])}>Connect and create with us.</span></p>
           </div>
           <HeaderNavbar navItems={navItems}/>
           <HeaderAccount headerState={headerState} setHeaderStateHandler={setHeaderStateHandler}/>
