@@ -1,4 +1,4 @@
-import {useCallback, useContext, useEffect, useState} from 'react'
+import {useCallback, useContext, useEffect, useRef, useState} from 'react'
 import HeaderStyle from "./styles/Header.module.scss";
 import LogoSmall from "@assets/icons/logo/LogoSmall.png";
 import {Link} from "react-router-dom";
@@ -6,7 +6,7 @@ import {TextModule} from "@src/shared/scss";
 import CopyIcon from "@assets/icons/Header/copy.svg"
 import {useTranslation} from "react-i18next";
 import {Accordion} from "@src/features/accordion";
-import { GlobalContext } from "@src/app/provider";
+import {GlobalContext} from "@src/app/provider";
 import {MouseModal} from "@src/shared/ui/modals/MouseModal";
 import {HeaderNavbar} from "@src/features/headerNavbar";
 import {HeaderStateEnum, NavItem} from "@src/shared/types";
@@ -52,6 +52,7 @@ export const Header = () => {
   const {globalResize} = useContext(GlobalContext)!;
   const {setIsOpen} = useActions()
   const {t} = useTranslation('main');
+  const headerRef = useRef<HTMLDivElement>(null)
   const setBookingIsOpen = (isOpen: boolean) => {
     setIsOpen(isOpen)
   }
@@ -79,42 +80,61 @@ export const Header = () => {
     }))
   }, [headerState])
 
+  // useEffect(() => {
+  //   if (globalResize.isScreenLg) {
+  //     const listenScrollEvent = () => {
+  //       if (window.scrollY < 80) {
+  //         setHeaderStateHandler({[HeaderStateEnum.IS_HEADER_BIG]: "false"})
+  //       } else if (window.scrollY > 80) {
+  //         setHeaderStateHandler({[HeaderStateEnum.IS_HEADER_BIG]: "true", [HeaderStateEnum.IS_HEADER_SCROLLED]: "true"})
+  //       }
+  //     }
+  //     window.addEventListener('scroll', listenScrollEvent);
+  //     return () => window.removeEventListener('scroll', listenScrollEvent);
+  //   }
+  // }, [globalResize.isScreenLg, setHeaderStateHandler]);
+
   useEffect(() => {
-    if (globalResize.isScreenLg) {
-      const listenScrollEvent = () => {
-        if (window.scrollY < 80) {
-          setHeaderStateHandler({[HeaderStateEnum.IS_HEADER_BIG]: "false"})
-        } else if (window.scrollY > 80) {
-          setHeaderStateHandler({[HeaderStateEnum.IS_HEADER_BIG]: "true", [HeaderStateEnum.IS_HEADER_SCROLLED]: "true"})
-        }
+    const observer = new IntersectionObserver((entries) => {
+      const entry = entries[0]
+      if (entry.isIntersecting) {
+        setHeaderStateHandler({[HeaderStateEnum.IS_HEADER_BIG]: "false"})
+      } else {
+        setHeaderStateHandler({[HeaderStateEnum.IS_HEADER_BIG]: "true", [HeaderStateEnum.IS_HEADER_SCROLLED]: "true"})
       }
-      window.addEventListener('scroll', listenScrollEvent);
-      return () => window.removeEventListener('scroll', listenScrollEvent);
-    }
-  }, [globalResize.isScreenLg, setHeaderStateHandler]);
+    })
+    observer.observe(headerRef.current)
+  }, [])
 
   return (
-    <header
-      className={headerState.isHeaderBig ? useClass([HeaderStyle.HeaderWrapper, HeaderStyle['big']]) : HeaderStyle.HeaderWrapper}>
-      <div
-        className={
-          headerState.isHeaderBig ? useClass([HeaderStyle.Header, HeaderStyle['big']])
-            :
-            (headerState.isHeaderScrolled ? useClass([HeaderStyle.Header, HeaderStyle['small']]) : HeaderStyle.Header)}>
-        <div className={HeaderStyle.container}>
-          <div className={HeaderStyle.leftSectionContainer}>
-            <Link to={'/'}  className={HeaderStyle.LogoContainer}>
-              <img alt={'LogoImage'} className={HeaderStyle.Logo} src={LogoSmall}/>
-            </Link>
-            <p className={HeaderStyle.sloganContainer}><span className={useClass([HeaderStyle.slogan, TextModule.paragraph__ligth, globalResize.isScreenLg ? "" : (headerState.isAccordionOpen ? '' : HeaderStyle['closed'])])}>Connect and create with us.</span></p>
+    <>
+      <header
+        className={headerState.isHeaderBig ? useClass([HeaderStyle.HeaderWrapper, HeaderStyle['big']]) : HeaderStyle.HeaderWrapper}>
+        <div
+          className={
+            headerState.isHeaderBig ? useClass([HeaderStyle.Header, HeaderStyle['big']])
+              :
+              (headerState.isHeaderScrolled ? useClass([HeaderStyle.Header, HeaderStyle['small']]) : HeaderStyle.Header)}>
+          <div className={HeaderStyle.container}>
+            <div className={HeaderStyle.leftSectionContainer}>
+              <Link to={'/'} className={HeaderStyle.LogoContainer}>
+                <img alt={'LogoImage'} className={HeaderStyle.Logo} src={LogoSmall}/>
+              </Link>
+              <p className={HeaderStyle.sloganContainer}><span
+                className={useClass([HeaderStyle.slogan, TextModule.paragraph__ligth, globalResize.isScreenLg ? "" : (headerState.isAccordionOpen ? '' : HeaderStyle['closed'])])}>Connect and create with us.</span>
+              </p>
+            </div>
+            <HeaderNavbar navItems={navItems}/>
+            <HeaderAccount headerState={headerState} setHeaderStateHandler={setHeaderStateHandler}/>
           </div>
-          <HeaderNavbar navItems={navItems}/>
-          <HeaderAccount headerState={headerState} setHeaderStateHandler={setHeaderStateHandler}/>
+          <Accordion isAccountBurgerClicked={headerState.isAccountBurgerClicked}
+                     navItems={[{MainLink: {title: "Взять комнату", action: setBookingIsOpen},}, ...navItems]}
+                     isOpen={headerState.isAccordionOpen} toggleAccordion={toggleAccordion}/>
         </div>
-        <Accordion isAccountBurgerClicked={headerState.isAccountBurgerClicked}
-                   navItems={[{MainLink: {title: "Взять комнату", action: setBookingIsOpen},},...navItems]} isOpen={headerState.isAccordionOpen} toggleAccordion={toggleAccordion}/>
-      </div>
-      {globalResize.isScreenLg && <MouseModal icon={<CopyIcon/>} content={t("Вы скопировали") + ": " + '+37433704070'} isOpen={headerState.isNumberCopied}/>}
-    </header>
+        {globalResize.isScreenLg && <MouseModal icon={<CopyIcon/>} content={t("Вы скопировали") + ": " + '+37433704070'}
+                                                isOpen={headerState.isNumberCopied}/>}
+      </header>
+      <div className={HeaderStyle.headerCheck} ref={headerRef}></div>
+    </>
   );
 }

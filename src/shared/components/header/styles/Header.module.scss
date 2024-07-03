@@ -231,3 +231,9 @@
 		display: none;
 	}
 }
+
+.headerCheck {
+	position: absolute;
+	z-index: 30;
+	top: function.vw(70, 1920);
+}
