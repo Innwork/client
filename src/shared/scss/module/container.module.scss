@@ -34,3 +34,35 @@
     padding-inline: function.vw(20, 420);
   }
 }
+
+.flex_pages{
+  display: flex;
+  flex-direction: column;
+  gap: function.vw(60, 1920);
+  margin-bottom: function.vw(60, 1920);
+
+  @media (max-width: 1440px) {
+    gap: function.vw(60, 1440);
+    margin-bottom: function.vw(60, 1440);
+  }
+
+  @media (max-width: 960px) {
+    gap: function.vw(60, 960);
+    margin-bottom: function.vw(60, 960);
+  }
+
+  @media (max-width: 720px) {
+    gap: function.vw(60, 720);
+    margin-bottom: function.vw(60, 720);
+  }
+
+  @media (max-width: 540px) {
+    gap: function.vw(60, 540);
+    margin-bottom: function.vw(60, 540);
+  }
+
+  @media (max-width: 420px) {
+    gap: function.vw(60, 420);
+    margin-bottom: function.vw(60, 420);
+  }
+}

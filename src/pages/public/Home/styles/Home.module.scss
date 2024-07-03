@@ -1,0 +1,62 @@
+@use "@src/shared/scss/logic/function";
+
+.home_slide{
+  display: flex;
+  flex-direction: column;
+  gap: function.vw(32, 1920);
+
+  &__text{
+    display: flex;
+    flex-direction: column;
+    gap: function.vw(8, 1920);
+    color: var(--white);
+
+    h6{
+      width: 90%;
+
+      @media (max-width: 540px) {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 1440px) {
+      gap: function.vw(8, 1440);
+    }
+
+    @media (max-width: 960px) {
+      gap: function.vw(8, 960);
+    }
+
+    @media (max-width: 720px) {
+      gap: function.vw(8, 720);
+    }
+
+    @media (max-width: 540px) {
+      gap: function.vw(8, 540);
+    }
+
+    @media (max-width: 420px) {
+      gap: function.vw(8, 420);
+    }
+  }
+
+  @media (max-width: 1440px) {
+    gap: function.vw(32, 1440);
+  }
+
+  @media (max-width: 960px) {
+    gap: function.vw(32, 960);
+  }
+
+  @media (max-width: 720px) {
+    gap: function.vw(32, 720);
+  }
+
+  @media (max-width: 540px) {
+    gap: function.vw(32, 540);
+  }
+
+  @media (max-width: 420px) {
+    gap: function.vw(32, 420);
+  }
+}
