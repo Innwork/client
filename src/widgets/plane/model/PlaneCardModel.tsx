@@ -1,9 +1,8 @@
 import {ICardPlane} from "@src/features/card/card-plane";
-import FixedDescPng from "@assets/img/plane-card/fixed-desc.png";
-import NonFixedPng from "@assets/img/plane-card/non-fixed.png";
-import PrivateWorkspacePng from "@assets/img/plane-card/private-workspace.png";
 import FreeSpace from "@assets/img/plane-card/free-Space.png";
 import {Tariffs} from "@src/app/redux/Booking/BookingTypes";
+import {NotImg} from "@src/shared/components/not-img";
+import ImgIcon from  "@assets/icons/card-image.svg";
 
 export const PlaneCardModel: Array<ICardPlane> = [
     {
@@ -20,7 +19,7 @@ export const PlaneCardModel: Array<ICardPlane> = [
         header: "Приватные воркспейсы",
         tag: Tariffs.PRIVATE_OFFICE,
         subtitle: "Оборудованный офис в аренду для коллективной работы.",
-        src: PrivateWorkspacePng,
+        src: <NotImg><ImgIcon/></NotImg>,
         service: [
             "Meeting room", "Игровая комната", "Круглосуточная охрана", "Кухня", "VIP lounge - 2 hours",
             "Телефонная будка", "Гольф-клуб"
@@ -30,7 +29,7 @@ export const PlaneCardModel: Array<ICardPlane> = [
         header: "Фиксированное место",
         tag: Tariffs.FIXED_DESK,
         subtitle: "Возможность закрепить за собой рабочую зону. Для тех, кто любит постоянство и комфорт.",
-        src: NonFixedPng,
+        src: <NotImg><ImgIcon/></NotImg>,
         service: [
             "Высокоскоростной Wi-Fi", "Парковка", "Круглосуточная охрана", "Кухня", "Принтер", "Телефонная будка",
             "Meeting room", "Игровая комната"
@@ -40,7 +39,7 @@ export const PlaneCardModel: Array<ICardPlane> = [
         header: "Нефиксированное место",
         tag: Tariffs.NON_FIXED_FLEXI_DESK,
         subtitle: "Выбор свободного рабочего места в любой зоне коворкинга для вашей деятельности.",
-        src: FixedDescPng,
+        src: <NotImg><ImgIcon/></NotImg>,
         service: [
             "Высокоскоростной Wi-Fi", "Парковка", "Круглосуточная охрана", "Кухня", "Принтер", "Телефонная будка"
         ], rules: "В час", price: "2 500 AMD"

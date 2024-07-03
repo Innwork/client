@@ -67,7 +67,7 @@
     "Личная информация": "Personal info",
     "Форма отправлена успешно": "Form submitted successfully",
     "Для правообладателей": "Copyright holders",
-    "Пользовательское соглашение": "Terms of use",
+    "Пользовательское соглашение": "User agreement",
     "Политика конфиденциальности": "Privacy Policy",
     "1 месяц": "1 month",
     "3 месяца": "3 months",
@@ -90,5 +90,6 @@
     "Напишите нам письмо.": "Shoot us an email.",
     "Что-то пошло не так.": "Something went wrong.",
     "Ваш запрос на заказ не был отправлен.": "Your order request was not sent.",
-    "Отправка запроса...": "Sending your request..."
+    "Отправка запроса...": "Sending your request...",
+    "Правила пользования": "Terms of use"
 }
