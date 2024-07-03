@@ -1,5 +1,5 @@
 import {FC, ReactNode} from "react";
-import classes from "@src/widgets/сalculator/ui/li-text/liText.module.scss";
+import classes from "@src/pages/public/Home/components/сalculator/ui/li-text/liText.module.scss";
 import {TextModule} from "@src/shared/scss";
 
 export interface ILiText{
