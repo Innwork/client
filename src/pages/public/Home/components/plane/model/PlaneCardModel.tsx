@@ -1,6 +1,7 @@
 import {ICardPlane} from "@src/features/card/card-plane";
 import FreeSpace from "@assets/img/plane-card/free-Space.png";
 import NonFixed from "@assets/img/plane-card/non-fixed.png";
+import PrivateSpace from "@assets/img/plane-card/privateWorkspace.png";
 import FixedDesk from "@assets/img/plane-card/fixedDesk.png"
 import {Tariffs} from "@src/app/redux/Booking/BookingTypes";
 import {NotImg} from "@src/shared/components/not-img";
@@ -21,7 +22,7 @@ export const PlaneCardModel: Array<ICardPlane> = [
         header: "Приватные воркспейсы",
         tag: Tariffs.PRIVATE_OFFICE,
         subtitle: "Оборудованный офис в аренду для коллективной работы.",
-        src: <NotImg><ImgIcon/></NotImg>,
+        src: PrivateSpace,
         service: [
             "Meeting room", "Игровая комната", "Круглосуточная охрана", "Кухня", "VIP lounge - 2 hours",
             "Телефонная будка", "Гольф-клуб"

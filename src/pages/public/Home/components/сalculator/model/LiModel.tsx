@@ -1,4 +1,4 @@
-import {ILiText} from "@src/widgets/сalculator/ui/li-text/LiText";
+import {ILiText} from "@src/pages/public/Home/components/сalculator/ui/li-text/LiText";
 import SVGOne from "@assets/icons/widgets/01.svg";
 import SVGTwo from "@assets/icons/widgets/02.svg";
 import SVGThree from "@assets/icons/widgets/03.svg";
