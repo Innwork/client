@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /node_modules/
+Disallow: /src/
+Disallow: /public/
+Disallow: /dist/
+Disallow: /build/
+Allow: /
+
+Sitemap: https://yourdomain.com/sitemap.xml
