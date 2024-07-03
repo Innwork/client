@@ -1,5 +1,4 @@
-import {ReservWorkspaces} from "@src/widgets/reservWorkspaces/ReservWorkspaces";
-
+import {ReservAdditional} from "@src/widgets/reservWorkspaces/ReservAdditional";
 export {
-  ReservWorkspaces
+  ReservAdditional
 }

@@ -1,6 +1,6 @@
 import {FC, ReactNode} from "react"
 import { TextModule } from "@src/shared/scss"
-import classes from "@src/features/layout/Section/footer/style/FooterNav.module.scss";
+import classes from "@src/shared/components/footer/style/FooterNav.module.scss";
 
 interface IFooterNav{
     navName: string

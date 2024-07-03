@@ -1,6 +1,6 @@
 import {FC} from "react";
-import {FooterLink} from "@src/features/layout/Section/footer/ui/FooterLink";
-import classes from "@src/features/layout/Section/footer/style/Agreements.module.scss";
+import {FooterLink} from "@src/shared/components/footer/ui/FooterLink";
+import classes from "@src/shared/components/footer/style/Agreements.module.scss";
 import {TextModule} from "@src/shared/scss";
 import {useTranslation} from "react-i18next";
 

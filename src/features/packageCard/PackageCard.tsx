@@ -10,7 +10,7 @@ import {useActions} from "@src/app/redux/hooks/useActions";
 import {MainBtn} from "@src/shared/ui/btn/main-btn/MainBtn";
 import {DropDownSelect} from "@src/shared/ui/input";
 import {selectBookingTariffs} from "@src/app/redux/Booking/BookingSlice";
-import {DateInputType} from "@src/widgets/reservWorkspaces/widgets/reserv-additional/ReservAdditional";
+import {DateInputType} from "@src/widgets/reservWorkspaces/ReservAdditional";
 import {SelectDate} from "@src/features/select-date";
 import {TimeSelectDropdowns} from "@src/features/time-select";
 import {useAppSelector} from "@src/app/redux/hooks/redux";

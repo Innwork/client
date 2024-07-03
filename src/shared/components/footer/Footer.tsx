@@ -1,11 +1,11 @@
 import {useTranslation} from "react-i18next";
-import {footerItems} from "@src/features/layout/Section/footer/constants/constants";
-import classes from "@src/features/layout/Section/footer/style/footer.module.scss";
+import {footerItems} from "@src/shared/components/footer/constants/constants";
+import classes from "@src/shared/components/footer/style/footer.module.scss";
 import {TextModule} from "@src/shared/scss";
 import LogoBig from "@assets/icons/logo/LogoBig.svg";
-import {FooterAgreements} from "@src/features/layout/Section/footer/widgets/FooterAgreements";
-import {FooterNav} from "@src/features/layout/Section/footer/widgets/FooterNav";
-import {FooterLink} from "@src/features/layout/Section/footer/ui/FooterLink";
+import {FooterAgreements} from "@src/shared/components/footer/widgets/FooterAgreements";
+import {FooterNav} from "@src/shared/components/footer/widgets/FooterNav";
+import {FooterLink} from "@src/shared/components/footer/ui/FooterLink";
 
 export const Footer = () => {
     const {t} = useTranslation('main');

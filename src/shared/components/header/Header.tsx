@@ -1,5 +1,5 @@
-import {useCallback, useContext, useEffect, useRef, useState} from 'react'
-import HeaderStyle from "./scss/Header.module.scss";
+import {useCallback, useContext, useEffect, useState} from 'react'
+import HeaderStyle from "./styles/Header.module.scss";
 import LogoSmall from "@assets/icons/logo/LogoSmall.png";
 import {Link} from "react-router-dom";
 import {TextModule} from "@src/shared/scss";
@@ -14,6 +14,7 @@ import {HeaderAccount} from "@src/features/headerAccount";
 import {HeaderStateType} from "@src/shared/types";
 import {useActions} from "@src/app/redux/hooks/useActions";
 import {useClass} from "@src/shared/hooks";
+
 
 export const Header = () => {
   // const accountBurgerItems = {
@@ -49,7 +50,6 @@ export const Header = () => {
 
   const [headerState, setHeaderState] = useState<HeaderStateType>(initialHeaderState)
   const {globalResize} = useContext(GlobalContext)!;
-  const burgerRef = useRef<HTMLDivElement>(null)
   const {setIsOpen} = useActions()
   const {t} = useTranslation('main');
   const setBookingIsOpen = (isOpen: boolean) => {
@@ -78,18 +78,6 @@ export const Header = () => {
       ...newParams
     }))
   }, [headerState])
-
-  useEffect(() => {
-    if (globalResize.isScreenLg && headerState.isAccountBurgerOpen) {
-      const handleClickOutside = (event: MouseEvent) => {
-        if (burgerRef.current && !event.composedPath().includes(burgerRef.current)) {
-          setHeaderStateHandler({[HeaderStateEnum.IS_ACCOUNT_BURGER_OPEN]: "false"})
-        }
-      }
-      document.body.addEventListener('click', handleClickOutside)
-      return () => document.body.removeEventListener('click', handleClickOutside)
-    }
-  }, [globalResize.isScreenLg, headerState.isAccountBurgerOpen, setHeaderStateHandler])
 
   useEffect(() => {
     if (globalResize.isScreenLg) {
@@ -122,12 +110,6 @@ export const Header = () => {
           </div>
           <HeaderNavbar navItems={navItems}/>
           <HeaderAccount headerState={headerState} setHeaderStateHandler={setHeaderStateHandler}/>
-          {/*<div*/}
-          {/*  className={combineStyle([HeaderStyle.burgerDropdownContainer, headerState.isAccountBurgerOpen ? HeaderStyle['open'] : ''])}>*/}
-          {/*  <Dropdown className={HeaderStyle.burgerDropdown} links={accountBurgerItems.DropdownLinks}>*/}
-          {/*    {accountBurgerItems.children && <LngSwitcher/>}*/}
-          {/*  </Dropdown>*/}
-          {/*</div>*/}
         </div>
         <Accordion isAccountBurgerClicked={headerState.isAccountBurgerClicked}
                    navItems={[{MainLink: {title: "Взять комнату", action: setBookingIsOpen},},...navItems]} isOpen={headerState.isAccordionOpen} toggleAccordion={toggleAccordion}/>

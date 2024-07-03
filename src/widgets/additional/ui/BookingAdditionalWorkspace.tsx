@@ -8,7 +8,7 @@ import {useTranslation} from "react-i18next";
 import ArrowDrownSvg from "@assets/icons/arrowDown.svg";
 import {useActions} from "@src/app/redux/hooks/useActions";
 import {SelectDate} from "@src/features/select-date";
-import {DateInputType} from "@src/widgets/reservWorkspaces/widgets/reserv-additional/ReservAdditional";
+import {DateInputType} from "@src/widgets/reservWorkspaces/ReservAdditional";
 import {useClass} from "@src/shared/hooks";
 
 type IWorkspaces = {
