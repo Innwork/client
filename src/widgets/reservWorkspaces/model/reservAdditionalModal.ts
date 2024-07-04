@@ -15,7 +15,7 @@ export const reservAdditionalModel: TReservAdditionalModel= {
             tag: Workspaces.BUSINESS_LOUNGE,
             header: "Бизнес зал",
             title: "Премиум пространство – идеальное место для деловых переговоров, важных встреч и решения рабочих вопросов.",
-            price: "от 10 000 AMD в час"
+            price: "от 5 500 AMD в час"
         },
         {
             src: meetingRoomSmall,

@@ -72,7 +72,7 @@ export const getTariffPrice = ({tariffName, duration, time, PWSpeopleCount}: get
     const date1 = new Date(Number(dateArray1[0]), Number(dateArray1[1]), Number(dateArray1[2]))
     const date2 = new Date(Number(dateArray2[0]), Number(dateArray2[1]), Number(dateArray2[2]))
     const months = (date2.getMonth() - date1.getMonth()) === 0 ? 12 : (date2.getMonth() - date1.getMonth())
-    return (100000 * months * odds.privateOffice[months] * PWSpeopleCount).toString()
+    return (99990 * months * odds.privateOffice[months] * PWSpeopleCount).toString()
   } else if (tariffName === Tariffs.NON_FIXED_FLEXI_DESK) {
     // const dates = (payload.duration.split(" - "))
     // const dateArray1 = dates[0].split('/')
@@ -86,7 +86,7 @@ export const getTariffPrice = ({tariffName, duration, time, PWSpeopleCount}: get
     if (time1 === time2) {
       return '6500'
     } else {
-      return (2500 * (getTariffHours(time) - getTariffHappyHours(time)) + (2500 * 0.8 * getTariffHappyHours(time))).toString()
+      return (2490 * (getTariffHours(time) - getTariffHappyHours(time)) + (2490 * 0.8 * getTariffHappyHours(time))).toString()
     }
   } else if (tariffName === Tariffs.FREE_SPACE) {
     // const dates = (payload.duration.split(" - "))
@@ -243,7 +243,7 @@ export const getWorkspaces = (workspaces: WorkspaceItem[], payload: WorkspaceIte
       const price = (5500 * (getWorkspaceHours(payload.duration, payload.time) - getWorkspaceHappyHours(payload.duration, payload.time)) + (5500 * 0.8 * getWorkspaceHappyHours(payload.duration, payload.time))).toString()
       return [{...payload, price}, ...workspaces]
     } else if (payload.workspaceName === Workspaces.BUSINESS_LOUNGE) {
-      const price = (10000 * (getWorkspaceHours(payload.duration, payload.time) - getWorkspaceHappyHours(payload.duration, payload.time)) + (10000 * 0.8 * getWorkspaceHappyHours(payload.duration, payload.time))).toString()
+      const price = (5500 * (getWorkspaceHours(payload.duration, payload.time) - getWorkspaceHappyHours(payload.duration, payload.time)) + (5500 * 0.8 * getWorkspaceHappyHours(payload.duration, payload.time))).toString()
       return [{...payload, price}, ...workspaces]
     }
   } else {
@@ -272,8 +272,8 @@ export const getWorkspaces = (workspaces: WorkspaceItem[], payload: WorkspaceIte
       const editedWorkspaces = workspaces.filter(item => (item.workspaceName != payload.workspaceName))
       const price = (
         (workspaceToPull.duration && workspaceToPull.time)
-          ? 10000 * (getWorkspaceCombinedHours(workspaceToPull.duration, workspaceToPull.time) - getWorkspaceCombinedHappyHours(workspaceToPull.duration, workspaceToPull.time)) + (10000 * 0.8 * getWorkspaceCombinedHappyHours(workspaceToPull.duration, workspaceToPull.time))
-          : 10000 * (getWorkspaceHours(payload.duration, payload.time) - getWorkspaceHappyHours(payload.duration, payload.time)) + (10000 * 0.8 * getWorkspaceHappyHours(payload.duration, payload.time))
+          ? 5500 * (getWorkspaceCombinedHours(workspaceToPull.duration, workspaceToPull.time) - getWorkspaceCombinedHappyHours(workspaceToPull.duration, workspaceToPull.time)) + (5500 * 0.8 * getWorkspaceCombinedHappyHours(workspaceToPull.duration, workspaceToPull.time))
+          : 5500 * (getWorkspaceHours(payload.duration, payload.time) - getWorkspaceHappyHours(payload.duration, payload.time)) + (5500 * 0.8 * getWorkspaceHappyHours(payload.duration, payload.time))
         // ? 10000 * getWorkspaceCombinedHours(workspaceToPull.duration, workspaceToPull.time)
         // : 10000 * getWorkspaceHours(payload.duration, payload.time)
       ).toString()

@@ -35,7 +35,7 @@ export const packages = [
   {
     info: "Оборудованный офис в аренду для коллективной работы.",
     title: Tariffs.PRIVATE_OFFICE,
-    price: "120 000"
+    price: "99 990"
   },
   {
     info: "Возможность закрепить за собой рабочую зону. Для тех, кто любит постоянство и комфорт.",
@@ -45,6 +45,6 @@ export const packages = [
   {
     info: "Выбор свободного рабочего места в любой зоне коворкинга для вашей деятельности.",
     title: Tariffs.NON_FIXED_FLEXI_DESK,
-    price: "2 500"
+    price: "2 490"
   }
 ]
