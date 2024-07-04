@@ -1,5 +1,5 @@
 import {TextModule} from "@src/shared/scss";
-import ModalStyle from "@src/shared/ui/modals/Modal.module.scss"
+import ModalStyle from "@src/shared/ui/modals/mouse-modal/Modal.module.scss"
 import {FC, ReactElement, SVGProps, useEffect, useState} from "react";
 import {useClass} from "@src/shared/hooks";
 

@@ -1,5 +1,5 @@
-@use 'src/shared/scss/logic/function';
-@use 'src/shared/scss/logic/mixin';
+@use "@src/shared/scss/logic/_function.scss";
+@use '@src/shared/scss/logic/mixin';
 
 .CopyNumberModal {
 	white-space: nowrap;
