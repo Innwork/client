@@ -1,5 +1,4 @@
 import classes from "@src/features/time-select/dropdowns/style/TimeSelectDropdowns.module.scss";
-import {combineStyle} from "@src/shared/utils";
 import {TextModule} from "@src/shared/scss";
 import {DropDownSelect} from "@src/shared/ui/input/";
 import {Dispatch, FC, SetStateAction, useContext} from "react";
@@ -53,7 +52,7 @@ export const TimeSelectDropdowns: FC<TimeSelectProps> = (props) => {
   return (
     <div className={useClass([classes.dropdownsContainer, arrow ? classes['arrow'] : ''])}>
       <div className={classes.inputDropdownContainer}>
-        {label && <label className={combineStyle([TextModule.span])}>{t("Время начала")}</label>}
+        {label && <label className={useClass([TextModule.span])}>{t("Время начала")}</label>}
         <DropDownSelect
           data={timeModel}
           placeholder={defaultStart}
@@ -66,7 +65,7 @@ export const TimeSelectDropdowns: FC<TimeSelectProps> = (props) => {
       {arrow && globalResize.isScreenLg && <ArrowRight height='30px'/>}
 
       <div className={classes.inputDropdownContainer}>
-        {label && <label className={combineStyle([TextModule.span])}>{t("Время конца")}</label>}
+        {label && <label className={useClass([TextModule.span])}>{t("Время конца")}</label>}
           <DropDownSelect
             data={timeModel}
             placeholder={defaultEnd}

@@ -2,12 +2,12 @@ import {FC} from "react";
 import {useTranslation} from "react-i18next";
 import {TextModule} from "@src/shared/scss";
 import classes from "@src/features/reservWorkspace/ReserveWorkspace.module.scss"
-import {combineStyle} from "@src/shared/utils";
 import ClockGraySvg from "@assets/icons/ui/btn/timeGray.svg";
 import GrayDataSVG from "@assets/icons/ui/btn/grayData.svg";
 import TrashBinSvg from "@assets/icons/trashBin.svg";
 import {Workspaces} from "@src/app/redux/Booking/BookingTypes";
 import {useActions} from "@src/app/redux/hooks/useActions";
+import {useClass} from "@src/shared/hooks";
 
 export interface IReserveWorkspace {
   price?: string
@@ -23,7 +23,6 @@ export const ReserveWorkspace: FC<IReserveWorkspace> = (props) => {
     src, header, title, duration, time, price
   } = props;
 
-  const priceWithSpace = price?.replace(/(?!^)(?=(?:\d{3})+(?:\.|$))/gm, ' ')
   const {removeWorkspace} = useActions()
   const {t} = useTranslation("main");
 
@@ -39,14 +38,14 @@ export const ReserveWorkspace: FC<IReserveWorkspace> = (props) => {
             {t(header)}
           </h4>
 
-          <span className={combineStyle([
+          <span className={useClass([
             TextModule.h3, classes.text_content__span
           ])}>
-            {priceWithSpace} AMD
+            {Intl.NumberFormat("ru-RU").format(Number(price))} AMD
           </span>
         </div>
 
-        <div className={combineStyle([classes.dates, TextModule.paragraph])}>
+        <div className={useClass([classes.dates, TextModule.paragraph])}>
           {duration &&
             <>
               <div className={classes.imgContainer}>

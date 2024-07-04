@@ -14,7 +14,6 @@ export const Home = () => {
       <BannerHome/>
       <section className={ContainerModule.flex_pages}>
         <AdditionalWorkspace/> <Plane/> <Calculator/> <ChooseLocation/> <AboutUs/>
-        {/*<Reviews/>*/}
       </section>
     </>
   );

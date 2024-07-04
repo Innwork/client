@@ -7,6 +7,8 @@ import {PrivacyChunk} from "@src/pages/public/info/privacy";
 import {RulesChunk} from "@src/pages/public/info/rules";
 import {TermsChunk} from "@src/pages/public/info/terms";
 import {NotFoundPageChunk} from "@src/pages/not-found";
+import {SearchChunk} from "@src/pages/public/office/search";
+import {DetailChunk} from "@src/pages/public/office/detail";
 
 interface IPaths extends IBaseRoute{
     exact?: boolean
@@ -21,5 +23,7 @@ export const RotesLayout: IPaths[] = [
     {path: "/copyright", element: <CopyrightChunk/>},
     {path: "/privacy", element: <PrivacyChunk/>},
     {path: "/info", element: <InfoPageChunk/>},
+    {path: "/office", element: <SearchChunk/>},
+    {path: "/detail", element: <DetailChunk/>},
     {path: "*", element: <NotFoundPageChunk/>}
 ]

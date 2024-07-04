@@ -1,6 +1,5 @@
 import React, {useEffect, useRef} from 'react';
 import cls from "@src/widgets/booking-modal/BookingModal.module.scss"
-import {useSelector} from "react-redux";
 import {
   selectBookingWorkspace,
   selectCartTariffs,
@@ -14,14 +13,15 @@ import OrangeMark from "@assets/icons/orangeMark.svg"
 import {TextModule} from "@src/shared/scss";
 import {ReservationCard} from "@src/features/reservation-card";
 import {useTranslation} from "react-i18next";
+import {useAppSelector} from "@src/app/redux/hooks/redux";
 
 export const BookingModal = () => {
   const modalRef = useRef<HTMLDivElement>(null)
-  const isFormSent = useSelector(selectIsFormSent)
-  const formStatus = useSelector(selectFormStatus)
-  const cartTariffs = useSelector(selectCartTariffs)
-  const cartWorkspaces = useSelector(selectBookingWorkspace)
-  const reservationData = useSelector(selectReservationData)
+  const isFormSent = useAppSelector(selectIsFormSent)
+  const formStatus = useAppSelector(selectFormStatus)
+  const cartTariffs = useAppSelector(selectCartTariffs)
+  const cartWorkspaces = useAppSelector(selectBookingWorkspace)
+  const reservationData = useAppSelector(selectReservationData)
   const {setIsFormSent} = useActions()
   const {t} = useTranslation("main")
 

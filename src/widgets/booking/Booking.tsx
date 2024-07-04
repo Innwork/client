@@ -2,10 +2,8 @@ import BookingStyle from "@src/widgets/booking/Booking.module.scss"
 import {PersonalInfoForm} from "@src/widgets/personalInfoForm";
 import {BookingHead} from "@src/features/bookingHead";
 import {PackageSelection} from "@src/widgets/packageSelection";
-import {useCallback, useEffect, useRef, useState,} from "react";
-import {combineStyle} from "@src/shared/utils";
+import {useCallback, useState,} from "react";
 import {Stepper} from "@src/features/stepper";
-import {useSelector} from "react-redux";
 import {
   selectAreInputsValid, selectBookingPersonalInfo,
   selectBookingWorkspace,
@@ -14,41 +12,30 @@ import {
   selectPWSpeopleCount
 } from "@src/app/redux/Booking/BookingSlice";
 import {Tariffs} from "@src/app/redux/Booking/BookingTypes";
-import {ReservWorkspaces} from "@src/widgets/reservWorkspaces";
+import {ReservAdditional} from "@src/widgets/reservWorkspaces";
 import {DirectionButton} from "@src/shared/ui/btn";
 import {useTranslation} from "react-i18next";
 
 import {useActions} from "@src/app/redux/hooks/useActions";
 import {TData} from "@src/app/redux/Booking/actions";
 import {BookingModal} from "@src/widgets/booking-modal";
+import {useAppSelector} from "@src/app/redux/hooks/redux";
+import {useClass} from "@src/shared/hooks";
 
 export const Booking = () => {
-  const isBookingOpen = useSelector(selectIsBookingOpen)
-  const cartTariffs = useSelector(selectCartTariffs)
-  const cartWorkspaces = useSelector(selectBookingWorkspace)
-  const areInputsValid = useSelector(selectAreInputsValid)
-  const peopleCount = useSelector(selectPWSpeopleCount)
-  const personalInfo = useSelector(selectBookingPersonalInfo)
-  const page = useSelector(selectPage)
+  const isBookingOpen = useAppSelector(selectIsBookingOpen)
+  const cartTariffs = useAppSelector(selectCartTariffs)
+  const cartWorkspaces = useAppSelector(selectBookingWorkspace)
+  const areInputsValid = useAppSelector(selectAreInputsValid)
+  const peopleCount = useAppSelector(selectPWSpeopleCount)
+  const personalInfo = useAppSelector(selectBookingPersonalInfo)
+  const page = useAppSelector(selectPage)
   const [termsAgreement, setTermsAgreement] = useState(false)
-  const bookingRef = useRef<HTMLDivElement>(null)
   const steps = 3
   const {postReservationData, setPage, setIsOpen} = useActions()
   const {t, i18n} = useTranslation('main')
 
   const languages = ["en-US", "hy-AM", "ru-RU"]
-
-  useEffect(() => {
-    if (isBookingOpen) {
-      const handleClickOutside = (event: MouseEvent) => {
-        if (bookingRef.current && !event.composedPath().includes(bookingRef.current)) {
-          setIsOpen(false)
-        }
-      }
-      document.body.addEventListener('click', handleClickOutside)
-      return () => document.body.removeEventListener('click', handleClickOutside)
-    }
-  }, [isBookingOpen])
 
   const sendReservationRequest = useCallback(() => {
     const tariffs = cartTariffs.map((tariff) => {
@@ -88,15 +75,15 @@ export const Booking = () => {
 
   return (
     <>
-      <div className={combineStyle([BookingStyle.wrapper, isBookingOpen ? BookingStyle["open"] : BookingStyle["closed"]])}>
-        <div ref={bookingRef} className={combineStyle([BookingStyle.container, isBookingOpen ? BookingStyle["open"] : BookingStyle["closed"]])}>
+      <div onClick={() => setIsOpen(false)} className={useClass([BookingStyle.wrapper, isBookingOpen ? BookingStyle["open"] : BookingStyle["closed"]])}>
+        <div onClick={(e) => e.stopPropagation()} className={useClass([BookingStyle.container, isBookingOpen ? BookingStyle["open"] : BookingStyle["closed"]])}>
           <BookingHead/>
           <Stepper steps={steps} page={page} setPage={setPage}/>
           {
             page === 1 ?
               <PackageSelection/>
               : page === 2 ?
-                <ReservWorkspaces/>
+                <ReservAdditional/>
                 : <PersonalInfoForm termsAgreement={termsAgreement} setTermsAgreement={setTermsAgreement}/>
           }
 

@@ -4,8 +4,6 @@ import NonFixed from "@assets/img/plane-card/non-fixed.png";
 import PrivateSpace from "@assets/img/plane-card/privateWorkspace.png";
 import FixedDesk from "@assets/img/plane-card/fixedDesk.png"
 import {Tariffs} from "@src/app/redux/Booking/BookingTypes";
-import {NotImg} from "@src/shared/components/not-img";
-import ImgIcon from "@assets/icons/card-image.svg";
 
 export const PlaneCardModel: Array<ICardPlane> = [
     {
@@ -26,7 +24,7 @@ export const PlaneCardModel: Array<ICardPlane> = [
         service: [
             "Meeting room", "Игровая комната", "Круглосуточная охрана", "Кухня", "VIP lounge - 2 hours",
             "Телефонная будка", "Гольф-клуб"
-        ], rules: "за 3 месяца от 6 человек", price: "120 000 AMD"
+        ], rules: "за 3 месяца от 6 человек", price: "99 990 AMD"
     },
     {
         header: "Фиксированное место",
@@ -45,6 +43,6 @@ export const PlaneCardModel: Array<ICardPlane> = [
         src: NonFixed,
         service: [
             "Высокоскоростной Wi-Fi", "Парковка", "Круглосуточная охрана", "Кухня", "Принтер", "Телефонная будка"
-        ], rules: "В час", price: "2 500 AMD"
+        ], rules: "В час", price: "2 490 AMD"
     }
 ]

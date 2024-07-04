@@ -1,4 +1,4 @@
-import React, {FC, useEffect, useRef, useState} from 'react';
+import React, {FC, useState} from 'react';
 import cls from "@src/widgets/sidebar/Sidebar.module.scss"
 import {useClass} from "@src/shared/hooks";
 import {TextModule} from "@src/shared/scss";
@@ -23,18 +23,7 @@ interface SidebarProps {
 export const Sidebar: FC<SidebarProps> = ({sections, page, link}) => {
   const [activeSection, setActiveSection] = useState('0')
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
-  const sidebarRef = useRef<HTMLDivElement>(null)
   const {t} = useTranslation(`${page}`)
-
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (sidebarRef.current && isSidebarOpen && (!event.composedPath().includes(sidebarRef.current))) {
-        setIsSidebarOpen(false)
-      }
-    }
-    document.body.addEventListener('click', handleClickOutside)
-    return () => document.body.removeEventListener('click', handleClickOutside)
-  }, [isSidebarOpen])
 
   const createSection = (section: TSection) => {
     if (!section.subSections) {
@@ -90,8 +79,8 @@ export const Sidebar: FC<SidebarProps> = ({sections, page, link}) => {
             </div>
           </div>
 
-          <div className={useClass([cls.burgerContentBackground, isSidebarOpen ? cls["open"] : cls['closed']])}>
-            <div ref={sidebarRef} className={useClass([cls.burgerContent, isSidebarOpen ? cls["open"] : cls['closed']])}>
+          <div onClick={() => setIsSidebarOpen(false)} className={useClass([cls.burgerContentBackground, isSidebarOpen ? cls["open"] : cls['closed']])}>
+            <div onClick={(e) => e.stopPropagation()} className={useClass([cls.burgerContent, isSidebarOpen ? cls["open"] : cls['closed']])}>
               <div className={cls.burgerClose} onClick={() => setIsSidebarOpen(false)}>
                 <CrossIcon/>
               </div>

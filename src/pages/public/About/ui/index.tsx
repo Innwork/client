@@ -1,5 +1,5 @@
 import {AboutUs} from "@src/widgets/about-us";
-import {Banner} from "@src/widgets/banner";
+import {Banner} from "@src/pages/public/About/widgets/banner/ui";
 import OurMissionWomen from "@assets/img/About/women.png";
 import AboutBanner from "@assets/img/About/about.png";
 import {ContainerModule, TextModule} from "@src/shared/scss";

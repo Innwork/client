@@ -1,12 +1,12 @@
 import classes from "./PackageSelection.module.scss"
 import {PackageCard} from "@src/features/packageCard";
-import {useSelector} from "react-redux";
 import {selectBookingTariffs} from "@src/app/redux/Booking/BookingSlice";
 import {Durations, packages} from "@src/widgets/packageSelection/model/PackageCardModel";
 import {regDate} from "@src/shared/constants";
 import {useState} from "react";
-import {DateInputType} from "@src/widgets/reservWorkspaces/widgets/reserv-additional/ReservAdditional";
+import {DateInputType} from "@src/widgets/reservWorkspaces/ReservAdditional";
 import {Tariffs} from "@src/app/redux/Booking/BookingTypes";
+import {useAppSelector} from "@src/app/redux/hooks/redux";
 
 
 type GroupedInputsType = {
@@ -17,7 +17,7 @@ type GroupedInputsType = {
 
 
 export const PackageSelection = () => {
-  const selectedTariffs = useSelector(selectBookingTariffs)
+  const selectedTariffs = useAppSelector(selectBookingTariffs)
   const [privateWs, setPrivateWs] = useState('0')
   const [fixedWs, setFixedWs] = useState('0')
   const [nonFixedWs, setNonFixedWs] = useState('0')

@@ -3,7 +3,7 @@ import Space from "@assets/icons/widgets/space.svg";
 import Security from "@assets/icons/widgets/SECURITY-CAMERA.svg";
 import Parking from "@assets/icons/widgets/parking.svg";
 import WiFi from "@assets/icons/widgets/wifi.svg";
-import GameZone from "@assets/icons/widgets/GAME ZONE.svg";
+import GameZone from "@assets/icons/widgets/GAME-ZONE.svg";
 import Locker from "@assets/icons/widgets/LOCKER.svg";
 
 

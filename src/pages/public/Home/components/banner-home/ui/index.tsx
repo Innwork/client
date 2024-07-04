@@ -56,10 +56,10 @@ export const BannerHome: FC = () => {
   return (
     <AutoplaySlider className={cls.banner} delay={6000}>
       {slides.map((el) =>
-        <>
-          <img className={cls.banner__img} src={el.src} alt={el.src}/>
+        <div key={el.src}>
+          <img className={cls.banner__img} src={el.src} alt={el.src} loading="lazy"/>
           {el.element}
-        </>)}
+        </div>)}
     </AutoplaySlider>
   );
 };

@@ -145,14 +145,14 @@ export const getPrice = ({time, workspaceName, duration}: TGetPrice) => {
   } else if (workspaceName === Workspaces.BUSINESS_LOUNGE) {
     return (
       (duration && time)
-        ? 10000 * (getCombinedHours(duration, time) - getCombinedHappyHours(duration, time)) +  (10000 * 0.8 * getCombinedHappyHours(duration, time))
-        : 10000 * (getHours(time) - getHappyHours(time)) +  (10000 * 0.8 * getHappyHours(time))
+        ? 5500 * (getCombinedHours(duration, time) - getCombinedHappyHours(duration, time)) +  (5500 * 0.8 * getCombinedHappyHours(duration, time))
+        : 5500 * (getHours(time) - getHappyHours(time)) +  (5500 * 0.8 * getHappyHours(time))
     ).toString()
   } else if (workspaceName === Tariffs.NON_FIXED_FLEXI_DESK) {
     if (getHours(time) === 24) {
       return '6500'
     } else {
-      return (2500 * (getHours(time) - getHappyHours(time)) +  (2500 * 0.8 * getHappyHours(time))).toString()
+      return (2490 * (getHours(time) - getHappyHours(time)) +  (2490 * 0.8 * getHappyHours(time))).toString()
     }
   }
   return 0

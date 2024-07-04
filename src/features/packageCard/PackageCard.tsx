@@ -1,7 +1,6 @@
 import classes from "./PackageCard.module.scss"
 import {FC, useEffect, useState} from "react";
 import {Tariffs} from "@src/app/redux/Booking/BookingTypes";
-import {combineStyle} from "@src/shared/utils";
 import {TextModule} from "@src/shared/scss";
 import ArrowDrownSvg from "@assets/icons/arrowDown.svg";
 import DataSVG from "@assets/icons/ui/btn/data.svg";
@@ -10,11 +9,12 @@ import {useTranslation} from "react-i18next";
 import {useActions} from "@src/app/redux/hooks/useActions";
 import {MainBtn} from "@src/shared/ui/btn/main-btn/MainBtn";
 import {DropDownSelect} from "@src/shared/ui/input";
-import {useSelector} from "react-redux";
 import {selectBookingTariffs} from "@src/app/redux/Booking/BookingSlice";
-import {DateInputType} from "@src/widgets/reservWorkspaces/widgets/reserv-additional/ReservAdditional";
+import {DateInputType} from "@src/widgets/reservWorkspaces/ReservAdditional";
 import {SelectDate} from "@src/features/select-date";
 import {TimeSelectDropdowns} from "@src/features/time-select";
+import {useAppSelector} from "@src/app/redux/hooks/redux";
+import {useClass} from "@src/shared/hooks";
 
 interface PackageCardProps {
   date?: string
@@ -54,7 +54,7 @@ export const PackageCard: FC<PackageCardProps> = (props) => {
   const {t} = useTranslation('main')
   const priceWithSpace = price?.replace(/(?!^)(?=(?:\d{3})+(?:\.|$))/gm, ' ');
 
-  const activeTariffs = useSelector(selectBookingTariffs)
+  const activeTariffs = useAppSelector(selectBookingTariffs)
 
   const classesVariant: TClassesVariant = {
     selected: classes["selected"],
@@ -104,15 +104,15 @@ export const PackageCard: FC<PackageCardProps> = (props) => {
 
 
   return (
-    <div className={combineStyle([classes.cardContainer, classesVariant[variant]])}>
+    <div className={useClass([classes.cardContainer, classesVariant[variant]])}>
       <div
-        className={combineStyle([classes.card, variant === 'selected' ? (inputs[0].valid ? classes["valid"] : classes["invalid"]) : classes["default"], date ? classes['cart'] : ''])}>
+        className={useClass([classes.card, variant === 'selected' ? (inputs[0].valid ? classes["valid"] : classes["invalid"]) : classes["default"], date ? classes['cart'] : ''])}>
         <div onClick={() => {
           toggleTariff(title)
         }} className={classes.textContainer}>
           {
             date && date.split(' - ')[0] != '0' &&
-            <div className={combineStyle([classes.dates, TextModule.paragraph])}>
+            <div className={useClass([classes.dates, TextModule.paragraph])}>
               <div className={classes.imgContainer}>
                 <DataSVG className={classes.img}/>
               </div>
@@ -125,19 +125,19 @@ export const PackageCard: FC<PackageCardProps> = (props) => {
               </div>
             </div>
           }
-          <div className={combineStyle([classes.title, TextModule.paragraph__bold])}>{t(title)}</div>
+          <div className={useClass([classes.title, TextModule.paragraph__bold])}>{t(title)}</div>
 
           <div className={classes.priceBlock}>
             <div
-              className={combineStyle([classes.actualPrice, TextModule.h3])}>{t(`${date ? '' : 'от '}` + priceWithSpace?.replace('  ', ' ') + " AMD")}</div>
+              className={useClass([classes.actualPrice, TextModule.h3])}>{t(`${date ? '' : 'от '}` + priceWithSpace?.replace('  ', ' ') + " AMD")}</div>
             {oldPrice && <div className={classes.oldPrice}>{oldPrice}</div>}
           </div>
 
-          {info && <div className={combineStyle([classes.info, TextModule.span__light])}>{t(info)}</div>}
+          {info && <div className={useClass([classes.info, TextModule.span__light])}>{t(info)}</div>}
         </div>
 
         <div
-          className={combineStyle([classes.additionalItems, variant === 'selected' ? classes['open'] : classes['closed']])}>
+          className={useClass([classes.additionalItems, variant === 'selected' ? classes['open'] : classes['closed']])}>
           {!date &&
             <div className={classes.inputsContainer}>
               {inputs.map((input, index) =>
@@ -151,7 +151,7 @@ export const PackageCard: FC<PackageCardProps> = (props) => {
                 <>
                   <ArrowDrownSvg className={classes.arrowDown}/>
                   <div className={classes.inputDropdownContainer}>
-                    <p className={combineStyle([TextModule.paragraph])}>{t("Длительность")}</p>
+                    <p className={useClass([TextModule.paragraph])}>{t("Длительность")}</p>
                     <DropDownSelect
                       data={Object.keys(durations)}
                       placeholder={Object.keys(durations)[0]}
@@ -166,7 +166,7 @@ export const PackageCard: FC<PackageCardProps> = (props) => {
                 <>
                   <ArrowDrownSvg className={classes.arrowDown}/>
                   <div className={classes.inputDropdownContainer}>
-                    <p className={combineStyle([TextModule.paragraph])}>{t("Количество Человек")}</p>
+                    <p className={useClass([TextModule.paragraph])}>{t("Количество Человек")}</p>
                     <DropDownSelect
                       data={['6', '7', '8', "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"]}
                       placeholder={peopleCount}

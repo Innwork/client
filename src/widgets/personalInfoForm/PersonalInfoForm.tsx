@@ -1,13 +1,12 @@
 import PersonalInfoFormStyle from "./PersonalInfoForm.module.scss"
 import {useTranslation} from "react-i18next";
 import {TextModule, WidthModule} from "@src/shared/scss";
-import {useInput} from "@src/shared/hooks";
+import {useClass, useInput} from "@src/shared/hooks";
 import {regEmail, regName, regPhone} from "@src/shared/constants";
 import {BaseInput, InputValid} from "@src/shared/ui/input";
 import {IMainBaseInput} from "@src/shared/types";
 import {PackageCard} from "@src/features/packageCard";
 import {ReserveWorkspace} from "@src/features/reservWorkspace/ReservWorkspace";
-import {useSelector} from "react-redux";
 import {
   selectBookingWorkspace,
   selectCartTariffs
@@ -16,8 +15,8 @@ import {ErrorSnack} from "@src/shared/ui/snackbar/ErrorSnack";
 import {packages} from "@src/widgets/packageSelection/model/PackageCardModel";
 import {FC, useEffect} from "react";
 import {useActions} from "@src/app/redux/hooks/useActions";
-import {combineStyle} from "@src/shared/utils";
 import {Link} from "react-router-dom";
+import {useAppSelector} from "@src/app/redux/hooks/redux";
 
 interface PersonalInfoFormProps {
   termsAgreement: boolean
@@ -25,8 +24,8 @@ interface PersonalInfoFormProps {
 }
 
 export const PersonalInfoForm:FC<PersonalInfoFormProps> = (props) => {
-  const cartTariffs = useSelector(selectCartTariffs)
-  const cartWorkspaces = useSelector(selectBookingWorkspace)
+  const cartTariffs = useAppSelector(selectCartTariffs)
+  const cartWorkspaces = useAppSelector(selectBookingWorkspace)
   const {setAreInputsValid, setPersonalInfo, setIsOpen} = useActions()
   const {termsAgreement, setTermsAgreement} = props
 
@@ -140,7 +139,7 @@ export const PersonalInfoForm:FC<PersonalInfoFormProps> = (props) => {
         }
       </div>
 
-      <div className={combineStyle([PersonalInfoFormStyle.checkSnack, TextModule.paragraph__bold])}>
+      <div className={useClass([PersonalInfoFormStyle.checkSnack, TextModule.paragraph__bold])}>
         <ErrorSnack checkBox={true} variety={termsAgreement ? 'good' : 'error'} checkValue={termsAgreement}
            setCheckValue={setTermsAgreement}>{t("Я согласен(на) с ")}
           <Link to={'/rules'} onClick={() => setIsOpen(false)}>

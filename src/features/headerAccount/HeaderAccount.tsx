@@ -1,5 +1,4 @@
 import {Link} from "react-router-dom";
-import {combineStyle} from "@src/shared/utils";
 import {TextModule} from "@src/shared/scss";
 import BurgerMenu from "@assets/icons/Header/burger-menu.svg";
 import CrossIcon from "@assets/icons/Header/cross.svg";
@@ -14,6 +13,7 @@ import {HeaderStateEnum, HeaderStateType} from "@src/shared/types";
 import HeaderAccountStyle from "./HeaderAccount.module.scss"
 import {useActions} from "@src/app/redux/hooks/useActions";
 import {DropDownSelect} from "@src/shared/ui/input";
+import {useClass} from "@src/shared/hooks";
 
 interface HeaderAccountProps {
   headerState: HeaderStateType
@@ -45,7 +45,7 @@ export const HeaderAccount:FC<HeaderAccountProps> = ({headerState, setHeaderStat
 
   return (
     <div className={HeaderAccountStyle.rightHeaderSection}>
-      <Link className={combineStyle([TextModule.paragraph, HeaderAccountStyle.callUsButton])} onClick={globalResize.isScreenLg ? HandleCopyNumber : () => {}}
+      <Link className={useClass([TextModule.paragraph, HeaderAccountStyle.callUsButton])} onClick={globalResize.isScreenLg ? HandleCopyNumber : () => {}}
             to={globalResize.isScreenLg ? "#" : "tel:+37433704070"}>
         <PhoneIcon/>
       </Link>
@@ -59,7 +59,7 @@ export const HeaderAccount:FC<HeaderAccountProps> = ({headerState, setHeaderStat
         }
       </div>
       <button onClick={() => setIsOpen(true)}
-              className={combineStyle([HeaderAccountStyle.bookingButton, TextModule.paragraph])}>
+              className={useClass([HeaderAccountStyle.bookingButton, TextModule.paragraph])}>
         <span>{t('Взять комнату')}</span>
       </button>
 
