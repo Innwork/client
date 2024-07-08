@@ -1,4 +1,5 @@
 import {Tariffs, Workspaces} from "@src/app/redux/Booking/BookingTypes";
+import {calculateHappyHours} from "@src/app/redux/Booking/utils";
 
 type TGetPrice = {
   time?: string
@@ -13,27 +14,7 @@ const getHappyHours = (time?: string): number => {
     const times = time.split(' - ')
     const time1 = Number(times[0].split(':')[0])
     const time2 = Number(times[1].split(':')[0])
-    let allNumbers = [];
-    const happyHours = [0, 1, 2, 3, 4, 5, 6, 7, 8, 21, 22, 23]
-
-    if (time1 < time2) {
-      for (let i = time1; i < time2; i++){
-        allNumbers.push(i);
-      }
-      return happyHours.filter(x => allNumbers.includes(x)).length
-    }
-    else if (time1 > time2) {
-      for (let i = time1; i <= 23; i++){
-        allNumbers.push(i);
-      }
-      for (let i = 0; i < time2; i++){
-        allNumbers.push(i);
-      }
-      return happyHours.filter(x => allNumbers.includes(x)).length
-    }
-    else {
-      return 12
-    }
+    return calculateHappyHours(time1, time2)
   }
   return 0
 }
@@ -49,27 +30,7 @@ const getCombinedHappyHours = (duration: string, time: string): number => {
   const times = time.split(' - ')
   const time1 = Number(times[0].split(':')[0])
   const time2 = Number(times[1].split(':')[0])
-  let allNumbers = [];
-  const happyHours = [0, 1, 2, 3, 4, 5, 6, 7, 8, 21, 22, 23]
-
-  if (time1 < time2) {
-    for (let i = time1; i < time2; i++){
-      allNumbers.push(i);
-    }
-    return happyHours.filter(x => allNumbers.includes(x)).length * days
-  }
-  else if (time1 > time2) {
-    for (let i = time1; i <= 23; i++){
-      allNumbers.push(i);
-    }
-    for (let i = 0; i < time2; i++){
-      allNumbers.push(i);
-    }
-    return happyHours.filter(x => allNumbers.includes(x)).length * days
-  }
-  else {
-    return 12 * days
-  }
+  return calculateHappyHours(time1, time2) * days
 }
 
 const getHours = (time?: string): number => {
