@@ -7,7 +7,7 @@ import CopyIcon from "@assets/icons/Header/copy.svg"
 import {useTranslation} from "react-i18next";
 import {Accordion} from "@src/features/accordion";
 import {GlobalContext} from "@src/app/provider";
-import {MouseModal} from "@src/shared/ui/modals/MouseModal";
+import {MouseModal} from "@src/shared/ui/modals/mouse-modal/MouseModal";
 import {HeaderNavbar} from "@src/features/headerNavbar";
 import {HeaderStateEnum, NavItem} from "@src/shared/types";
 import {HeaderAccount} from "@src/features/headerAccount";

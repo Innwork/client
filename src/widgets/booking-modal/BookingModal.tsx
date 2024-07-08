@@ -1,4 +1,3 @@
-import React, {useEffect, useRef} from 'react';
 import cls from "@src/widgets/booking-modal/BookingModal.module.scss"
 import {
   selectBookingWorkspace,
@@ -14,9 +13,9 @@ import {TextModule} from "@src/shared/scss";
 import {ReservationCard} from "@src/features/reservation-card";
 import {useTranslation} from "react-i18next";
 import {useAppSelector} from "@src/app/redux/hooks/redux";
+import {CentreModal} from "@src/shared/ui/modals";
 
 export const BookingModal = () => {
-  const modalRef = useRef<HTMLDivElement>(null)
   const isFormSent = useAppSelector(selectIsFormSent)
   const formStatus = useAppSelector(selectFormStatus)
   const cartTariffs = useAppSelector(selectCartTariffs)
@@ -25,19 +24,9 @@ export const BookingModal = () => {
   const {setIsFormSent} = useActions()
   const {t} = useTranslation("main")
 
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (modalRef.current && isFormSent && (!event.composedPath().includes(modalRef.current))) {
-        setIsFormSent(false)
-      }
-    }
-    document.body.addEventListener('click', handleClickOutside)
-    return () => document.body.removeEventListener('click', handleClickOutside)
-  }, [isFormSent])
-
   return (
-    <div className={useClass([cls.container, isFormSent ? cls["open"] : cls["closed"]])}>
-      <div ref={modalRef} className={cls.modal}>
+    <CentreModal isOpen={isFormSent} setIsOpen={setIsFormSent}>
+      <div className={cls.modal}>
         {formStatus === "pending" ?
           <>
             <div className={useClass([TextModule.h6_small__medium, cls.text_head])}>{t("Отправка запроса...")}</div>
@@ -57,33 +46,33 @@ export const BookingModal = () => {
               </div>
             </>
             :
-        <>
-          <div className={cls.markIcon}>
-            <OrangeMark/>
-          </div>
-          <div className={cls.text}>
-            <div className={useClass([TextModule.h6_small__medium, cls.text_head])}>{t("Спасибо за то что вы выбрали нас!")}</div>
-            <div className={useClass([TextModule.paragraph__ligth, cls.grayFont])}>{`${t("Заказ №")} ${reservationData.numberOrder} ${t("на имя")} 
+            <>
+              <div className={cls.markIcon}>
+                <OrangeMark/>
+              </div>
+              <div className={cls.text}>
+                <div className={useClass([TextModule.h6_small__medium, cls.text_head])}>{t("Спасибо за то что вы выбрали нас!")}</div>
+                <div className={useClass([TextModule.paragraph__ligth, cls.grayFont])}>{`${t("Заказ №")} ${reservationData.numberOrder} ${t("на имя")} 
               ${reservationData.response.person.name + " " + reservationData.response.person.lastName} ${t("был успешно завершен. Всю информацию, мы уже направили на ваш email.")}`}
-            </div>
-            <br/>
-            <div className={useClass([TextModule.paragraph__ligth, cls.grayFont])}>
-              {t("Вопросы? Предложения? Мысли?")}
-            </div>
-            <a className={TextModule.paragraph__ligth} target={"_blank"} href={'/'}>{t("Напишите нам письмо.")}</a>
-          </div>
-          <div className={cls.packagesContainer}>
-            {cartTariffs.map((tariff) =>
-              <ReservationCard price={tariff.price} title={t(tariff.tariffName)} additional={[tariff.duration ?? "", tariff.time ?? "", tariff.additional ?? ""]}/>
-            )}
-            {cartWorkspaces.map((workspace) =>
-              <ReservationCard price={workspace.price} title={t(workspace.workspaceName)} additional={[workspace.duration ?? "", workspace.time ?? ""]}/>
-            )}
-          </div>
-        </>
+                </div>
+                <br/>
+                <div className={useClass([TextModule.paragraph__ligth, cls.grayFont])}>
+                  {t("Вопросы? Предложения? Мысли?")}
+                </div>
+                <a className={TextModule.paragraph__ligth} target={"_blank"} href={'/'}>{t("Напишите нам письмо.")}</a>
+              </div>
+              <div className={cls.packagesContainer}>
+                {cartTariffs.map((tariff) =>
+                  <ReservationCard price={tariff.price} title={t(tariff.tariffName)} additional={[tariff.duration ?? "", tariff.time ?? "", tariff.additional ?? ""]}/>
+                )}
+                {cartWorkspaces.map((workspace) =>
+                  <ReservationCard price={workspace.price} title={t(workspace.workspaceName)} additional={[workspace.duration ?? "", workspace.time ?? ""]}/>
+                )}
+              </div>
+            </>
         }
         <MainBtn className={useClass([cls.button, TextModule.paragraph])} onClick={() => setIsFormSent(false)}>Close</MainBtn>
       </div>
-    </div>
+    </CentreModal>
   );
 };

@@ -1,0 +1,57 @@
+@use "@src/shared/scss/logic/function";
+
+.search_space_banner {
+  position: relative;
+  height: function.vw(500, 1920);
+  width: 100%;
+
+  &__img {
+    z-index: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    object-position: center;
+    object-fit: cover;
+  }
+
+  @media (max-width: 1440px) {
+    height: function.vw(500, 1440);
+  }
+
+  @media (max-width: 960px) {
+    height: function.vw(500, 960);
+  }
+
+  @media (max-width: 720px) {
+    height: function.vw(500, 720);
+  }
+
+  @media (max-width: 540px) {
+    height: function.vw(500, 540);
+  }
+
+  @media (max-width: 420px) {
+    height: function.vw(500, 420);
+  }
+}
+
+.search_space_cards {
+  display: grid;
+  margin-block: function.vw(16, 1920);
+  grid-template-columns: repeat(4, 1fr);
+  gap: function.vw(16, 1920);
+
+  @media (max-width: 1440px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: 960px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 720px) {
+    grid-template-columns: 1fr;
+  }
+}

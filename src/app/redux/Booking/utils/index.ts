@@ -17,37 +17,26 @@ const getTariffHappyHours = (time: string): number => {
     const times = time.split(' - ')
     const time1 = Number(times[0].split(':')[0])
     const time2 = Number(times[1].split(':')[0])
-    if (time1 >= time2) {
-      if (time1 === time2) {
-        return 0
-      } else if (time1 > 22) {
-        if (time2 > 22) {
-          return 24 - time1 + time2 - 22
-        } else if (time2 <= 22) {
-          if (time2 >= 9) return 24 - time1 + 9
-        } else return 24 - time1 + time2
-      } else if (time1 <= 22) {
-        if (time2 >= 9) {
-          return 11
-        } else if (time2 < 9) {
-          if (time1 >= 9) {
-            return 2 + time2
-          } else return 11 - time1 + time2
-        }
+    let allNumbers = [];
+    const happyHours = [0, 1, 2, 3, 4, 5, 6, 7, 8, 21, 22, 23]
+
+    if (time1 < time2) {
+      for (let i = time1; i < time2; i++){
+        allNumbers.push(i);
       }
-    } else if (time2 > 22) {
-      if (time1 >= 22) {
-        return time2 - time1
-      } else return time2 - 22
-    } else if (time2 <= 22) {
-      if (time1 >= 9) {
-        return 0
-      } else if (time1 < 9) {
-        if (time2 >= 9) return 9 - time1
-        else if (time2 < 9) {
-          return time2 - time1
-        }
+      return happyHours.filter(x => allNumbers.includes(x)).length
+    }
+    else if (time1 > time2) {
+      for (let i = time1; i <= 23; i++){
+        allNumbers.push(i);
       }
+      for (let i = 0; i < time2; i++){
+        allNumbers.push(i);
+      }
+      return happyHours.filter(x => allNumbers.includes(x)).length
+    }
+    else {
+      return 12
     }
   }
   return 0
@@ -113,37 +102,26 @@ const getWorkspaceHappyHours = (duration?: string, time?: string): number => {
     const times = time.split(' - ')
     const time1 = Number(times[0].split(':')[0])
     const time2 = Number(times[1].split(':')[0])
-    if (time1 >= time2) {
-      if (time1 === time2) {
-        return 0
-      } else if (time1 > 22) {
-        if (time2 > 22) {
-          return 24 - time1 + time2 - 22
-        } else if (time2 <= 22) {
-          if (time2 >= 9) return 24 - time1 + 9
-        } else return 24 - time1 + time2
-      } else if (time1 <= 22) {
-        if (time2 >= 9) {
-          return 11
-        } else if (time2 < 9) {
-          if (time1 >= 9) {
-            return 2 + time2
-          } else return 11 - time1 + time2
-        }
+    let allNumbers = [];
+    const happyHours = [0, 1, 2, 3, 4, 5, 6, 7, 8, 21, 22, 23]
+
+    if (time1 < time2) {
+      for (let i = time1; i < time2; i++){
+        allNumbers.push(i);
       }
-    } else if (time2 > 22) {
-      if (time1 >= 22) {
-        return time2 - time1
-      } else return time2 - 22
-    } else if (time2 <= 22) {
-      if (time1 >= 9) {
-        return 0
-      } else if (time1 < 9) {
-        if (time2 >= 9) return 9 - time1
-        else if (time2 < 9) {
-          return time2 - time1
-        }
+      return happyHours.filter(x => allNumbers.includes(x)).length
+    }
+    else if (time1 > time2) {
+      for (let i = time1; i <= 23; i++){
+        allNumbers.push(i);
       }
+      for (let i = 0; i < time2; i++){
+        allNumbers.push(i);
+      }
+      return happyHours.filter(x => allNumbers.includes(x)).length
+    }
+    else {
+      return 12
     }
   }
   return 0
@@ -160,37 +138,26 @@ const getWorkspaceCombinedHappyHours = (duration: string, time: string): number 
   const times = time.split(' - ')
   const time1 = Number(times[0].split(':')[0])
   const time2 = Number(times[1].split(':')[0])
-  if (time1 >= time2) {
-    if (time1 === time2) {
-      return 0
-    } else if (time1 > 22) {
-      if (time2 > 22) {
-        return (24 - time1 + time2 - 22) * days
-      } else if (time2 <= 22) {
-        if (time2 >= 9) return (24 - time1 + 9) * days
-      } else return (24 - time1 + time2) * days
-    } else if (time1 <= 22) {
-      if (time2 >= 9) {
-        return (11) * days
-      } else if (time2 < 9) {
-        if (time1 >= 9) {
-          return (2 + time2) * days
-        } else return (11 - time1 + time2) * days
-      }
+  let allNumbers = [];
+  const happyHours = [0, 1, 2, 3, 4, 5, 6, 7, 8, 21, 22, 23]
+
+  if (time1 < time2) {
+    for (let i = time1; i < time2; i++){
+      allNumbers.push(i);
     }
-  } else if (time2 > 22) {
-    if (time1 >= 22) {
-      return (time2 - time1) * days
-    } else return (time2 - 22) * days
-  } else if (time2 <= 22) {
-    if (time1 >= 9) {
-      return 0
-    } else if (time1 < 9) {
-      if (time2 >= 9) return 9 - time1
-      else if (time2 < 9) {
-        return time2 - time1
-      }
+    return happyHours.filter(x => allNumbers.includes(x)).length * days
+  }
+  else if (time1 > time2) {
+    for (let i = time1; i <= 23; i++){
+      allNumbers.push(i);
     }
+    for (let i = 0; i < time2; i++){
+      allNumbers.push(i);
+    }
+    return happyHours.filter(x => allNumbers.includes(x)).length * days
+  }
+  else {
+    return 12 * days
   }
 }
 
