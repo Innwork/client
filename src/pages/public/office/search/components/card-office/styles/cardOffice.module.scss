@@ -1,0 +1,122 @@
+@use "@src/shared/scss/logic/function";
+
+.card {
+  border: 1px solid var(--black-t25);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.slide {
+  position: relative;
+  height: 300px;
+  width: 100%;
+
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+.cardLink {
+  display: flex;
+  flex-direction: column;
+  color: var(--black);
+  gap: function.vw(8, 1920);
+  padding: function.vw(12, 1920);
+
+  &Head{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &Status{
+    padding: function.vw(8, 1920);
+    border-radius: 5px;
+    display: inline-block;
+    background-color: var(--orange-t25);
+    color: var(--orange);
+  }
+  
+  @media (max-width: 1440px) {
+    gap: function.vw(8, 1440);
+    padding: function.vw(12, 1440);
+  }
+
+  @media (max-width: 960px) {
+    gap: function.vw(8, 960);
+    padding: function.vw(12, 960);
+  }
+  
+  @media (max-width: 720px) {
+    gap: function.vw(8, 720);
+    padding: function.vw(12, 720);
+  }
+
+  @media (max-width: 540px) {
+    gap: function.vw(8, 540);
+    padding: function.vw(12, 540);
+  }
+
+  @media (max-width: 420px) {
+    gap: function.vw(8, 420);
+    padding: function.vw(12, 420);
+  }
+}
+
+.ul_card{
+  display: flex;
+  align-items: flex-end;
+  gap: function.vw(8, 1920);
+  
+  li:before{
+    content: "·";
+    margin-right: function.vw(4, 1920);
+    color: var(--orange);
+  }
+  
+  @media (max-width: 1440px) {
+    gap: function.vw(8, 1440);
+
+    li:before{
+      margin-right: function.vw(4, 1440);
+    }
+  }
+  
+  @media (max-width: 960px) {
+    gap: function.vw(8, 960);
+
+    li:before{
+      margin-right: function.vw(4, 960);
+    }
+  }
+
+  @media (max-width: 540px) {
+    gap: function.vw(8, 540);
+
+    li:before{
+      margin-right: function.vw(4, 540);
+    }
+  }
+
+  @media (max-width: 420px) {
+    gap: function.vw(8, 420);
+
+    li:before{
+      margin-right: function.vw(4, 420);
+    }
+  }
+}
+
+:global {
+  .swiper-pagination-bullet {
+    background-color: var(--white);
+    opacity: 0.3;
+  }
+
+  .swiper-pagination-bullet-active {
+    opacity: 0.7;
+    background-color: var(--orange);
+  }
+}

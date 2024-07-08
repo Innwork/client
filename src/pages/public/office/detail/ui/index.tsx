@@ -1,5 +1,11 @@
 import {Photo} from "@src/pages/public/office/detail/components/photo";
 import cls from "@src/pages/public/office/detail/style/detail.module.scss";
+import {ContainerModule, TextModule, WidthModule} from "@src/shared/scss";
+import {BaseInput, InputValid} from "@src/shared/ui/input";
+import {IMainBaseInput} from "@src/shared/types";
+import {useInput} from "@src/shared/hooks";
+import {regEmail, regName, regPhone} from "@src/shared/constants";
+import {MainBtn} from "@src/shared/ui/btn/main-btn/MainBtn";
 
 import Wifi from "@assets/icons/widgets/wifi.svg";
 import Parking from "@assets/icons/widgets/parking.svg";
@@ -10,12 +16,7 @@ import FreeSpace from "@assets/img/plane-card/free-Space.png";
 import NonFixed from "@assets/img/plane-card/non-fixed.png";
 import PrivateSpace from "@assets/img/plane-card/privateWorkspace.png";
 import FixedDesk from "@assets/img/plane-card/fixedDesk.png"
-import {ContainerModule, TextModule, WidthModule} from "@src/shared/scss";
-import {BaseInput, InputValid} from "@src/shared/ui/input";
-import {IMainBaseInput} from "@src/shared/types";
-import {useInput} from "@src/shared/hooks";
-import {regEmail, regName, regPhone} from "@src/shared/constants";
-import {MainBtn} from "@src/shared/ui/btn/main-btn/MainBtn";
+
 
 export const DetailPage = () => {
   const inputs: IMainBaseInput[] = [
@@ -106,7 +107,7 @@ export const DetailPage = () => {
                 d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm15 0a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1z"/>
             </svg>
 
-            <p className={TextModule.paragraph}>500 квадратных метров</p>
+            <p className={TextModule.paragraph}>500м<sup>2</sup></p>
           </div>
         </div>
       </div>
