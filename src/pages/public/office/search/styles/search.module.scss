@@ -44,14 +44,30 @@
   gap: function.vw(16, 1920);
 
   @media (max-width: 1440px) {
+    gap: function.vw(16, 1440);
+    margin-block: function.vw(16, 1440);
     grid-template-columns: repeat(3, 1fr);
   }
 
   @media (max-width: 960px) {
+    gap: function.vw(16, 960);
+    margin-block: function.vw(16, 960);
     grid-template-columns: repeat(2, 1fr);
   }
 
   @media (max-width: 720px) {
+    gap: function.vw(16, 720);
+    margin-block: function.vw(16, 720);
     grid-template-columns: 1fr;
+  }
+
+  @media (max-width: 540px) {
+    gap: function.vw(16, 540);
+    margin-block: function.vw(16, 540);
+  }
+  
+  @media (max-width: 420px) {
+    gap: function.vw(16, 420);
+    margin-block: function.vw(16, 420);
   }
 }

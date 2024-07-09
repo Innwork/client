@@ -1,6 +1,30 @@
 import {getTariffPriceParams, Tariffs, WorkspaceItem, Workspaces} from "@src/app/redux/Booking/BookingTypes";
 import {odds} from "@src/app/redux/Booking/models";
 
+export const calculateHappyHours = (time1: number, time2: number) => {
+  let allNumbers = [];
+  const happyHours = [0, 1, 2, 3, 4, 5, 6, 7, 8, 21, 22, 23]
+
+  if (time1 < time2) {
+    for (let i = time1; i < time2; i++){
+      allNumbers.push(i);
+    }
+    return happyHours.filter(x => allNumbers.includes(x)).length
+  }
+  else if (time1 > time2) {
+    for (let i = time1; i <= 23; i++){
+      allNumbers.push(i);
+    }
+    for (let i = 0; i < time2; i++){
+      allNumbers.push(i);
+    }
+    return happyHours.filter(x => allNumbers.includes(x)).length
+  }
+  else {
+    return 12
+  }
+}
+
 const getTariffHours = (time: string): number => {
   if (time) {
     const times = time.split(' - ')
@@ -17,27 +41,7 @@ const getTariffHappyHours = (time: string): number => {
     const times = time.split(' - ')
     const time1 = Number(times[0].split(':')[0])
     const time2 = Number(times[1].split(':')[0])
-    let allNumbers = [];
-    const happyHours = [0, 1, 2, 3, 4, 5, 6, 7, 8, 21, 22, 23]
-
-    if (time1 < time2) {
-      for (let i = time1; i < time2; i++){
-        allNumbers.push(i);
-      }
-      return happyHours.filter(x => allNumbers.includes(x)).length
-    }
-    else if (time1 > time2) {
-      for (let i = time1; i <= 23; i++){
-        allNumbers.push(i);
-      }
-      for (let i = 0; i < time2; i++){
-        allNumbers.push(i);
-      }
-      return happyHours.filter(x => allNumbers.includes(x)).length
-    }
-    else {
-      return 12
-    }
+    return calculateHappyHours(time1, time2)
   }
   return 0
 }
@@ -96,33 +100,13 @@ const getWorkspaceHappyHours = (duration?: string, time?: string): number => {
     const dateArray2 = dates[1].split('/')
     const date1 = new Date(Number(dateArray1[2]), Number(dateArray1[1]), Number(dateArray1[0]),).valueOf()
     const date2 = new Date(Number(dateArray2[2]), Number(dateArray2[1]), Number(dateArray2[0]) + 1,).valueOf()
-    return ((date2 - date1) / (60 * 24 * 60 * 1000)) * 11;
+    return ((date2 - date1) / (60 * 24 * 60 * 1000)) * 12;
   }
   if (!duration && time) {
     const times = time.split(' - ')
     const time1 = Number(times[0].split(':')[0])
     const time2 = Number(times[1].split(':')[0])
-    let allNumbers = [];
-    const happyHours = [0, 1, 2, 3, 4, 5, 6, 7, 8, 21, 22, 23]
-
-    if (time1 < time2) {
-      for (let i = time1; i < time2; i++){
-        allNumbers.push(i);
-      }
-      return happyHours.filter(x => allNumbers.includes(x)).length
-    }
-    else if (time1 > time2) {
-      for (let i = time1; i <= 23; i++){
-        allNumbers.push(i);
-      }
-      for (let i = 0; i < time2; i++){
-        allNumbers.push(i);
-      }
-      return happyHours.filter(x => allNumbers.includes(x)).length
-    }
-    else {
-      return 12
-    }
+    return calculateHappyHours(time1, time2)
   }
   return 0
 }
@@ -138,27 +122,7 @@ const getWorkspaceCombinedHappyHours = (duration: string, time: string): number 
   const times = time.split(' - ')
   const time1 = Number(times[0].split(':')[0])
   const time2 = Number(times[1].split(':')[0])
-  let allNumbers = [];
-  const happyHours = [0, 1, 2, 3, 4, 5, 6, 7, 8, 21, 22, 23]
-
-  if (time1 < time2) {
-    for (let i = time1; i < time2; i++){
-      allNumbers.push(i);
-    }
-    return happyHours.filter(x => allNumbers.includes(x)).length * days
-  }
-  else if (time1 > time2) {
-    for (let i = time1; i <= 23; i++){
-      allNumbers.push(i);
-    }
-    for (let i = 0; i < time2; i++){
-      allNumbers.push(i);
-    }
-    return happyHours.filter(x => allNumbers.includes(x)).length * days
-  }
-  else {
-    return 12 * days
-  }
+  return calculateHappyHours(time1, time2) * days
 }
 
 const getWorkspaceHours = (duration: string, time: string): number => {
