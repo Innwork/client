@@ -279,21 +279,29 @@
   }
 
   &__enter {
+    position: relative;
+    z-index: 100;
     opacity: 0;
     transform: translateY(-10px);
   }
 
   &__enter_active {
+    position: relative;
+    z-index: 100;
     opacity: 1;
     transition: 300ms ease-in-out;
     transform: translateY(0px);
   }
 
   &__exit {
+    position: relative;
+    z-index: 100;
     opacity: 1;
   }
 
   &__exit_actvie {
+    position: relative;
+    z-index: 100;
     opacity: 0;
     transition: 300ms ease-in-out;
     transform: translateY(-10px);

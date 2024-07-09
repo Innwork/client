@@ -16,6 +16,7 @@ import {TextModule} from "@src/shared/scss";
 import {Dispatch, SetStateAction} from "react";
 
 export type TRenderCells = {
+    variety: "white" | "black" | "blue"
     currentMonth: Date;
     dateFormat: string;
     returnFormat: string;
@@ -24,7 +25,7 @@ export type TRenderCells = {
     setValue: Dispatch<SetStateAction<string>>
 }
 
-export const renderCells = ({currentMonth, dateFormat, returnFormat, setIsOpen, setSelectDate, setValue}: TRenderCells) => {
+export const renderCells = ({currentMonth, dateFormat, returnFormat, setIsOpen, setSelectDate, setValue, variety}: TRenderCells) => {
     const monthStart = startOfMonth(currentMonth);
     const monthEnd = endOfMonth(monthStart);
     const startDate = startOfWeek(monthStart);
@@ -56,6 +57,7 @@ export const renderCells = ({currentMonth, dateFormat, returnFormat, setIsOpen, 
                 >
                     <p className={useClass([
                         classes.cell,
+                        classes[variety],
                         TextModule.paragraph,
                         isEqual(day, todayStart) ? classes["today"] : "",
                         (!isSameMonth(day, currentMonth) || isBefore(day, todayStart)) ? classes["disabled"] : ""
