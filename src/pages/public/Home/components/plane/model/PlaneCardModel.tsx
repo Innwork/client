@@ -43,6 +43,6 @@ export const PlaneCardModel: Array<ICardPlane> = [
         src: NonFixed,
         service: [
             "Высокоскоростной Wi-Fi", "Парковка", "Круглосуточная охрана", "Кухня", "Принтер", "Телефонная будка"
-        ], rules: "В час", price: "2 490 AMD"
+        ], rules: "В час", price: "1 990 AMD"
     }
 ]
