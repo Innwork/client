@@ -89,7 +89,7 @@ export const getPrice = ({time, workspaceName, duration}: TGetPrice) => {
     if (getHours(time) === 24) {
       return '6500'
     } else {
-      return (2490 * (getHours(time) - getHappyHours(time)) +  (2490 * 0.8 * getHappyHours(time))).toString()
+      return (1990 * (getHours(time) - getHappyHours(time)) +  (1990 * 0.8 * getHappyHours(time))).toString()
     }
   }
   return 0

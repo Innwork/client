@@ -79,7 +79,7 @@ export const getTariffPrice = ({tariffName, duration, time, PWSpeopleCount}: get
     if (time1 === time2) {
       return '6500'
     } else {
-      return (2490 * (getTariffHours(time) - getTariffHappyHours(time)) + (2490 * 0.8 * getTariffHappyHours(time))).toString()
+      return (1990 * (getTariffHours(time) - getTariffHappyHours(time)) + (1990 * 0.8 * getTariffHappyHours(time))).toString()
     }
   } else if (tariffName === Tariffs.FREE_SPACE) {
     // const dates = (payload.duration.split(" - "))

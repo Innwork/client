@@ -45,6 +45,6 @@ export const packages = [
   {
     info: "Выбор свободного рабочего места в любой зоне коворкинга для вашей деятельности.",
     title: Tariffs.NON_FIXED_FLEXI_DESK,
-    price: "2 490"
+    price: "1 990"
   }
 ]
