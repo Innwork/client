@@ -1,11 +1,6 @@
 import {Photo} from "@src/pages/public/office/detail/components/photo";
 import cls from "@src/pages/public/office/detail/style/detail.module.scss";
-import {ContainerModule, TextModule, WidthModule} from "@src/shared/scss";
-import {BaseInput, InputValid} from "@src/shared/ui/input";
-import {IMainBaseInput} from "@src/shared/types";
-import {useInput} from "@src/shared/hooks";
-import {regEmail, regName, regPhone} from "@src/shared/constants";
-import {MainBtn} from "@src/shared/ui/btn/main-btn/MainBtn";
+import {ContainerModule, TextModule} from "@src/shared/scss";
 
 import Wifi from "@assets/icons/widgets/wifi.svg";
 import Parking from "@assets/icons/widgets/parking.svg";
@@ -16,64 +11,11 @@ import FreeSpace from "@assets/img/plane-card/free-Space.png";
 import NonFixed from "@assets/img/plane-card/non-fixed.png";
 import PrivateSpace from "@assets/img/plane-card/privateWorkspace.png";
 import FixedDesk from "@assets/img/plane-card/fixedDesk.png"
+import { FormDetail } from "../components/form-detail";
+import { MapDetail } from "../components/map-detail";
 
 
 export const DetailPage = () => {
-  const inputs: IMainBaseInput[] = [
-    {
-      input: {
-        tag: 'firstName',
-        label: "Имя",
-        errText: "Некорректно введено имя",
-        width: WidthModule.w_full,
-        type: "text",
-        successText: 'Данные введены корректно',
-      },
-      validators: useInput(
-        "", {isEmpty: true, regExp: regName}
-      )
-    },
-    {
-      input: {
-        tag: "lastName",
-        label: "Фамилия",
-        errText: "Некорректно введена фамилия",
-        width: WidthModule.w_full,
-        type: "text",
-        successText: 'Данные введены корректно',
-      },
-      validators: useInput(
-        "", {isEmpty: true, regExp: regName}
-      )
-    },
-    {
-      input: {
-        tag: "email",
-        label: "Почта",
-        errText: "Некорректная почта",
-        placeholder: "example@gmail.com",
-        type: "email",
-        successText: 'Данные введены корректно',
-      },
-      validators: useInput('', {
-        isEmpty: true, regExp: regEmail
-      }),
-    },
-    {
-      input: {
-        tag: "phone",
-        label: "Номер телефона",
-        errText: "Некорректный номер телефона",
-        width: WidthModule.w_full,
-        type: "text",
-        successText: 'Данные введены корректно',
-      },
-      validators: useInput(
-        "", {isEmpty: true, regExp: regPhone}
-      )
-    }
-  ]
-
   return (
     <section className={ContainerModule.wrapper}>
       <div className={cls.head}>
@@ -179,54 +121,11 @@ export const DetailPage = () => {
           <div className={cls.hr}></div>
 
           <div className={cls.flex_section}>
-            <h3 className={TextModule.h3}>Локация</h3>
-
-            <div className={cls.map}>
-              <iframe
-                src="https://yandex.ru/map-widget/v1/?um=constructor%3A752c3ccbd67dff2be2e89f1052377619562853a3c371a4f9973767077e87a87e&amp;source=constructor&&scroll=false"
-                width="100%" height="300" title={"Карта"}></iframe>
-            </div>
-
-            <div className={cls.nav_info__item}>
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                   className="bi bi-geo-alt-fill" viewBox="0 0 16 16">
-                <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"/>
-              </svg>
-              <p className={TextModule.paragraph}>Ереван, улица Дзорапа, 70/3</p>
-            </div>
+            <MapDetail address="улица Арсена Амиряна, 4/2"/>
           </div>
         </div>
 
-        <div className={cls.form}>
-          <form className={cls.form_personal}>
-            <div className={cls.form_personal__text}>
-              <h6 className={TextModule.h6}>Форма заявки</h6>
-              <p className={TextModule.paragraph}>Позвоните нам или оставьте заявку на сайте. Мы перезвоним вам в скором
-                времени.</p>
-            </div>
-
-            <div className={cls.form_personal__inputs}>
-              {
-                inputs.map((el, index) =>
-                  <InputValid validators={el.validators}
-                              key={index}
-                              label={el.input.label}
-                              errText={el.input.errText}
-                              successText={el.input.successText}
-                  >
-                    <BaseInput
-                      {...el.input} {...el.validators}
-                    />
-                  </InputValid>
-                )
-              }
-
-              <div className={cls.hr}></div>
-
-              <MainBtn className={WidthModule.w__full}>Отправить</MainBtn>
-            </div>
-          </form>
-        </div>
+        <FormDetail/>
       </div>
     </section>
   );

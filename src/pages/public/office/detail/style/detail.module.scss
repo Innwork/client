@@ -24,19 +24,6 @@
   }
 }
 
-.form {
-  width: 30%;
-  margin-bottom: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-
-  @media (max-width: 720px) {
-    margin-top: 16px;
-    width: 100%;
-  }
-}
-
 .head {
   display: flex;
   flex-direction: column;
