@@ -1,7 +1,7 @@
-import {ReactNode} from "react";
+import {Dispatch, ReactNode, SetStateAction} from "react";
 
 export type TModal = {
   isOpen: boolean
-  setIsOpen: (i: (boolean | null)) => void
+  setIsOpen: Dispatch<SetStateAction<boolean>>
   children: ReactNode
 }
