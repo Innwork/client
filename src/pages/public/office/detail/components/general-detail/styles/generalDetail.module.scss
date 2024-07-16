@@ -1,0 +1,7 @@
+@use "@src/shared/scss/logic/function";
+
+.general_detail{
+  display: flex;
+  flex-direction: column;
+  gap: function.vw(8, 1920);
+}
