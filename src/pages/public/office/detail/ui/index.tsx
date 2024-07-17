@@ -11,9 +11,10 @@ import FreeSpace from "@assets/img/plane-card/free-Space.png";
 import NonFixed from "@assets/img/plane-card/non-fixed.png";
 import PrivateSpace from "@assets/img/plane-card/privateWorkspace.png";
 import FixedDesk from "@assets/img/plane-card/fixedDesk.png"
-import { FormDetail } from "../components/form-detail";
-import { MapDetail } from "../components/map-detail";
-import { GeneralDetail } from "../components/general-detail";
+import {FormDetail} from "../components/form-detail";
+import {MapDetail} from "../components/map-detail";
+import {GeneralDetail} from "../components/general-detail";
+import {OfferDetail} from "@src/pages/public/office/detail/components/offer-detail";
 
 
 export const DetailPage = () => {
@@ -71,38 +72,12 @@ export const DetailPage = () => {
           <div className={cls.hr}></div>
 
           <div className={cls.flex_section}>
-            <h3 className={TextModule.h3}>Что будет входить?</h3>
-
-            <div className={cls.offer}>
-              <div className={cls.offer__items}>
-                <Wifi/>
-
-                <p className={TextModule.paragraph}>Wifi</p>
-              </div>
-
-              <div className={cls.offer__items}>
-                <Parking/>
-                <p className={TextModule.paragraph}>
-                  Парковка
-                </p>
-              </div>
-
-              <div className={cls.offer__items}>
-                <Cleaning/>
-
-                <p className={TextModule.paragraph}>
-                  Уборка в помещении
-                </p>
-              </div>
-
-              <div className={cls.offer__items}>
-                <Protect/>
-
-                <p className={TextModule.paragraph}>
-                  Охрана
-                </p>
-              </div>
-            </div>
+            <OfferDetail ListOffer={[
+              {icon: <Wifi/>, title: "Высокоскоростной wifi"},
+              {icon: <Cleaning/>, title: "Ежедневная уборка"},
+              {icon: <Parking/>, title: "Удобная парковка"},
+              {icon: <Protect/>, title: "Круглосуточная охрана"}
+            ]}/>
           </div>
 
           <div className={cls.hr}></div>

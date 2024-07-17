@@ -8,13 +8,33 @@
 
 .slide {
   position: relative;
-  height: 300px;
+  height: function.vw(350, 1920);
   width: 100%;
 
   img {
     height: 100%;
     width: 100%;
     object-fit: cover;
+  }
+  
+  @media (max-width: 1440px) {
+    height: function.vw(350, 1440);
+  }
+  
+  @media (max-width: 960px) {
+    height: function.vw(350, 960);
+  }
+  
+  @media (max-width: 720px) {
+    height: function.vw(350, 720);
+  }
+  
+  @media (max-width: 540px) {
+    height: function.vw(350, 540);
+  }
+
+  @media (max-width: 420px) {
+    height: function.vw(350, 420);
   }
 }
 
