@@ -79,7 +79,7 @@ export const Calculator = () => {
             <SelectDate isOpenDefault={isCalendarOpen} setIsOpenDefault={setIsCalendarOpen} label={!globalResize.isScreenEs ? 'Нужная дата' : undefined} setValue={setStartDay} variety={'white'}/>
 
             {globalResize.isScreenEs && <p className={TextModule.paragraph_white_light}>{t('Время')}</p>}
-            <TimeSelectDropdowns label={!globalResize.isScreenEs} defaultEnd={endTime} arrow={true} setStartTime={setStartTime} setEndTime={setEndTime}/>
+            <TimeSelectDropdowns maxStart={activePackage === Workspaces.BUSINESS_LOUNGE ? 9 : undefined} maxEnd={activePackage === Workspaces.BUSINESS_LOUNGE ? 20 : undefined} label={!globalResize.isScreenEs} defaultStart={activePackage === Workspaces.BUSINESS_LOUNGE ? "09:00" : startTime} defaultEnd={activePackage === Workspaces.BUSINESS_LOUNGE ? "19:00" : endTime} arrow={true} setStartTime={setStartTime} setEndTime={setEndTime}/>
           </div>
 
           <div className={classes.priceBlock}>

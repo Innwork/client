@@ -93,7 +93,7 @@ export const BookingWorkspaceItems: FC<IAdditionalPaginationItems> = (props) => 
                         <SelectDate key={index} label={'Дата'} isOpenDefault={isCalendarOpen} setIsOpenDefault={setIsCalendarOpen} setValue={input.input.setValue} variety={'white'}/>
                     )}
                     <ArrowDrownSvg className={classes.arrowDown}/>
-                    <TimeSelectDropdowns setStartTime={setStartTime} setEndTime={setEndTime}/>
+                    <TimeSelectDropdowns maxStart={tag === Workspaces.BUSINESS_LOUNGE ? 9 : undefined} maxEnd={tag === Workspaces.BUSINESS_LOUNGE ? 20 : undefined} defaultStart={tag === Workspaces.BUSINESS_LOUNGE ? "09:00" : startTime} defaultEnd={tag === Workspaces.BUSINESS_LOUNGE ? "19:00" : endTime} setStartTime={setStartTime} setEndTime={setEndTime}/>
                 </div>
                 <div className={classes.send}>
                     <MainBtn state={'blue'} onClick={() => {
