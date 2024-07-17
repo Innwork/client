@@ -3,6 +3,7 @@ import {PhotoType} from "@src/pages/public/office/detail/components/photo/types/
 import cls from "../styles/photo.module.scss";
 import {TextModule} from "@src/shared/scss";
 import { CentreModal } from '@src/shared/ui/modals';
+import { MainBtn } from '@src/shared/ui/btn/main-btn/MainBtn';
 
 export const Photo:FC<PhotoType> = ({children}) => {
   const [isActive, setIsActive] = useState<boolean>(false);
@@ -44,8 +45,10 @@ export const Photo:FC<PhotoType> = ({children}) => {
         }
       </section>
 
-      <CentreModal isOpen={isActive} setIsOpen={(isActive) => setIsActive(!isActive)}>
-        Фото
+      <CentreModal isOpen={isActive} setIsOpen={setIsActive}>
+        <div>
+
+        </div>
       </CentreModal>
     </>
   );
