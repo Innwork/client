@@ -47,7 +47,7 @@ export const Photo:FC<PhotoType> = ({children}) => {
 
       <CentreModal isOpen={isActive} setIsOpen={setIsActive}>
         <div>
-
+          {/* TODO ---- Доделать слайдер с фотографиями */}
         </div>
       </CentreModal>
     </>
