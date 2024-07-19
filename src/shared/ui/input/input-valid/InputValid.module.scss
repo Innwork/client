@@ -5,6 +5,10 @@
   flex-direction: column;
   gap: function.vw(5, 1920);
 
+  label{
+    align-self: flex-start;
+  }
+
   @media (max-width: 1440px) {
     gap: function.vw(5, 1440);
   }

@@ -1,39 +1,5 @@
 @use "@src/shared/scss/logic/function";
 
-.form{
-  width: 30%;
-  display: flex;
-  flex-direction: column;
-  gap: function.vw(8, 1920);
-  margin-bottom: function.vw(16, 1920);
-
-  @media (max-width: 1440px) {
-    gap: function.vw(8, 1440);
-    margin-bottom: function.vw(16, 1440);
-  }
-
-  @media (max-width: 960px) {
-    gap: function.vw(8, 960);
-    margin-bottom: function.vw(16, 960);
-  }
-
-  @media (max-width: 720px) {
-    width: 100%;
-    gap: function.vw(8, 720);
-    margin-top: function.vw(16, 720);
-  }
-
-  @media (max-width: 540px) {
-    gap: function.vw(8, 540);
-    margin-top: function.vw(16, 540);
-  }
-
-  @media (max-width: 420px) {
-    gap: function.vw(8, 420);
-    margin-top: function.vw(16, 420);
-  }
-}
-
 .form_wrapper{
   border: 1px solid var(--black-t25);
   border-radius: 10px;

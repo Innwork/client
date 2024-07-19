@@ -78,9 +78,7 @@ export const FormDetail = () => {
   }
 
   return (
-    <form className={cls.form} onSubmit={(e) => handlerSubmit(e)}>
-      <section className={cls.form_wrapper}>
-
+    <form className={cls.form_wrapper} onSubmit={(e) => handlerSubmit(e)}>
       <header className={cls.form_header}>
         
         <h6 className={TextModule.h6}>
@@ -110,8 +108,6 @@ export const FormDetail = () => {
       <MainBtn disabled={disabled}>
         <p className={TextModule.paragraph}>Отправить</p>
       </MainBtn>
-
-      </section>
     </form>
   )
 }
