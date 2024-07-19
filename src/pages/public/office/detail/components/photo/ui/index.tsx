@@ -1,13 +1,16 @@
-import React, {FC} from 'react';
+import React, {FC, useState} from 'react';
 import {PhotoType} from "@src/pages/public/office/detail/components/photo/types/PhotoType";
-import cls from "@src/pages/public/office/detail/components/photo/styles/photo.module.scss";
+import cls from "../styles/photo.module.scss";
 import {TextModule} from "@src/shared/scss";
+import { CentreModal } from '@src/shared/ui/modals';
+import { MainBtn } from '@src/shared/ui/btn/main-btn/MainBtn';
 
 export const Photo:FC<PhotoType> = ({children}) => {
-
+  const [isActive, setIsActive] = useState<boolean>(false);
+  
   return (
-    <div>
-      <div className={cls.grid_container}>
+    <>
+      <section className={cls.grid_container}>
         {
           children.map((el, index) => {
             if (index < 5) {
@@ -19,7 +22,7 @@ export const Photo:FC<PhotoType> = ({children}) => {
                 );
               } else if (index === 4) {
                 return (
-                  <div className={cls.grid_container__items_last} key={index} onClick={() => console.log("modal")}>
+                  <div className={cls.grid_container__items_last} key={index} onClick={() => setIsActive(!isActive)}>
                     <div className={cls.grid_container__items_last__bg}></div>
                     <div className={cls.grid_container__items_last__content}>
                       <p className={TextModule.h6}>
@@ -40,7 +43,13 @@ export const Photo:FC<PhotoType> = ({children}) => {
             return null;
           })
         }
-      </div>
-    </div>
+      </section>
+
+      <CentreModal isOpen={isActive} setIsOpen={setIsActive}>
+        <div>
+          {/* TODO ---- Доделать слайдер с фотографиями */}
+        </div>
+      </CentreModal>
+    </>
   );
 };

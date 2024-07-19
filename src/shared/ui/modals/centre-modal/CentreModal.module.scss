@@ -10,7 +10,7 @@
 	width: 100vw;
 	background-color: var(--black-t50);
 	backdrop-filter: blur(2px);
-	z-index: 119;
+	z-index: 250;
 	top: 0;
 	left: function.vw(0, 1920);
 	animation-duration: 0.4s;
@@ -62,22 +62,22 @@
 
 	@media (max-width: 1440px) {
 		padding: function.vw(32, 1440);
-		width: function.vw(700, 1440);
+		min-width: function.vw(700, 1440);
 	}
 	@media (max-width: 960px) {
 		padding: function.vw(32, 960);
-		width: function.vw(700, 960);
+		min-width: function.vw(700, 960);
 	}
 	@media (max-width: 720px) {
 		padding: function.vw(32, 720);
-		width: function.vw(600, 720);
+		min-width: function.vw(600, 720);
 	}
 	@media (max-width: 540px) {
 		padding: function.vw(32, 540);
-		width: function.vw(540, 540);
+		min-width: function.vw(540, 540);
 	}
 	@media (max-width: 420px) {
 		padding: function.vw(32, 420);
-		width: function.vw(420, 420);
+		min-width: function.vw(420, 420);
 	}
 }

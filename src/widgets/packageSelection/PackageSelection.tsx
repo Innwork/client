@@ -75,8 +75,7 @@ export const PackageSelection = () => {
             inputs={pack.title === Tariffs.PRIVATE_OFFICE ? inputs.PrivateWorkspaces :
               (pack.title === Tariffs.FIXED_DESK ? inputs.FixedDesk : inputs.NonFixedDesk)}
           />
-        )
-        }
+        )}
       </div>
     </>
   );
