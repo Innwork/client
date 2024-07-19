@@ -68,3 +68,50 @@
     }
   }
 }
+
+.modal{
+  width: 100%;
+
+  header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+  }
+}
+
+.slider{
+  border-radius: 10px;
+}
+
+.slide{
+  position: relative;
+  width: 100%;
+  height: 500px;
+
+  @media (max-width: 540px) {
+    height: 70vh;
+  }
+
+  img{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+:global {
+  .swiper-pagination-bullet {
+    background-color: var(--white);
+    opacity: 0.3;
+  }
+
+  .swiper-pagination-bullet-active {
+    opacity: 0.7;
+    background-color: var(--orange);
+  }
+}

@@ -52,7 +52,7 @@ export const DetailPage = () => {
           <div className={cls.hr}></div>
 
           <div className={cls.flex_section}>
-            <MapDetail address="улица Арсена Амиряна, 4/2"/>
+            <MapDetail address="улица Дзорапа, 70/3"/>
           </div>
         </div>
 
