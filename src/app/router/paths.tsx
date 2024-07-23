@@ -9,6 +9,7 @@ import {TermsChunk} from "@src/pages/public/info/terms";
 import {NotFoundPageChunk} from "@src/pages/not-found";
 import {SearchChunk} from "@src/pages/public/office/search";
 import {DetailChunk} from "@src/pages/public/office/detail";
+import { LocationsChunk } from "@src/pages/public/office/location";
 
 interface IPaths extends IBaseRoute{
     exact?: boolean
@@ -25,5 +26,6 @@ export const RotesLayout: IPaths[] = [
     {path: "/info", element: <InfoPageChunk/>},
     {path: "/office", element: <SearchChunk/>},
     {path: "/detail", element: <DetailChunk/>},
+    {path: "/location", element: <LocationsChunk/>},
     {path: "*", element: <NotFoundPageChunk/>}
 ]
