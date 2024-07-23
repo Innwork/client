@@ -7,10 +7,13 @@ import {AutoplaySlider} from "@src/features/slider";
 import {useContext} from "react";
 import {GlobalContext} from "@src/app/provider";
 import {useTranslation} from "react-i18next";
+import {useActions} from "@src/app/redux/hooks/useActions";
+import {Workspaces} from "@src/app/redux/Booking/BookingTypes";
 
 export const AdditionalWorkspace = () => {
   const {globalResize} = useContext(GlobalContext)!;
   const {t} = useTranslation('home')
+  const {setIsOpen, setActiveWorkspace, setPage} = useActions()
 
   return (
     <section className={
@@ -29,7 +32,11 @@ export const AdditionalWorkspace = () => {
       </div>
 
       <AutoplaySlider sizeBoolean={globalResize.isScreenLg} slidesPerView={3} spaceBetween={'25'} stepper>
-        {CardModel.map((el) => <SmallCards icon={el.icon} title={el.title} subtitle={el.subtitle}
+        {CardModel.map((el) => <SmallCards onClick={() => {
+          setIsOpen(true)
+          setPage(2)
+          setActiveWorkspace(el.title as Workspaces)
+        }} icon={el.icon} title={el.title} subtitle={el.subtitle}
                                            key={el.title} state={"dark"}/>)}
       </AutoplaySlider>
     </section>

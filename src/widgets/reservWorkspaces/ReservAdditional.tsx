@@ -6,6 +6,8 @@ import {useTranslation} from "react-i18next";
 import {Workspaces} from "@src/app/redux/Booking/BookingTypes";
 import {regDate} from "@src/shared/constants";
 import {useActions} from "@src/app/redux/hooks/useActions";
+import {useAppSelector} from "@src/app/redux/hooks/redux";
+import {selectActiveWorkspace} from "@src/app/redux/Booking/BookingSlice";
 
 export type DateInputType = {
   input: {
@@ -22,9 +24,9 @@ type GroupedInputsType = {
 }
 
 export const ReservAdditional = () => {
-  const [activeWorkspace, setActiveWorkspace] = useState<Workspaces | ''>(null);
+  const activeWorkspace = useAppSelector(selectActiveWorkspace)
   const {t} = useTranslation('main')
-  const {setWorkspace} = useActions()
+  const {setWorkspace, setActiveWorkspace} = useActions()
   const [trainingCentre, setTrainingCentre] = useState('0')
   const [meetingRoom, setMeetingRoom] = useState('0')
   const [businessLounge, setBusinessLounge] = useState('0')
