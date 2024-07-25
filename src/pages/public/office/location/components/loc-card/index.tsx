@@ -6,9 +6,10 @@ import "swiper/css/pagination";
 import { TextModule } from "@src/shared/scss";
 import cls from "./styles/locCard.module.scss";
 import { LocCardType } from "./type/LocCardType";
+import { Link } from "react-router-dom";
 
 
-export const LocCard:FC<LocCardType> = ({img, name, location, desc, area, jobs, floor}) => {
+export const LocCard:FC<LocCardType> = ({img, name, location, desc, area, jobs, floor, path}) => {
   return (
     <article className={cls.container__card}>
       <section>
@@ -27,40 +28,44 @@ export const LocCard:FC<LocCardType> = ({img, name, location, desc, area, jobs, 
         </Swiper>
       </section>
 
-      <header className={cls.header}>
-        <div className={cls.status}>
-          <p className={TextModule.span}>Доступно</p>
-        </div>
 
-        <div className={cls.header__text}>
-          <h5 className={TextModule.h5__regular}>{name}</h5>
-          <p className={TextModule.span}>{location}</p>
-        </div>
+      <Link to={`/location/${path}`} className={cls.link}>
+        <header className={cls.header}>
+          <div className={cls.status}>
+            <p className={TextModule.span}>Доступно</p>
+          </div>
 
-        <p className={TextModule.paragraph}>
-          {desc}
-        </p>
-      </header>
+          <div className={cls.header__text}>
+            <h5 className={TextModule.h5__regular}>{name}</h5>
+            <p className={TextModule.span}>{location}</p>
+          </div>
 
-      <footer className={cls.footer}>
-        <div className={cls.footer__item}>
-          <p className={TextModule.paragraph}>{area}</p>
-          <span className={TextModule.span__small}>Площадь м&sup2;</span>
-        </div>
+          <p className={TextModule.paragraph}>
+            {desc}
+          </p>
+        </header>
 
-        <div className={cls.footer__item}>
-          <p className={TextModule.paragraph}>{jobs}</p>
-          <span className={TextModule.span__small}>Рабочих мест</span>
-        </div>
+        <footer className={cls.footer}>
+          <div className={cls.footer__item}>
+            <p className={TextModule.paragraph}>{area}</p>
+            <span className={TextModule.span__small}>Площадь м&sup2;</span>
+          </div>
 
-        <div className={cls.footer__item}>
-          <p className={TextModule.paragraph}>{floor}</p>
-          {
-            floor <= 5 ? <span className={TextModule.span__small}>Этажа</span> : 
-              <span className={TextModule.span__small}>Этажей</span>
-          }
-        </div>
-      </footer>
+          <div className={cls.footer__item}>
+            <p className={TextModule.paragraph}>{jobs}</p>
+            <span className={TextModule.span__small}>Рабочих мест</span>
+          </div>
+
+          <div className={cls.footer__item}>
+            <p className={TextModule.paragraph}>{floor}</p>
+            {
+              floor <= 5 ? <span className={TextModule.span__small}>Этажа</span> : 
+                <span className={TextModule.span__small}>Этажей</span>
+            }
+          </div>
+        </footer>
+
+      </Link>        
     </article>
   )
 }
