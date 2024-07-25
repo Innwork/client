@@ -1,0 +1,59 @@
+@use "@src/shared/scss/logic/function";
+
+.header{
+  margin-block: function.vw(160, 1920) function.vw(32, 1920);
+
+  @media (max-width: 1440px) {
+    margin-block: function.vw(160, 1440) function.vw(32, 1440);
+  }
+
+  @media (max-width: 960px) {
+    margin-block: function.vw(160, 960) function.vw(32, 960);
+  }
+
+  @media (max-width: 720px) {
+    margin-block: function.vw(100, 720) function.vw(32, 720);
+  }
+
+  @media (max-width: 540px) {
+    margin-block: function.vw(100, 540) function.vw(32, 540);
+  }
+
+  @media (max-width: 420px) {
+    margin-block: function.vw(100, 420) function.vw(32, 420);
+  }
+}
+
+.section_card{
+  display: grid;
+  grid-template-columns: repeat(3, 33%);
+  gap: function.vw(12, 1920);
+  margin-bottom: function.vw(48, 1920);
+  
+  @media (max-width: 1440px) {
+    grid-template-columns: repeat(2, 50%);
+    gap: function.vw(12, 1920);
+    margin-bottom: function.vw(48, 1920);
+  }
+
+  @media (max-width: 960px) {
+    gap: function.vw(12, 960);
+    margin-bottom: function.vw(48, 960);
+    grid-template-columns: repeat(1, 100%);
+  }
+
+  @media (max-width: 720px) {
+    gap: function.vw(12, 720);
+    margin-bottom: function.vw(48, 720);
+  }
+
+  @media (max-width: 540px) {
+    gap: function.vw(12, 540);
+    margin-bottom: function.vw(48, 540);
+  }
+
+  @media (max-width: 420px) {
+    gap: function.vw(12, 420);
+    margin-bottom: function.vw(48, 420);
+  }
+}

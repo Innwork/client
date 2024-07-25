@@ -10,6 +10,10 @@
   background-color: var(--orange);
   transition: 300ms;
 
+  &.clickable {
+    cursor: pointer;
+  }
+
   &.light{
     color: var(--white);
 

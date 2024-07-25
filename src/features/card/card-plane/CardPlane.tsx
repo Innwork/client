@@ -66,8 +66,8 @@ export const CardPlane: FC<ICardPlane> = (props) => {
 
       <MainBtn className={classes.btn} onClick={() => {
         setIsOpen(true)
-        // setPage(1)
-        // setTariff(tag)
+        setPage(1)
+        setTariff(tag)
       }}>
         <p className={TextModule.paragraph}>{t("Забронировать")}</p>
       </MainBtn>

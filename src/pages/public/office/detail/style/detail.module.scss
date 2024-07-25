@@ -93,6 +93,8 @@
   width: 30%;
   display: flex;
   flex-direction: column;
+  border: 1px solid var(--black-t25);
+  border-radius: 10px;
   gap: function.vw(8, 1920);
   margin-bottom: function.vw(16, 1920);
 

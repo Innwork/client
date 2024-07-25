@@ -5,7 +5,7 @@ import {
   PersonalInfoType,
   TariffItem,
   Tariffs, TReservationData,
-  WorkspaceItem,
+  WorkspaceItem, Workspaces,
 } from "@src/app/redux/Booking/BookingTypes";
 import {postReservationData, TDataTG} from "@src/app/redux/Booking/actions";
 import {getTariffPrice, getWorkspaces} from "@src/app/redux/Booking/utils";
@@ -26,6 +26,7 @@ const initialState: BookingStateType = {
     email: "",
     phone: "",
   },
+  activeWorkspace: "",
   cartTariffs: [],
   areInputsValid: {},
   reservationData: {} as TReservationData
@@ -49,6 +50,12 @@ const bookingSlice = createSlice({
       },
       removeTariff(state) {
         state.tariffs = ""
+      },
+      setActiveWorkspace(state, {payload}: PayloadAction<Workspaces>) {
+        state.activeWorkspace = payload
+      },
+      removeActiveWorkspace(state, {payload}: PayloadAction<Workspaces>) {
+        state.activeWorkspace = payload
       },
       setIsOpen(state, {payload}: PayloadAction<boolean>) {
         state.isOpen = payload
@@ -136,6 +143,7 @@ export const selectPWSpeopleCount = (state: RootState) => state.booking.PWSpeopl
 export const selectIsFormSent = (state: RootState) => state.booking.isFormSent
 export const selectPage = (state: RootState) => state.booking.page
 export const selectReservationData = (state: RootState) => state.booking.reservationData
+export const selectActiveWorkspace = (state: RootState) => state.booking.activeWorkspace
 
 export default bookingSlice.reducer
 export const BookingActions = bookingSlice.actions

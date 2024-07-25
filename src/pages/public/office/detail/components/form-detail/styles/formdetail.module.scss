@@ -1,8 +1,6 @@
 @use "@src/shared/scss/logic/function";
 
 .form_wrapper{
-  border: 1px solid var(--black-t25);
-  border-radius: 10px;
   display: flex;
   flex-direction: column;
   gap: function.vw(32, 1920);

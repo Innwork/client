@@ -81,3 +81,29 @@
 .general_text{
   text-align: justify;
 }
+
+.active_li{
+  cursor: pointer;
+  color: var(--black);
+  transition: 300ms;
+
+  @media (hover: hover) {
+    &:hover{
+      color: var(--orange)
+    }
+  }
+
+  @media (hover: none) {
+    &:active{
+      color: var(--orange)
+    }
+  }
+}
+
+.close_modal{
+  width: 100%;
+
+  button{
+    float: right;
+  }
+}

@@ -44,6 +44,7 @@ export interface BookingStateType {
   PWSpeopleCount: number
   isOpen: boolean
   tariffs: Tariffs | ''
+  activeWorkspace: Workspaces | ''
   workspaces: WorkspaceItem[]
   personalInfo: PersonalInfoType
   cartTariffs: TariffItem[]
