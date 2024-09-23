@@ -24,7 +24,7 @@ export const Plane = () => {
       </div>
 
       {
-        <Slider sizeBoolean={globalResize.isScreenSm} slidesPerView={!globalResize.isScreenLg ? 2 : 4} navCarets>
+        <Slider sizeBoolean={globalResize.isScreenSm} slidesPerView={!globalResize.isScreenLg ? 2 : 3} navCarets>
           {PlaneCardModel.map((el) => <CardPlane
             tag={el.tag}
             header={el.header}
