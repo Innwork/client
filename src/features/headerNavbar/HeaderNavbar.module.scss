@@ -1,132 +1,133 @@
-@use 'src/shared/scss/logic/mixin';
-@use 'src/shared/scss/logic/function';
+@use "src/shared/scss/logic/mixin";
+@use "src/shared/scss/logic/function";
 
 .Navbar {
-	margin-left: function.vw(50, 1920);
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 100%;
-	height: 100%;
-	gap: function.vw(37, 1920);
+  margin-left: function.vw(50, 1920);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  gap: function.vw(37, 1920);
 
-	@media (max-width: 960px) {
-		display: none;
-	}
+  @media (max-width: 960px) {
+    display: none;
+  }
 }
 
 .NavbarItem {
-	position: relative;
-	display: flex;
-	align-items: center;
-	height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 100%;
 
-	&:hover {
-		.errorModal {
-			visibility: visible;
-			opacity: 1;
-			transition: opacity 0.3s, visibility 0.3s;
-		}
-	}
+  &:hover {
+    .errorModal {
+      visibility: visible;
+      opacity: 1;
+      transition: opacity 0.3s, visibility 0.3s;
+    }
+  }
 }
 
 .LinkContainer {
-	position: relative;
-	height: function.vw(80, 1920);
-	@include mixin.mediaHeight(720px, 90, 720);
-	@include mixin.mediaHeight(540px, 90, 540);
-	@include mixin.mediaHeight(420px, 90, 420);
+  position: relative;
+  height: function.vw(80, 1920);
+  @include mixin.mediaHeight(720px, 90, 720);
+  @include mixin.mediaHeight(540px, 90, 540);
+  @include mixin.mediaHeight(420px, 90, 420);
 
-	&:hover {
-		.Dropdown {
-			display: flex;
-		}
-	}
+  &:hover {
+    .Dropdown {
+      display: flex;
+    }
+  }
 }
 
 .Link {
-	display: flex;
-	align-items: center;
-	height: 100%;
-	text-transform: uppercase;
-	cursor: pointer;
-	white-space: nowrap;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  text-transform: uppercase;
+  cursor: pointer;
+  white-space: nowrap;
 }
 
 .DropdownArrowContainer {
-	position: relative;
-	height: 1em;
-	min-width: function.vw(8, 1920);
+  position: relative;
+  height: 1em;
+  min-width: function.vw(8, 1920);
 
-	margin-left: function.vw(5, 1920);
-	@include mixin.mediaML(1440px, 5, 1440);
+  margin-left: function.vw(5, 1920);
+  @include mixin.mediaML(1440px, 5, 1440);
 }
 
 .DropdownArrow {
-	height: 100%;
-	width: 100%;
-	position: absolute;
-	left: 0;
-	top: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
 }
 
 .Dropdown {
-	height: 100%;
-	display: none;
-	position: absolute;
-	top: function.vw(71, 1920);
-	box-sizing: content-box;
-	animation-duration: 0.4s;
-	animation-name: Dropdown-appears;
-	transition-duration: 0.4s;
+  height: 100%;
+  display: none;
+  position: absolute;
+  padding: 40px 16px;
+  top: function.vw(71, 1920);
+  box-sizing: content-box;
+  animation-duration: 0.4s;
+  animation-name: Dropdown-appears;
+  transition-duration: 0.4s;
+  gap: 10px;
 
-	&:hover {
-		display: flex;
-	}
+  &:hover {
+    display: flex;
+  }
 }
 
 @keyframes Dropdown-appears {
-	0% {
-		opacity: 0;
-		transform: translateY(15%);
-	}
+  0% {
+    opacity: 0;
+    transform: translateY(15%);
+  }
 
-	100% {
-		opacity: 1;
-	}
+  100% {
+    opacity: 1;
+  }
 }
 
-
 .errorModal {
-	z-index: 20;
-	text-transform: initial;
-	visibility: hidden;
-	opacity: 0;
-	transition: opacity 0.3s, visibility 0.3s;
-	border-radius: 5px;
-	position: absolute;
-	left: 0;
-	top: 100%;
-	background: var(--black);
-	color: white;
+  z-index: 20;
+  text-transform: initial;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s, visibility 0.3s;
+  border-radius: 5px;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  background: var(--black);
+  color: white;
 
-	p {
-		white-space: nowrap;
-	}
+  p {
+    white-space: nowrap;
+  }
 
-	@media (max-width: 1440px) {
-		right: 0;
-		left: unset;
-	}
+  @media (max-width: 1440px) {
+    right: 0;
+    left: unset;
+  }
 
-	padding: function.vw(13, 1920);
-	@include mixin.mediaPadding(1440px, 7, 1440);
-	@include mixin.mediaPadding(960px, 13, 960);
-	@include mixin.mediaPadding(720px, 13, 720);
-	@include mixin.mediaPadding(540px, 13, 540);
-	@include mixin.mediaPadding(420px, 13, 420);
+  padding: function.vw(13, 1920);
+  @include mixin.mediaPadding(1440px, 7, 1440);
+  @include mixin.mediaPadding(960px, 13, 960);
+  @include mixin.mediaPadding(720px, 13, 720);
+  @include mixin.mediaPadding(540px, 13, 540);
+  @include mixin.mediaPadding(420px, 13, 420);
 
-	&:hover {
-		display: none;
-	}
+  &:hover {
+    display: none;
+  }
 }
